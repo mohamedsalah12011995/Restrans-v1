@@ -1,0 +1,104 @@
+<div class="usertype">
+  <div class="usertypeHeader">
+    <div class="usertypeHeaderAddress">
+      <h1><i class="btnRemove material-icons"></i>{{ 'USERSTTYPES.USERTYPEMANAGMENT' | translate }} </h1>
+    </div>
+    <div class="usertypeHeaderBtn">
+      <button mat-raised-button [hidden]="!isDisplay" (click)="save('add')"> {{ 'ACTIONS.SAVE' | translate }} <i class="text-success far fa-save"></i></button>
+      <button mat-raised-button [hidden]="isDisplay" (click)="save('edit')"> {{ 'ACTIONS.EDIT' | translate }} <i class="text-primary far fa-edit"></i></button>
+      <button mat-raised-button (click)="clear()"> {{ 'ACTIONS.NEW' | translate }} <i class="text-danger far fa-plus-square"></i></button>
+      <span class="sp-bckk">
+        <a>
+          <i class="fas fa-arrow-circle-left" (click)="navigateBack()"></i>
+        </a>
+      </span>
+    </div>
+  </div>
+  <div class="usertypeBody">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="usertypeBodyData">
+          <mat-form-field appearance="outline">
+            <mat-label>{{ 'USERSTTYPES.USERTYPENAMEAR' | translate }}</mat-label>
+            <input matInput [(ngModel)]="userType.nameAR">
+          </mat-form-field>
+          <br />
+
+          <mat-form-field appearance="outline">
+            <mat-label>{{ 'USERSTTYPES.USERTYPENAMEEN' | translate }}</mat-label>
+            <input matInput [(ngModel)]="userType.nameEN">
+          </mat-form-field>
+          <br />
+
+          <mat-form-field appearance="outline">
+            <mat-label>{{ 'USERSTTYPES.ROLES' | translate }} </mat-label>
+            <mat-select placeholder="{{ 'USERSTTYPES.ROLES' | translate }}" [(ngModel)]="dafaultSelectedRoles" multiple>
+              <!--<mat-select-trigger>
+        {{toppings.value ? toppings.value[0] : ''}}
+        <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+          (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+        </span>
+      </mat-select-trigger>-->
+              <mat-option *ngFor="let role of rolesLookup" [value]="role.roleName">
+                 {{ currentLang=='ar' ? role.roleDisplayNameAR : role.roleDisplayNameEN }} 
+              </mat-option>
+
+
+            </mat-select>
+
+          </mat-form-field>
+          <br />
+
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="usertypeBodytable">
+          <div class="example-container mat-elevation-z8">
+            <table>
+              <thead>
+                <tr>
+                  <th class="mat-header-cell" scope="col">م</th>
+                  <th class="mat-header-cell" scope="col">{{ 'USERSTTYPES.ROLE' | translate }}</th>
+                  <!--<th class="mat-header-cell" scope="col">{{ 'USERSTTYPES.USERTYPENAMEEN' | translate }}</th>-->
+
+                  <th class="mat-header-cell" scope="col"><i class="far fa-check-square"></i></th>
+                  <th class="mat-header-cell" scope="col"><i class="fas fa-trash"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let userType of UserTypesList; let i=index">
+                  <td class="mat-cell" scope="row">{{i+1}}</td>
+                  {{currentLang=='ar'? userType.nameAR : userType.nameEN}}
+                  <!--<td class="mat-cell">{{userType.nameAR}}</td>
+                  <td class="mat-cell">{{userType.nameEN}}</td>-->
+                  <!--<td class="mat-cell"> <mat-radio-button [value]="tax.isActive"></mat-radio-button>  </td>-->
+                  <td class="mat-cell">
+                    <button mat-icon-button (click)="getById(userType)">
+                      <i class="far fa-check-square"></i>
+                    </button>
+                  </td>
+                  <td class="mat-cell">
+                    <button mat-icon-button (click)="deleteUserAsk(deleteConfirm,userType)">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #deleteConfirm>
+  <div class="modal-body text-center">
+    <p>{{ 'Messages.DeleteConfirm' | translate }}</p>
+    <button type="button" class="btn btn-danger" (click)="deleteUserTypeConfirm()">
+      <p>{{ 'LABELS.CONFIRM' | translate }}</p>
+    </button>
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">{{ 'LABELS.EXITE' | translate }}</button>
+  </div>
+</ng-template>
+

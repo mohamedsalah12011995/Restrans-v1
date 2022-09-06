@@ -1,0 +1,96 @@
+<div class="table-managment">
+	<div class="table-managmentForm">
+    <div class="table-managmentHeader">
+      <div class="table-managmentHeaderAddress">
+		<h1><i class="btnRemove fas fa-cog"></i>   {{ 'TABELS.TABLEMANAGMENT' | translate }}</h1>
+		<span class="sp-bck">
+			<a>
+				<i class="fas fa-arrow-circle-left" (click)="navigateBack()"></i>
+			</a>
+		</span>
+        <button class="btn-tp" mat-stroked-button *ngIf="tablePlace.id!=0" (click)="insertOrEditTable('edit')">{{ 'ACTIONS.EDIT' | translate }} <i class="btnAdd far fa-edit"></i></button>
+        <button class="btn-tp" mat-stroked-button (click)="clear()">{{ 'ACTIONS.NEW' | translate }} <i class="btnRemove fas fa-plus"></i></button>
+        <button class="btn-tp" mat-stroked-button *ngIf="tablePlace.id==0" (click)="insertOrEditTable('add')">
+          {{ 'ACTIONS.SAVE' | translate }}
+          <i class="btnSave fas fa-save"></i>
+        </button>
+      </div>
+      
+    </div>
+		<div class="table-managmentBody">
+			<div class="table-managmentBodyDetails">
+				<mat-form-field appearance="outline">
+					<mat-label>{{ 'TABELS.NAMEAR' | translate }}</mat-label>
+					<input matInput type="text"  name="nameAr" [(ngModel)]="tablePlace.nameAr" (click)="$event.target.select();">
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label>{{ 'TABELS.NAMEEN' | translate }}</mat-label>
+					<input matInput type="text" name="nameEn" [(ngModel)]="tablePlace.nameEn" (click)="$event.target.select();">
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label>{{ 'TABELS.COUNTS' | translate }}</mat-label>
+					<input matInput type="number" lang="en" style="text-align:center" name="count" [(ngModel)]="tablePlace.count" (click)="$event.target.select();">
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label>{{ 'TABELS.STARTFROM' | translate }}</mat-label>
+					<input matInput type="number" lang="en" style="text-align:center" name="startNum" [(ngModel)]="tablePlace.startNum" (click)="$event.target.select()" (input)="sumCountForstartNum()">
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label>{{ 'TABELS.ENDFORM' | translate }}</mat-label>
+					<input matInput type="number" lang="en" style="text-align:center" name="endNum" [(ngModel)]="tablePlace.endNum" (click)="$event.target.select();">
+				</mat-form-field>
+				<br class="show-in-small"/>
+			
+			</div>
+			<div class="table-managmentBodyData">
+				<div class="example-container mat-elevation-z8">
+					<table>
+						<thead>
+							<tr>
+								<th hidden="hidden">م</th>
+								<th class="mat-header-cell" scope="col">م</th>
+								<th class="mat-header-cell" scope="col">{{ 'TABELS.NAMEAR' | translate }} </th>
+								<th class="mat-header-cell" scope="col">{{ 'TABELS.NAMEEN' | translate }}</th>
+								<th class="mat-header-cell" scope="col">{{ 'REPORTS.COUNT' | translate }}</th>
+								<th class="mat-header-cell" scope="col">{{ 'TABELS.STARTFROM' | translate }}</th>
+								<th class="mat-header-cell" scope="col">{{ 'TABELS.ENDFORM' | translate }} </th>
+								<th class="mat-header-cell" scope="col"><i class="fas fa-pen"></i></th>
+								<th class="mat-header-cell" scope="col"><i class="fas fa-trash"></i></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let table of tablePlaceList; let i=index">
+								<td hidden="hidden">{{table.id}}</td>
+								<th class="mat-cell" scope="row">{{i+1}}</th>
+								<td class="mat-cell">{{table.nameAr}}</td>
+								<td class="mat-cell">{{table.nameEn}}</td>
+								<td class="mat-cell">{{table.count}}</td>
+								<td class="mat-cell">{{table.startNum}}</td>
+								<td class="mat-cell">{{table.endNum}}</td>
+								<td class="mat-cell">
+									<button mat-icon-button (click)="selectRow(table)">
+                    <i class="btnSave fas fa-pen" ></i>
+                  </button>
+								</td>
+								<td class="mat-cell">
+									<button mat-icon-button (click)="deleteTable(deleteConfirm,table)">
+                    <i class="btnRemove fas fa-trash"></i>
+                  </button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<ng-template #deleteConfirm>
+	<div class="modal-body text-center">
+		<p>{{"هل تريد تأكيد الحذف"}}</p>
+		<button type="button" class="btn btn-danger" (click)="deleteTableConfirm()">
+			{{"تأكيد"}}
+		</button>
+		<button type="button" class="btn btn-default" (click)="modalRef.hide()">{{"إلغاء"}}</button>
+	</div>
+</ng-template>

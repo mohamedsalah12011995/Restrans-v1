@@ -1,0 +1,312 @@
+.company{
+  height: 100vh;
+}
+.company .container{
+  height: 100%;
+}
+.company .row{
+  height: 100%;
+}
+.company .col-md-12{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+}
+.sp-bckk {
+  margin-right: 13px;
+  margin-left: -8px;
+  color: #c78b8b;
+  float: left;
+  margin-top: 3px;
+}
+
+  .sp-bckk a i {
+    font-size: 30px;
+  }
+  .companyContainer {
+    width: 65%;
+    background-color: #fff;
+    margin: 20px 0px;
+    text-align: right;
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+  }
+  .companyHeader {
+    padding: 15px;
+    border-bottom: 3px solid #bb3b3a;
+    margin-bottom: 10px;
+  }
+  .companyHeaderAddress {
+    display: inline-block;
+  }
+  .companyHeaderAddress h1 {
+    font-size: 26px;
+    color: #212529;
+  }
+  .companyHeaderAddress h1 i {
+    font-size: 21px;
+  }
+  .companyHeaderBtn {
+    float: left;
+  }
+  .companyHeaderBtn button {
+    margin-left: 10px;
+    font-family: cursive;
+  }
+  .companyBody {
+    padding: 20px;
+  }
+  ::ng-deep .companyBody .mat-form-field-appearance-outline .mat-form-field-infix{
+    padding: 5px 0px 10px;
+    border-top-width: 10px;
+  }
+  ::ng-deep .companyBody .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #bb3b3a;
+  }
+  ::ng-deep .companyBody .mat-input-element {
+    caret-color: #bb3b3a;
+  }
+  
+  ::ng-deep .companyBody .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: #bb3b3a;
+  }
+  
+  ::ng-deep .companyBody .mat-form-field.mat-focused .mat-form-field-label {
+    color: #bb3b3a;
+  }
+  
+  ::ng-deep .companyBody .mat-icon-button{
+    outline: 0;
+    background-color: transparent !important;
+  }
+  ::ng-deep .companyBody .mat-icon-button:hover mat-icon {
+    color: #a33939;
+  }
+  
+  .companyBody .mat-checkbox {
+      margin-right: 10px;
+  }
+  .companyBody .example-container {
+    height: 100%;
+    overflow: auto;
+    box-shadow: none;
+  }
+  /* width */
+  .companyBody .example-container::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  .companyBody .example-container::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  
+  /* Handle */
+  .companyBody .example-container::-webkit-scrollbar-thumb {
+    background: #888;
+  
+  }
+  /* Handle on hover */
+  .companyBody .example-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  .companyBody .example-container table {
+    width: 100%;
+  }
+  ::ng-deep .companyBody .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+    color: #dc3545;
+  }
+  ::ng-deep .companyBody .mat-checkbox-layout{
+    margin-bottom: 10px;
+  }
+  ::ng-deep .companyDetails .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+    transform: translateY(0%);
+  }
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #bb3b3a;
+  }
+  .mat-form-field span{
+    font-size: 12px;
+  }
+  ::ng-deep .companyDetails .mat-form-field-appearance-outline .mat-form-field-wrapper {
+    padding-bottom: 5px;
+  }
+  .companyDetails div button {
+    border-radius: 50px;
+    margin-right: 10px;
+  }.companyDetails .mat-form-field {
+  	width: 87%;
+}
+
+::ng-deep .companyDetails .mat-input-element {
+  	caret-color: #bb3b3a;
+}
+
+::ng-deep .companyDetails .mat-form-field.mat-focused .mat-form-field-ripple {
+  	background-color: #bb3b3a;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  	color: #bb3b3a;
+}
+
+::ng-deep .companyDetails .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  	color: #bb3b3a;
+}
+.companyDetails h2, .companyImage h2, .companyList h2 {
+  color: #484848;
+  font-size: 21px;
+}
+
+  .companyDetails h2 i, .companyImage h2 i, .companyList h2 i {
+    color: #c8505a;
+  }
+
+.companyDetails input {
+  box-shadow: none;
+  /* margin-top: 5px;
+  width: 87%;
+  height: 35px;
+  padding-right:  10px;
+  border-radius:  5px;
+  border:  1px solid #c2c2c2; */
+}
+
+
+.companyDetails label {
+  width: 100%;
+  /*height: 45px;
+  line-height: 45px;
+  margin-bottom: 15px;*/
+  font-size: 15px;
+  font-weight: bold;
+  color: #4d4b4c;
+}
+
+.companyDetails select {
+  width: 87%;
+  margin-left: 3px;
+  height: 37px;
+  color: #757575;
+  display: inline-block;
+  /* border-radius: 5px;
+  border:  1px solid #c2c2c2; */
+}
+
+
+.companyDetails label i {
+  color: #cb505a;
+  font-size: 30px;
+}
+
+.companyDetails div span {
+  font-size: 15px;
+  font-weight: bold;
+  color: #4d4b4c;
+}
+
+.companyDetails div button:hover {
+  color: #fff;
+  background-color: #cb505a;
+}
+
+.companyDetails div button {
+  width: 10%;
+  height: 33px;
+  border: 1px solid #888;
+  background-color: #fff;
+  color: #cf555a;
+  font-weight: bold;
+  font-size: 17px;
+  border-radius: 3px;
+}
+
+.companyDetails .modal-header .close {
+  margin-left: 0px;
+  background-color: transparent;
+  width: 62px;
+  height: 62px;
+  line-height: 0;
+  padding-left: 0;
+  border: none;
+}
+
+  .companyDetails .modal-header .close i {
+    font-size: 20px;
+  }
+
+.companyDetails .modal-header {
+  border-bottom: 3px solid #a33939;
+}
+
+.companyDetails .modal-footer {
+  border-top: 3px solid #a33939;
+}
+
+.companyImage {
+  text-align: center;
+}
+
+  .companyImage input {
+    display: none;
+  }
+
+  .companyImage button, .companyImage label {
+    display: block;
+    text-align: center;
+    width: 150px;
+    color: #4b494a;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    line-height: 33px;
+    border-radius: 3px;
+    margin: 0px auto;
+  }
+
+  .companyImage img {
+    width: 150px;
+    height: 150px;
+    margin: 0px 20%;
+  }
+
+  .companyImage .uploadImgItm {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 35px;
+  }
+
+  .companyImage button i, .companyImage label i {
+    color: #cb505a;
+  }
+
+  .companyImage button:hover, .companyImage label:hover {
+    background-color: #cb505a;
+    color: #fff;
+  }
+
+    .companyImage button:hover i, .companyImage label:hover i {
+      color: #fff;
+    }
+
+/** Mobile **/
+@media (min-width: 320px) and (max-width: 767px) {
+  .company .col-md-12 {
+    display: block;
+  }
+  .companyContainer {
+    width: 100%;
+  }
+  .companyHeaderAddress {
+    display: block;
+    text-align: center;
+  }
+  .companyHeaderBtn {
+    float: inherit;
+    text-align: center;
+  }
+  .companyHeaderBtn button:nth-last-child(1) {
+    margin-left: 0px;
+  }
+}

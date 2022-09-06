@@ -1,0 +1,25 @@
+.user .itemContainer .itemaddress h1 {
+    font-size: 17px;
+    align-items: center;
+    display: flex;
+}
+.user .itemContainer .itemaddress h1 i{
+    margin-left: 5px;
+}
+.itemImage button, .itemImage label {
+    width: 40%;
+}
+.itemImageBtn {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.itemImage label {
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.itemImage label i{
+    margin-left: 5px;
+}

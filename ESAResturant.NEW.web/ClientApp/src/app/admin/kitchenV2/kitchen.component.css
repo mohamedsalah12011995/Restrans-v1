@@ -1,0 +1,273 @@
+.kitchen {
+    margin-top: 20px;
+}
+.kitchenBill {
+    background-color: #fff;
+    border: 1px solid #bebdcb;
+    height: 95vh;
+    padding-bottom: 40px;
+    overflow: auto;
+    position: relative;
+}
+.kitchenBill button.mat-icon-button.finishBills {
+    position: fixed;
+    bottom: 20px;
+    left: 31px;
+    width: 60px;
+    height: 60px;
+}
+::ng-deep .kitchenBill button.mat-icon-button.finishBills img {
+    width: 40px;
+    height: 40px;
+}
+.kitchenBill button.RefreshKit {
+    left: 95px !important;
+}
+.kitchen button.close {
+    margin: -1rem auto -1rem -1rem;
+}
+.kitchenOldOrder {
+    background-color: #fff;
+    border: 1px solid #bebdcb;
+    height: 75vh;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 7px;
+    padding-right: 7px;
+    overflow: auto;
+    text-align: initial;
+}
+.kitchenBillDetails {
+    margin-top: 10px;
+    border: 1px solid #bebdcb;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.kitchenBillDetails h3 {
+    font-size: 17px;
+}
+.kitchenBillDetails h4 span {
+    margin-left: 6px;
+    margin-top: 5px;
+    display: inline-block;
+}
+.kitchenBillDetails h4 {
+    font-size: 13px;
+    display: inline-block;
+    margin-left: 10px;
+    width: 44%;
+}
+
+.kitchenBillDetails h4:nth-child(5) {
+    margin-left: 0;
+}
+.kitchenBillDetails .example-container.mat-elevation-z8 {
+    /* box-shadow: none;
+    border: 1px solid #bebdcb; */
+    margin-bottom: 10px;
+    height: 166px;
+    overflow: auto;
+    background-color: #fff;
+}
+.kitchenBillDetails .example-container.mat-elevation-z8 table {
+    width: 100%;
+}
+.kitchenBillDetails .example-container.mat-elevation-z8 table .mat-cell, .kitchenBillDetails .example-container.mat-elevation-z8 table .mat-footer-cell {
+    /* border-top-width: 0;
+    border-bottom: 1px solid #bebdcb;
+    font-weight: bold;
+    color: #565759;
+    border-right: 1px solid #bebdcb; */
+    padding: 5px 5px 5px 5px;
+}
+.kitchenBillDetails .example-container.mat-elevation-z8 table tr.CancelRow td,
+.kitchenBillDetails .example-container.mat-elevation-z8 table tr.CancelRow th{
+    text-decoration: line-through;
+    color: #fff;
+    background-color: #ba3b3a;
+    font-weight: bold;
+}
+.kitchenBillDetails .example-container.mat-elevation-z8 table tr.lastRow td,
+.kitchenBillDetails .example-container.mat-elevation-z8 table tr.lastRow th{
+    text-decoration: line-through;
+    font-size: 12px;
+}
+
+.kitchenBillDetails .example-container.mat-elevation-z8 table tr.NewRow td,
+.kitchenBillDetails .example-container.mat-elevation-z8 table tr.NewRow th{
+    color: #fff;
+    background-color: #28a745;
+}
+.kitchenBillDetails button {
+    border: 1px solid red;
+    color: red;
+    font-weight: bold;
+    font-family: inherit;
+    margin-left: 5px;
+}
+
+/* width */
+.kitchenBill::-webkit-scrollbar, .kitchenBillDetails .example-container.mat-elevation-z8::-webkit-scrollbar,
+.kitchenOldOrder::-webkit-scrollbar, .kitchenOldOrderDetails .example-container.mat-elevation-z8::-webkit-scrollbar{
+	width: 5px;
+	height: 5px;
+}
+
+/* Track */
+.kitchenBill::-webkit-scrollbar-track, .kitchenBillDetails .example-container.mat-elevation-z8::-webkit-scrollbar-track,
+.kitchenOldOrder::-webkit-scrollbar-track, .kitchenOldOrderDetails .example-container.mat-elevation-z8::-webkit-scrollbar-track{
+	background: transparent; 
+}
+
+/* Handle */
+.kitchenBill::-webkit-scrollbar-thumb, .kitchenBillDetails .example-container.mat-elevation-z8::-webkit-scrollbar-thumb,
+.kitchenOldOrder::-webkit-scrollbar-thumb, .kitchenOldOrderDetails .example-container.mat-elevation-z8::-webkit-scrollbar-thumb{
+	background: #888;
+
+}
+/* Handle on hover */
+.kitchenBill::-webkit-scrollbar-thumb:hover, .kitchenBillDetails .example-container.mat-elevation-z8::-webkit-scrollbar-thumb:hover,
+.kitchenOldOrder::-webkit-scrollbar-thumb:hover, .kitchenOldOrderDetails .example-container.mat-elevation-z8::-webkit-scrollbar-thumb:hover{
+	background: #555;
+}
+.CancelOrder{
+    background-color: #bb3b3a;
+}
+.CancelOrder::before {
+    content: '';
+    width: 136%;
+    position: absolute;
+    background-color: transparent;
+    top: 48%;
+    left: -19%;
+    border-top: 5px solid #212529;
+    -ms-transform: rotate(39deg); /* IE 9 */
+    -webkit-transform: rotate(39deg);
+    transform: rotate(39deg);
+}
+
+.CancelOrder::after {
+    content: '';
+    width: 150%;
+    height: 0;
+    position: absolute;
+    background-color: transparent;
+    top: 44%;
+    right: -30%;
+    border-top: 5px solid #212529;
+    -ms-transform: rotate(-38.8deg); /* IE 9 */
+    -webkit-transform: rotate(-38.8deg);
+    transform: rotate(-38.8deg);
+}
+.kitchenBillDetails .CancelOrderDiv{
+    display: none;
+}
+.kitchenBillDetails.CancelOrder .CancelOrderDiv{
+    display: inline-block;
+    position: absolute;
+    background-color: #fff;
+    padding: 15px;
+    border: 3px solid #bb3b3a;
+    border-radius: 8px;
+    top: 40%;
+    left: 32%;
+    z-index: 10;
+    color: #565759;
+    font-weight: bold;
+}
+.NewOrder button ,.NewOrder h4,.NewOrder h3{
+    color: #565759;
+}
+.NewOrder button{
+    border-color: #565759;
+}
+/* .NewOrder {
+    background-color: #f66257;
+    transition: all 900s;
+} */
+.CancelOrder button ,.CancelOrder h4,.CancelOrder h3 {
+    color: #fff;
+}
+.CancelOrder button{
+    border-color: #fff;
+}
+.ActiveOrder {
+    background-color: #28a745;
+}
+.kitchenOldOrderDetails {
+    border: 1px solid #bebdcb;
+    text-align: center;
+    padding: 10px 5px;
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 48%;
+    margin-left: 15px;
+}
+
+.kitchenOldOrderDetails:nth-child(even) {
+    margin-left: 0px;
+}
+.kitchenOldOrderDetails h3 {
+    font-size: 15px;
+    color: #565759;
+}
+
+.kitchenOldOrderDetails h4 {
+    font-size: 13px;
+    color: #565759;
+    display: inline-block;
+    margin-top: 0px;
+}
+
+.kitchenOldOrderDetails h4:nth-child(2) {
+    margin-left: 10px;
+}
+
+.kitchenOldOrderDetails h4:nth-child(4) {
+    margin-bottom: 10px;
+}
+
+.kitchenOldOrderDetails .example-container.mat-elevation-z8 {
+    height: 150px;
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+.kitchenOldOrderDetails .example-container.mat-elevation-z8 table {
+    width: 100%;
+}
+
+.kitchenOldOrderDetails  button {
+    margin-top: 15px;
+    color: #565759;
+    font-weight: bold;
+}
+.kitchen .col-md-9, .kitchen .col-md-4, .kitchen .col-md-3{
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+::ng-deep .kitchenBill .mat-badge-medium.mat-badge-overlap.mat-badge-after .mat-badge-content {
+    right: 1px !important;
+    left: auto !important;
+    top: 6px;
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+    .kitchenBillDetails.CancelOrder .CancelOrderDiv {
+        left: 17%;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .kitchenOldOrderDetails {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.inFinshed{
+  display:block;
+}

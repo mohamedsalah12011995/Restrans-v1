@@ -1,0 +1,48 @@
+<div class="itemUnit">
+  <mat-form-field appearance="outline">
+    <mat-label> {{ 'UNIT.SIZENAMEAR' | translate }} </mat-label>
+    <input matInput [(ngModel)]="Unit.nameAr">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>   {{ 'UNIT.SIZENAMEEN' | translate }}  </mat-label>
+    <input matInput [(ngModel)]="Unit.nameEn">
+  </mat-form-field><br />
+                   <mat-checkbox [(ngModel)]="Unit.isForSell" [ngModelOptions]="{standalone: true}"> {{ 'UNIT.BILLINVOICESHOW' | translate }} </mat-checkbox>
+                   <mat-checkbox [(ngModel)]="Unit.isForBuy" [ngModelOptions]="{standalone: true}">{{ 'UNIT.SELLINVOICESHOW' | translate }}</mat-checkbox>
+  <br />
+  <button mat-raised-button [hidden]="!isShow" (click)="InsertOrUpdateUnit('add')"> {{ 'ACTIONS.SAVE' | translate }} <i class="text-success far fa-save"></i></button>
+  <button mat-raised-button [hidden]="isShow" (click)="InsertOrUpdateUnit('edit')"> {{ 'ACTIONS.EDIT' | translate }} <i class="text-primary far fa-edit"></i></button>
+  <button mat-raised-button (click)="clear()">{{ 'ACTIONS.NEW' | translate }} <i class="text-danger far fa-plus-square"></i></button>
+
+  <div class="example-container mat-elevation-z8">
+    <table>
+      <thead>
+        <tr>
+          <th class="mat-header-cell" scope="col">م</th>
+          <th class="mat-header-cell" scope="col">{{ 'UNIT.SIZENAMEAR' | translate }}</th>
+          <th class="mat-header-cell" scope="col"> {{ 'UNIT.SIZENAMEEN' | translate }}</th>
+          <th class="mat-header-cell" scope="col"><i class="fas fa-pen"></i></th>
+          <th class="mat-header-cell" scope="col"><i class="fas fa-trash"></i></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let unit of UnitList; let i=index">
+          <td class="mat-cell" scope="row">{{i+1}}</td>
+          <td class="mat-cell">{{unit.nameAr}}</td>
+          <td class="mat-cell">{{unit.nameEn}}</td>
+          <td class="mat-cell">
+            <button mat-icon-button (click)="getById(unit)">
+              <i class="fas fa-pen"></i>
+            </button>
+          </td>
+          <td class="mat-cell">
+            <button mat-icon-button (click)="deleteUnit(unit)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

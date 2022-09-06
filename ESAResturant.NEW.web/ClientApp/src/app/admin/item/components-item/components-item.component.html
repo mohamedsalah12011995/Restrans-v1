@@ -1,0 +1,120 @@
+<div class="componentItem">
+	<div class="example-container mat-elevation-z8">
+		<table>
+			<thead>
+        <tr>
+          <th class="mat-header-cell" scope="col">م</th>
+          <th class="mat-header-cell" scope="col"> {{ 'COMPONENTS.COMPONENTNAME' | translate }} </th>
+          <th class="mat-header-cell" scope="col"> {{ 'LABELS.QUANTITY' | translate }}</th>
+          <th class="mat-header-cell" scope="col"> {{ 'LABELS.UNIT' | translate }}</th>
+          <th class="mat-header-cell" scope="col"></th>
+          <th class="mat-header-cell" scope="col"></th>
+          <th class="mat-header-cell" scope="col"></th>
+
+          <!--<th class="mat-header-cell" scope="col"><i class="material-icons">save</i></th>
+  <th class="mat-header-cell" scope="col"><i class="material-icons">delete_outline</i></th>-->
+        </tr>
+			</thead>
+      <tbody>
+
+        <tr>
+          <td class="mat-cell mat-footer-cell">
+            <!--<button mat-icon-button>
+              <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+            </button>-->
+          </td>
+          <td class="mat-cell mat-footer-cell">
+            <!--<mat-form-field appearance="outline">
+    <input matInput [(ngModel)]="itemName"
+           [typeahead]="itemList"
+           placeholder="اكتب اسم المكون ... "
+           typeaheadOptionField="nameAR"
+           (typeaheadOnSelect)="onSelectNewItem($event)"
+           (click)="$event.target.select()" />
+  </mat-form-field>-->
+            <mat-form-field class="example-full-width" appearance="outline">
+              <input type="text" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete"  (optionSelected)="onSelectNewItem($event)">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="currentLang=='ar'? option.nameAR : option.nameEN">
+                  {{currentLang=='ar'? option.nameAR : option.nameEN}}
+                </mat-option>
+
+              </mat-autocomplete>
+            </mat-form-field>
+
+          </td>
+          <td class="mat-cell mat-footer-cell">
+            <mat-form-field appearance="outline">
+              <input matInput type="number"  [(ngModel)]="newItemComponent.quantity" (click)="$event.target.select();">
+            </mat-form-field>
+          </td>
+          <td class="mat-cell mat-footer-cell">
+            {{ currentLang=='ar'? selctedunitnameAr : selctedunitnameEn }}
+
+          </td>
+
+          <td class="mat-cell mat-footer-cell">
+            <button mat-icon-button>
+              <mat-icon aria-label=" Example icon-button with a heart icon" (click)="additemComponentRow()">add</mat-icon>
+            </button>
+          </td>
+          <td class="mat-cell mat-footer-cell">
+            <!--<button mat-icon-button>
+              <mat-icon aria-label="Example icon-button with a heart icon">close</mat-icon>
+            </button>-->
+          </td>
+        </tr>
+
+        <tr *ngFor="let component of itemPrice.itemComponents; let i=index;">
+          <th class="mat-cell" scope="row">{{i+1}}</th>
+          <td class="mat-cell">
+
+
+            <!--<mat-form-field class="example-full-width" appearance="outline">
+              <input type="text" aria-label="Number" matInput [formControl]="component.myControl" [matAutocomplete]="auto">
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onSelectItemforcomponent($event,component)">
+                <mat-option *ngFor="let option of component.filteredOptions | async" [value]="currentLang=='ar'? option.nameAR : option.nameEN">
+                  {{currentLang=='ar'? option.nameAR : option.nameEN}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>-->
+
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <input type="text" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onSelectNewItem($event)">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="currentLang=='ar'? option.nameAR : option.nameEN">
+                  {{currentLang=='ar'? option.nameAR : option.nameEN}}
+                </mat-option>
+
+              </mat-autocomplete>
+
+            </mat-form-field>
+          </td>
+
+          <td class="mat-cell">
+            <mat-form-field appearance="outline">
+              <input matInput type="number" [(ngModel)]="component.quantity" (click)="$event.target.select()">
+            </mat-form-field>
+          </td>
+          <td class="mat-cell">
+            {{currentLang=='ar'? component.item.unit.nameAr : component.item.unit.nameEn }}
+
+          </td>
+          <td class="mat-cell">
+            <!--<button mat-icon-button >
+              <mat-icon aria-label="Example icon-button with a heart icon">save</mat-icon>
+            </button>-->
+          </td>
+          <td class="mat-cell">
+            <button mat-icon-button (click)="removeRow(i)">
+              <mat-icon aria-label="Example icon-button with a heart icon">delete_outline</mat-icon>
+            </button>
+          </td>
+        </tr>
+
+
+      </tbody>
+		</table>
+	</div>
+</div>

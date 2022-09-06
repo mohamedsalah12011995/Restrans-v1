@@ -1,0 +1,83 @@
+<div class="Branchs">
+	<div class="branchContainer">
+		<div class="BranchHeader">
+			<div class="BranchHeaderAddress">
+				<h3>
+					<i class="fas fa-code-branch"></i>
+					{{ 'BRANCHES.ADDBRANCHE' | translate }}
+				</h3>
+			</div>
+			<div class="BranchHeaderBtn">
+        <button type="submit" mat-raised-button *ngIf="!isDisplay" (click)="addCompanyInfo('add')">
+          {{ 'ACTIONS.SAVE' | translate }}
+          <i class="text-success far fa-save"></i>
+        </button>    
+        <button type="submit" mat-raised-button *ngIf="isDisplay" (click)="addCompanyInfo('edit')">
+          {{ 'ACTIONS.EDIT' | translate }}
+          <i class="text-primary far fa-edit"></i>
+        </button>    
+        <button type="submit" mat-raised-button (click)="clear()">
+          {{ 'ACTIONS.NEW' | translate }}
+          <i class="text-danger far fa-plus-square"></i>
+        </button> 
+			</div>
+		</div>
+		<div class="branchBody">
+			<div class="row">
+				<div class="col-md-4 branchDetails">
+					<h4>{{ 'BRANCHES.DETAILS' | translate }}</h4>
+					<form>
+						<mat-form-field appearance="outline">
+							<mat-label>{{ 'BRANCHES.NAMEAR' | translate }}</mat-label>
+							<input matInput name="namear" [(ngModel)]="branch.nameAr">
+						</mat-form-field>
+						<mat-form-field appearance="outline">
+							<mat-label>{{ 'BRANCHES.NAMEEN' | translate }}</mat-label>
+							<input matInput name="nameen" [(ngModel)]="branch.nameEn">
+						</mat-form-field>
+						<mat-form-field appearance="outline">
+							<mat-label>{{ 'BRANCHES.COMPANYNAME' | translate }}</mat-label>
+							<mat-select name="companyName" [(ngModel)]="branch.companyInfoId" [ngModelOptions]="{standalone: true}">
+                <mat-option *ngFor="let company of companyInfoList" [value]="company.id">
+                  {{ currentLang=='ar' ? company.nameAR : company.nameEN}}
+                </mat-option>
+							</mat-select>
+						</mat-form-field>
+					</form>   
+				</div>
+				<div class="col-md-4"></div>
+				<div class="col-md-4 branchesList">
+					<div class="itemList">
+						<h2><i class="far fa-file-alt"></i>{{ 'BRANCHES.BRANCHES' | translate }}</h2>
+						<div class="listSearch">
+							<i class="fas fa-search"></i>
+							<input type="text" #serch_item name="serch_item" placeholder="+   {{ 'BRANCHES.SERCH' | translate }}  " >
+						</div>
+						<div class="listItm branchList">
+							<div class="actionLink">
+								<ng-container>
+									<div class="actionLink" *ngFor="let _branch of branchList">                           
+										<label (click)="getBranch(_branch)">
+											{{ currentLang=='ar' ? _branch.nameAr : _branch.nameEn}}
+										</label>
+										<button (click)="deleteCheck(deleteConfirm,_branch)"><i class="far fa-trash-alt"></i></button>
+									</div>
+								</ng-container>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ng-template #deleteConfirm>
+  <div class="modal-body text-center">
+    <p>{{ 'Messages.DeleteConfirm' | translate }}</p>
+    <button type="button" class="btn btn-danger" (click)="deleteConfirm()">
+      <p>{{ 'LABELS.CONFIRM' | translate }}</p>
+    </button>
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">{{ 'LABELS.EXITE' | translate }}</button>
+  </div>
+</ng-template>

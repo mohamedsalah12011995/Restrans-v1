@@ -1,0 +1,402 @@
+
+
+
+<div class="menu">
+
+  <!-- <select [(ngModel)]="currentLang" (ngModelChange)="languagechanged()">
+    <option id="ar" value="ar">اللغه العربيه</option>
+
+    <option id="en" value="en">English</option>
+  </select> -->
+  <!--<div class="lang-change" [(ngModel)]="currentLang" (ngModelChange)="languagechanged()">
+    <button mat-button color="primary"  id="ar" [value]="ar">AR</button>
+    <button mat-button color="primary" id="en" [value]="en">EN</button>
+  </div>-->
+  <!--<mat-chip-list aria-label="Fish selection">
+    <mat-chip id="ar" value="ar" color="primary" selected>AR</mat-chip>
+    <mat-chip id="en" value="en" color="accent" selected>EN</mat-chip>
+  </mat-chip-list>-->
+  <!--<mat-horizontal-stepper [linear]="isLinear" #stepper> -->
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step>
+      <form>
+        <!-- <form> -->
+        <ng-template matStepLabel class="hiden">Fill out your name</ng-template>
+
+        <div class="stepperBtn">
+          <button class="BtLang" mat-icon-button (click)="languagechanged('en')" *ngIf="this.currentLang == 'ar' || ''">EN</button>
+          <button mat-icon-button (click)="refresh()" *ngIf="this.currentLang == 'ar' || ''">
+            <i class="fas fa-redo"></i>
+          </button>
+
+
+          <button mat-icon-button (click)="clearbill()" *ngIf="this.currentLang == 'ar' || ''">
+            <i class="fas fa-trash"></i>
+          </button>
+
+          <button mat-icon-button matStepperNext disabled>
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <button mat-icon-button matStepperPrevious disabled>
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button mat-icon-button (click)="refresh()" *ngIf="this.currentLang == 'en'">
+            <i class="fas fa-redo"></i>
+          </button>
+
+          <button mat-icon-button (click)="clearbill()" *ngIf="this.currentLang == 'en'">
+            <i class="fas fa-trash"></i>
+          </button>
+
+          <button mat-icon-button class="btnSave shoppingCartbtn" data-toggle="modal" data-target="#exampleModalCenter">
+            <i class="fas fa-shopping-cart" [matBadge]="cartbill.billDetails.length" id="shopCar"></i>
+          </button>
+
+
+          <!-- <button class="BtLang" mat-icon-button (click)="languagechanged()">{{currentLang}}</button> -->
+          <button class="BtLang" mat-icon-button (click)="languagechanged('ar')" *ngIf="this.currentLang == 'en'">ع</button>
+
+
+
+          <!--<button mat-icon-button class="btnSave shoppingCartbtn" data-toggle="modal" data-target="#exampleModalCenter">
+    <i class="fas fa-shopping-cart" [matBadge]="cartbill.billDetails.length" id="shopCar"></i>
+  </button>-->
+          <!--<button mat-icon-button data-toggle="modal" data-target="#billTableList" (click)="hideModel()">
+    <label>{{billTableCount}}</label><img src="../../../assets/img/tool2.png" style="width:50px;" />
+  </button>-->
+          <!-- <mat-form-field appearance="standard" style="right: 25%;">
+    <input matInput type="number" name="tableNamber" placeholder="{{ 'KITCHEN.TABLENUMBER' | translate }}" [(ngModel)]="tableNumber" style="text-align:center" />
+    <button matSuffix mat-icon-button (click)="cheackTableInBill()" style="width: 20px; height: 20px;">
+      <i class="fas fa-search" style="width: 15px; height: 15px; font-size: 15px; line-height: 15px;"></i>
+    </button>
+  </mat-form-field> -->
+
+
+
+        </div>
+        <div class="ShowItemMenu">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 col-6" *ngFor="let cat of itemCategoryList" (click)="stepper.next()">
+                <div class="itemMenu" (click)="GetItemByidPaginatedById(cat.id)">
+                  <img src="{{cat.image}}" alt="{{ currentLang=='ar' ?  cat.nameAR : cat.nameEN}}">
+                  <div class="itemMenuDetails">
+                    <h2> {{ currentLang=='ar' ?  cat.nameAR : cat.nameEN}}</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <form>
+        <!-- <form> -->
+        <ng-template matStepLabel class="hiden">Fill out your name</ng-template>
+
+        <div class="stepperBtn">
+          <button class="BtLang" mat-icon-button (click)="languagechanged('en')" *ngIf="this.currentLang == 'ar' || ''">EN</button>
+          <button mat-icon-button (click)="refresh()" *ngIf="this.currentLang == 'ar' || ''">
+            <i class="fas fa-redo"></i>
+          </button>
+
+          <button mat-icon-button (click)="clearbill()" *ngIf="this.currentLang == 'ar' || ''">
+            <i class="fas fa-trash"></i>
+          </button>
+
+          <button mat-icon-button matStepperNext disabled>
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <button mat-icon-button matStepperPrevious>
+            <i class="fas fa-chevron-left"></i>
+          </button>
+
+          <button mat-icon-button (click)="refresh()" *ngIf="this.currentLang == 'en'">
+            <i class="fas fa-redo"></i>
+          </button>
+
+
+          <button mat-icon-button (click)="clearbill()" *ngIf="this.currentLang == 'en'">
+            <i class="fas fa-trash"></i>
+          </button>
+
+
+          <button class="BtLang" mat-icon-button (click)="languagechanged('ar')" *ngIf="this.currentLang == 'en'">ع</button>
+
+          <button mat-icon-button class="btnSave shoppingCartbtn" data-toggle="modal" data-target="#exampleModalCenter">
+            <!--<mat-icon [matBadge]="cartbill.billDetails.length" matBadgeColor="warn">shopping_cart</mat-icon>-->
+            <i class="fas fa-shopping-cart" [matBadge]="cartbill.billDetails.length" id="shopCar"></i>
+          </button>
+
+          <!-- <button mat-icon-button (click)="menuHome(stepper)">
+            <i class="fas fa-home"></i>
+          </button> -->
+        </div>
+        <div class="ShowItemMenu">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 col-6" *ngFor="let item of itemList" (click)="stepper.next()">
+                <div class="itemMenu" (click)="onSelectItem(item);">
+
+                  <img src="{{item.imagePath}}" alt="{{ currentLang=='ar' ?  item.nameAR : item.nameEN}}">
+                  <div class="itemMenuDetails">
+                    <span>{{item.itemPriceDefault}}</span>
+                    <h2>
+                      {{ currentLang=='ar' ?  item.nameAR : item.nameEN}}
+
+                    </h2>
+                    <p>{{item.note}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <form>
+        <ng-template matStepLabel>Fill out your address</ng-template>
+        <div class="stepperBtn">
+          <button class="BtLang" mat-icon-button (click)="languagechanged('en')" *ngIf="this.currentLang == 'ar' || ''">EN</button>
+
+          <button mat-icon-button *ngIf="this.currentLang == 'ar' || ''" (click)="menuHome(stepper)">
+            <i class="fas fa-home"></i>
+          </button>
+
+          <button mat-icon-button (click)="refresh()" *ngIf="this.currentLang == 'ar' || ''">
+            <i class="fas fa-redo"></i>
+          </button>
+
+
+          <button mat-icon-button (click)="clearbill()" *ngIf="this.currentLang == 'ar' || ''">
+            <i class="fas fa-trash"></i>
+          </button>
+
+          <button mat-icon-button matStepperNext disabled>
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <button mat-icon-button matStepperPrevious>
+            <i class="fas fa-chevron-left"></i>
+          </button>
+
+          <button mat-icon-button (click)="menuHome(stepper)" *ngIf="this.currentLang == 'en'">
+            <i class="fas fa-home"></i>
+          </button>
+
+          <button mat-icon-button (click)="refresh()" *ngIf="this.currentLang == 'en'">
+            <i class="fas fa-redo"></i>
+          </button>
+
+          <button mat-icon-button (click)="clearbill()" *ngIf="this.currentLang == 'en'">
+            <i class="fas fa-trash"></i>
+          </button>
+
+          <button class="BtLang" mat-icon-button (click)="languagechanged('ar')" *ngIf="this.currentLang == 'en'">ع</button>
+
+          <button mat-icon-button class="btnSave shoppingCartbtn" data-toggle="modal" data-target="#exampleModalCenter">
+            <!--<mat-icon [matBadge]="cartbill.billDetails.length" matBadgeColor="warn">shopping_cart</mat-icon>-->
+            <i class="fas fa-shopping-cart" [matBadge]="cartbill.billDetails.length" id="shopCar"></i>
+          </button>
+
+
+
+        </div>
+        <div class="ShowItemMenu">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="veiwItemDetails" *ngIf="item">
+                <div class="veiwItemDetailsImg">
+                  <img src="{{item.imagePath}}" alt="{{ currentLang=='ar' ?  item.nameAR : item.nameEN}}">
+                </div>
+                <div class="veiwItemDetailsTitle">
+                  <h3>{{ currentLang=='ar' ?  item.nameAR : item.nameEN}}</h3>
+                  <p>{{item.note}}</p>
+                </div>
+                <div class="veiwItemDetailsOptian">
+                  <div class=" menuTypePaid">
+                    <div class="menuTypePaidElement">
+
+                      <mat-radio-group aria-label="Select Size"
+                                       [(ngModel)]="SelectedItemPrice" [ngModelOptions]="{standalone: true}">
+                        <mat-radio-button *ngFor="let itemPrice of itemPricesList" [value]="itemPrice" [checked]="itemPrice.isDefullt"
+                                          (click)="setItemPricesSelected(itemPrice)">
+                          {{itemPrice.price + ' ' + itemPrice.itemSize.sizeNameAr}}
+                        </mat-radio-button>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="veiwItemDetailsAddShoppingCart">
+                  <div class="veiwItemDetailsShoppingCount">
+                    <button mat-icon-button (click)="SelectItemPrice(SelectedItemPrice,+1)">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                    <input type="number" disabled="disabled" value="{{SelectedItemPrice.quantityOnCart}}">
+                    <button mat-icon-button (click)="SelectItemPrice(SelectedItemPrice,-1)">
+                      <i class="fas fa-minus"></i>
+                    </button>
+                  </div>
+                  <div class="veiwItemDetailsShoppingBtn">
+                    <button mat-button (click)="addtocart(stepper)">{{ 'MENUE.ADDTOCHART' | translate }} </button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body modal-border">
+        <div class="ShoppingCart">
+          <div class="example-container mat-elevation-z8">
+            <table>
+              <thead>
+                <tr>
+                  <th class="mat-header-cell" scope="col">م</th>
+                  <th class="mat-header-cell" scope="col">   {{ 'LABELS.ITEMNAME' | translate }}</th>
+                  <th class="mat-header-cell" scope="col">   {{ 'LABELS.QUANTITY' | translate }}</th>
+                  <th class="mat-header-cell" scope="col">   {{ 'LABELS.SellPrice' | translate }}</th>
+                  <th class="mat-header-cell" scope="col">  {{ 'LABELS.TOTAL' | translate }}</th>
+                  <th class="mat-header-cell" scope="col"><i class="fas fa-trash"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let billdetail of bill.billDetails; let i=index" id="billdetail{{i+1}}">
+                  <th class="mat-cell" scope="row">{{i+1}}</th>
+                  <td class="mat-cell">
+
+                    {{ currentLang=='ar' ?  billdetail.item.nameAR : billdetail.item.nameEN}} - ({{  currentLang=='en' ?  billdetail.itemPrice.itemSize.sizeNameAr:billdetail.itemPrice.itemSize.sizeNameEn }})
+
+                  </td>
+                  <td class="mat-cell">{{billdetail.qty | number:'0.2-2'}}</td>
+                  <td class="mat-cell">{{billdetail.itemSellPrice | number:'0.2-2'}}</td>
+                  <td class="mat-cell">{{billdetail.totalAfterVatTax | number:'0.2-2'}}</td>
+                  <td class="mat-cell">
+                    <button mat-icon-button [disabled]="billdetail.id > 0" (click)="removeRow(i)">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h5>   {{ 'BILLINVOICE.ITEMSCOUNT' | translate }} : {{bill.totalQty | number:'0.2-2'}} </h5>
+
+          <h5>    {{ 'BILLINVOICE.TOTALVATTAX' | translate }}: {{bill.totalVatTax | number:'0.2-2'}} </h5>
+          <h3>   {{ 'LABELS.TOTAL' | translate }}: {{bill.netTotal | number:'0.2-2'}} </h3>
+        </div>
+      </div>
+      <div class="modal-footer menu-modal" style="padding-left:80px">
+        <div class="menuBtnSave">
+          <button mat-stroked-button class="btnSave" (click)="openModelLogin();">
+            <i class="fas fa-save"></i> {{ 'ACTIONS.SAVE' | translate }}
+          </button>
+        </div>
+
+        <div class="menuTableNum">
+          <mat-form-field appearance="standard">
+            <input matInput type="number" name="tableNamber" placeholder="{{ 'KITCHEN.TABLENUMBER' | translate }}" [(ngModel)]="tableNumber"
+                            style="text-align:center" (click)="$event.target.select();" />
+          </mat-form-field>
+        </div>
+
+        <button mat-icon-button data-toggle="modal" data-target="#billTableList">
+            <label>{{billTableCount}}</label><img src="../../../assets/img/tool2.png" style="width:50px;" />
+        </button>
+
+      </div>
+      <mat-radio-group aria-label="Select an option" style="font-size: 14px;">
+        <mat-radio-button *ngFor="let table of tableList" [value]="table.id" (click)="getTable(table.nameAr)" style="padding-left: 13px; padding-bottom: 25px;">
+          <!--{{ currentLang=='ar' ?  table.nameAr : table.nameEn}}-->
+          {{table.nameAr}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalCenterLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLogin" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterLoginTitle">
+          <i class="fas fa-shopping-cart btnRemove"></i>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <form>
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'SIGNIN.USERNAME' | translate }} </mat-label>
+                <input matInput type="text" name="username"
+                       [(ngModel)]="loginModel.userName" placeholder="{{ 'SIGNIN.USERNAME' | translate }}" required>
+                <i class="fas fa-user"></i>
+              </mat-form-field><br />
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'SIGNIN.PASSWORD' | translate }}</mat-label>
+                <input matInput type="password" name="userpassword"
+                       [(ngModel)]="loginModel.password" placeholder="{{ 'SIGNIN.PASSWORD' | translate }}" required>
+                <i class="fas fa-lock"></i>
+              </mat-form-field><br />
+              <button mat-stroked-button *ngIf="bill.id == 0" (click)="checkAndSave(true,'add')" class="close" data-dismiss="modal" aria-label="Close">
+                <img src="../../assets/img/Icon/login.png" alt="login" width="24" height="24">
+                {{ 'SIGNIN.LOGIN' | translate }}
+              </button>
+
+              <button mat-stroked-button *ngIf="bill.id > 0" (click)="checkAndSave(true,'edit')" class="close" data-dismiss="modal" aria-label="Close">
+                <img src="../../assets/img/Icon/login.png" alt="login" width="24" height="24">
+                {{ 'SIGNIN.LOGIN' | translate }}
+              </button>
+            </form>
+          </div>
+          <div class="winLoading">
+            <mat-spinner></mat-spinner>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade bd-example-modal-lg" id="billTableList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> {{ 'BILLINVOICE.WAITEDBILLS' | translate }}   </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="fas fa-power-off" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body invWait">
+        <div *ngFor="let bill of filterbillList" (click)="getBillById(bill);" class="invWaits" data-dismiss="modal" aria-label="Close">
+          <label>{{ 'KITCHEN.TABLENUMBER' | translate }}   <span>{{bill.tableNo}}</span></label><br />
+          <label>{{ 'BILLINVOICE.COST' | translate }}   <span>{{bill.netTotal | number:'0.2-2'}}</span></label>
+        </div>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+

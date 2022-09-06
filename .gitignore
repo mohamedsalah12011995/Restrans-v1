@@ -1,0 +1,75 @@
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf
+/.vs
+/ESAResturant.NEW.web/ClientApp/e2e
+/ESAResturant.NEW.web/ClientApp/report.20190520.135452.11368.001.json
+/ESAResturant.NEW.web/ClientApp/report.20190520.134840.9484.001.json
+/ESAResturant.NEW.web/ClientApp/report.20190518.135635.11976.001.json
+/ESAResturant.NEW.web/ClientApp/report.20190518.134808.6500.001.json
+/ESAResturant.NEW.web/ClientApp/package-lock.json
+/ESAResturant.NEW.web/Properties
+/ESC.Resturant.Data/bin
+/ESC.Resturant.Data/obj
+/ESC.Resturant.Domain/bin
+/ESC.Resturant.Domain/obj
+/ESCResturant.DBup/bin/Debug
+/ESCResturant.DBup/obj
+/ESCResturant.NewDBup/bin/Debug
+/ESCResturant.NewDBup/obj
+/packages
+*.config
+/ESC.Report.API/obj/Release
+/ESC.Report.API/obj/Debug
+/ESC.Report.API/Reports
+/ESAResturant.NEW.web/ClientApp/src/assets/img
+/ESAResturant.NEW.web/wwwroot/files/Item

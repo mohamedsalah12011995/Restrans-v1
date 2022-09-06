@@ -1,0 +1,46 @@
+.componentItem {
+
+}
+/* width */
+.componentItem .example-container::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+
+}
+
+/* Track */
+.componentItem .example-container::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+.componentItem .example-container::-webkit-scrollbar-thumb {
+    background: #888;
+}
+/* Handle on hover */
+.componentItem .example-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+.componentItem .example-container {
+    height: 248px;
+    background-color: #fff;
+    overflow-x: auto;
+}
+.componentItem .example-container table {
+    width: 100%;
+}
+.componentItem .example-container table th.mat-header-cell {
+    text-align: center;
+    padding: 10px 0px;
+}
+.componentItem table td.mat-footer-cell{
+    bottom: 0px;
+    position: sticky;
+    z-index: 10;
+  }
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: #bb3b3a;
+}
+::ng-deep .componentItem .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+    color: #3f51b5;
+}

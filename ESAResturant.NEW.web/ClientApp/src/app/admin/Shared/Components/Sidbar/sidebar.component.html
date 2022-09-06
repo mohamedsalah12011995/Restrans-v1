@@ -1,0 +1,513 @@
+<div class="sidebarMenu sidebarMenucolor">
+	<nav class="sidebarNav">
+		<div>
+      <ul class="ulMenu list-unstyled">
+        <div class="first">
+
+          <button class="convertScreen" (click)="isCloseOrFullscreen()" *ngIf="!isFull">
+            <i class="fas fa-compress"></i>
+          </button>
+          <button class="convertScreen" (click)="isCloseOrFullscreen()" *ngIf="isFull">
+            <i class="fas fa-expand"></i>
+          </button>
+
+          <div class="container">
+            <div class="row">
+
+              <div class="col col-md-4 wow bounceInUp" *ngIf="isAllowedDashBoard" (click)="chkCurrentDate()">
+                <li class="logo-rest" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+                  <a [routerLink]='["./dashboard"]' (click)='collapse()'>
+                    <!--<img [src]="_user.branch.companyInfo.logo" />-->
+                    <img src="../../../../../assets/img/Logo4.png" />
+                    <span class="text-center">
+                      {{ currentLang=='ar' ? _user.branch.companyInfo.nameAR : _user.branch.companyInfo.nameEN}}
+                    </span>
+                  </a>
+                </li>
+              </div>
+
+              <div class="col col-md-4">
+                <div class="sideOpenDay">
+                  <mat-form-field class="example-full-width" style="display: none;">
+                    <input matInput type="date" #openInput  [matDatepicker]="picker" placeholder=" {{ 'ADMINHEADER.OPENDAY' | translate }}" [(ngModel)]="openDay" (change)="DayOpened()"
+                            (dateChange)="days()">
+                    <!--(dateInput)="days()" (dateChange)="days()" [min]="minDate">-->
+
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker touchUi #picker></mat-datepicker>
+                  </mat-form-field>
+                  <h2>
+                    <span>{{today}}</span><br />
+                    <span>{{Year}}-{{day}}</span>
+                  </h2>
+                  <button *ngIf="!settings.isDayOpened" mat-raised-button (click)="picker.open()"> {{ 'ADMINHEADER.OPENDAY' | translate }}</button>
+                  <button *ngIf="settings.isDayOpened" mat-raised-button (click)="closeDay()"> {{ 'ADMINHEADER.CLOSEDAY' | translate }}</button>
+                </div>
+              </div>
+
+              <div class="col col-md-4 user-card" [routerLinkActive]='["link-active"]'>
+                <li class="img-us" [matMenuTriggerFor]="belowMenu">
+                  <!--<img mat-card-avatar class="example-header-image" [src]="imageSrcLogo" alt="your image" />-->
+                  <!-- <i mat-card-avatar class="far fa-user example-header-image"></i> -->
+                  <img src="../../../../../assets/img/Icon/IconMenu/user.png" alt="" width="70" height="70">
+                  <mat-card class="example-card main-card">
+                    <mat-card-header class="mini-card">
+                      <!--<div mat-card-avatar class="example-header-image"></div>-->
+                      <mat-card-title mat-button>{{user.userName}}<i class="fas fa-sort-down"></i></mat-card-title>
+                      <mat-menu class="drop-usr" #belowMenu="matMenu" yPosition="below">
+                        <button mat-menu-item [disabled]="currentDate==null">
+                          <i class="fas fa-user-circle"></i>
+                          profile
+                        </button>
+                        <button mat-menu-item [disabled]="currentDate==null" [routerLink]='["./changepassword"]' (click)='collapse()'>
+                          <i class="fas fa-shield-alt"></i>
+                          {{ 'ADMINSIDEBAR.CHANGEPASS' | translate }}
+                        </button>
+                        <button mat-menu-item (click)="logout()">
+                          <i class="fas fa-sign-out-alt"></i>
+                          {{ 'ADMINSIDEBAR.LOGOUT' | translate }}
+                        </button>
+                      </mat-menu>
+                    </mat-card-header>
+                  </mat-card>
+                </li>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- <button mat-button-icon (click)="Changelanguage()" hidden>EN</button>
+          <button mat-button-icon (click)="Changelanguage()" hidden>AR</button> -->
+
+        </div>
+        <!--End First Icons-->
+        <div class="container">
+          <div class="row">
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedbillManagement" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]'>
+              <!--<li>
+      <a [routerLink]='["./billInvoice"]' (click)='collapse()'>
+        <i class="fa fa-clipboard fa-5x"></i>
+        <br />
+        <span>{{ 'ADMINSIDEBAR.SELLINVOICE' | translate }}</span>
+      </a>
+    </li>-->
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./billInvoice"]'>
+                <!-- <!-- <i class="fa fa-clipboard fa-5x"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/receipt.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.SELLINVOICE' | translate }}</span>
+
+              </button>
+            </div>
+
+
+            <!--<div class="col col-md-3 col-sm-6" *ngIf="isAllowedBillPurchasesManagement" (click)="chkCurrentDate()">
+
+    <button mat-button [disabled]="currentDate==null" [routerLink]='["./billPurchases"]'>
+      <img src="../../../../../assets/img/Icon/IconMenu/Purchases.png" alt="" width="70" height="70"><br />
+      <span>{{ 'ADMINSIDEBAR.BUYINVOICE' | translate }}</span>
+
+    </button>
+  </div>-->
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedDailyReport" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]'>
+              <!--<li>
+      <a [routerLink]='["./reportToday"]' (click)='collapse()'>
+        <i class="far fa-calendar-check fa-5x text-center"></i>
+        <span class="text-center">  {{ 'ADMINSIDEBAR.DAILY' | translate }} </span>
+      </a>
+    </li>-->
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./reportToday"]'>
+                <!-- <i class="far fa-calendar-check fa-5x text-center"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/calendar.png" alt="" width="70" height="70"><br />
+                <span class="text-center">  {{ 'ADMINSIDEBAR.DAILY' | translate }} </span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedbillManagement" (click)="chkCurrentDate()" hidden>
+              <!--<li [routerLinkActive]='["link-active"]'>
+      <a [routerLink]='["./billPurchases"]' (click)='collapse()'>
+        <i class="fas fa-file-alt fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.BUYINVOICE' | translate }}</span>
+      </a>
+    </li>-->
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./billPurchases"]'>
+                <i class="fas fa-file-alt fa-5x"></i><br />
+                <span>{{ 'ADMINSIDEBAR.BUYINVOICE' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedStore" (click)="chkCurrentDate()" hidden>
+              <!--<li [routerLinkActive]='["link-active"]'>
+      <a [routerLink]='["./storehous"]' (click)='collapse()'>
+        <i class="fas fa-warehouse fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.STORE' | translate }}</span>
+      </a>
+    </li>-->
+
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./storehous"]'>
+                <i class="fas fa-warehouse fa-5x"></i><br />
+                <span>{{ 'ADMINSIDEBAR.STORE' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedItemsManagement" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]'>
+              <!--<li>
+      <a [routerLink]='["./items"]' (click)='collapse()'>
+        <i class="fas fa-stroopwafel fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.SELLITEMS' | translate }}</span>
+      </a>
+    </li>-->
+
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./items"]'>
+                <!-- <i class="fas fa-stroopwafel fa-5x"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/dish.png" alt="" width="70" height="70">
+                <br />
+                <span>{{ 'ADMINSIDEBAR.SELLITEMS' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedBuyitemManagement" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]'>
+              <!--<li>
+      <a [routerLink]='["./items-buy"]' (click)='collapse()'>
+        <i class="fas fa-hand-holding-usd fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.BUYITEMS' | translate }}</span>
+      </a>
+    </li>-->
+
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./items-buy"]'>
+                <!-- <i class="fas fa-hand-holding-usd fa-5x"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/BuyItem.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.BUYITEMS' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedTablesManagement" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]'>
+              <!--<li>
+      <a [routerLink]='["./table-managment"]' (click)='collapse()'>
+        <i class="fas fa-cog fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.TABELMANAGMENT' | translate }}</span>
+      </a>
+    </li>-->
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./table-managment"]'>
+                <!-- <!-- <i class="fas fa-cog fa-5x"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/dinner-table.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.TABELMANAGMENT' | translate }}</span>
+
+              </button>
+            </div>
+
+            <!--<div class="col col-md-3 col-sm-6" *ngIf="isAllowedTables" [routerLinkActive]='["link-active"]'>
+    <li>
+      <a [routerLink]='["./tables"]' (click)='collapse()'>
+        <i class="fas fa-utensils fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.TABELS' | translate }}</span>
+      </a>
+    </li>
+  </div>-->
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedMenu" (click)="chkCurrentDate()">
+              <!--<li [routerLinkActive]='["link-active"]'>
+      <a [routerLink]='["/menu"]' (click)='collapse()'>
+        <i class="fas fa-book-open fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.MENU' | translate }}</span>
+      </a>
+    </li>-->
+
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["/menu"]'>
+                <!-- <!-- <i class="fas fa-book-open fa-5x"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/menu.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.MENU' | translate }}</span>
+
+              </button>
+            </div>
+
+            <!-- <div class="col col-md-3" *ngIf="isAllowedKitchenManagement" [routerLinkActive]='["link-active"]'>
+    <li *ngIf="isAllowedKitchenManagement" [routerLinkActive]='["link-active"]'>
+      <a [routerLink]='["./kitchen"]' (click)='collapse()'>
+        <i class="material-icons">kitchen</i>
+        <span>{{ 'ADMINSIDEBAR.KITCHEN' | translate }}</span>
+      </a>
+    </li>
+  </div> -->
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedKitchenManagement" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]'>
+              <!--<li *ngIf="isAllowedKitchenManagement" [routerLinkActive]='["link-active"]'>
+      <a [routerLink]='["./kitchenv2"]' (click)='collapse()'>
+        <i class="fas fa-concierge-bell fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.KITCHEN' | translate }}</span>
+      </a>
+    </li>-->
+
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./kitchenv2"]'>
+                <!-- <i class="fas fa-concierge-bell fa-5x"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/chef.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.KITCHEN' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedInvoicesReport" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]'>
+              <!--<li>
+      <a [routerLink]='["./report-invoices"]' (click)='collapse()'>
+        <i class="fas fa-file-invoice-dollar fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.BILLSREPORT' | translate }}</span>
+      </a>
+    </li>-->
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./report-invoices"]'>
+                <!-- <i class="fas fa-file-invoice-dollar fa-5x"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/bill.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.BILLSREPORT' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedItemsReport" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]' hidden="hidden">
+              <!--<li>
+      <a [routerLink]='["./report-items"]' (click)='collapse()'>
+        <i class="far fa-chart-bar fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.ITEMSREPORT' | translate }}</span>
+      </a>
+    </li>-->
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./report-items"]'>
+                <i class="far fa-chart-bar fa-5x"></i><br />
+                <span>{{ 'ADMINSIDEBAR.ITEMSREPORT' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedApplicationReport" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]'>
+              <!--<li>
+      <a [routerLink]='["./report-application"]' (click)='collapse()'>
+        <i class="fas fa-chart-pie fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.APPLICATIONSREPORT' | translate }}</span>
+      </a>
+    </li>-->
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./report-application"]'>
+                <!-- <i class="fas fa-chart-pie fa-5x"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/result.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.APPLICATIONSREPORT' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedReportTaxs" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]'>
+              <!--<li>
+      <a [routerLink]='["./report-taxes"]' (click)='collapse()'>
+        <i class="fas fa-chart-line fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.TAXSREPORT' | translate }}</span>
+      </a>
+    </li>-->
+
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./report-taxes"]'>
+                <!-- <i class="fas fa-chart-line fa-5x"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/reporttax.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.TAXSREPORT' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedBoxMonyReport" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]'>
+              <!--<li>
+      <a [routerLink]='["./report-boxMony"]' (click)='collapse()'>
+        <i class="fas fa-money-check-alt fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.BOXMONYREPORT' | translate }}</span>
+      </a>
+    </li>-->
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./report-boxMony"]'>
+                <!-- <i class="fas fa-money-check-alt fa-5x"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/report.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.BOXMONYREPORT' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedUserManagement" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+              <!--<li>
+      <a [routerLink]='["./user"]' (click)='collapse()'>
+        <i class="fas fa-users-cog fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.USERMANAGMENT' | translate }}</span>
+      </a>
+    </li>-->
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./user"]'>
+                <!-- <i class="fas fa-users-cog fa-5x"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/worker.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.USERMANAGMENT' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedCustomerAccount" (click)="chkCurrentDate()" hidden>
+              <!--<li [routerLinkActive]='["link-active"]'>
+      <a [routerLink]='["./report-customer"]' (click)='collapse()'>
+        <i class="fas fa-address-book fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.PEOPLEACCOUNTSTATMENT' | translate }}</span>
+      </a>
+    </li>-->
+
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./report-customer"]'>
+                <i class="fas fa-address-book fa-5x"></i><br />
+                <span>{{ 'ADMINSIDEBAR.PEOPLEACCOUNTSTATMENT' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedUserTypes" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+              <!--<li>
+      <a [routerLink]='["./usertypes"]' (click)='collapse()'>
+        <i class="fa fa-user fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.USERTYPESMANAGMENT' | translate }}</span>
+      </a>
+    </li>-->
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./usertypes"]'>
+                <!-- <i class="fa fa-user fa-5x"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/role.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.USERTYPESMANAGMENT' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedChangePassword" (click)="chkCurrentDate()" hidden>
+              <!--<li [routerLinkActive]='["link-active"]'>
+      <a [routerLink]='["./changepassword"]' (click)='collapse()'>
+        <i class="fas fa-shield-alt fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.CHANGEPASS' | translate }}</span>
+      </a>
+    </li>-->
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./changepassword"]'>
+                <i class="fas fa-shield-alt fa-5x"></i><br />
+                <span>{{ 'ADMINSIDEBAR.CHANGEPASS' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedpeopleManagement" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]'>
+              <!--<li>
+      <a [routerLink]='["./peoples"]' (click)='collapse()'>
+        <i class="fa fa-user-plus fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.ADDPEOPLE' | translate }}</span>
+      </a>
+    </li>-->
+
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./peoples"]'>
+                <!-- <i class="fa fa-user-plus fa-5x"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/man.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.ADDPEOPLE' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedCurrnciesManagement" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]'>
+              <!--<li>
+      <a [routerLink]='["./currencies"]' (click)='collapse()'>
+        <i class="fas fa-coins fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.CURRENCIES' | translate }}</span>
+      </a>
+    </li>-->
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./currencies"]'>
+                <!-- <i class="fas fa-coins fa-5x"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/business-and-finance.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.CURRENCIES' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedTaxesManagement && user.userName=='easacc' ||'Easacc' || 'easacc1'" (click)="chkCurrentDate();" [routerLinkActive]='["link-active"]'>
+
+              <button mat-button [disabled]="currentDate==null && worning==false" [routerLink]='["./Taxes"]'>
+                <img src="../../../../../assets/img/Icon/IconMenu/tax.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.TAXS' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedApplicationManagement" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]'>
+              <!--<li>
+      <a [routerLink]='["./application"]' (click)='collapse()'>
+        <i class="fa fa-cogs fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.APPLICATIONS' | translate }}</span>
+      </a>
+    </li>-->
+
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./application"]'>
+                <!-- <i class="fa fa-cogs fa-5x"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/delivery.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.APPLICATIONS' | translate }}</span>
+
+              </button>
+            </div>
+
+            <div class="col col-md-3 col-sm-6" *ngIf="isAllowedCompanyInfo" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]'>
+              <!--<li>
+      <a [routerLink]='["./companyInfo"]' (click)='collapse()'>
+        <i class="fas fa-landmark fa-5x"></i>
+        <span>{{ 'ADMINSIDEBAR.COMPANYINFO' | translate }}</span>
+      </a>
+    </li>-->
+
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./companyInfo"]'>
+                <!-- <i class="fas fa-landmark fa-5x"></i> -->
+                <img src="../../../../../assets/img/Icon/IconMenu/world-trade-center.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.COMPANYINFO' | translate }}</span>
+
+              </button>
+            </div>
+            <!--<div class="col col-md-3 col-sm-6"  [routerLinkActive]='["link-active"]'>
+              <button mat-button [disabled]="currentDate==null" [routerLink]='["./stock"]'>
+                <img src="../../../../../assets/img/Icon/IconMenu/delivery.png" alt="" width="70" height="70"><br />
+                <span>{{ 'ADMINSIDEBAR.STOCK' | translate }}</span>
+              </button>
+            </div>-->
+
+            <!--<div class="col col-md-3 col-sm-6" *ngIf="isAllowedAddBranch" (click)="chkCurrentDate()" [routerLinkActive]='["link-active"]'>
+
+    <button mat-button *ngIf="isAllowedAddBranch" [disabled]="currentDate==null" [routerLink]='["./addBranch"]' (click)="ToggleSidebar(openClose);  closeAllModels();">
+      <img src="../../../../../assets/img/Icon/IconMenu/network.png" alt="" width="70" height="70"><br />
+      <span>{{ 'COMPANYINFO.BRANCH' | translate }}</span>
+
+    </button>
+
+  </div>-->
+          </div>
+        </div>
+        <div class="IconMenu">
+          <button mat-button [disabled]="currentDate==null" (click)="ToggleSidebar(openClose);  closeAllModels();">
+            <i class="fas fa-times"></i>
+            
+          </button>
+        </div>
+      </ul>
+		</div>
+		<div class="col col-md-12 text-center">
+			<!--<button class="btn btn-light but" (click)="logout()">
+				<i class="fas fa-power-off"></i>
+				<p>{{ 'ADMINSIDEBAR.LOGOUT' | translate }}</p>
+			</button>-->
+		</div>
+	</nav>
+</div>

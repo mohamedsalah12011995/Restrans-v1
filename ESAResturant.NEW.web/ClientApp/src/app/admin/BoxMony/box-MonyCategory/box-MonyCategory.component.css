@@ -1,0 +1,44 @@
+.action button.mat-raised-button {
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.action .example-container.mat-elevation-z8 {
+    height: 45vh;
+    overflow-y: auto;
+}
+.action .example-container.mat-elevation-z8 table {
+    width: 100%;
+}
+.action table th.mat-header-cell{
+  top: 0px;
+  position: sticky;
+  z-index: 10; 
+  padding: 10px 0px;
+  border-bottom: 1px solid #9c9c9c;
+  background-color: #fff;
+}
+.action .example-container.mat-elevation-z8 table th.mat-header-cell {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+/* width */
+.action .example-container::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+.action .example-container::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+.action .example-container::-webkit-scrollbar-thumb {
+  background: #888;
+
+}
+/* Handle on hover */
+.action .example-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

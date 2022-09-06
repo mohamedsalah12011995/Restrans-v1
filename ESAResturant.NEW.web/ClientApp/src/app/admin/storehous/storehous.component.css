@@ -1,0 +1,101 @@
+.storehouse {
+    background-color: #fff;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+}
+.storeHeader {
+    text-align: right;
+    padding: 10px 15px;
+    border-bottom: 3px solid #bb3b3a;
+}
+
+.storeAddress {
+    display: inline-block;
+}
+.storeAddress h1 {
+    font-size: 25px;
+    display: flex;
+}
+.storeAddress h1 i{
+    font-size: 20px;
+    margin-left: 10px;
+}
+.storeBtn {
+    float: left;
+}
+.storeBtn button {
+    margin-left: 10px;
+}
+  .storeBtn button i {
+    color: #bb3b3a;
+  }
+  .storeSearch {
+    text-align: right;
+    padding: 10px 15px;
+  }
+.storeSearch .mat-radio-group {
+    margin-left: 15px;
+}
+.storeSearch .mat-form-field{
+    margin-left: 10px;
+    width: 170px;
+}
+::ng-deep .storeSearch .mat-radio-group .mat-radio-button{
+    margin-left: 10px;
+}
+::ng-deep .storeSearch .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 5px 0 10px;
+    border-top-width: 10px;
+}
+::ng-deep .storeSearch .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+    transform: translateY(0%);
+}
+::ng-deep .storeSearch .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #bb3b3a;
+}
+::ng-deep .storeSearch .mat-input-element {
+    caret-color: #bb3b3a;
+}
+::ng-deep .storeSearch .mat-form-field.mat-focused .mat-form-field-label {
+    color: #bb3b3a;
+}
+::ng-deep .storeSearch .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+    color: #bb3b3a;
+}
+.storeSearch .mat-accordion{
+    margin-bottom: 15px;
+}
+.storeTable {
+    height: 400px;
+    padding: 0px 15px 10px;
+}
+
+.storeTable .example-container.mat-elevation-z8 {
+    height: 100%;
+    overflow-x: auto;
+}
+.storeTable table{
+    width: 100%;
+}
+.storeTable table th.mat-header-cell {
+    padding: 10px;
+    text-align: center;
+}
+.storeTable table td.mat-cell {
+    padding: 10px 0px;
+    text-align: center;
+}
+::ng-deep .storeSearch button span {
+    font-weight: bold;
+    color: #565759;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+    .storeAddress{
+        display: block;
+    }
+    .storeAddress h1 {
+        justify-content: center;
+        align-items: center;
+    }
+}

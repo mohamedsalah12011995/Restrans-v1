@@ -1,0 +1,47 @@
+.md-select-menu-container {
+	z-index: 9999 !important;
+}
+.catPrint button {
+	cursor: pointer;
+	background-color: #fff;
+	font-weight: bold;
+	/*border-radius: 3px;*/
+	width: 22% !important;
+	padding: 7px 0px;
+	font-size: 18px;
+	color: #4c4a4b;
+	margin-left: 15px;
+	outline: 0;
+	transition: all 0.5s;
+  margin-bottom:5px;
+}
+.catPrint button:nth-child(1):hover {
+	background-color: #28a745;
+	color: #fff;
+}
+.catPrint button:hover i {
+	color: #fff !important;
+}
+.catPrint button:nth-child(2):hover {
+	background-color: #007bff;
+	color: #fff;
+}
+.catPrint button:nth-child(3):hover {
+	background-color: #dc3545;
+	color: #fff;
+}
+.catPrint button i {
+	font-weight: 100;
+	margin-right: 5px;
+	transition: all 0.5s;
+}
+.catPrint .listItm button {
+	margin: 0;
+    font-size: 17px;
+    padding: 0px 0px 0px 7px;
+    width: 12% !important;
+    /* height: 40px !important; */
+}
+.catPrint .listItm button:hover {
+    background-color: #d14141 !important;
+}

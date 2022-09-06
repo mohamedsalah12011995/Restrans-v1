@@ -1,0 +1,105 @@
+.printInvA4{
+    width: 20cm;
+    height: 29cm;
+}
+.printInvA5{
+    width: 14cm;
+    height: 20cm;
+}
+.printInvRoll{
+    width: 7.5cm;
+}
+.BtnResizePaper {
+    margin-top: 14px;
+    background-color: #fff;
+    text-align: center;
+    padding: 10px 0px;
+}
+::ng-deep .BtnResizePaper button.mat-stroked-button._mat-animation-noopable {
+    margin-left: 10px;
+}
+::ng-deep .BtnResizePaper button.mat-stroked-button._mat-animation-noopable:hover span{
+    color: #17839b;
+}
+.printInv {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 10px 8px;
+}
+.printInvHeader {
+    margin-bottom: 10px;
+}
+.printInvDetails .col-md-5 {
+    padding-left: 0;
+}
+.printInvDetails .col-md-7 {
+    padding-right: 10px;
+}
+.printInvDetails label {
+    width: 100%;
+}
+.printInvA4 .printInvDetails label strong,.printInvA5 .printInvDetails label strong,
+.printInvA4 .printInvDetails label span, .printInvA5 .printInvDetails label span{
+    font-size: 12px;
+}
+.printInvDetails label strong {
+    font-size: 10px;
+    background-color: #0000001c;
+    display: inline-block;
+    padding: 3px 5px;
+}
+.printInvDetails label span {
+    font-size: 10px;
+    margin-right: 3px;
+}
+.printInvTable table {
+    border: 2px solid #696969;
+    width: 100%;
+}
+.printInvTable thead {
+    border-bottom: 1px solid #000;
+}
+.printInvA4 .printInvTable th, .printInvA5 .printInvTable th{
+    font-size: 14px;
+}
+.printInvA4 .printInvTable td, .printInvA5 .printInvTable td{
+    font-size: 12px;
+}
+.printInvTable th,.printInvTable td {
+    font-size: 11px;
+    border-right: 1px solid #000;
+    padding: 5px 5px;
+}
+.printInvSum {
+    margin: 10px 0px;
+}
+.printInvA4 .printInvSum .col-md-6,.printInvA5 .printInvSum .col-md-6 {
+    padding-right: 20px;
+}
+.printInvSum label {
+    width: 100%;
+}
+.printInvSum label strong {
+    margin-left: 10px;
+    font-size: 12px;
+}
+.printInvSum label span {
+    font-size: 13px;
+}
+.printInvSum h3 {
+    font-size: 15px;
+    text-align: center;
+    border: 1px solid #5a5a5a;
+    padding: 4px 0px;
+    background-color: #f3f3f3;
+}
+.printInvFooter {
+    border-top: 1px dashed #000;
+    padding-top: 9px;
+    text-align: center;
+}
+.printInvFooter p {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 0;
+}

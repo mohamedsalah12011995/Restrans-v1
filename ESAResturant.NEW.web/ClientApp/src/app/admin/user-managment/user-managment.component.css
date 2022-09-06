@@ -1,0 +1,246 @@
+.userMang {
+  background-color: #fff;
+  margin: 20px 0px;
+  text-align: right;
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+  border-radius:12px;
+}
+
+.userMangHeader {
+  padding: 15px;
+  border-bottom: 3px solid #bb3b3a;
+  margin-bottom: 10px;
+}
+.userMangBody mat-form-field {
+  width: 81%;
+}
+.sp-bckk {
+  margin-right: 8px;
+  margin-left: 12px;
+  color: #c78b8b;
+  float: left;
+  margin-top: 5px;
+}
+
+  .sp-bckk a i {
+    font-size: 30px;
+  }
+.userMangHeaderAddress {
+  display: inline-block;
+}
+
+  .userMangHeaderAddress h1 {
+    font-size: 26px;
+    color: #212529;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+    .userMangHeaderAddress h1 i {
+      font-size: 35px;
+    }
+
+.userMangHeaderBtn {
+  float: left;
+}
+
+  .userMangHeaderBtn button {
+    margin-left: 10px;
+    font-family: cursive;
+  }
+
+.userMangBody {
+  padding: 20px;
+}
+
+.userMangBody {
+  height: 528px;
+}
+
+::ng-deep .userMangBody .mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 5px 0px 10px;
+  border-top-width: 10px;
+}
+
+::ng-deep .userMangBody .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #bb3b3a;
+}
+
+::ng-deep .userMangBody .mat-input-element {
+  caret-color: #bb3b3a;
+}
+
+::ng-deep .userMangBody .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #bb3b3a;
+}
+
+::ng-deep .userMangBody .mat-form-field.mat-focused .mat-form-field-label {
+  color: #bb3b3a;
+}
+
+.userMangBodytable {
+  height: 50vh;
+  overflow: auto;
+  box-shadow: 0px 0px 2px 1px #e0e0e0;
+  text-align: center;
+}
+
+.userMangBody table {
+  width: 100%;
+}
+
+  .userMangBody table th {
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+    /* font-family: 'El Messiri', sans-serif; */
+  }
+
+::ng-deep .userMangBody .mat-icon-button {
+  outline: 0;
+  background-color: transparent !important;
+}
+
+/* ::ng-deep .userMangBody .mat-icon-button:hover mat-icon {
+    color: #a33939;
+  } */
+
+.userMangBody .mat-checkbox {
+  margin-right: 10px;
+}
+
+.userMangBody .example-container {
+  height: 100%;
+  overflow: auto;
+  box-shadow: none;
+}
+  /* width */
+  .userMangBody .example-container::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  /* Track */
+  .userMangBody .example-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  .userMangBody .example-container::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+    /* Handle on hover */
+    .userMangBody .example-container::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+  .userMangBody .example-container table {
+    width: 100%;
+  }
+
+.userMangBody table th.mat-header-cell, .userMangBody table td.mat-cell {
+  text-align: center;
+}
+
+.userMangBody table button {
+  margin-right: 0px;
+}
+
+.userMangBody table th.mat-header-cell {
+  top: 0px;
+  position: sticky;
+  z-index: 100;
+  padding: 10px;
+  border-bottom: 1px solid #9c9c9c;
+  background-color: #fff;
+}
+
+.userMangBody table td.mat-footer-cell {
+  bottom: 0px;
+  position: sticky;
+  z-index: 10;
+  background-color: #fff;
+}
+
+::ng-deep .userMangBody .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: #dc3545;
+}
+
+::ng-deep .userMangBody .mat-checkbox-layout {
+  margin-bottom: 10px;
+}
+
+.selectPlace {
+  margin-left: 4px;
+  margin-right: 6px;
+}
+
+.userMangBody .mat-form-field.mat-focused .mat-form-field-label mat-label{
+  z-index: 144;
+  background-color: white;
+  padding-left: 10px;
+}
+.mat-primary .mat-pseudo-checkbox-checked, .mat-primary .mat-pseudo-checkbox-indeterminate {
+  background: #dc3545;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #dc3545;
+}
+
+.mat-primary .mat-option {
+  font-family: 'Cairo', sans-serif;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .userMangHeaderAddress{
+    display: block;
+  }
+  .userMangHeaderBtn {
+    float: inherit;
+    text-align: center;
+  }
+  .userMangBodyData .mat-form-field {
+    width: 80%;
+  }
+}
+
+
+.form-radio {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  position: relative;
+  background-color: #ffffff;
+  color: #882b2b;
+  top: 5px;
+  height: 20px;
+  width: 20px;
+  border: 0 0;
+  cursor: pointer;
+}
+
+  .form-radio:checked::before {
+    position: absolute;
+    font: 16px/1 'Open Sans', sans-serif;
+    left: 5px;
+    content: '\02143';
+    transform: rotate(40deg);
+  }
+
+  .form-radio:hover {
+    background-color: #f7f7f7;
+  }
+
+  .form-radio:checked {
+    background-color: #f1f1f1;
+  }
+
+label {
+  font: 15px/1.7 'Open Sans', sans-serif;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: pointer;
+}

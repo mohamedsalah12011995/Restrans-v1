@@ -1,0 +1,51 @@
+<div class="action">
+  <mat-form-field appearance="outline">
+    <mat-label>{{ 'GENERALSETTINGS.NAMEAR' | translate }}</mat-label>
+    <input matInput [(ngModel)]="boxMonyCategory.nameAR">
+  </mat-form-field>
+  <br />
+  <mat-form-field appearance="outline">
+    <mat-label>{{ 'GENERALSETTINGS.NAMEEN' | translate }}</mat-label>
+    <input matInput [(ngModel)]="boxMonyCategory.nameEN">
+  </mat-form-field>
+  <br />
+  <mat-checkbox [(ngModel)]="boxMonyCategory.isCredit" [ngModelOptions]="{standalone: true}">{{ 'BOXMONYCATEGORY.ISCREDIT' | translate }}</mat-checkbox>
+  <br />
+  <mat-checkbox [(ngModel)]="boxMonyCategory.isDebit" [ngModelOptions]="{standalone: true}">{{ 'BOXMONYCATEGORY.ISDEBIT' | translate }}</mat-checkbox>
+  <br />
+
+  <button mat-raised-button [hidden]="!isShow" (click)="insertOrEditOrDelete(boxMonyCategory,'add')">  {{ 'ACTIONS.SAVE' | translate }} <i class="btnSave far fa-save"></i></button>
+  <button mat-raised-button [hidden]="isShow" (click)="insertOrEditOrDelete(boxMonyCategory,'edit')">   {{ 'ACTIONS.EDIT' | translate }}<i class="btnAdd far fa-edit"></i></button>
+  <button mat-raised-button (click)="Clear()"> {{ 'ACTIONS.NEW' | translate }} <i class="text-danger far fa-plus-square"></i></button>
+
+  <div class="example-container mat-elevation-z8">
+    <table>
+      <thead>
+        <tr>
+          <th class="mat-header-cell" scope="col">م</th>
+          <th class="mat-header-cell" scope="col">{{ 'GENERALSETTINGS.NAMEAR' | translate }}</th>
+          <th class="mat-header-cell" scope="col">{{ 'GENERALSETTINGS.NAMEEN' | translate }}</th>
+          <th class="mat-header-cell" scope="col"><i class="material-icons">edit</i></th>
+          <th class="mat-header-cell" scope="col"><i class="material-icons">delete_outline</i></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of boxMonyCategoryList; let i=index">
+          <td class="mat-cell" scope="row">{{i+1}}</td>
+          <td class="mat-cell">{{category.nameAR}}   </td>
+          <td class="mat-cell">{{category.nameEN}}</td>
+          <td class="mat-cell">
+            <button mat-icon-button *ngIf="i>=12" (click)="getBoxMonyCategory(category)" >
+              <i class="material-icons">edit</i>
+            </button>
+          </td>
+          <td class="mat-cell">
+            <button mat-icon-button *ngIf="i>=12" (click)="insertOrEditOrDelete(category,'delete')" >
+              <mat-icon aria-label="Example icon-button with a heart icon">delete_outline</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

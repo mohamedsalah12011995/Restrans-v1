@@ -1,0 +1,152 @@
+<div class="kitchen">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="kitchenBill">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-3" *ngFor="let bill of NewbillList">
+                <div class="kitchenBillDetails" id="KBD{{bill.id}}" [ngStyle]="chkStyleTable(bill.tableNo)">
+                  <div class="CancelOrderDiv">
+                    {{ 'KITCHEN.ORDERCANCELED' | translate }}
+                  </div>
+                  <h3>
+                    {{ 'KITCHEN.REQUESTNUMBER' | translate }}
+                    <span>{{bill.orderNo}}</span>
+                  </h3>
+                  <h4 *ngIf="bill.tableNo!=null">
+                    {{ 'KITCHEN.TABLENUMBER' | translate }}
+                    <span>{{bill.tableNo}}</span>
+                  </h4>
+                  <h4>
+                    {{ 'KITCHEN.CAPTINORDER' | translate }}
+                    <span>{{bill.user.userName}}</span>
+                  </h4>
+                  <h4>
+                    {{ 'KITCHEN.BILLTYPE' | translate }}
+                    <span>{{bill.billPlace.nameAR}}</span>
+                  </h4>
+                  <div class="example-container mat-elevation-z8">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th class="mat-header-cell" scope="col">   {{ 'LABELS.ITEMNAME' | translate }} </th>
+                          <th class="mat-header-cell" scope="col"> {{ 'LABELS.SIZE' | translate }}  </th>
+                          <th class="mat-header-cell" scope="col">  {{ 'LABELS.QUANTITY' | translate }} </th>
+                          <th class="mat-header-cell" scope="col">  {{ 'BILLINVOICE.NOTES' | translate }}  </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let billdetail of bill.billDetails"
+                            [ngClass]="{'lastRow': billdetail.isDelete == true, 'CancelRow': billdetail.isDelete == true}"
+                            [ngStyle]="setMyStyles(billdetail.isNew)">
+                          <!--[ngStyle]="{'color': billdetail.isNew == true ? '#fff' : '#212529', 'background-color': billdetail.isNew == true ? '#28a745' : '#fff'}">-->
+
+                            <td class="mat-cell mat-footer-cell"> {{billdetail.item.nameAR}}</td>
+                            <td class="mat-cell mat-footer-cell"> {{billdetail.itemPrice.itemSize.sizeNameAr}}</td>
+                            <td class="mat-cell mat-footer-cell"> {{billdetail.qty}}</td>
+                            <td class="mat-cell mat-footer-cell"> {{billdetail.note}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <h3 *ngIf="bill.checkWiteInvoies==false && bill.tableNo !=null "><span> تم إنهاء الفاتورة  </span></h3>
+                  <button mat-stroked-button (click)="finishBill(bill)">{{ 'KITCHEN.FINISH' | translate }}</button>
+                  <!--<button mat-stroked-button (click)="printBill(bill)">{{ 'REPORTTODAY.PRINT' | translate }}</button>-->
+                </div>
+							</div>
+						</div>
+					</div>
+					<button mat-icon-button class="finishBills" [matBadge]="finishedList.length" matBadgeColor="warn" data-toggle="modal" data-target="#finishBills">
+						<img src="../../../assets/img/Icon/Finish-Bill.png" alt="Finish Bill">
+					</button>
+          <!--<button mat-icon-button class="finishBills RefreshKit" (click)="getBillsPagginated()">
+            <i class="fas fa-redo"></i>
+          </button>-->
+				</div>
+			</div>
+			<!-- Modal -->
+			<div class="modal fade bd-example-modal-lg" id="finishBills" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalCenterTitle">الفاتورة المغلقة</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="kitchenOldOrder">
+                <div class="kitchenOldOrderDetails" *ngFor="let bill of finishedList">
+                  <h3>
+                    {{ 'KITCHEN.REQUESTNUMBER' | translate }}
+                    <span>{{bill.orderNo}}</span>
+                  </h3>
+                  <h4 *ngIf="bill.tableNo!=null">
+                    {{ 'KITCHEN.TABLENUMBER' | translate }}
+                    <span>{{bill.tableNo}}</span>
+                  </h4>
+                  <h4>
+                    {{ 'KITCHEN.CAPTINORDER' | translate }}
+                    <span>{{bill.user.userName}}</span>
+                  </h4>
+                <h4>
+                  {{ 'LABELS.BILLPLACE' | translate }}
+                  <span>{{bill.billPlace.nameAR}}</span>
+                </h4>
+                <div class="example-container mat-elevation-z8">
+
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="mat-header-cell" scope="col">   {{ 'LABELS.ITEMNAME' | translate }} </th>
+                        <th class="mat-header-cell" scope="col"> {{ 'LABELS.SIZE' | translate }}  </th>
+                        <th class="mat-header-cell" scope="col">  {{ 'LABELS.QUANTITY' | translate }} </th>
+                        <th class="mat-header-cell" scope="col">  {{ 'BILLINVOICE.NOTES' | translate }}  </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let billdetail of bill.billDetails"
+                          [ngClass]="{'lastRow': billdetail.isDelete == true, 'CancelRow': billdetail.isDelete == true}"
+                          [ngStyle]="setMyStyles(billdetail.isNew)">
+                        <!--[ngStyle]="{'color': billdetail.isNew == true ? '#fff' : '#212529', 'background-color': billdetail.isNew == true ? '#28a745' : '#fff'}">-->
+                        <td class="mat-cell mat-footer-cell"> {{billdetail.item.nameAR}}</td>
+                        <td class="mat-cell mat-footer-cell"> {{billdetail.itemPrice.itemSize.sizeNameAr}}</td>
+                        <td class="mat-cell mat-footer-cell"> {{billdetail.qty}}</td>
+                        <td class="mat-cell mat-footer-cell"> {{billdetail.note}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+
+                  <!--<table>
+                    <thead>
+                      <tr>
+                        <th class="mat-header-cell" scope="col">   {{ 'LABELS.ITEMNAME' | translate }} </th>
+                        <th class="mat-header-cell" scope="col"> {{ 'LABELS.SIZE' | translate }}  </th>
+                        <th class="mat-header-cell" scope="col">  {{ 'LABELS.QUANTITY' | translate }} </th>
+                        <th class="mat-header-cell" scope="col">  {{ 'BILLINVOICE.NOTES' | translate }}  </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let billdetail of bill.billDetails" [ngClass]="{'CancelRow': billdetail.isDelete == true}">
+                        <td class="mat-cell mat-footer-cell"> {{billdetail.item.nameAR}}</td>
+                        <td class="mat-cell mat-footer-cell"> {{billdetail.itemPrice.itemSize.sizeNameAr}}</td>
+                        <td class="mat-cell mat-footer-cell">{{billdetail.qty}}</td>
+                        <td class="mat-cell mat-footer-cell">{{billdetail.note}}</td>
+                      </tr>
+                    </tbody>
+                  </table>-->
+                </div>
+                </div>
+							</div>
+						</div>
+						<div class="modal-footer"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

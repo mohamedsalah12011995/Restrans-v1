@@ -1,0 +1,157 @@
+<div>
+  <ng-template #ItemSizetemplate>
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalCenterTitle">{{ 'ITEMPRICE.ADDSIZE' | translate }}</h5>
+      <button type="button" class="btn" (click)="closeItemSizemodal()">
+        <span aria-hidden="true"><i class="fas fa-power-off text-danger"></i></span>
+      </button>
+    </div>
+    <div class="modal-body text-right">
+      <div class="cat">
+        <app-ItemSize></app-ItemSize>
+      </div>
+    </div>
+    <div class="modal-footer"></div>
+  </ng-template>
+</div>
+
+
+<!--<mat-form-field appearance="outline">
+  <mat-label>أختر الحجم</mat-label>
+  <mat-select [(ngModel)]="itemPrice.sizeId">
+    <mat-option *ngFor="let itemSize of itemSizeList" [value]="itemSize.id">
+      {{itemSize.sizeNameAr}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<mat-form-field appearance="outline">
+  <mat-label>السعر</mat-label>
+  <input matInput type="number" [(ngModel)]="itemPrice.price">
+</mat-form-field>
+
+<mat-checkbox [(ngModel)]="itemPrice.isDefullt">  سعر افتراضى </mat-checkbox>
+
+
+<button mat-raised-button (click)="addRow()">حفظ <i class="text-success far fa-save"></i></button>
+<button mat-raised-button (click)="clear()">جديد <i class="text-danger far fa-plus-square"></i></button>-->
+
+<!--<button mat-raised-button [hidden]="isShow" (click)="editRow(itemPrice)">تعديل <i class="text-primary far fa-edit"></i></button>-->
+<div class="itemPrice">
+	<div class="example-container mat-elevation-z8">
+		<table>
+			<thead>
+				<tr>
+          <th class="mat-header-cell" scope="col">{{ 'ACTIONS.ID' | translate }}</th>
+          <th class="mat-header-cell" scope="col">{{ 'BOXMONYCATEGORY.SIZENAMEAR' | translate }}</th>
+          <th class="mat-header-cell" scope="col">{{ 'LABELS.SellPrice' | translate }}</th>
+					<th class="mat-header-cell" scope="col">{{ 'ITEMPRICE.ADDITEMCATEGORY' | translate }}</th>
+          <th class="mat-header-cell" scope="col">{{ 'ITEMPRICE.DEFAULT' | translate }}</th>
+					<th class="mat-header-cell" scope="col"><i class="fas fa-save"></i></th>
+					<th class="mat-header-cell" scope="col"><i class="fas fa-redo-alt"></i></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let selecteditemprice of itemPriceList; let i=index;">
+					<th class="mat-cell" scope="row">{{i+1}}</th>
+					<td class="mat-cell">
+
+						<mat-select [(ngModel)]="selecteditemprice.sizeId">
+							<mat-option *ngFor="let selecteditemSize of itemSizeList" [value]="selecteditemSize.id" (click)="GetItemSize(selecteditemSize)">
+                <mat-label> {{selecteditemSize.sizeNameAr}}</mat-label>
+							</mat-option>
+						</mat-select>
+					</td>
+
+					<td class="mat-cell"><input matInput type="number" [(ngModel)]="selecteditemprice.price" (click)="$event.target.select()"></td>
+					<td class="mat-cell"><button mat-stroked-button >أضافة مكونات الصنف</button></td>
+					<!--<td class="mat-cell"><button mat-stroked-button (click)="openComponentItemModal(ComponentItemtemplate,selecteditemprice)">أضافة مكونات الصنف</button></td>-->
+					<td class="mat-cell"><mat-checkbox [(ngModel)]="selecteditemprice.isDefullt"></mat-checkbox></td>
+					<td class="mat-cell">
+						<button mat-icon-button (click)="editRow(selecteditemprice)">
+              <i class="fas fa-save btnSave"></i>
+            </button>
+					</td>
+          <td class="mat-cell">
+            <button mat-icon-button (click)="deleteItemPrice(deleteConfirm,selecteditemprice)">
+              <i class="fas fa-trash btnRemove"></i>
+            </button>
+
+            <!--<button mat-icon-button (click)="deleteItemprice(selecteditemprice)">
+              <mat-icon class="btnRemove" aria-label="Example icon-button with a heart icon">delete_outline</mat-icon>
+            </button>-->
+          </td>
+				</tr>
+
+				<tr>
+					<td class="mat-cell mat-footer-cell">
+						<button mat-icon-button (click)="openSizeModal(ItemSizetemplate)">
+             <i class="fas fa-plus"></i>
+						</button>
+					</td>
+					<td class="mat-cell mat-footer-cell">
+						<mat-form-field appearance="outline">
+							<mat-select [(ngModel)]="itemPrice.sizeId">
+								<mat-option *ngFor="let itemSize of itemSizeList" [value]="itemSize.id">
+									{{itemSize.sizeNameAr}}
+								</mat-option>
+							</mat-select>
+						</mat-form-field>
+					</td>
+					<td class="mat-cell mat-footer-cell">
+						<mat-form-field appearance="outline">
+							<input matInput type="number" [(ngModel)]="itemPrice.price" (click)="$event.target.select()">
+						</mat-form-field>
+					</td>
+					<td class="mat-cell mat-footer-cell">
+            <button mat-stroked-button>{{ 'ITEMPRICE.ADDITEMCATEGORY' | translate }}</button>
+            <!--<button mat-stroked-button (click)="opennewComponentItemModal(ComponentItemtemplate)">{{ 'ITEMPRICE.ADDITEMCATEGORY' | translate }}</button>-->
+					</td>
+					<td class="mat-cell mat-footer-cell">
+						<mat-checkbox [(ngModel)]="itemPrice.isDefullt"></mat-checkbox>
+					</td>
+					<td class="mat-cell mat-footer-cell">
+						<button mat-icon-button (click)="addRow()">
+              <i class="fas fa-save btnSave"></i>
+						</button>
+					</td>
+					<td class="mat-cell mat-footer-cell">
+						<button mat-icon-button (click)="clear()">
+              <i class="fas fa-redo-alt btnRemove"></i>
+            </button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<ng-template #ComponentItemtemplate>
+	<div class="modal-header">
+    <h5 class="modal-title" id="exampleModalCenterTitle">{{ 'ITEMPRICE.ADDITEMCATEGORY' | translate }}</h5>
+		<button type="button" class="btn" (click)="closeItemSizemodal()">
+			<span aria-hidden="true"><i class="fas fa-power-off text-danger"></i></span>
+		</button>
+	</div>
+	<div class="modal-body text-right">
+		<div class="cat">
+			<app-components-item  [itemPrice]="itemPrice"  (OnItemPriceChanged)="ItemPriceChanged($event)" ></app-components-item>
+		</div>
+	</div>
+	<div class="modal-footer"></div>
+</ng-template>
+<!-- <app-components-item></app-components-item> -->
+
+
+<ng-template #deleteConfirm>
+  <div class="modal-body text-center">
+    <p *ngIf="currentLang=='ar'">{{"  هل تريد تأكيد الحذف "}}</p>
+    <p *ngIf="currentLang=='en'">{{"  Confirm deletion ? "}}</p>
+    <button type="button" class="btn btn-danger" (click)="deleteItemPriceConfirm()">
+      {{ 'LABELS.CONFIRM' | translate }}
+    </button>
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">
+      {{ 'LABELS.EXITE' | translate }}
+    </button>
+  </div>
+</ng-template>

@@ -1,0 +1,66 @@
+<!-- <header class="header">
+	<div class="row">
+		<div class="col-md-2">
+			<div class="navSystem" (click)="ToggleSidebar(openClose)">
+				<h1>EASACCSYSTEM</h1>
+			</div>
+		</div>
+    <div class="col-md-10 hiden-in-small">
+      <div class="navAddress">
+        <!-<h1>{{homeServ.namePage}}</h1>->
+      </div>
+
+
+      <div class="navOrderNum" *ngIf="table!=''">
+        <label>  رقم الطاولة</label>
+        <span>{{table}}</span>
+      </div>
+      <div class="navOrderNum" *ngIf="showrqustnumber">
+        <label>  رقم الطلب</label>
+        <span>{{orderNumber}}</span>
+      </div>
+      <div class="navOrderNum" *ngIf="showrqustnumber">
+        <label> رقم الفاتورة</label>
+        <span>{{idNumber}}</span>
+      </div>
+      <div class="navOrderNum">
+        <label> التاريخ</label>
+        <span>{{dateDay}}</span>
+      </div>
+
+      <!- <div class="navMassage">
+        <i class="far fa-futbol"></i>
+        <i class="fas fa-comments"></i>
+        <i class="fas fa-bell"></i>
+      </div>
+      <div class="navAccount">
+        <i class="fas fa-angle-down"></i>
+        <label><strong>{{currentuser.userName}}</strong></label>
+        <img src="../../assets/img/ms.jpg" alt="Account" width="50" height="50">
+      </div> ->
+    </div>
+	</div>
+</header> -->
+<!--<div class="IconMenu">
+  <button mat-button (click)="ToggleSidebar(openClose)">
+    
+    <i *ngIf="openClose === 'open'" class="fas fa-bars"></i>
+    <i *ngIf="openClose !== 'open'" class="fas fa-times"></i>
+  </button>
+</div>-->
+<div class="IconMenu">
+  <button mat-button (click)="ToggleSidebar(openClose); closeAllModels();">
+    <!--<div class="icon">
+    <div class="toggle"></div>
+  </div>-->
+
+    <i class="fas fa-bars"></i>
+  </button>
+</div>
+<!--<script type="text/javascript">
+  $(document).ready(function() {
+    $('.icon').click(function () {
+      $('.icon').toggleClass('active');
+    })
+  })
+</script>-->

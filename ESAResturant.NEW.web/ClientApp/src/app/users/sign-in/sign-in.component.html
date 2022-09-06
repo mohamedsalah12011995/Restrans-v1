@@ -1,0 +1,169 @@
+<!-- <section class="login">
+  <article class="loginHeader">
+    <div class="loginHeadercolor">
+    </div>
+  </article>
+  <article class="loginBody text-center">
+    <div class="logo">
+      <img src="../../assets/img/logo.png" alt="The Chef">
+    </div>
+    <div class="logoinForm">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <form>
+
+              <mat-form-field appearance="fill">
+                <mat-label>{{ 'SIGNIN.USERNAME' | translate }}</mat-label>
+                <input matInput type="text" name="username" [(ngModel)]="loginModel.userName" placeholder="{{ 'SIGNIN.USERNAME' | translate }}" required>
+              </mat-form-field><br />
+              <mat-form-field appearance="fill">
+                <mat-label>{{ 'SIGNIN.PASSWORD' | translate }}</mat-label>
+                <input matInput type="password" name="userpassword" [(ngModel)]="loginModel.password" placeholder="{{ 'SIGNIN.PASSWORD' | translate }}" required>
+              </mat-form-field><br />
+                <button (click)="login()" [disabled]="checkLogin==1">
+                  {{ 'SIGNIN.LOGIN' | translate }}
+                  &nbsp;<i class="fa fa-spinner fa-spin" style="font-size:20px; margin-right:90px; position: absolute;" *ngIf="loading"></i>
+                </button> <br />
+              <mat-radio-group aria-label="Select an option" [(ngModel)]="currentLang" (ngModelChange)="languagechanged()" [ngModelOptions]="{standalone: true}">
+                <mat-radio-button [checked]='true' value="ar" style="margin-left: 15px;">اللغة العربية</mat-radio-button>
+                <mat-radio-button value="en" style="margin-left: 15px;">English</mat-radio-button>
+              </mat-radio-group>
+            </form>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+      </div>
+    </div>
+
+  </article>
+</section> -->
+<!--<div class="winLoading">
+  <mat-spinner></mat-spinner>
+</div>-->
+<section class="login">
+	<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-7 hiden-in-small" style=" background: url(./assets/img/11.jpg) no-repeat;  background-size: cover;
+    padding: 0;">
+        <div class="loginTitle">
+          <!--<div class="text-center">
+        <h1 *ngIf="currentLang == 'ar'">
+          مرحباً بكم فى إيزاك لنقاط البيع التجارى<br />
+          نقدم لكم كل ما هو جديد وافضل
+        </h1>
+        <h1 *ngIf="currentLang == 'en'">
+          Welcome to Easacc Point of Sale Trade <br />
+          We offer you everything new and better
+        </h1>
+      </div>-->
+
+
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active sign-slider">
+                <p class="d-block w-100" *ngIf="currentLang == 'ar'">
+                  مرحباً بكم فى إيزاك للمطاعم<br />
+                  نقدم لكم كل ما هو جديد وافضل
+                </p>
+                <p class="d-block w-100" *ngIf="currentLang == 'en'">
+                  Welcome to Easacc Resturant <br />
+                  We offer you everything new and better
+                </p>
+              </div>
+              <div class="carousel-item sign-slider">
+                <p class="d-block w-100" *ngIf="currentLang == 'ar'">
+                  متواجدين دائما <br />
+                  لنجعل حياتكم اسهل
+                </p>
+                <p class="d-block w-100" *ngIf="currentLang == 'en'">
+                  We are always there <br />
+                  to make your life easier
+                </p>
+              </div>
+              <div class="carousel-item sign-slider">
+                <p class="d-block w-100" *ngIf="currentLang == 'ar'">
+                  اجعل جميع فروعك علي جوالك<br />
+                  تحكم بهم بضغطة واحدة
+                </p>
+                <p class="d-block w-100" *ngIf="currentLang == 'en'">
+                  Have all the branches on your mobile <br />
+                  control them with one click
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-5 hiden-in-small loginFromFill">
+        <div class="loginForm">
+          <div class="BtLang">
+            <button mat-icon-button>EN</button>
+            <button mat-icon-button>ع</button>
+          </div>
+          <div class="loginLogo">
+            <img src="../../../assets/img/233.png" alt="إيزاك" srcset="">
+          </div>
+          <mat-form-field class="example-full-width">
+            <mat-label>{{ 'SIGNIN.USERNAME' | translate }}</mat-label>
+            <input matInput type="text" name="username" [(ngModel)]="loginModel.userName" placeholder="{{ 'SIGNIN.USERNAME' | translate }}" required>
+            <mat-icon matSuffix>perm_identity_outline</mat-icon>
+          </mat-form-field><br />
+          <mat-form-field class="example-full-width">
+            <mat-label>{{ 'SIGNIN.PASSWORD' | translate }}</mat-label>
+            <input matInput type="password" name="userpassword" [(ngModel)]="loginModel.password" (keyup.enter)="login()" placeholder="{{ 'SIGNIN.PASSWORD' | translate }}" required>
+            <mat-icon matSuffix>lock_outline</mat-icon>
+          </mat-form-field><br />
+          <mat-radio-group aria-label="Select an option" [(ngModel)]="currentLang" (ngModelChange)="languagechanged()" [ngModelOptions]="{standalone: true}">
+            <mat-radio-button [checked]='true' checked value="ar" style="margin-left: 15px;">اللغة العربية</mat-radio-button>
+            <mat-radio-button value="en" style="margin-left: 15px;">English</mat-radio-button>
+          </mat-radio-group>
+          <!-- <mat-checkbox [(ngModel)]="checkedAR" (click)="testChecked(checkedAR)">اللغة العربية</mat-checkbox>
+      <mat-checkbox [(ngModel)]="checkedEN" (click)="testChecked(checkedEN)">English</mat-checkbox><br/> -->
+          <button class="BtnLogin" (click)="login()"  [disabled]="checkLogin==1">
+            {{ 'SIGNIN.LOGIN' | translate }}
+            &nbsp;<i class="fa fa-spinner fa-spin" style="font-size:30px; margin-right:60px; position: absolute;" *ngIf="loading"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="show-in-small container-fluid">
+        <div class="row">
+          <div class="col-md-12 loginFromFill">
+            <div class="loginForm">
+              <div class="BtLang">
+                <button mat-icon-button>EN</button>
+                <button mat-icon-button>ع</button>
+              </div>
+              <div class="loginLogo">
+                <img src="../../../assets/img/233.png" alt="إيزاك" srcset="">
+              </div>
+              <mat-form-field class="example-full-width">
+                <mat-label>{{ 'SIGNIN.USERNAME' | translate }}</mat-label>
+                <input matInput type="text" name="username" [(ngModel)]="loginModel.userName" placeholder="{{ 'SIGNIN.USERNAME' | translate }}" required>
+                <mat-icon matSuffix>perm_identity_outline</mat-icon>
+              </mat-form-field><br />
+              <mat-form-field class="example-full-width">
+                <mat-label>{{ 'SIGNIN.PASSWORD' | translate }}</mat-label>
+                <input matInput type="password" name="userpassword" [(ngModel)]="loginModel.password" placeholder="{{ 'SIGNIN.PASSWORD' | translate }}" required>
+                <mat-icon matSuffix>lock_outline</mat-icon>
+              </mat-form-field><br />
+              <mat-radio-group aria-label="Select an option" [(ngModel)]="currentLang" (ngModelChange)="languagechanged()" [ngModelOptions]="{standalone: true}">
+                <mat-radio-button [checked]='true' value="ar" style="margin-left: 15px;">اللغة العربية</mat-radio-button>
+                <mat-radio-button value="en" style="margin-left: 15px;">English</mat-radio-button>
+              </mat-radio-group>
+              <!-- <mat-checkbox [(ngModel)]="checkedAR" (click)="testChecked(checkedAR)">اللغة العربية</mat-checkbox>
+        <mat-checkbox [(ngModel)]="checkedEN" (click)="testChecked(checkedEN)">English</mat-checkbox><br/> -->
+              <button class="BtnLogin" (click)="login()" [disabled]="checkLogin==1">
+                {{ 'SIGNIN.LOGIN' | translate }}
+                &nbsp;<i class="fa fa-spinner fa-spin" style="font-size:30px; margin-right:60px; position: absolute;" *ngIf="loading"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+</section>

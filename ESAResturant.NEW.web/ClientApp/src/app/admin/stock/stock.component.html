@@ -1,0 +1,140 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="itemContainer">
+        <div class="container-fluid storeHeader">
+          <div class="row">
+            <div class="col-md-7 itemaddress">
+              <h1><i class="btnRemove far fa-plus-square"></i>{{ 'STOCK.ADDSTOCK' | translate }}</h1>
+            </div>
+            <div class="col-md-5 itemBtnSave">
+              <button mat-stroked-button>  {{ 'ACTIONS.SAVE' | translate }} <i class="btnSave fas fa-save"></i></button>
+              <!--<button mat-stroked-button>   {{ 'ACTIONS.EDIT' | translate }} <i class="btnAdd far fa-edit"></i></button>-->
+              <!--<button (click)="onPrint();">طباعة <i class="text-danger far fa-plus-square"></i></button>-->
+              <span>
+                <a>
+                  <i class="fas fa-arrow-circle-left btn-back"></i>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid storeBody">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="table-managmentBodyDetails" style="text-align:right !important;">
+                <button mat-stroked-button data-toggle="modal" data-target="#exampleModal"> {{ 'ACTIONS.NEW' | translate }} <i class="btnAdd far fa-plus-square"></i></button>
+                <br class="show-in-small" />
+              </div>
+              <div class="table-managmentBodyData">
+                <div class="example-container mat-elevation-z8">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th hidden="hidden">م</th>
+                        <th class="mat-header-cell" scope="col">م</th>
+                        <th class="mat-header-cell" scope="col">{{ 'TABELS.NAMEAR' | translate }} </th>
+                        <th class="mat-header-cell" scope="col">{{ 'TABELS.NAMEEN' | translate }}</th>
+                        <th class="mat-header-cell" scope="col">{{ 'STOCK.EMAIL' | translate }}</th>
+                        <th class="mat-header-cell" scope="col">{{ 'STOCK.STATUS' | translate }}</th>
+                        <th class="mat-header-cell" scope="col"><i class="fas fa-pen"></i></th>
+                        <th class="mat-header-cell" scope="col"><i class="fas fa-trash"></i></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td hidden="hidden">1</td>
+                        <th class="mat-cell" scope="row">1</th>
+                        <td class="mat-cell">مستودع مكة</td>
+                        <td class="mat-cell">makka</td>
+                        <td class="mat-cell">makka@gmail.com</td>
+                        <td class="mat-cell"><span class="spanAc">نشط</span></td>
+                        <td class="mat-cell">
+                          <button mat-icon-button>
+                            <i class="btnSave fas fa-pen"></i>
+                          </button>
+                        </td>
+                        <td class="mat-cell">
+                          <button mat-icon-button>
+                            <i class="btnRemove fas fa-trash"></i>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td hidden="hidden">2</td>
+                        <th class="mat-cell" scope="row">2</th>
+                        <td class="mat-cell">مستودع المدينة</td>
+                        <td class="mat-cell">Madina</td>
+                        <td class="mat-cell">Madina@gmail.com</td>
+                        <td class="mat-cell"><span class="spanIn">غير نشط</span></td>
+                        <td class="mat-cell">
+                          <button mat-icon-button>
+                            <i class="btnSave fas fa-pen"></i>
+                          </button>
+                        </td>
+                        <td class="mat-cell">
+                          <button mat-icon-button>
+                            <i class="btnRemove fas fa-trash"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 style="font-size:22px"><i class="far fa-file-alt" style="margin-left:10px;color:#a33939;"></i>{{ 'STOCK.STOCKINFORMATION' | translate }}</h2>
+        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>-->
+      </div>
+      <div class="modal-body">
+        <div class="storeDetails" style="text-align:center !important;">
+          <mat-form-field class="modd" appearance="outline">
+            <mat-label>  {{ 'ITEMS.NAMEAR' | translate }}</mat-label>
+            <input matInput>
+          </mat-form-field>
+
+          <mat-form-field class="modd" appearance="outline">
+            <mat-label>  {{ 'ITEMS.NAMEEN' | translate }}</mat-label>
+            <input matInput>
+          </mat-form-field>
+
+          <mat-form-field class="modd" appearance="outline">
+            <mat-label> {{ 'STOCK.EMAIL' | translate }} </mat-label>
+            <input matInput>
+          </mat-form-field>
+
+          <mat-form-field class="modd" appearance="outline">
+            <mat-label>{{ 'STOCK.STATUS' | translate }}</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let status of statuses" [value]="status.value">
+                {{status.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <mat-checkbox class="chek">{{ 'STOCK.ISMAINSTOCK' | translate }}</mat-checkbox>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ 'STOCK.CLOSE' | translate }}</button>
+        <button type="button" class="btn btn-primary modbutt"> {{ 'STOCK.SAVESTOCK' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal -->

@@ -1,0 +1,57 @@
+<div class="itemSize">
+	<mat-form-field appearance="outline">
+    <mat-label>{{ 'ITEMSIZE.SIZENAMEAR' | translate }}</mat-label>
+		<input matInput [(ngModel)]="itemSize.sizeNameAr">
+	</mat-form-field>
+
+	<mat-form-field appearance="outline">
+    <mat-label>{{ 'ITEMSIZE.SIZENAMEEN' | translate }}</mat-label>
+		<input matInput [(ngModel)]="itemSize.sizeNameEn">
+	</mat-form-field>
+
+  <button mat-raised-button [hidden]="!isShow" (click)="InsertOrUpdateItemSize('add')">{{ 'ACTIONS.SAVE' | translate }} <i class="text-success far fa-save"></i></button>
+  <button mat-raised-button [hidden]="isShow" (click)="InsertOrUpdateItemSize('edit')">{{ 'ACTIONS.EDIT' | translate }} <i class="text-primary far fa-edit"></i></button>
+  <button mat-raised-button (click)="clear()">{{ 'ACTIONS.NEW' | translate }} <i class="text-danger far fa-plus-square"></i></button>
+
+	<div class="example-container mat-elevation-z8">
+		<table>
+			<thead>
+				<tr>
+					<th class="mat-header-cell" scope="col">م</th>
+          <th class="mat-header-cell" scope="col">{{ 'ITEMSIZE.SIZENAMEAR' | translate }}</th>
+          <th class="mat-header-cell" scope="col">{{ 'ITEMSIZE.SIZENAMEEN' | translate }}</th>
+					<th class="mat-header-cell" scope="col"><i class="material-icons">select_all</i></th>
+					<th class="mat-header-cell" scope="col"><i class="material-icons">delete_outline</i></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let item of itemSizeList; let i=index">
+					<td class="mat-cell" scope="row">{{i+1}}</td>
+					<td class="mat-cell">{{item.sizeNameAr}}</td>
+					<td class="mat-cell">{{item.sizeNameEn}}</td>
+					<td class="mat-cell">
+						<button mat-icon-button (click)="getById(item)">
+              <mat-icon aria-label="Example icon-button with a heart icon">select_all</mat-icon>
+						</button>
+					</td>
+					<td class="mat-cell">
+						<button mat-icon-button (click)="deleteItemSize(deleteConfirm,item)">
+							<mat-icon aria-label="Example icon-button with a heart icon">delete_outline</mat-icon>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+<ng-template #deleteConfirm>
+  <div class="modal-body text-center">
+    <p>{{ 'Messages.DeleteConfirm' | translate }}</p>
+    <button type="button" class="btn btn-danger" (click)="deleteItemSizeConfirm()">
+      <p>{{ 'LABELS.CONFIRM' | translate }}</p>
+    </button>
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">{{ 'LABELS.EXITE' | translate }}</button>
+  </div>
+</ng-template>

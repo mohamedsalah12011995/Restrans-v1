@@ -1,0 +1,182 @@
+.itemDetails .mat-form-field {
+  	width: 87%;
+}
+
+::ng-deep .itemDetails .mat-input-element {
+  	caret-color: #bb3b3a;
+}
+
+::ng-deep .itemDetails .mat-form-field.mat-focused .mat-form-field-ripple {
+  	background-color: #bb3b3a;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  	color: #bb3b3a;
+}
+
+::ng-deep .itemDetails .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  	color: #bb3b3a;
+}
+
+::ng-deep .catPrint input {
+  	box-shadow: none;
+}
+.modal-header .close {
+  	margin: -1rem auto -1rem -1rem;
+}
+.catPrint select, .catPrint input {
+	width: 100%;
+	/* height: 0px; */
+}
+
+.cat .mat-form-field {
+  width: 30%;
+}
+
+.cat table .mat-form-field {
+  	width: 90% !important;
+}
+
+.cat select, .cat input {
+	width: 100%;
+	/* height: 0px; */
+}
+
+.cat button {
+	width: 4.5%;
+	margin-right: 15px;
+}
+
+.cat table button {
+	width: 90%;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.itemList .listSearch input:focus {
+	border: 2px solid #bb3b3a;
+	transition: all 0.5s;
+}
+
+::ng-deep .itemList .mat-paginator-page-size{
+	width: 50%;
+	margin-left: 0px !important;
+}
+::ng-deep .itemList .mat-paginator-range-actions{
+	width: 50%;
+    justify-content: center;
+}
+.itemDetails div button {
+	border-radius: 50px;
+	margin-right: 10px;
+}
+
+.itemImage button, .itemImage .uploadImgItm {
+	width: 45%;
+	margin-top: 10px;
+	margin-left: 10px;
+	line-height: 33px;
+}
+
+.itemImage .mat-form-field{
+	width: 100%;
+}
+
+.catPrint .mat-form-field {
+  	width: 80% !important;
+}
+
+button.catBtn {
+  	border-radius: 4px;
+}
+
+.printBtn {
+  	margin-left: -21rem
+}
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+  	z-index: 99999 !important;
+}
+
+.md-select-menu-container {
+  	z-index: 9999; 
+}
+.tableItemPrices {
+	height: 25.5vh;
+	overflow: auto;
+	box-shadow: 0px 0px 2px 1px #e0e0e0;
+	text-align: center;
+}
+
+.tableItemPrices table {
+	width: 100%;
+}
+
+.tableItemPrices table th {
+	font-weight: bold;
+	font-size: 15px;
+	text-align: center;
+	/* font-family: 'El Messiri', sans-serif; */
+}
+::ng-deep .mat-form-field._mat-animation-noopable .mat-form-field-label {
+	width: 100%;
+	font-size: 14px;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix {
+	padding: 5px 0px 10px;
+	border-top-width: 12px;
+}
+/* ::ng-deep .customerDetails .mat-form-field-appearance-outline .mat-form-field-outline-gap {
+    width: 60.5px !important;
+} */
+::ng-deep .itemDetails .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+	transform: translateY(0%);
+}
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #bb3b3a;
+}
+.mat-form-field span{
+	font-size: 12px;
+}
+::ng-deep .itemDetails .mat-form-field-appearance-outline .mat-form-field-wrapper {
+	padding-bottom: 5px;
+}
+.itemPrice .mat-form-field {
+	width: 20%;
+	margin-left: 10px;
+}
+
+.itemPrice .mat-form-field:nth-child(3) {
+	margin-left: 0;
+}
+
+.itemPrice .mat-checkbox {
+	margin-right: 10px;
+}
+
+.itemPrice button:focus {
+	color: #bb3b3a;
+}
+
+.itemPrice button:hover {
+	color: #bb3b3a;
+}
+
+/* width */
+.listItm::-webkit-scrollbar {
+	width: 5px;
+}
+
+/* Track */
+.listItm::-webkit-scrollbar-track {
+	background: #f1f1f1; 
+}
+
+/* Handle */
+.listItm::-webkit-scrollbar-thumb {
+	background: #888;
+
+}
+/* Handle on hover */
+.listItm::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}

@@ -1,0 +1,52 @@
+.Branchs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: right;
+}
+.branchContainer {
+    background-color: #fff;
+    border-radius: 5px;
+}
+.BranchHeader {
+    padding: 10px 15px;
+    border-bottom: 3px solid #d14141;
+}
+
+.BranchHeaderAddress {
+    display: inline-block;
+}
+
+/* .BranchHeaderAddress h3 {
+
+} */
+
+.BranchHeaderAddress h3 i {
+    color: #d14141;
+}
+
+.BranchHeaderBtn {
+    float: left;
+}
+
+.BranchHeaderBtn button {
+    margin-right: 10px;
+}
+
+.branchBody {
+    padding: 15px 15px 25px 15px;
+}
+::ng-deep .branchDetails .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+    transform: translateY(0%);
+}
+
+.branchBody .branchList {
+    min-height: 30vh;
+    max-height: 50vh;
+    height: auto;
+}
+
+.branchesList h2 i {
+    margin-left: 10px;
+}

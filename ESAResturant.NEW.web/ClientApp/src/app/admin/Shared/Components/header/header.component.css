@@ -1,0 +1,85 @@
+.IconMenu {
+    position: fixed;
+    bottom: 35px;
+    /* top: 10px; */
+    right: 0px;
+    background-color: #bb3b3a;
+    color: #fff;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    cursor: pointer;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
+}
+.IconMenu button.mat-button {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.IconMenu button.mat-button .mat-icon {
+    font-size: 50px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+}
+.IconMenu button i {
+  font-size: 38px;
+}
+.icon {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%, -50%);
+  width:34%;
+  height:34%;
+  cursor:pointer;
+}
+.toggle {
+  width: 40px;
+  height: 6px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+}
+.toggle:before,
+.toggle:after {
+  content: '';
+  position:absolute;
+  width:40px;
+  height:6px;
+  background:#fff;
+  transition: .5s;
+}
+  .toggle:before {
+    top: -16px;
+    left: 0;
+    border-radius: 12px;
+  }
+  .toggle:after {
+    top: 16px;
+    left: 0;
+    border-radius: 12px;
+  }
+.icon.active .toggle {
+  background: rgba(0,0,0,0);
+}
+.icon.active .toggle:before {
+  top:0;
+  transform:rotate(45deg);
+}
+.icon.active .toggle:after {
+    top:0;
+    transform: rotate(135deg);
+  }
+
+

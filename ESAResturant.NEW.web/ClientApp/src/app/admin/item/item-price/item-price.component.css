@@ -1,0 +1,151 @@
+.md-select-menu-container {
+  z-index: 9999;
+}
+
+::ng-deep .cat .mat-input-element {
+  caret-color: #bb3b3a;
+}
+
+::ng-deep .cat .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #bb3b3a;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #bb3b3a;
+}
+
+::ng-deep .cat .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: #bb3b3a;
+}
+
+.itmPrice{
+  margin-bottom: 20px;
+}
+
+.catPrint button:nth-child(1):hover {
+  background-color: #28a745;
+  color: #fff;
+}
+.catPrint button:hover i {
+  color: #fff !important;
+}
+.catPrint button{
+  margin-left: 10px;
+  outline: 0;
+}
+.catPrint button:nth-child(2):hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.tableItemPrices {
+  height: 50vh;
+  overflow: auto;
+  box-shadow: 0px 0px 2px 1px #e0e0e0;
+  text-align: center;
+}
+
+.tableItemPrices table{
+  width: 100%;
+}
+
+.tableItemPrices table th {
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  /* font-family: 'El Messiri', sans-serif; */
+}
+::ng-deep .cat .mat-icon-button{
+  outline: 0;
+  background-color: transparent !important;
+}
+::ng-deep .catPrint .mat-icon-button:hover mat-icon {
+  color: #a33939;
+}
+/* .itemPrice .mat-form-field {
+	width: 20%;
+	margin-left: 10px;
+} */
+
+.itemPrice .mat-form-field:nth-child(3) {
+	margin-left: 0;
+}
+
+.itemPrice .mat-checkbox {
+	margin-right: 10px;
+}
+
+.itemPrice button:focus {
+	color: #bb3b3a;
+}
+
+.itemPrice button:hover {
+	color: #bb3b3a;
+}
+.itemPrice button {
+  margin-right: 10px;
+  outline: 0;
+}
+/* .itemPrice .mat-icon-button .mat-icon, .itemPrice .mat-icon-button i{
+  line-height: 15px;
+} */
+.itemPrice .example-container {
+  height: 332px;
+  overflow: auto;
+  box-shadow: none;
+  border: 1px solid #c6c6c6;
+}
+/* width */
+.itemPrice .example-container::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+.itemPrice .example-container::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+.itemPrice .example-container::-webkit-scrollbar-thumb {
+  background: #888;
+
+}
+/* Handle on hover */
+.itemPrice .example-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.itemPrice .example-container table {
+  width: 100%;
+}
+.itemPrice table th.mat-header-cell, .itemPrice table td.mat-cell{
+  text-align: center;
+  padding-left: 0px;
+}
+.itemPrice table button {
+  margin-right: 0px;
+}
+.itemPrice table th.mat-header-cell{
+  top: 0px;
+  position: sticky;
+  z-index: 10; 
+  padding: 10px 0px;
+  border-bottom: 1px solid #9c9c9c;
+  background-color: #fff;
+}
+.itemPrice table td.mat-footer-cell{
+  bottom: 0px;
+  position: sticky;
+  z-index: 10;
+  background-color: #fff;
+  padding: 0px 10px;
+}
+::ng-deep .itemPrice .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+  transform: translateY(0%);
+}
+::ng-deep .itemPrice .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: #dc3545;
+}
+::ng-deep .itemPrice .mat-checkbox-layout{
+  margin-bottom: 0px;
+}

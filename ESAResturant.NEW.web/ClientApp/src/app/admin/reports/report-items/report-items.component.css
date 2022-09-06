@@ -1,0 +1,169 @@
+.reportItems {
+    background-color: #fff;
+    margin-top: 20px;
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    border-radius: 10px;
+    text-align: right;
+    padding-bottom: 35px;
+    margin-bottom: 20px;
+}
+.repItemsHeader {
+    padding: 10px 15px;
+    border-bottom: 3px solid #bb3b3a;   
+}
+.repItemsHeader a {
+    float: left;
+    padding-right: 20px;
+}
+.repItemsHeader span a i {
+    color: #bb3b3ac9;
+}
+
+.repItemsHeader a i {
+    font-size: 2em;
+    color: #757575;
+}
+.repItemsHeader h1 {
+    font-size: 22px;
+    color: #3c474a;
+    display: inline-block;
+}
+.repItemsBody {
+    padding: 10px 15px 30px;
+    border-bottom: 3px solid #bb3b3a;
+}
+.repItemsSearch {
+    display: inline-block;
+    width: 100%
+}
+.repItemsSearch h2 {
+    font-size: 18px;
+    font-family: monospace;
+    font-weight: bold;
+    color: #3c474a;
+    float: right;
+    
+}
+.repItemsSearch .repItemsSearchElement {
+    margin-top: 0px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+::ng-deep .repItemsSearch .repItemsSearchElement .mat-form-field-appearance-outline .mat-form-field-wrapper{
+    padding: 0px 0px 10px;
+}
+.repItemsSearchElement label {
+    font-family: inherit;
+    font-size: 12px;
+    margin-left: 5px;
+}
+.repItemsSearchElement .mat-form-field{
+    margin-left: 10px;
+    /* width: 18%; */
+}
+::ng-deep .repItemsSearchElement .mat-form-field .mat-input-element {
+    caret-color: #bb3b3a;
+}
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: #bb3b3a;
+}
+::ng-deep .repItemsSearchElement .mat-form-field.mat-focused .mat-form-field-label {
+    color: #bb3b3a;
+}
+::ng-deep .repItemsSearchElement .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: #bb3b3a;
+}
+::ng-deep .mat-calendar-body-selected {
+    background-color: #bb3b3a;
+    color: #fff;
+}
+::ng-deep .repItemsSearchElement .mat-form-field.mat-focused .mat-select-arrow{
+    color: #bb3b3a;
+}
+.repItemsSearchElement .mat-form-field input[type=number]::-webkit-inner-spin-button, 
+.repItemsSearchElement .mat-form-field input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0;
+}
+.repItemsSearchElement .mat-form-field input[type=date]::-webkit-inner-spin-button, 
+.repItemsSearchElement .mat-form-field input[type=date]::-webkit-calendar-picker-indicator { 
+    display: none;
+    -webkit-appearance: none;
+}
+.repItemsTable .example-container {
+    height: 400px;
+    overflow: auto;
+}
+.repItemsTable .example-container table th {
+    background-color: #eff2f9;
+    color: #000;
+    font-size: 14;
+}
+/* width */
+.repItemsTable .example-container::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+/* Track */
+.repItemsTable .example-container::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+.repItemsTable .example-container::-webkit-scrollbar-thumb {
+    background: #888;
+
+}
+/* Handle on hover */
+.repItemsTable .example-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+.repItemsTable table {
+    width: 100%;
+}
+.repItemsTable th.mat-header-cell, .repItemsTable td {
+    text-align: center;
+}
+::ng-deep .repItemsBody .mat-form-field._mat-animation-noopable .mat-form-field-label {
+    width: 100%;
+    font-size: 14px;
+}
+::ng-deep .repItemsBody .mat-form-field-appearance-outline .mat-form-field-infix{
+    padding: 5px 0px 10px;
+    border-top-width: 12px;
+}
+::ng-deep .repItemsBody .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+    transform: translateY(0%);
+}
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #bb3b3a;
+}
+.repItemsBody .mat-form-field span{
+    font-size: 12px;
+}
+.repPageSearchElementRadio {
+    position: relative;
+    text-align: center;
+}
+
+.mat-checkbox-inner-container {
+    width: 20px;
+    height: 20px;
+}
+.repPageSearchElementRadio div {
+    position: absolute;
+    display: flex;
+    padding-top: 11px;
+}
+.repPageSearchElementRadio .mat-checkbox{
+    margin-left: 20px;
+}
+.mat-paginator {
+    display: inline-block;
+}
+.delOnMop {
+   text-align: center;
+    padding-left: 0px;
+}
+

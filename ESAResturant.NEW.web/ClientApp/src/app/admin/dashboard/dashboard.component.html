@@ -1,0 +1,120 @@
+<div class="container cont-dash" >
+  <div class="row">
+    <div @fadeIn class="col-md-4">
+      <div class="chartBox">
+        <div class="chartBoxDetails">
+          <h3 class="btnRemove">   {{ 'ADMINSIDEBAR.DAILY' | translate }}    </h3>
+          <strong>{{todayTotal | number:'0.2-2'}} </strong>
+          <span class="btnRemove" *ngIf="!isTodayTotalUp"><i class="fas fa-arrow-down"></i>{{TodayProgressRatio | number:'0.2-2'}} %</span>
+          <span class="btnSave" *ngIf="isTodayTotalUp"><i class="fas fa-arrow-up"></i> {{TodayProgressRatio | number:'0.2-2'}}%</span>
+        </div>
+        <div class="chartBoxImg">
+          <img src="../../../assets/img/Icon/calendar.png" alt="Daliy">
+        </div>
+      </div>
+    </div>
+
+    <div @fadeIn class="col-md-4">
+      <div class="chartBox">
+        <div class="chartBoxDetails">
+          <h3 class="btnRemove">    {{ 'DASHBOARD.TODAYBUY' | translate }}</h3>
+          <strong>0</strong>
+          <span class="btnSave"><i class="fas fa-arrow-up"></i> 0%</span>
+        </div>
+        <div class="chartBoxImg">
+          <img src="../../../assets/img/Icon/growth.svg" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div @fadeIn class="col-md-4">
+      <div class="chartBox">
+        <div class="chartBoxDetails">
+          <h3 class="btnRemove"> {{ 'DASHBOARD.MONTHLYSALES' | translate }}  </h3>
+          <strong>{{MonthlyTotal | number:'0.2-2'}}</strong>
+          <span class="btnRemove" *ngIf="!isMonthlyTotalUp"><i class="fas fa-arrow-down"></i>{{MonthlyProgressRatio | number:'0.2-2'}} %</span>
+          <span class="btnSave" *ngIf="isMonthlyTotalUp"><i class="fas fa-arrow-up"></i> {{MonthlyProgressRatio | number:'0.2-2'}}%</span>
+        </div>
+        <div class="chartBoxImg">
+          <img src="../../../assets/img/Icon/presentation.png" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div @fadeIn class="col-md-4">
+      <div class="chartBox">
+        <div class="chartBoxDetails">
+          <h3 class="btnRemove">   {{ 'DASHBOARD.TODAYREQUESTS' | translate }} </h3>
+          <strong>{{BillsCount}} </strong>
+          <span class="btnRemove" *ngIf="!isTodayTotalUp"><i class="fas fa-arrow-down"></i>{{TodayProgressRatio | number:'0.2-2'}} %</span>
+          <span class="btnSave" *ngIf="isTodayTotalUp"><i class="fas fa-arrow-up"></i> {{TodayProgressRatio | number:'0.2-2'}}%</span>
+        </div>
+        <div class="chartBoxImg">
+          <img src="../../../assets/img/Icon/notes.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div @fadeIn class="col-md-4">
+      <div class="chartBox">
+        <div class="chartBoxDetails">
+          <h3 class="btnRemove">   {{ 'DASHBOARD.DELIVERYREQUESTS' | translate }}  </h3>
+          <strong>{{BillsDeliveryCount}}</strong>
+          <span class="btnSave"><i class="fas fa-arrow-up"></i> 33.8%</span>
+        </div>
+        <div class="chartBoxImg">
+          <img src="../../../assets/img/Icon/smartphone.png" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div @fadeIn class="col-md-4">
+      <div class="chartBox">
+        <div class="chartBoxDetails">
+          <h3 class="btnRemove">    {{ 'DASHBOARD.TABELREQUESTS' | translate }}</h3>
+          <strong>{{BillsTabelCount}}</strong>
+          <span class="btnRemove" *ngIf="!isMonthlyTotalUp"><i class="fas fa-arrow-down"></i>{{MonthlyProgressRatio | number:'0.2-2'}} %</span>
+          <span class="btnSave" *ngIf="isMonthlyTotalUp"><i class="fas fa-arrow-up"></i> {{MonthlyProgressRatio | number:'0.2-2'}}%</span>
+        </div>
+        <div class="chartBoxImg">
+          <img src="../../../assets/img/Icon/dinner-table.png" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div @fadeIn class="col-md-7">
+      <div class="chartBox2 chartBar">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h2 class="mb-0">   {{ 'DASHBOARD.MONTHLYSALES' | translate }}</h2>
+</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- Chart -->
+          <div class="chart">
+            <canvas id="chart-sales" class="chart-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div @fadeIn class="col-md-5">
+      <div class="chartBox2 chartDoughnut">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h2 class="mb-0">  {{ 'DASHBOARD.BESTSALES' | translate }}</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- Chart -->
+          <div class="chart">
+            <canvas id="chart-Items" class="chart-canvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

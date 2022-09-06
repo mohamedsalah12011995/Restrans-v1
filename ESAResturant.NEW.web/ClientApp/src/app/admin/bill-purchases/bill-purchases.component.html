@@ -1,0 +1,295 @@
+<div class="inv">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="invHeader">
+        <div class="invAddress">
+          <h1>
+            <i class="btnRemove material-icons">add_shopping_cart_outline</i>
+            فاتورة مشتريات
+          </h1>
+        </div>
+        <div class="invBtn">
+          <button mat-stroked-button>
+            <i class="material-icons btnSave">save</i>
+            حفظ
+          </button>
+          <!-- <button mat-stroked-button>
+            <i class="material-icons btnPrint">update</i>
+            تعليق الفاترة
+          </button> -->
+          <button mat-stroked-button>
+            <i class="material-icons btnRemove">add_circle_outline</i>
+            جديد
+          </button>
+        </div>
+      </div>
+      <div class="invBody">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="invData">
+              <div class="invDataItem">
+                <mat-checkbox>الرجوع الى البحث بالكود</mat-checkbox><br />
+                <ng-template #customItemTemplate let-model="item" let-index="index">
+                  <h5>{{model.item_CurrentAmount }}   ---  {{ model.item_SellPrice | currency }}  ---   {{ model.item_Name}} :    </h5>
+                </ng-template>
+                <mat-form-field appearance="outline">
+                  <mat-label>بحث بالكود</mat-label>
+                  <input matInput type="number" #input (change)="getItemById(input.value)">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>بحث بالاسم</mat-label>
+                  <input matInput [(ngModel)]="itemName"
+                         [typeahead]="itemList"
+                         typeaheadOptionField="nameAR"
+                         (typeaheadOnSelect)="onSelectNewItemByName($event)"
+                         (click)="$event.target.select()">
+                </mat-form-field>
+              </div>
+              <div class="invDataEmp">
+                <mat-form-field appearance="outline">
+                  <mat-label>رقم مرجعى</mat-label>
+                  <input matInput>
+                </mat-form-field>
+              </div>
+              <div class="invDataCust">
+                <div class="invDataCustTypePaid">
+                  <mat-checkbox>عميل سريع</mat-checkbox>
+                  <br />
+                  <strong>نوع الدفع</strong>
+                  <div *ngFor="let payment of paymentTypeList">
+                    <input type="radio" name="payment_Id" id="payment{{payment.id}}" [value]="payment.id" [(ngModel)]="bill.paymentId" />
+                    <label for="payment{{payment.id}}">{{payment.nameAR}}</label>
+                  </div>
+                </div>
+                <div class="invDataCustSelect">
+                  <label>
+                    <strong>مبلغ الدين</strong><br />
+                    <span class="debt">0</span>
+                  </label>
+                  <label>
+                    <strong>نقاط العميل</strong><br />
+                    <span class="point">0</span>
+                  </label>
+                  <br />
+                  <mat-form-field appearance="outline">
+                    <mat-label>العميل</mat-label>
+                    <mat-select [(ngModel)]="bill.pepoleName">
+                      <mat-option value="people" *ngFor="let people of peopleList" [value]="people.name">{{people.name}}</mat-option>
+                    </mat-select>
+
+                  </mat-form-field>
+                  <button mat-icon-button>
+                    <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 dele-mop">
+            <div class="invItemTable">
+              <div class="example-container mat-elevation-z8">
+                <table>
+                  <thead>
+                    <tr>
+                      <th class="mat-header-cell" scope="col">م</th>
+                      <th class="mat-header-cell" scope="col">الكود</th>
+                      <th class="mat-header-cell" scope="col">الصنف</th>
+                      <th class="mat-header-cell" scope="col">الكمية</th>
+                      <th class="mat-header-cell" scope="col">سعر البيع</th>
+                      <th class="mat-header-cell" scope="col">سعر الشراء</th>
+                      <th class="mat-header-cell" scope="col">الخصم</th>
+                      <th class="mat-header-cell" scope="col">اجمالى المبلغ</th>
+                      <th class="mat-header-cell" scope="col">القيمة المضافة </th>
+                      <th class="mat-header-cell" scope="col">الاجمالى بعد القيمة.م</th>
+                      <th class="mat-header-cell" scope="col"><i class="material-icons">delete_outline</i></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let billdetail of bill.billDetails; let i=index">
+                      <td class="mat-cell" scope="row"><span> {{i+1}} </span></td>
+                      <td class="mat-cell"><span> {{billdetail.item.code}} </span></td>
+                      <td class="mat-cell"><span> {{billdetail.item.nameAR}} </span></td>
+                      <td class="mat-cell"><span> <input type="number" [(ngModel)]="billdetail.qty" (ngModelChange)="sum()" (click)="$event.target.select()" /> </span></td>
+                      <td class="mat-cell"><span> <input type="number" [(ngModel)]="billdetail.itemSellPrice" (ngModelChange)="sum()" (click)="$event.target.select()" /> </span></td>
+                      <td class="mat-cell"><span> <input type="number" [(ngModel)]="billdetail.itemBuyPrice" (ngModelChange)="sum()" (click)="$event.target.select()" /> </span></td>
+                      <td class="mat-cell"><span> <input type="number" [(ngModel)]="billdetail.discount" (ngModelChange)="sum()" (click)="$event.target.select()" /> </span></td>
+                      <td class="mat-cell"><span> {{billdetail.supTotal}} </span></td>
+                      <td class="mat-cell"><span> <input type="number" [(ngModel)]="billdetail.vatTax" (ngModelChange)="sum()" (click)="$event.target.select()" /> </span></td>
+                      <td class="mat-cell"><span> {{billdetail.netTotal}} </span></td>
+                      <td class="mat-cell">
+                        <button mat-icon-button (click)="DeleteBillByID(bill.id)">
+                          <mat-icon aria-label="Example icon-button with a heart icon">delete_outline</mat-icon>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!--Table On Mopile-->
+          <!--<div class="col-md-12 del-from-all">
+            <div class="invItemTable">
+              <div class="example-container mat-elevation-z8">
+                <table>
+                  <thead>
+                    <tr>
+                      <th class="mat-header-cell" scope="col">م</th>
+                      <th class="mat-header-cell" scope="col">الكود</th>
+                      <th class="mat-header-cell" scope="col">الصنف</th>
+                      <th class="mat-header-cell" scope="col">الكمية</th>
+                      <th class="mat-header-cell" scope="col">س.البيع</th>
+                      <th class="mat-header-cell" scope="col">س.الشراء</th>
+                      <th class="mat-header-cell" scope="col">الخصم</th>
+                      <th class="mat-header-cell" scope="col">اجمالي</th>
+                      <th class="mat-header-cell" scope="col">ق.م</th>
+                      <th class="mat-header-cell" scope="col">اجمالى ق.م</th>
+                      <th class="mat-header-cell" scope="col"><i class="material-icons">delete_outline</i></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let billdetail of bill.billDetails; let i=index">
+                      <td class="mat-cell" scope="row"><span> {{i+1}} </span></td>
+                      <td class="mat-cell"><span> {{billdetail.item.code}} </span></td>
+                      <td class="mat-cell"><span> {{billdetail.item.nameAR}} </span></td>
+                      <td class="mat-cell"><span> <input type="number" [(ngModel)]="billdetail.qty" (ngModelChange)="sum()" (click)="$event.target.select()" /> </span></td>
+                      <td class="mat-cell"><span> <input type="number" [(ngModel)]="billdetail.itemSellPrice" (ngModelChange)="sum()" (click)="$event.target.select()" /> </span></td>
+                      <td class="mat-cell"><span> <input type="number" [(ngModel)]="billdetail.itemBuyPrice" (ngModelChange)="sum()" (click)="$event.target.select()" /> </span></td>
+                      <td class="mat-cell"><span> <input type="number" [(ngModel)]="billdetail.discount" (ngModelChange)="sum()" (click)="$event.target.select()" /> </span></td>
+                      <td class="mat-cell"><span> {{billdetail.supTotal}} </span></td>
+                      <td class="mat-cell"><span> <input type="number"   [(ngModel)]="billdetail.vatTax" (ngModelChange)="sum()" (click)="$event.target.select()" /> </span></td>
+                      <td class="mat-cell"><span> {{billdetail.netTotal}} </span></td>
+                      <td class="mat-cell">
+                        <button mat-icon-button (click)="DeleteBillByID(bill.id)">
+                          <mat-icon aria-label="Example icon-button with a heart icon">delete_outline</mat-icon>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>-->
+          <!--Table On Mopile-->
+
+          <div class="col-md-12">
+            <div class="invDetails">
+              <div class="row">
+                <div class="col-md-4 align-self-center">
+                  <div class="invDetailsTotal">
+                    <label>
+                      {{ 'BILLINVOICE.ITEMSCOUNT' | translate }}
+                      <br class="show-in-small" />
+                      <span>{{bill.totalQty}}</span>
+                    </label>
+                    <label>
+                      الخصم
+                      <br class="show-in-small" />
+                      <span>{{bill.currentDiscount}}</span>
+                    </label>
+                    <label>
+                      قبل ق.م
+                      <br class="show-in-small" />
+                      <span>{{bill.netTotal}}</span>
+                    </label>
+                    <label>
+                      {{ 'LABELS.TOTALVAT' | translate }}
+                      <br class="show-in-small" />
+                      <span>{{ bill.supTotal}}</span>
+                    </label>
+                    <label>
+                      {{ 'BILLINVOICE.NETTOTAL' | translate }}
+                      <br class="show-in-small" />
+                      <span>{{bill.netTotal}}</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-md-4 align-self-center">
+                  <div class="invDetailsDiscount text-center">
+                    <h3>
+                      {{ 'LABELS.DISCOUNT' | translate }}
+                    </h3>
+                    <div class="invDetailsDiscountRadio">
+                      <div class="invDis">
+                        <label>
+
+                          {{ 'BILLINVOICE.DISCOUNT' | translate }}
+
+                          <span>({{bill.descountValue | number:'0.1-1'}})  </span>
+                          <span>
+                            <input type="number" [(ngModel)]="bill.currentDiscount" (ngModelChange)="sum()" (click)="$event.target.select()" /><span *ngIf="discountType.nameAr=='نسبة'">%</span>
+                          </span>
+                          <mat-radio-group aria-label="Select an option" [(ngModel)]="bill.discountId" (ngModelChange)="sum()">
+                            <mat-radio-button *ngFor="let discount of listDiscountType" (click)="getDiscount(discount)" [value]="discount.id">{{discount.nameAr}}</mat-radio-button>
+                          </mat-radio-group>
+                        </label>
+                      </div>
+
+                      <mat-form-field appearance="outline">
+                        <mat-label>
+                          {{ 'BILLINVOICE.DISCOUNT' | translate }}
+                        </mat-label>
+                        <input matInput type="number" [(ngModel)]="bill.currentDiscount" (ngModelChange)="sum()" (click)="$event.target.select()">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 align-self-center">
+                  <div class="invDetailsSubTotal">
+                    <h3>   {{ 'BILLINVOICE.NETTOTAL' | translate }}<label>{{bill.netTotal}}</label></h3>
+                  </div>
+                  <div class="invDetailsPaid">
+                    <mat-form-field appearance="outline">
+                      <mat-label>
+                        {{ 'LABELS.PAID' | translate }}
+                      </mat-label>
+                      <input matInput placeholder="" [(ngModel)]="bill.paied" (click)="$event.target.select()">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                      <mat-label>
+                        {{ 'LABELS.REMAINING' | translate }}
+                      </mat-label>
+                      <input matInput placeholder="" disabled [(ngModel)]="bill.netTotal-bill.paied">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+
+            <div class="modal fade" id="exampleModalCenterPlace" tabindex="-1" role="dialog" aria-labelledby="pricetemplate" aria-hidden="true">
+
+              <div class="modal-dialog modal-dialog-centered" role="document">
+
+                <ng-template #pricetemplate>
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">
+                      {{ 'LABELS.CLIENT' | translate }}
+                    </h5>
+                    <button type="button" class="btn">
+                      <span aria-hidden="true"><i class="fas fa-power-off text-danger"></i></span>
+                    </button>
+                  </div>
+                  <div class="modal-body text-right">
+                    <div class="cat">
+                      <app-peoples></app-peoples>
+                    </div>
+                  </div>
+                  <div class="modal-footer"></div>
+                </ng-template>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,586 @@
+{
+  "HOME": {
+    "TITLE": "مرحباً بكم فى إيزاك لنقاط البيع التجارى",
+    "TITLEHOME": " إيزاك للمطاعم ",
+    "SELECT": "Change language"
+  },
+
+  "SIGNIN": {
+    "WELCOME": "-مرحباً بكم فى إيزاك لنقاط البيع التجارى",
+    "SLOGAN": "-نقدم لكم كل ما هو جديد وافضل",
+    "USERNAME": "اسم المستخدم",
+    "PASSWORD": "كلمة السر",
+    "LOGIN": "تسجيل الدخول",
+    "ERROLOGIN": "خطاء فى تسجيل الدخول"
+  },
+  "ADMINHEADER": {
+    "PROJECTNAME": "ايزاك",
+    "OPENDAY": "فتح اليوم",
+    "CLOSEDAY": "إقفال اليوم",
+    "OPENDAYDATE": "تاريخ فتح اليوم"
+  },
+  "LABELS": {
+    "BILLPLACE": "مكان الفاتوره",
+    "BILLTOTAL": "اجمالى الفاتوره",
+    "BILLTYPE": "نوع الفاتوره",
+    "CLIENT": "العميل",
+    "CODE": "الكود",
+    "CODESEARCH": "البحث بالكود",
+    "CONFIRM": "تأكيد",
+    "DATE": "التاريخ",
+    "DISCOUNT": "الخصم",
+    "DISCOUNTTYPE": "نوع الخصم",
+    "EMPOLYEE": "موظف المبيعات",
+    "EXITE": "إلغاء",
+    "ITEMNAME": "الصنف",
+    "NAME": "الاسم",
+    "NAMESEARCH": "البحث بالاسم",
+    "NOTFOUND": "لا يوجد",
+    "PAID": "المدفوع",
+    "PAYMENTTYPE": "نوع الدفع",
+    "PRINTINGTYPE": "نوع الطباعه",
+    "QUANTITY": "الكميه",
+    "QUICKCLIENT": "عميل سريع",
+    "REFNUMBER": "الرقم المرجعى",
+    "REMAINING": "المتبقى",
+    "RequestNumber": "رقم الطلب",
+    "SellPrice": "السعر",
+    "SIZE": "الحجم",
+    "SUPPLIER": "المورد",
+    "TIME": "الوقت",
+    "TOTAL": "الاجمالى",
+    "TOTALS": "المجموع",
+    "TOTALVAT": "اجمالى ق.م",
+    "TOTALAPPLICATION": "اجمالى التطبيق",
+    "UNIT": "الوحده",
+    "VAT": "ق.م",
+    "APPLICATONVALUE": "ق.التطبيق",
+    "COUNT": "عدد القطع"
+  },
+
+  "ACTIONS": {
+    "SAVEBILL": "انهاء",
+    "SAVE": "حفظ",
+    "EDIT": "تعديل",
+    "UPDATE": "حفظ التعديل",
+    "Delete": "حذف",
+    "PRINT": "طباعه",
+    "ID": "م",
+    "SEARCH": "بحث",
+    "NEW": "جديد",
+    "PAUSE": "تعليق",
+    "CLOSED": "اغلاق",
+    "CONFIRM": "تاكيد",
+    "REFRESH": "تحديث",
+    "CANCEL": "الغاء"
+
+  },
+  "STOCK": {
+    "ADDSTOCK": "إضافة مستودع",
+    "EMAIL": "البريد الإلكتروني",
+    "STATUS": "الحالة",
+    "STOCKINFORMATION": "معلومات المستودع",
+    "ISMAINSTOCK": "هو مستودع رئيسي؟",
+    "SAVESTOCK": "حفظ المستودع",
+    "CLOSE": "إغلاق"
+  },
+  "DATEMSGS": {
+    "OPENDATEHINT": "برجاء فتح اليوم",
+    "CURRENTDATEEXPIREDMSG": "مر على فتح اليوم اكثر من 24 ساعه برجاء فتح اليوم من جديد "
+  },
+  "ADMINSIDEBAR": {
+    "ADDPEOPLE": "اضافة عميل",
+    "APPLICATIONS": "التطبيقات",
+    "ADDBRANCHES": "ادارة الفروع ",
+    "APPLICATIONSREPORT": "تقرير التطبيقات",
+    "BILLSREPORT": "تقرير الفواتير",
+    "REORTDAILY": "تقرير اليومية",
+    "BOXMONYREPORT": "تقرير الخزنة",
+    "BUYINVOICE": "المشتريات",
+    "BUYITEMS": "اصناف الشراء",
+    "CHANGEPASS": "تغيير الرقم السرى",
+    "COMPANYINFO": "بيانات الشركة",
+    "CURRENCIES": "العملات",
+    "DAILY": "اليوميه",
+    "HOME": "الرئيسيه",
+    "ITEMSREPORT": "تقرير الاصناف",
+    "CATEGORIESREPORT": "تقرير الفئات",
+    "KITCHEN": "المطبخ",
+    "LOGOUT": "تسجيل الخروج",
+    "MENU": "قائمة الاسعار",
+    "PEOPLEACCOUNTSTATMENT": "كشف حساب العملاء",
+    "PEOPLES": "العملاء",
+    "PRICEOFFER": "عرض سعر",
+    "REPORTS": "التقارير",
+    "SELLINVOICE": "المبيعات",
+    "SELLITEMS": "اصناف البيع",
+    "SETTINGS": "الاعدادات",
+    "STORE": "المخزن",
+    "TABELMANAGMENT": "ادارة الطاولات",
+    "TABELS": "الطاولات",
+    "TAXS": "الضريبة",
+    "TYPETAXS": "نوع الضريبة",
+    "TAXSREPORT": "تقرير الضرائب",
+    "USERMANAGMENT": "ادارة  المستخدمين",
+    "USERTYPESMANAGMENT": "ادارة انواع المستخدمين",
+    "STOCK": "المخزن"
+  },
+  
+
+  "BANKS": {
+    "ADDBANK": "اضافة بنك",
+    "BankNameRequired": "من فضلك ادخل اسم البنك"
+  },
+  "BILLINVOICE": {
+    "ADDRESS": "العنوان",
+    "APPLICATIONNAME": "اسم التطبيق",
+    "BACKTOBARCODESEARCH": "الرجوع للبحث بالكود",
+    "BILLDATA": "البيانات",
+    "BILLINVOICE": "فاتورة بيع",
+    "CATEGORY": "الفئه",
+    "CHOOSEPEOPLE": "اختر العميل بالاسم او برقم الهاتف",
+    "ClientDepit": "مبلغ الدين",
+    "ClientPoints": "النقاط",
+    "CLIENTS": "العملاء",
+    "COST": "المبلغ",
+    "DISCOUNT": "الخصم الشامل",
+    "DISCOUNTEXCEED": "نسبة الخصم غير مسموح بها",
+    "EXTRAS": "الاضافات",
+    "EXTRASTOTAL": "اجمالى الاضافات",
+    "ITEMSCOUNT": "عدد الاصناف",
+    "ITEMSIZE": "حجم الصنف",
+    "LIMITEDQUANTITY": "الكميه فى المخزن غير كافيه",
+    "LOADMORE": "المزيد",
+    "NETTOTAL": "صافى المبلغ",
+    "NOITEMSINBILL": "لا يوجد اصناف فى هذه الفاتوره",
+    "N": "م",
+    "NOTENAME": "اسم الملاحظه",
+    "NOTES": "الملاحظات",
+    "PAIDNOTPERMITTED": "غير مسموح المدفوع اقل من صفر",
+    "PEOPLENAME": "اسم العميل",
+    "POINTS": "نقاط",
+    "PRICEOFFER": "عرض سعر",
+    "RATIO": "نسبه",
+    "SERVICEAX": "قيمة الخدمة",
+    "TOTALAFTERVAT": "إجمالى بعد ق.م",
+    "TOTALAFTERVATTAX": "الاجمالى بعد القيمه المضافه",
+    "TOTALBEFORVATANDSICOUNT": "الاجمالى قبل القيمه المضافه",
+    "TOTALBILLDISOUNT": "اجمالى الخصم على الفاتوره",
+    "TOTALDICOUNTS": "اجمالى الخصومات",
+    "TOTALNOTPERMITTED": "صافى المبلغ اقل من 1",
+    "TOTALQUANTITY": "اجمالى الكميه",
+    "TOTALVATTAX": "إجمالى ق.م",
+    "VALU": "قيمه",
+    "DELIVERY": "ديلفرى",
+    "WAITEDBILLS": "تعليق"
+  },
+  "PEOPLES": {
+    "ADDPEOPLE": "اضافة عميل او مورد",
+    "CLIENTORSUPPLIER": "عميل او مورد",
+    "PEOPLEDATA": "بيانات العملاء او الموردين",
+    "ISCLIENT": "هل هو عميل  ?",
+    "CLietCategoryn": "التصنيف",
+    "PHONE": "رقم الهاتف",
+    "NUMBERCAR": "رقم السيارة",
+    "BANK": "البنك التابع له",
+    "BANKACCOUNTNUM": "رقم الحساب",
+    "DEPITS": "المدين| عليه",
+    "CREDITS": "الدائن |له",
+    "CURRENTBALANCE": "الرصيد الحالى",
+    "TAXNUMBER": "الرقم الضريبى",
+    "ADDTIONALDATA": "بيانات اضافيه",
+    "REMEMBERME": "ذكرنى بمراجعة الحساب",
+    "REMEMBERDATE": "تاريخ التذكير",
+    "DEACTIVATE": "تفعيل الحساب",
+    "BANKS": "البنوك",
+    "NOTES": "ملاحظات",
+    "CLIENTDISCOUNTRATIO": "نسبة الخصم على المبيعات",
+    "ACCOUNTSDATA": "حساب العملاء او الموردين",
+    "PEOPLENAMEREQUIRED": "ادخل اسم العميل",
+    "PEOPLECATEGORYREQUIRED": "من فضلك ادخل تصنيف العميل",
+    "PEOPLETYPEREQUIRED": "من فضلك اختر مورد او عميل",
+    "PEOPLEALREADYEXIST": "هذا العميل موجود من قبل",
+    "SELECTPEOPLE": "من فضلك اختر احد الاشخاص",
+    "BILLTYPE": "نوع الفاتوره",
+    "DISCOUNTTYPE": "نوع الخصم",
+    "BILLTOTAL": "اجمالى الفاتوره",
+    "PEOPLEDETAILS": "بيانات العميل",
+    "CATEGORY": "التصنيف",
+    "CANCELACCOUNT": "الغاء تفعيل الحساب !"
+  },
+  "REPORTS": {
+    "TODAYDATE": "تاريخ اليوم",
+    "TRANSACTIONDATE": "تاريخ الحركه",
+    "FROMDATE": "من",
+    "TODATE": "الى ",
+    "MIGRATEBILLS": "ترحيل الى الخزنه",
+    "COUNT": "العدد",
+    "CASH": "نقدى",
+    "VISA": "فيزا",
+    "PAIDREMAINING": "اجل مدفوع",
+    "REMAINING": "اجل متبقى",
+    "SALES": "المبيعات",
+    "RETRIVEDSALES": "مرتجع المبيعات",
+    "Purchases": "المشتريات",
+    "RetraivedPurchases": "مرتجع المبيعات",
+    "CASHING": "صرف",
+    "CATCHING": "قبض",
+    "ISKABDHINT": "لكى تتمكن فتح هذا الاختيار لابد من اختيار سند قبض او صرف",
+    "AMOUNTTYPE": "نوع المبلغ",
+    "ADDTOCLIENT": "اضافة لعميل او مورد",
+    "N": "N",
+
+    "TRANSACTIONTYPEREQUIRED": "من فضلك اختر نوع الحركة",
+    "AMOUNTTYPEREQUIRED": "من فضلك اختر نوع المبلغ",
+    "EMPLOYEETYPEREQUIRED": "من فضلك اختر الموظف",
+    "TRANSACTIONADDED": "تم اضافة الحركه الى الخزنه بنجاح",
+    "BILLSMIGRATED": "تم ترحيل الفواتير بنجاح",
+    "SUMMERY": "الملخص",
+    "BILLS": "الفواتير",
+    "ADDTRANSACTION": "اضافة حركه الى الخزينه",
+    "NETAMOUNT": "صافى المبلغ",
+    "FROM": "من",
+    "TO": "الى",
+    "BILLREPORTS": "تقرير الفواتير  "
+
+  },
+  "SETTINGS": {
+    "TITLE": "الاعدادات",
+    "CASHIR": "طابعة الكاشير",
+    "DEFAULTPRINTER": "الطابعة الافتراضيه",
+    "PRINTERTYPE": "نوع الطابعه",
+    "BARCODEPRINTER": "طابعة الباركود ",
+    "PRINTERNAME": " اسم الطابعة "
+  },
+
+  "DASHBOARD": {
+    "TODAYBUY": "مصروفات اليوم",
+    "MONTHLYSALES": "مبيعات الشهر",
+    "DEFAULTPRINTER": "عدد طلبات الدليفرى",
+    "TODAYREQUESTS": "عدد الطلبات اليوم",
+    "DELIVERYREQUESTS": "عدد الطلبات الدليفرى اليوم",
+    "TABELREQUESTS": "عدد الطلبات الطاوله اليوم",
+    "BESTSALES": "الافضل مبيعات"
+  },
+
+  "ITEMS": {
+    "ADDCATEGORY": "إضافة الفئات",
+    "ADDITEM": "إضافة الاصناف",
+    "ADDUNIT": "إضافة النوع",
+    "BROWSEIMAGE": "استعراض",
+    "ITEMDETAILS": "بيانات الصنف",
+    "ITEMIMAGE": "صورة الصنف",
+    "ITEMPRICES": "الاسعار و الكمية",
+    "ITEMS": "الاصناف",
+    "NAMEAR": "الاسم العربى",
+    "NAMEEN": "الاسم بالانجليزى",
+    "SEARCHFORITEMS": "بحث عن الاصناف   ",
+    "SELECTCATEGORY": "أختر الفئة",
+    "SELECTUNIT": "اختار النوع"
+  },
+  "MENUE": {
+    "EXTRAOPTIONS": "خيارات اضافة",
+    "ADDTOCHART": "أضافة الى السله   "
+  },
+  "BOXMONYCATEGORY": {
+    "ISCREDIT": "  دائن  ",
+    "ISDEBIT": " مدين   ",
+    "SIZENAMEAR": "الحجم بالعربى",
+    "SIZENAMEEN": "الحجم بالانجليزيه   "
+  },
+  "CHANGEPASSWORD": {
+    "CHANGEPASSWORD": "تغيير الرقم السرى",
+    "CURRENTPASSWORD": "الرقم السرى الحالى",
+    "NEWPASSWORD": "الرقم السرى الجديد",
+    "CONFIRMPASSWORD": "تاكيد  الرقم السرى "
+  },
+  "COMPONENTS": {
+    "COMPONENTNAME": "اسم المكون"
+  },
+  "ITEMCATEGORY": {
+    "ADDPRINTER": "اضف  طابعه",
+    "BILLINVOICESHOW": "إظهار فى فاتورة البيع",
+    "CATEGORYNAMEAR": "  الفئه عربي",
+    "CATEGORYNAMEEN": "  الفئه انجليزى",
+    "PRINTERNAME": "اسم الطابعه",
+    "SELLINVOICESHOW": "إظهار فى فاتورة الشراء"
+  },
+  "ITEMPRICE": {
+    "ADDSIZE": "اضافة حجم",
+    "DEFAULT": "افتراضى",
+    "ADDITEMCATEGORY": "أضافة مكونات الصنف"
+
+
+  },
+
+  "ITEMSIZE": {
+    "SIZENAMEAR": "الحجم بالعربى",
+    "SIZENAMEEN": "الحجم بالانجليزيه   "
+
+
+  },
+  "COMPANYINFO": {
+    "ADD": "أضافة الصنف",
+    "ADDRESS": "العنوان",
+    "BRANCH": "ادارة الفروع",
+    "BROWSEIMAGE": "استعراض",
+    "DELETE": "حذف",
+    "LOGO": "الشعار",
+    "NAMEAR": "الاسم العربى",
+    "NAMEEN": "الاسم بالانجليزى",
+    "NOTE": "الملاحظات",
+    "PHONE": "الهاتف"
+  },
+
+  "UNIT": {
+    "SIZENAMEAR": "الوحدة بالعريى",
+    "SIZENAMEEN": "الوحده بالانجليزيه",
+    "BILLINVOICESHOW": "إظهار فى فاتورة البيع",
+    "SELLINVOICESHOW": "إظهار فى فاتورة الشراء"
+  },
+
+  "ITEMBUY": {
+    "ITEMBUY": "شراء صنف",
+    "SIZENAMEEN": "الوحده بالانجليزيه",
+    "BILLINVOICESHOW": "إظهار فى فاتورة البيع",
+    "BUYPRICE": "سعر الشراء",
+    "MINSELLPRICE": "الحد الادنى سعر بيع",
+    "MINQUANTITY": "اقل كمية للصنف",
+    "FIRSTQUANTITY": "رصيد اول المدة",
+    "CURRENTQUANTITY": "إجمالى الرصيد الحالى",
+    "BARCODE": "الباركود",
+    "BARCODE1": "1 الباركود",
+    "BARCODE2": "الباركود 2",
+    "BARCODE3": "الباركود 3",
+    "ITEMCODE": "كود الصنف "
+  },
+
+  "KITCHEN": {
+    "ORDERCANCELED": "تم الغاء الطلب",
+    "REQUESTNUMBER": "رقم الطلب",
+    "TABLENUMBER": "رقم الطاولة",
+    "CAPTINORDER": "كابتن اوردير",
+    "BILLTYPE": "نوع الفاتورة",
+    "ACCEPTORDER": "قبول الطلب",
+    "NOTES": "الملاحظات",
+    "FINISH": "انهاء    "
+
+
+  },
+
+  "BILLREPORT": {
+    "BILLNUMBER": "رقم الفاتوره",
+    "BILLTYPE": "نوع الفاتوره",
+    "SERVICEFEES": "ضريبة الخدمه",
+    "VATTAX": "ضريبة الخدمه",
+    "BILLCOUNT": "عدد الفواتير",
+    "BILLTOTAL": "إجمالى الفواتير",
+    "CASHCOUNT": "إجمالى الكاش",
+    "VISATOTAL": "إجمالى الفيزا",
+    "AGELTOTAL": "إجمالى الاجل",
+    "DICOUNTTOTAL": "إجمالى الخصم"
+
+
+  },
+
+  "CUSTOMERREPORT": {
+    "CUSTOMERREPORT": "تقرير العملاء "
+  },
+  "TABELS": {
+    "TABLES": "الطاولات",
+    "TABLEMANAGMENT": "ادارة الطاولات",
+    "TABLENUMBER": "رقم الطاوله",
+
+    "NAMEAR": "الاسم العربى",
+    "NAMEEN": "الاسم بالانجليزى",
+    "STARTFROM": "تبدا من",
+    "ENDFORM": "تنتهى عند",
+    "TABLE": "طاولة",
+
+    "CATEGORY": "الفئة",
+    "LASTORDER": "اخر طلب قبل",
+    "MINUTE": "دقيقه",
+    "SINCE": "منذ",
+    "OPENTABLE": "فتح الطاولة",
+    "MERGETABLE": "دمج الطاولة",
+    "TRANSFERTABLE": "نقل الطاوله",
+    "TRANSFER": "نقل",
+    "COUNTS": "العدد "
+
+
+  },
+  "USERS": {
+    "ACTIVE": "تفعيل ",
+    "BRANCH": "الفرع",
+    "EMAIL": "البريد الالكترونى",
+    "FIRSTNAME": "الاسم الاول",
+    "INVALID": "أو غير صالح",
+    "KITCHENCATEGORIES": "فئات المطبخ",
+    "LASTNAME": "الاسم الاخير",
+    "PASSWORD": "الرقم السرى",
+    "ROLES": "الصلاحيات",
+    "USERNAME": "اسم المستخدم",
+    "USERS": "المستخدمين",
+    "USERTYPE": "نوع المستخدم"
+  },
+  "USERSTTYPES": {
+    "USERTYPEMANAGMENT": "ادارة انواع المستخدمين",
+    "USERTYPENAMEAR": "نوع المستخدم بالعريى",
+    "ROLE": "الصلاحية",
+
+    "USERTYPENAMEEN": "نوع المستخدم بالانجليزى",
+    "ROLES": "الصلاحيات"
+
+
+  },
+  "REPORTTODAY": {
+    "ADDTOBOXMONY": "إضافة حركة خزنة",
+    "ADDTRANSACTION": "أضافة الحركة لعميل او مورد",
+    "AGEL": "اجل",
+    "BILLNUMBER": "رقم الفاتوره",
+    "BILLS": "الفواتير",
+    "CASH": "نقدى",
+    "COUNTS": "العدد",
+    "CREDIT": "الدائن |له",
+    "CURRENCIESDETAILS": "تفاصيل العملات",
+    "CURRENCIESTOTAL": "اجمالى العملات",
+    "DATE": "التاريخ",
+    "DEPIT": "المدين | عليه",
+    "KABD": "قبض",
+    "KABDORSARF": "لتتمكن من تحديد هذا الخيار يجب أختيار سند قبض او سند صرف فقط من الفئة",
+    "MORTAG3PURCHASES": "مرتجع مشتريات",
+    "MORTAG3SALES": "مرتجع مبيعات",
+    "NET": "الصافي",
+    "NETTOTAL": "صافى المبلغ",
+    "NOTIC": "البيان",
+    "CATEGORY": "الفئة",
+    "BOXMONY": "الخزنة",
+    "PEOPLE": "العميل",
+    "PHONE": "الهاتف",
+    "PRINT": "طباعة",
+    "'": null,
+    "PURCHASES": "المشتريات",
+    "PRINTITEMSUMMRY": " طباعة أصناف اليوم ",
+    "PRINTSUMMRYTODAY": " طباعة ملخص اليوم ",
+    "QUANTITY": "الكميه",
+    "REQUESTNUMBER": "رقم الطلب",
+    "SALES": "المبيعات",
+    "SARF": "صرف",
+    "SUMMERY": "الملخص",
+    "TABLENUMBER": "رقم الطاوله",
+    "TIME": "الوقت",
+    "TOTAL": "الاجمالى",
+    "DIFFERENCE": "الفرق",
+    "TRANSACTIONTYPE": "نوع الحركه",
+    "VAT": "ق.م",
+    "VISA": "فيزا"
+  },
+  "GENERALSETTINGS": {
+    "GENERALSETTINGS": "الاعدادات العامه",
+    "COUNTRY": "الدوله",
+    "CASHIERPRINTER": "طابعة الكاشير",
+    "DEFAULTPRINTER": "الطابعه الافتراضيه",
+    "CLOSEEDITPRICE": "ايقاف تعديل سعر الصنف",
+    "CLOSEEDITTAX": "ايقاف تعديل الضرائب",
+    "ACTIVE": "تفعيل",
+
+    "ADDAPPLICATION": "اضافة تطبيق",
+    "APPLICATIONDETAILS": "بيانات التطبيق",
+    "NAMEAR": "الاسم العربي",
+    "NAMEEN": "الاسم بالانجليزى",
+    "VALUE": "القيمه",
+    "APPIMAGE": "صورة التطبيق",
+    "BROWSE": "استعراض",
+    "DELETE": "حذف",
+
+    "APPS": "التطبيقات",
+    "CURRENCIES": "العملات",
+    "DEFAULTPRICE": "السعر الافتراضى",
+    "TAX": "الضرائب"
+
+
+
+
+  },
+  "PRINTERS": {
+    "DISPLAYPRINTERNAMEAR": "اسم العرض العربى",
+    "DISPLAYPRINTERNAMEEN": "اسم العرض بالانجليزى",
+    "NUMBEROFCOPIES": "عدد النسخ",
+    "PRINTERNAME": "اسم الطابعه ",
+
+    "ADDPRINTER": "   الطابعة  "
+
+
+  },
+  "APPLICATIONS": {
+    "APPLICATIONTYPE": "نوع التطبيق",
+    "ADDAPPLICATION": "إضافة تطبيق",
+    "APPLICATIONDETAILS": "بيانات التطبيق",
+
+    "NAMEAR": "الاسم العربى",
+    "NAMEEN": "الاسم بالانجليزى",
+    "VALUE": "القيمة",
+    "APPIMAGE": "صورة التطبيق",
+    "BROWSE": "استعراض",
+    "DELETE": "حذف",
+    "APPS": "التطبيقات"
+
+  },
+
+  "BRANCHES": {
+    "ADDBRANCHE": "اضافة فرع",
+    "BRANCHES": "الفروع",
+    "DETAILS": "بيانات الفرع",
+    "COMPANYNAME": "أسم الشركة",
+    "NAMEAR": "الأسم العربي",
+    "NAMEEN": "الأسم بالانجليزى",
+    "SERCH": "بحث"
+  },
+
+  "Messages": {
+    "ADDENGLISHNAME": "من فضلك ادخل اسم الصنف (انجليزى",
+    "ADDONEPRICE": "من فضلك اضف سعر واحد على الاقل",
+    "BILLPAUSED": "تم تعليق الفاتوره بنجاح",
+    "BILLSAVED": "تم حفظ الفاتوره بنجاح",
+    "APPLICATIONEXIST": "عفوا التطبيق موجود من قبل",
+    "PRINTEXIST": "عفوا الطابعة موجودة بالفعل",
+    "COMPLETEDATA": "من فضلك اكمل البيانات",
+    "DeleteConfirm": "هل تريد تأكيد الحذف ؟",
+    "DeletedSucsses": "تم الحذف بنجاح..",
+    "ITEMEXIST": "عفوا الصنف موجود من قبل",
+    "ITEMPRICECHECK": " من فضلك أختر سعر إفتراضي واحد فقط ",
+    "ITEMSREQUIRED": "لم يتم الحفظ من فضلك اضف الأصناف",
+    "NODELIVERYFORTABLES": "عفوا !  لابد اختيار محلى فى حالة اختيار طاولة",
+    "REQUIRDDELIVERY": "عفوا !  لابد اختيار ديلفرى فى حالة اختيار تطبيق",
+    "PEOPLEEXIST": "عفوا  الأسم موجود بالفعل لا يمكن اضافتة",
+    "PEOPLEREQUIRED": "لايمكن حفظ فاتورة آجل دون اختيار عميل",
+    "PEOPLESAVED": "تم حفظ العميل بنجاح..",
+    "PRICEOFFERSAVED": "تم حفظ عرض السعر بنجاح",
+    "PRICESSAVED": "تم حفظ العميل بنجاح",
+    "SavedSucsses": "تم الحفظ بنجاح..",
+    "SELECTCATEGORY": "من فضلك اختر الفئة",
+    "SELECTLANGUAGE": "من فضلك اختر اللغة",
+    "SELECTUNIT": "من فضلك اختر الوحده",
+    "SENDBILL": "تم إرسال الطلب بنجاح ",
+    "SIZEEXIST": "عفوا الصنف موجود من قبل",
+    "USEREXIST": "عفوا إسم المستخدم موجود من قبل",
+    "TABLEEXIST": "عفوا الطاولة مشغولة بالفعل من فضلك أختر طاولة أخرى",
+    "TABLENOTBUSY": " عفوا الطاولة المطلوبة  مشغولة ! تأكد من رقم الطاولة ",
+    "ITEMSIZENOTDELETED": " عفوا لايمكن حذف هذا الحجم لأنه مربوط بأسعار (يمكنك التعديل ) ",
+    "TABLENULL": "لايمكن إرسال الطلب دون اختيار طاولة",
+    "UNEXPEXTED": "خطاء غير متوقع",
+    "ERRORSAVE": "خطأ فى الحفظ",
+    "FieldIsRequired": "  هذا الحقل مطلوب ",
+    "PASSWORDINVALID": "تأكد من الرقم السري",
+    "ERRORPASSWORD": "   يجب أن يحتوى الرقم السري  على حروف وأرقام مثال (A1234f)   ",
+    "TABLEREQUIRED": "من فضلك اختر طاولة فى حالة اختيار",
+    "PLACEREQUIRED": "  ( الدور ) من فضلك اختر مكان الطاولة",
+    "CHEACKPRINT": " هل تريد طباعة اليوم ؟ ",
+    "TABLEMOVE": " تم نقل الطاولة بنجاح ",
+    "TABLEOPEN": " تم فتح الطاولة بنجاح ",
+    "PRINTSUCCESS": " تم الطباعة  ",
+    "WORNINGCOMPONENT": " عفوا لايمكنك الوصول لهذه الصفحة ( برجاء التواصل مع إيزاك ) ",
+    "UpdatedSucsses": "تم التعديل بنجاح.."
+  }
+
+} 

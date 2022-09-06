@@ -1,0 +1,123 @@
+.tawlas{
+  margin-top: 10px;
+}
+.tawlas .col-md-12{
+  padding: 0px;
+}
+.tawlas .tawlatablees{
+  height: 96vh;
+}
+.tawla .twlDetalis.tawlaEmpty{
+  background-color: #ccefdb;
+}
+.invCatMore button i {
+  color: #d14141;
+}
+.tawla .twlOptian.tawlaEmpty{
+  border-color: #ccefdb;
+}
+.tawla .twlDetalis.tawlaBusy, .tawla .twlOpen.tawlaBusy {
+  background-color: #ffd8d9;
+}
+
+.tawla .twlOptian.tawlaBusy {
+  border-color: #ffd8d9;
+}
+.close-btne {
+  margin-left: -14px;
+  border: none;
+}
+.twlOpen button {
+  height: 40px;
+  border: 1px solid #888;
+  background-color: #fff;
+  color: #d14141;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0px 10px;
+  font-size: 18px;
+}
+.twlOpen button:hover {
+  background-color: #d14141;
+  border-color: #d14141;
+  color: #fff;
+}
+
+.twlOpen {
+  text-align: center;
+  height: 63%;
+  position: absolute;
+  width: 93%;
+  left: 5px;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+.twlOptian .modal-header button {
+  margin: 0;
+  padding: 0;
+  width: 35px;
+  height: 35px;
+  opacity: 1;
+  border: none;
+}
+.twlOptian .modal-header button span {
+  opacity: 0.7;
+}
+.twlOptian .modal-header button:hover {
+  color: #d14141;
+  background-color: transparent;
+}
+.twlOptian .modal-header button:hover span {
+  opacity: 1;
+}
+.twlOptian .modal-footer {
+  justify-content: center;
+}
+.twlOptian .modal-footer button {
+  width: 20%;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+/*.twlOptian .tawlaMove {
+  
+}*/
+.twlOptian .tawlaMove span {
+  font-weight: bold;
+  color: #484848;
+}
+.twlOptian .tawlaMove select {
+  width: 50%;
+  height: 35px;
+  padding-right: 10px;
+}
+.tables {
+  width: 10%;
+  padding: 0px 5px;
+  position: relative;
+  float: right;
+}
+.tawla .twlOptian button:nth-child(3) {
+  margin-left: 0;
+}
+::ng-deep .tables .mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 5px 0px 5px 0px;
+  border-top-width: 5px;
+}
+::ng-deep .tables .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #d14141;
+}
+::ng-deep .tables .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+  transform: translateY(0%);
+}
+::ng-deep .tables .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: #d14141;
+}
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #d14141;
+}
+::ng-deep .invWait .tables {
+  width: 14%;
+}

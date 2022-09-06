@@ -1,0 +1,107 @@
+<div class="user">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="itemContainer">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-md-7 itemaddress">
+								<h1><i class="btnRemove material-icons">person_add</i> إضافة مستخدم</h1>
+							</div>
+							<div class="col-md-5 itemBtnSave">
+								<button mat-raised-button  [hidden]="!isnew">حفظ <i class="btnSave far fa-save"></i></button>
+								<button mat-raised-button  [hidden]="isnew">تعديل <i class="btnAdd far fa-edit"></i></button>
+								<button mat-raised-button (click)="clear()">جديد <i class="btnRemove material-icons">replay</i></button>
+							</div>
+						</div>
+					</div>
+
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="itemDetails">
+											<h2><i class="far fa-file-alt"></i> بيانات المستخدم</h2>
+											<mat-form-field appearance="outline">
+												<mat-label>الإسم</mat-label>
+												<input matInput>
+											</mat-form-field>
+											<mat-form-field appearance="outline">
+												<mat-label>الإسم</mat-label>
+												<input matInput>
+											</mat-form-field>
+											<mat-form-field appearance="outline">
+												<mat-label>كلمة السر</mat-label>
+												<input matInput type="password">
+											</mat-form-field>
+											<mat-form-field appearance="outline">
+												<mat-label>الصلاحية</mat-label>
+												<mat-select>
+													<mat-option>
+														
+													</mat-option>
+												</mat-select>
+											</mat-form-field>
+											<button mat-icon-button class="btnAdd">
+												<mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+											</button>
+											<mat-form-field appearance="outline">
+												<mat-label>الخزنة</mat-label>
+												<mat-select>
+													<mat-option >
+														
+													</mat-option>
+												</mat-select>
+											</mat-form-field>
+											<button mat-icon-button class="btnAdd">
+												<mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+											</button>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="itemImage">
+											<h2><i class="far fa-image"></i> صورة المستخدم</h2>
+											<input #file type="file" id="ImgItm" (change)="detectFiles(file.files);readURL($event);" accept="image/*" />
+											<img id="blah" for="ImgItm" [src]="imageSrc" alt="your image" />
+											<div class="itemImageBtn">
+												<label class="uploadImgItm" for="ImgItm">
+													<i class="far fa-image"></i>
+													استعراض
+												</label>
+												<button (click)="clearimg()">
+													<i class="far fa-times-circle"></i>
+													حذف
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="itemList">
+									<h2><i class="far fa-file-alt"></i>  المستخدمين</h2>
+									<div class="listSearch">
+										<i class="fas fa-search"></i>
+										<input type="text" placeholder="بحث عن مستخدم">
+									</div>
+									<div class="listItm">
+										<div class="actionLink">
+											<ng-container>
+												<div class="actionLink">
+													<label>أسم المستخدم</label>
+													<button><i class="far fa-trash-alt"></i></button>
+												</div>
+											</ng-container>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

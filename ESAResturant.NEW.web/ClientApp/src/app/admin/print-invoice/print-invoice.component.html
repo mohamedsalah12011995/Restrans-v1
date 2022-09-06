@@ -1,0 +1,122 @@
+<div class="printInv text-right">
+		<!-- <div class="printInvHeader">
+		  <img src="../../../assets/img/printInvoice.png" alt="Bar Code" width="100">
+		</div> -->
+		<div class="printInvDetails">
+		  <div class="row">
+			<!-- <div class="col-md-5">
+			  <label>
+				<strong>رقم الفاتورة</strong>
+				<span>{{printablebill.orderNo}}</span>
+			  </label>
+			  <label>
+				<strong>العميل</strong>
+				<span>{{printablebill.pepoleName}}</span>
+			  </label>
+			</div> -->
+			<div class="col-md-5">
+			  <label>
+				<strong>رقم الطلب</strong>
+				<span>{{printablebill.orderNo}}</span>
+			  </label><br/>
+			  <label>
+				<strong>العميل</strong>
+				<span>{{printablebill.pepoleName}}</span>
+			  </label><br/>
+			  <label>
+				<strong>الهاتف</strong>
+				<span>-</span>
+			  </label><br/>
+			  <!-- <label>
+				<strong>الكاشير</strong>
+				<span>Admin</span>
+			  </label> -->
+			</div>
+			<div class="col-md-7">
+			  <label>
+				<strong>التاريخ</strong>
+				<span>{{printablebill.date | date:'dd-MM-yyyy'}}</span>
+			  </label><br/>
+			  <label>
+				<strong>الوقت</strong>
+				<span>{{printablebill.date | date:'hh:mm aaa'}}</span>
+			  </label><br/>
+			  <label>
+				<strong>الرقم الطاولة</strong>
+				<span>{{printablebill.tableNo}}</span>
+			  </label><!-- <br/>
+			  <label>
+				<strong>مواظف المبيعات</strong>
+				<span>هيثم عصام</span>
+			  </label> -->
+			</div>
+		  </div>
+		  <div class="printInvTable text-center">
+			<table>
+			  <thead>
+				<tr>
+				  <th>الصنف</th>
+				  <th>الكمية</th>
+				  <th>السعر</th>
+				  <th>ق.ف</th>
+				  <th>الاجمالى</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr *ngFor="let billdetail of printablebill.billDetails; let i=index" id="billdetail{{i+1}}">
+				  <td> {{billdetail.item.nameAR}} - ({{billdetail.itemPrice.itemSize.sizeNameAr}})</td>
+				  <td>{{billdetail.qty}}</td>
+				  <td>{{billdetail.itemSellPrice | number:'0.2-2'}}</td>
+				  <td>{{billdetail.vatTax | number:'0.2-2'}}</td>
+				  <td>{{billdetail.totalAfterVatTax | number:'0.2-2'}}</td>
+				</tr>
+			  </tbody>
+			</table>
+		  </div>
+		  <div class="printInvSum">
+			<div class="row">
+			  <div class="col-md-6">
+				<label>
+				  <strong>عدد القطع</strong>
+				  <span>{{printablebill.totalQty}}</span>
+				</label>
+				<label>
+				  <strong>المدفوع</strong>
+				  <span>{{printablebill.paied}}</span>
+				</label>
+				<label>
+				  <strong>الباقى</strong>
+				  <span>{{printablebill.remaining}}</span>
+				</label>
+			  </div>
+			  <div class="col-md-6">
+				<label>
+				  <strong>اجمالى ق.م</strong>
+				  <span>{{printablebill.supTotal}}</span>
+				</label>
+				<label>
+				  <strong>الخصم</strong>
+				  <span>{{printablebill.descountValue}}</span>
+				</label>
+				<label>
+				  <strong>نوع الدفع</strong>
+				  <span>{{printablebill.paymentType.nameAR}}</span>
+				</label>
+			  </div>
+			  <div class="col-md-12">
+				<h3>
+				  <label>الميلغ المطلوب</label>
+				  <span>{{printablebill.netTotal}}</span>
+				</h3>
+			  </div>
+			</div>
+		  </div>
+		  <div class="printInvFooter">
+			<p>
+			  Power By Easy Account<br />
+			  Eas Acc | إيزاك<br />
+			  www.EasAcc.com
+			</p>
+		  </div>
+		</div>
+	  </div>

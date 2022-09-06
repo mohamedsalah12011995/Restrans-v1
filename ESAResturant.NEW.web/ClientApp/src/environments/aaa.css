@@ -1,0 +1,3157 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* @import url("./assets/Fonts/El_Messiri/ElMessiri-Medium.ttf"); */
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=El+Messiri:400,500,700&display=swap&subset=arabic'); */
+/* font-family: Roboto, "Helvetica Neue", sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'El Messiri', sans-serif;
+font-family: 'Cairo', sans-serif;
+*/
+a:hover{
+  color: #fff;
+}
+thead.thead-darkFelexRow {
+  display: flex;
+}
+
+.tableFelexRow {
+  display: flex;
+}
+a:not([href]):not([tabindex]){
+  cursor: pointer;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0;
+}
+.mat-form-field input[type=date]::-webkit-inner-spin-button, 
+.mat-form-field input[type=date]::-webkit-calendar-picker-indicator { 
+  display: none;
+  -webkit-appearance: none;
+}
+body, button span, .mat-button, .mat-stepper-horizontal, .mat-stepper-vertical{
+  font-family: 'Cairo', sans-serif;
+}
+
+::selection {
+  background: #bb3b3a;
+  color: #fff;
+}
+.hiden{
+  display: none;
+}
+/*Sign in */
+button.btn-submit {
+  background-color: #38547b;
+  color: #fff;
+  width: 100%;
+}
+
+  button.btn-submit:focus, button.btn-submit:hover {
+    background-color: #38547b;
+  }
+
+/*for error div i*/
+div.error-message i {
+  vertical-align: middle !important;
+}
+
+/*for tab control*/
+.tabs {
+  height: 65px;
+}
+
+  .tabs .tab {
+    text-transform: none !important;
+    line-height: 65px;
+    height: 65px;
+  }
+
+    .tabs .tab a {
+      font-size: 25px;
+      color: grey !important;
+    }
+
+      .tabs .tab a.active {
+        background-color: #fff !important;
+      }
+/* End Sing-in*/
+.modal-header {
+  border-bottom: 3px solid #a33939;
+}
+.modal-footer {
+  border-top: 3px solid #a33939;
+}
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+/********************
+    Start CSS Loading
+********************/
+body, html {
+  height: 100%;
+}
+
+.visaList {
+  display: inline-block;
+  width: 30%;
+}
+
+.app-loading .logo {
+  width: 91px;
+  height: 127px;
+  background: url(./assets/img/logo.png) center center no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 25%;
+  bottom: 0;
+  left: 15%;
+  right: 0;
+  margin: auto;
+}
+
+.app-loading {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+  .app-loading .spinner {
+    height: 100vh;
+    width: 200px;
+    animation: rotate 2s linear infinite;
+    transform-origin: center center;
+    position: absolute;
+    top: 25%;
+    bottom: 0;
+    left: 15%;
+    right: 0%;
+    margin: auto;
+  }
+
+    .app-loading .spinner .path {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+      animation: dash 1.5s ease-in-out infinite;
+      stroke-linecap: round;
+      stroke: #ddd;
+    }
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+/********************
+    End CSS Loading
+********************/
+a:hover {
+  text-decoration: none;
+}
+
+.actionLink {
+  cursor: pointer;
+}
+
+body {
+  background-color: #eee;
+}
+
+input, select, textarea {
+  border: 1px solid #999;
+  background-color: #fff;
+  outline: none;
+  padding: 0px;
+  color: #000000;
+  transition: all 0.3s;
+  /* width:35px; */
+  /* text-align:center; */
+}
+
+/* input:focus, select:focus, textarea:focus {
+    border-bottom-color: #d14141;
+    /* border-bottom-width: 3px;
+    box-shadow: 0px 0px 3px 1px #d14141;
+    border-color: transparent;
+  } */
+
+/********************
+    Start CSS Log In
+********************/
+.loginHeader {
+  background-image: url('../src/assets/img/image.jpg');
+  height: 50vh;
+  background-size: contain;
+  background-position: top;
+}
+
+.loginHeadercolor {
+  height: 100%;
+  background-color: rgba(220, 53, 69, 0.9);
+}
+
+.loginBody {
+  position: relative;
+  top: -80px;
+  height: 50vh;
+}
+
+.logo {
+  display: inline-block;
+  margin-bottom: 30px;
+  width: 150px;
+  height: 150px;
+}
+
+  .logo img {
+    border: 5px solid #ddd;
+    border-radius: 100%;
+    width: 100%;
+    height: 100%;
+  }
+
+  .logoinForm input {
+    border: 0px solid #eb4253;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    border-bottom-width: 3px;
+    outline: none;
+    background-color: #fff;
+  }
+
+    .logoinForm input[type=text], .logoinForm input[type=password] {
+      width: 100%;
+      padding: 10px;
+    }
+
+  .logoinForm label {
+    /* background-color: #fff;
+    border:2px dotted #00f;
+    display:block; */
+    color: #dc3545ed;
+    cursor: pointer;
+    width: 32.33%;
+  }
+
+  .logoinForm input[type=checkbox] {
+    transform: scale(1.5);
+  }
+
+  .logoinForm input[type=checkbox] {
+    width: 20px;
+    height: 17px;
+    margin-right: 35px;
+    margin-left: 9px;
+    cursor: pointer;
+    font-size: 9px;
+    visibility: hidden;
+  }
+
+.logForm {
+  display: inline-block;
+  width: 100%;
+}
+
+.logoinForm input[type=checkbox]:after {
+  content: "";
+  background-color: #fff;
+  display: inline-block;
+  margin-left: 10px;
+  padding-bottom: 5px;
+  color: #dc3545;
+  width: 20px;
+  height: 20px;
+  visibility: visible;
+  border: 1px solid #888;
+  padding-left: 3px;
+  border-radius: 3px;
+}
+
+.logoinForm input[type=checkbox]:checked:after {
+  content: "\f00c";
+  font-family: 'Font Awesome\ 5 Free';
+  padding: 0px 3px;
+  font-weight: bold;
+  font-size: 12px;
+  color: #dc3545;
+}
+
+.logoinForm button {
+  cursor: pointer;
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(to left, #aa0e23 0%, #f54a5a 100%);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 5.5s ease;
+}
+
+  .logoinForm button:hover {
+    background: linear-gradient(to right, #aa0e23 0%, #f54a5a 100%)
+  }
+/********************
+    End CSS Log In
+********************/
+
+/********************
+    Start CSS Header
+********************/
+.header {
+  padding: 5px 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  box-shadow: 0px 0px 9px 0px #666;
+  background-color: #fff;
+  height: 59px;
+}
+
+  .header button {
+    border: none;
+    background-color: transparent;
+  }
+
+  .header .dropdown {
+    display: inline-block;
+  }
+
+  .header .dropdown-item {
+    text-align: right;
+  }
+
+  .header .dropdown-menu.show {
+    margin-top: 1.4px;
+    border-radius: 0px;
+    margin-left: 8px;
+  }
+
+  .header i, .header button {
+    color: #bebdcb;
+    cursor: pointer;
+  }
+
+.navAccount label {
+  color: #565759;
+  margin: 0px 10px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.navAccount {
+  display: inline-block;
+  border-right: 2px solid #eee;
+  padding-right: 11px;
+  margin-right: 10px;
+}
+
+  .navAccount img {
+    border-radius: 100%;
+  }
+
+.navMassage {
+  display: inline-block;
+}
+
+  .navMassage i {
+    margin-right: 10px;
+  }
+
+.navSystem {
+  background-color: #bb3b3a;
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  height: 60px;
+  padding: 18px 0px;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+  .navSystem h1 {
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    direction: ltr;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+    .navSystem h1 button {
+      background-color: #d14141;
+      border: 1px solid #fff;
+      color: #fff;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+      .navSystem h1 button i {
+        color: #fff;
+      }
+
+      .navSystem h1 button:hover {
+        background-color: #fff;
+        border: 1px solid #fff;
+        color: #d14141;
+        outline: none;
+        cursor: pointer;
+      }
+
+        .navSystem h1 button:hover i {
+          color: #d14141;
+        }
+/********************
+    End CSS Header
+********************/
+
+/********************
+    Start CSS Side Bar
+********************/
+.sidebar {
+  padding: 0px;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  right: -2px;
+}
+
+.sidebarMenu {
+  height: 100vh;
+  background-color: #d14141;
+  padding-top: 15px;
+  width: 100%;
+}
+
+.sidebarNav {
+  height: 76%;
+  overflow-y: auto;
+}
+
+.ulMenu {
+  margin-bottom: 0;
+  /* height: 100%; */
+  text-align: right;
+  padding-right: 0px;
+}
+
+  .ulMenu li {
+    direction: rtl;
+  }
+
+    .ulMenu li a {
+      width: 100%;
+      display: flex;
+      color: #fff !important;
+      padding: 15px;
+      /*margin-bottom: 15px;*/
+      transition: all 0.5s ease;
+      align-items: center;
+    }
+
+      .ulMenu li a:hover, .ulMenu li.link-active a {
+        border-right: 5px solid #fff;
+        background-color: #bb3b3a;
+      }
+
+      .ulMenu li a i {
+        margin-left: 5px;
+        line-height: 0px;
+      }
+      .ulMenu li ul li.link-active a, .ulMenu li.link-active ul li a {
+      border-right: 0px solid #fff;
+      background-color: transparent;
+    }
+    .ulMenu li ul li a:hover {
+      border-right: 0;
+      background-color: transparent;
+    }
+
+    .ulMenu li ul li a {
+      /* display: block; */
+      position: relative;
+      width: auto;
+    }
+    .ulMenu li a:not([href]):not([tabindex]){
+      cursor: pointer;
+    }
+      .ulMenu li ul li a span {
+        font-size: 15px;
+        font-family: 'Cairo', sans-serif;
+      }
+
+      .ulMenu li ul li a::before{
+        height: 100%;
+        content: '';
+        border: 1px solid #fff;
+        width: 97%;
+        display: inline-block;
+        position: absolute;
+        border-bottom: 0;
+        border-left: 0;
+        opacity: 0;
+        top: 5px;
+        right: 5px;
+        transition: all 0.2s ease-in;
+      }
+
+      .ulMenu li ul li a::after {
+        height: 100%;
+        content: '';
+        border: 1px solid #fff;
+        width: 100%;
+        display: inline-block;
+        position: absolute;
+        border-top: 0;
+        border-right: 0;
+        opacity: 0;
+        bottom: 5px;
+        left: 5px;
+        transition: all 0.2s ease-in;
+      }
+
+      .ulMenu li ul li a:hover::after, .ulMenu li ul li.link-active a::after  {
+        opacity: 1;
+        width: 20px;
+        height: 20px;
+      }
+
+      .ulMenu li ul li a:hover:before, .ulMenu li ul li.link-active a:before  {
+        opacity: 1;
+        width: 20px;
+        height: 20px;
+      }
+/********************
+    End CSS Side Bar
+********************/
+
+
+/********************
+    Start CSS Charts
+********************/
+/* .charts {
+  padding: 30px;
+  width: 75vh; 
+  margin-top: 60px;
+} */
+
+  .charts.offset-md-2 {
+    margin-right: 16.666667%;
+  }
+
+  .charts.offset-md-3 {
+    margin-right: 25%;
+  }
+
+.chartBox2 {
+  overflow: hidden;
+  background-color: #fff;
+  padding: 0px 0px 10px;
+  text-align: right;
+}
+.chartBox2 .card-body{
+  padding: 0px 10px;
+  margin-top: 10px;
+}
+/********************
+    End CSS Charts
+********************/
+
+/********************
+    start CSS Invoice
+********************/
+.headerInvoice {
+  border-bottom: 2px solid #bb3937;
+}
+
+.navdate {
+  display: inline-block;
+  color: #4c4a4b;
+  font-weight: bold;
+  border-left: 1px solid #bc8183;
+  padding-left: 16px;
+  height: 90%;
+  padding: 7px 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navOrderNum {
+  /* display: inline-block; */
+  padding: 9px;
+  float: right;
+  border-left: 2px solid #c13937;
+}
+
+  .navOrderNum span {
+    float: left;
+    color: #bb3937;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .navOrderNum label {
+    font-weight: bold;
+    margin-left: 10px;
+    color: #4d4b4c;
+  }
+
+.navAddress {
+  /* display: inline-block; */
+  border-left: 2px solid #c13937;
+  padding: 0px 6px;
+  float: right;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+  .navAddress h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4e4c4d;
+    line-height: 40px;
+  }
+
+.invoice {
+  margin-top: 10px;
+  height: 90vh;
+}
+.invoice .invoiceContainer-fluid{
+  height: 100%;
+}
+.invoice .invoiceRow{
+  height: 100%;
+}
+.invCat {
+  margin-bottom: 10px;
+  min-height: 41px;
+  background-color: #fff;
+  padding-right: 2px;
+  padding-top: 2px;
+  border: 1px solid #ccc;
+  overflow: auto;
+}
+
+  .invCat button {
+    cursor: pointer;
+    /* border-radius: 2px; */
+    border: 1px solid #ccc;
+    background-color: #fff;
+    text-align: center;
+    font-weight: bold;
+    color: #bb3b3a;
+    margin-bottom: 5px;
+    transition: all 0.5s;
+    margin-left: 5px;
+    height: 50px;
+    padding: 0px 22px;
+    font-size: 24px;
+  }
+
+    .invCat button:hover {
+      background-color: #bb3b3a;
+      color: #fff;
+    }
+
+.invSave {
+  background-color: #fff;
+  height: 41px;
+  text-align: center;
+  padding: 2px 0px;
+  border: 1px solid #ccc;
+  /* margin-bottom: 10px; */
+}
+
+  .invSave button {
+    cursor: pointer;
+    background-color: #fff;
+    font-weight: bold;
+    /* border: 1px solid #ccc; */
+    /* border-radius: 3px; */
+    width: 31.22%;
+    /* padding: 10px; */
+    font-size: 18px;
+    color: #4c4a4b;
+    margin-left: 5px;
+    height: 35px;
+    transition: all 0.3s;
+    outline: 0;
+  }
+
+    /* .invSave button:hover {
+      background-color: #d14141;
+      color: #fff;
+    } */
+
+      /* .invSave button:hover i {
+        color: #fff !important;
+      } */
+
+    .invSave button i {
+      margin-right: 5px;
+    }
+
+.invItem {
+  /* height: calc(100vh - 18.5vh); */
+  /* height: 100%; */
+  height: 98vh;
+  background-color: #fff;
+  padding-top: 5px;
+  border: 1px solid #ccc;
+  overflow-y: auto;
+}
+
+.invItm {
+  background-color: #f2f2f2;
+  border-bottom: 2px solid #c93b3a;
+  margin-bottom: 20px;
+  position: relative;
+  cursor: pointer;
+}
+.invItem .invCat{
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding-left: 10px;
+  padding-right: 10px;
+  max-height: 68px;
+  overflow: hidden;
+  position: relative;
+}
+.invItem .col-md-2 {
+  padding: 0px 7px;
+}
+
+.invItm img {
+  width: 100%;
+  height: 125px;
+}
+
+.invItm h3 {
+  font-size: 12px;
+  margin-bottom: 0;
+  width: 41%;
+  display: inline-block;
+}
+
+.invItm .nameEN {
+  direction: ltr;
+  float: left;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.invItmDet {
+  height: 40px;
+  padding: 8px 4px;
+}
+
+.invItm:hover span {
+  opacity: 1;
+}
+
+
+.invItm span {
+  color: #bb3b3a;
+  background-color: #fff;
+  border: 1px solid;
+  border-radius: 35px;
+  direction: ltr;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 5px 0px;
+  transition: all 0.5s;
+  font-size: 12px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 17%;
+  right: 35%;
+  font-family: 'Montserrat', sans-serif;
+  /* opacity: 0; */
+}
+
+.invDetails {
+  /* height: calc(100vh - 27vh); */
+  /* height: 100%; */
+  height: 98vh;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px 0px;
+  overflow-y: auto;
+}
+.invDetails .invSave{
+  border-width: 0px;
+}
+.invPlace{
+  /* display: flex; */
+  padding: 0px 10px;
+  /* align-items: center;
+  justify-content: center; */
+}
+.invPlaceInv {
+  /* display: flex; */
+  /* width: 50%; */
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  text-align: center;
+  /* margin-right: 5px; */
+}
+
+  .invPlaceInv h2 {
+    /* display: inline-block; */
+    color: #4f4d4e;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+.selectPlace {
+  display: inline-block;
+  /* margin-right: 22px; */
+}
+.invPlaceInv .mat-radio-group {
+  display: block;
+  align-items: center;
+  justify-content: start;
+  text-align: center;
+}
+.selectPlace .mat-radio-label-content {
+  padding-right: 5px !important;
+}
+.selectPlace .mat-radio-button{
+  margin-left: 10px !important;
+}
+.selectPlace label {
+  cursor: pointer;
+  margin-bottom: 0px;
+  font-size: 13px;
+}
+.selectPlace .mat-radio-outer-circle{
+  height: 18px;
+  width: 18px;
+  top: 3px;
+}
+.selectPlace .mat-radio-inner-circle{
+  height: 18px;
+  width: 18px;
+  top: 3px;
+}
+.invCustomer {
+  position: relative;
+  display: flex;
+  /* width: 50%; */
+  align-items: center;
+  justify-content: center;
+}
+
+  .invCustomer input {
+    /* width: 40%;
+    height: 30px;
+    padding: 4px 5px 4px 35px; */
+    font-size: 25px;
+    margin-left: 3px;
+    /* color: #b4b4b4;
+    border: 1px solid #b4b4b4;
+    border-radius: 4px; */
+  }
+
+  .invCustomer i {
+    position: absolute;
+    right: 34%;
+    padding: 11px 0px;
+    width: 25px;
+    text-align: center;
+    height: 30px;
+    color: #9a2828;
+    font-size: 12px;
+  }
+
+  .invCustomer select {
+    width: 80%;
+    height: 30px;
+    /*margin-right: 10px;*/
+    padding-right: 10px;
+    color: #b4b4b4;
+    font-size: 12px;
+  }
+
+  .invCustomer button {
+    /* height: 30px;
+    cursor: pointer; */
+    color: #bb3b3a;
+    /* background-color: #fff;
+    border: 1px solid #999;
+    margin-right: 6px; */
+    /* border-radius: 50%; */
+    /* width: 30px;
+    font-size: 12px; */
+  }
+
+    /* .invCustomer button:hover {
+      background-color: #bb3b3a;
+      color: #fff;
+      border-color: #bb3b3a;
+    } */
+
+.invTable {
+  margin: 5px 0px;
+  height: 55vh;
+  overflow-y: auto;
+}
+
+  .invTable tbody {
+    height: 195px;
+  }
+
+  .invTable th, .invTable td {
+    font-size: 20px;
+    padding: 0px 3px;
+  }
+
+  .invTable table {
+    margin-bottom: 5px;
+  }
+
+  .invTable tr {
+    height: 35px;
+    line-height: 35px;
+    padding: 0px 10px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .invTable tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+  }
+
+
+  .invTable tbody tr:hover {
+    background-color: #cf3432;
+    color: #fff;
+  }
+
+    .invTable tbody tr:hover input {
+      border: 1px solid #fff;
+      background-color: #cf3432;
+      color: #fff;
+    }
+
+    .invTable tbody tr:hover .iCalc {
+      border: 1px solid #fff;
+    }
+
+    .invTable tbody tr:hover i {
+      color: #fff;
+    }
+
+  .invTable td i {
+    cursor: pointer;
+  }
+
+  .invTable td input {
+    width: 25px;
+    height: 22px;
+    text-align: center;
+    outline: none;
+    color: #4b4b4b;
+    transition: all 0.1s ease-in-out;
+    background-color: transparent;
+    border: 1px solid #a9a9a9;
+    padding: 0;
+  }
+
+  .invTable td .iCalc {
+    border: 1px solid #a9a9a9;
+    padding: 5px 0;
+    text-align: center;
+    width: 20px;
+    height: 22px;
+    /* margin: -4px; */
+    font-size: 8px;
+    color: #4b4b4b;
+  }
+
+  .invTable td .iLeft {
+    border-right-width: 0px;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+  }
+
+  .invTable td .iRight {
+    border-left-width: 0px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+  }
+
+  .invTable tbody tr:hover .iRight {
+    border-left-width: 0px;
+  }
+
+  .invTable tbody tr:hover .iLeft {
+    border-right-width: 0px;
+  }
+
+  .invTable button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    font-size: 23px;
+  }
+
+    .invTable button:hover {
+      background-color: #fff;
+    }
+
+      .invTable button:hover i {
+        color: #cf3432 !important;
+      }
+
+.invOption {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+  .invOption button {
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 9px;
+    width: 45%;
+    font-size: 19px;
+    color: #4c4a4b;
+    height: 50px;
+    outline: 0;
+  }
+
+    .invOption button i {
+      /* font-weight: 100;
+      font-size: 20px; */
+      margin-right: 5px;
+    }
+
+.invSum {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.invCount label {
+  border-radius: 1px;
+  width: 100%;
+  border: 1px solid #d6d6d6;
+  padding: 0px 10px 0px 10px;
+  line-height: 47px;
+  margin-bottom: -1px;
+  font-size: 20px;
+}
+
+  .invCount label span {
+    float: left;
+    width: 150px;
+    text-align: center;
+    border-right: 1px solid #d6d6d6;
+    padding-right: 5px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+/* .invCount {
+  display: inline-block;
+  width: 33%;
+} */
+
+/* .invTax {
+  display: inline-block;
+  margin-right: 6px;
+  width: 31%;
+} */
+
+  .invTax label {
+    width: 100%;
+    font-size: 12px;
+    margin-bottom: 0px;
+  }
+
+    /* .invTax label span {
+      margin-right: 5px;
+      float: left;
+    } */
+
+    .invTax label input {
+      padding: 0px;
+      width: 35px;
+      text-align: center;
+    }
+
+/* .invDis {
+  display: inline-block;
+  width: 62%;
+  margin-right: 6px;
+} */
+
+  .invDis label {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+  }
+  .invDis label span span{
+    /* margin-left: 10px; */
+    font-size: 25px;
+  }
+    .invDis label .mat-checkbox label {
+      margin-bottom: 0;
+    }
+
+    .invDis label .mat-checkbox-inner-container {
+      margin-right: 0px;
+      width: 13px;
+      height: 13px;
+    }
+    .invDis .mat-radio-group{
+      margin-right: 10px;
+    }
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: #bb3b3a;
+}
+
+.invDis label input[type="number"] {
+  padding: 0px;
+  width: 80px;
+  font-size: 20px;
+  text-align: center;
+  margin-left: 4px;
+}
+
+/* .invTota {} */
+
+.invTotal {
+  border: 1px solid #d6d6d6;
+  height: 50px;
+  background-color: #eee;
+}
+
+  .invTotal h3 {
+    display: inline-block;
+    width: 49%;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 45px;
+    margin-bottom: 0;
+    color: #666;
+  }
+
+  .invTotal label {
+    width: 49%;
+    margin-bottom: 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #bb3b3a;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+.invPaid {
+  margin-top: 5px;
+}
+
+.invTypePaid {
+  padding: 0px;
+  display: flex;
+}
+
+  .invTypePaid div {
+    display: inline-block;
+    width: 25%;
+    margin-left: 15px;
+  }
+
+.invPaid label {
+  cursor: pointer;
+  border: 1px solid #888;
+  background-color: #fff;
+  font-size: 18px;
+  width: 100%;
+  transition: all 0.3s ease;
+  height: 59px;
+  line-height: 53px;
+  margin-right: 2px;
+  color: #555;
+  font-weight: bold;
+  text-align: center;
+}
+
+.invPaid input[type="radio"] {
+  display: none;
+}
+
+  .invPaid label:focus, .invPaid label:hover, .invPaid input[type="radio"]:checked + label, .invPaidMore button:hover {
+    background-color: #bb3b3a;
+    color: #fff;
+  }
+  .invPaidMore button .mat-button-focus-overlay, .invPaidMore button .mat-button-ripple.mat-ripple {
+    width: 100%;
+  }
+  .invPaidMore button {
+    padding: 0;
+    cursor: pointer;
+    border: 1px solid #888;
+    background-color: #fff;
+    font-size: 18px;
+    width: 100%;
+    transition: all 0.3s ease;
+    height: 59px;
+    line-height: 53px;
+    margin-right: 2px;
+    color: #555;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 0;
+    min-width: inherit;
+  }
+.invPaidPrice {
+  padding: 0px;
+}
+
+  .invPaidPrice input[type="number"] {
+    margin-bottom: 6px;
+    text-align: center;
+    width: 65%;
+    height: 26px;
+    font-size: 20px;
+  }
+
+  .invPaidPrice span {
+    display: inline-block;
+    width: 30%;
+    font-size: 17px;
+  }
+
+.invOnline .col-md-3 {
+  padding: 0px 1px;
+}
+
+.invOnline {
+  text-align: center;
+}
+.invOnline .invOnlinebtn {
+  width: 20%;
+}
+  .invOnline button {
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0;
+    /* border: 1px solid #d6d6d6; */
+    border-radius: 5px;
+    width: 100%;
+    height: 77px;
+    outline: 0;
+  }
+
+    .invOnline button img {
+      width: 100%;
+      height: 100%;
+    }
+
+.invComm {
+  padding: 5px;
+  height: 55px;
+}
+
+  .invComm button {
+    background-color: #fff;
+    border: 1px solid #999;
+    width: 31.8%;
+    color: #bb3b3a;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.5s;
+    cursor: pointer;
+    outline: none;
+    padding: 2px 5px;
+    margin-left: 5px;
+    position: relative;
+  }
+  .invComm button:nth-last-child(1){
+    margin-left: 0px;
+  }
+    .invComm button:hover {
+      background-color: #bb3b3a;
+      color: #fff;
+    }
+/********************
+    End CSS Invoice
+********************/
+
+/********************
+    Start CSS Item
+********************/
+.item {
+  background-color: #eee;
+}
+
+.itemContainer {
+  padding: 10px 0px 0px;
+  border: 1px solid #d6d6d6;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+  .itemContainer .itemaddress {
+    text-align: right;
+    padding-right: 25px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+
+    .itemContainer .itemaddress h1 {
+      font-size: 24px;
+    }
+
+      .itemContainer .itemaddress h1 i {
+        margin-left: 10px;
+        /* color: #d80000; */
+      }
+
+.itemBtnSave {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+  .itemBtnSave button {
+    cursor: pointer;
+    background-color: #fff;
+    font-weight: bold;
+    /* border: 1px solid #ccc; */
+    /*border-radius: 3px;*/
+    /* width: 25%; */
+    padding: 0px 10px;
+    font-size: 18px;
+    color: #4c4a4b;
+    margin-left: 15px;
+    outline: 0;
+    transition: all 0.5s;
+  }
+  .itemBtnSave button:nth-child(1):hover {
+    background-color: #28a745;
+    color: #fff;
+  }
+  .itemBtnSave button:nth-child(1):hover i, .itemBtnSave button:nth-child(2):hover i
+  ,.itemBtnSave button:nth-child(3):hover i {
+    color: #fff !important;
+  }
+  .itemBtnSave button:nth-child(2):hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  .itemBtnSave button:nth-child(3):hover {
+    background-color: #dc3545;
+    color: #fff;
+  }
+    .itemBtnSave button i {
+      font-weight: 100;
+      margin-right: 0px;
+      line-height: 1px;
+      transition: all 0.5s;
+    }
+
+.itemContainer .container {
+  /* border-bottom: 3px solid #a33939; */
+  border-top: 3px solid #a33939;
+  padding-bottom: 15px;
+  padding-top: 30px;
+  text-align: right;
+}
+
+/* .itemDetails {} */
+
+  .itemDetails h2, .itemImage h2, .itemList h2 {
+    color: #484848;
+    font-size: 21px;
+  }
+
+    .itemDetails h2 i, .itemImage h2 i, .itemList h2 i {
+      color: #c8505a;
+    }
+
+  .itemDetails input {
+    box-shadow: none;
+    /* margin-top: 5px;
+    width: 87%;
+    height: 35px;
+    padding-right:  10px;
+    border-radius:  5px;
+    border:  1px solid #c2c2c2; */
+  }
+
+
+  .itemDetails label {
+    width: 100%;
+    /*height: 45px;
+    line-height: 45px;
+    margin-bottom: 15px;*/
+    font-size: 15px;
+    font-weight: bold;
+    color: #4d4b4c;
+  }
+
+  .itemDetails select {
+    width: 87%;
+    margin-left: 3px;
+    height: 37px;
+    color: #757575;
+    display: inline-block;
+    /* border-radius: 5px;
+    border:  1px solid #c2c2c2; */
+  }
+
+
+  .itemDetails label i {
+    color: #cb505a;
+    font-size: 30px;
+  }
+
+  .itemDetails div span {
+    font-size: 15px;
+    font-weight: bold;
+    color: #4d4b4c;
+  }
+
+  .itemDetails div button:hover {
+    color: #fff;
+    background-color: #cb505a;
+  }
+
+  .itemDetails div button {
+    width: 10%;
+    height: 33px;
+    border: 1px solid #888;
+    background-color: #fff;
+    color: #cf555a;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 3px;
+  }
+
+  .itemDetails .modal-header .close {
+    margin-left: 0px;
+    background-color: transparent;
+    width: 62px;
+    height: 62px;
+    line-height: 0;
+    padding-left: 0;
+    border: none;
+  }
+
+    .itemDetails .modal-header .close i {
+      font-size: 20px;
+    }
+
+  .itemDetails .modal-header {
+    border-bottom: 3px solid #a33939;
+  }
+
+  .itemDetails .modal-footer {
+    border-top: 3px solid #a33939;
+  }
+
+/* .itemPrice h3 {
+  font-size: 15px;
+  font-weight: bold;
+  color: #4d4b4c;
+}
+
+  .itemPrice h3 i {
+    color: #cb505a;
+    font-size: 30px;
+  }
+
+.itemPrice input {
+  width: 100%;
+  height: 35px;
+  font-size: 13px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.itemPrice label {
+  width: 49%;
+} */
+
+/* .cat {} */
+
+  .cat input {
+    width: 100%;
+  }
+
+  .cat select {
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+  }
+
+.catPrint select, .catPrint input {
+  width: 80%;
+}
+
+.catPrint .catBtn button {
+  width: 70% !important;
+}
+
+.cat .catBtn {
+  width: 35%;
+  text-align: center;
+}
+
+.cat label button {
+  width: 5%;
+  height: 35px;
+  margin-right: 5px;
+  border-radius: 0px;
+}
+
+button.catBtn {
+  cursor: pointer;
+  width: 11% !important;
+  height: 45px !important;
+  line-height: 45px;
+  /* border: 1px solid #c2c2c2; */
+  color: #4c4a4b;
+  background-color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  border-radius: 4px !important;
+  margin-bottom: 15px;
+  transition: all 0.5s;
+}
+
+  button.catBtn i {
+    font-size: 17px;
+    transition: all 0.5s;
+  }
+
+  button.catBtn:hover i {
+    color: #fff !important;
+  }
+
+  button.catBtn:hover {
+    background-color: #28a745;
+    color: #fff;
+  }
+/* .cat table tr td, .cat table tr th {
+  padding: 0;
+  text-align: center;
+  border-right: 1px solid #c2c2c2;
+  border-left: 1px solid #c2c2c2;
+  border-bottom: 1px solid #c2c2c2;
+}
+
+.cat table {
+  width: 100%;
+  border: 1px solid #c2c2c2;
+} */
+
+  .cat table input, .cat table select {
+    width: 95%;
+    /* margin-top: 15px; */
+  }
+
+  /* .cat table button {
+    margin-top: 15px;
+    border: 1px solid #c2c2c2;
+    color: #a33939;
+    background-color: #fff;
+    width: 80%;
+    height: 45px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px !important;
+    transition: all 0.5s;
+  } */
+
+    /* .cat table button i {
+      font-size: 17px;
+    } */
+
+    .cat table button:hover i {
+      color: #a33939;
+    }
+
+    /* .cat table button:hover {
+      background-color: #a33939;
+      color: #fff;
+    } */
+
+.itemImage {
+  text-align: center;
+}
+
+  .itemImage input {
+    display: none;
+  }
+
+  .itemImage button, .itemImage label {
+    text-align: center;
+    color: #4b494a;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    height: 35px;
+    border-radius: 3px;
+    margin-left: 10px;
+  }
+
+  .itemImage img {
+    width: 150px;
+    height: 150px;
+    margin: 0px 20%;
+  }
+
+  .itemImage .uploadImgItm {
+    width: 48%;
+    /*margin-left: 5px;*/
+  }
+
+  .itemImage button i, .itemImage label i {
+    color: #cb505a;
+  }
+
+  .itemImage button:hover, .itemImage label:hover {
+    background-color: #cb505a;
+    color: #fff;
+  }
+
+    .itemImage button:hover i, .itemImage label:hover i {
+      color: #fff;
+    }
+
+.itemIngredients {
+  margin-top: 10px;
+}
+
+  .itemIngredients label {
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #4d4b4c;
+  }
+
+    .itemIngredients label i {
+      color: #cf555a;
+    }
+
+/* .itemList {} */
+
+  .itemList .listSearch {
+    position: relative;
+  }
+
+    .itemList .listSearch i {
+      position: absolute;
+      width: 35px;
+      height: 35px;
+      border-bottom-right-radius: 7px;
+      border-top-right-radius: 7px;
+      text-align: center;
+      line-height: 36px;
+      color: #902431;
+    }
+
+    .itemList .listSearch input {
+      width: 100%;
+      height: 35px;
+      padding-right: 35px;
+      /*border-radius: 5px;*/
+      border: 1px solid #c2c2c2;
+      outline: none;
+    }
+    .itemList .mat-paginator-range-actions .mat-paginator-range-label {
+      margin: 0;
+    }
+.listItm {
+  margin-top: 12px;
+  border: 1px solid #c6c6c6;
+  /*border-radius: 5px;*/
+  height: 55.4vh;
+  overflow-y: auto;
+  /* box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14),
+              0 3px 14px 2px rgba(0,0,0,.12); */
+}
+.listItm .actionLink{
+  height: 35px;
+}
+/* width */
+.listItm .example-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.listItm .example-container::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+.listItm .example-container::-webkit-scrollbar-thumb {
+  background: #888;
+
+}
+/* Handle on hover */
+.listItm .example-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+  .listItm button {
+    cursor: pointer;
+    float: left;
+    border: none;
+    border-right: 1px solid #c6c6c6;
+    border-bottom: 1px solid #c6c6c6;
+    background-color: #fff;
+    height: 35px !important;
+    width: 12% !important;
+  }
+
+    .listItm button:hover {
+      background-color: #d14141;
+      border-color: #c8505a;
+      color: #fff;
+    }
+
+  .listItm label {
+    width: 88%;
+    height: 100%;
+    line-height: 34px;
+    margin-bottom: 0;
+    border-bottom: 1px solid #c6c6c6;
+    padding-right: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    /*border-top-left-radius: 5px;
+      border-top-right-radius: 5px;*/
+  }
+
+    .listItm label span {
+      float: left;
+    }
+
+    .listItm label:hover {
+      background-color: #d14141;
+      color: #fff;
+    }
+    .itemPrice table td.mat-footer-cell .mat-form-field{
+      width: 150px;
+      text-align: center;
+    }
+
+/********************
+    End CSS Item
+********************/
+
+/********************
+    Start CSS Table
+********************/
+.tawlaDetails, .tawlaTables {
+  height: calc(100vh - 10vh);
+}
+
+.tawla .twlDetalis {
+  height: 125px;
+  position: relative;
+  padding: 7px 6px;
+  cursor: pointer;
+}
+
+  .tawla .twlDetalis h2 {
+    color: #474a43;
+    font-size: 13px;
+  }
+
+    .tawla .twlDetalis h2 span {
+      float: left;
+    }
+
+  .tawla .twlDetalis label {
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+.tawla .twlOptian button {
+  cursor: pointer;
+  outline: none;  
+  background-color: #ffffff;
+  border: 1px solid #888;
+  border-radius: 4px;
+  color: #d14141;
+  padding: 0px 0px;
+  height: 30px;
+  width: 40%;
+  margin-left: 10px;
+  font-weight: 500;
+  font-size: 13px;
+  transition: all 0.5s;
+}
+
+  .tawla .twlOptian button:hover {
+    background-color: #d14141;
+    color: #fff;
+    border-color: #d14141
+  }
+
+.tawla {
+  margin-bottom: 15px;
+}
+
+  .tawla .twlOptian {
+    border-bottom: 5px solid;
+    background-color: #f1f1f1;
+    padding: 12px 0px;
+    text-align: center;
+  }
+
+  .tawla .twlDetalis label span {
+    color: #1f9660;
+  }
+
+.twlTable {
+  height: 44vh;
+}
+
+  .twlTable td .iCalc {
+    font-size: 10px;
+  }
+
+/********************
+    End CSS Table
+********************/
+
+/********************
+    Start CSS REPORT TODAY
+*********************/
+.repSearch {
+  margin-top: 20px;
+}
+
+.repSchSelect {
+  display: inline-block;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  margin-left: 10px;
+}
+
+  .repSchSelect label {
+    margin-right: 15px;
+  }
+
+    .repSchSelect label input {
+      margin-left: 4px;
+    }
+
+/* .repSchDate label {
+  margin-left: 5px;
+  margin-right: 15px;
+} */
+
+.repSchDate {
+  padding-bottom: 10px;
+  padding-top: 5px;
+  display: inline-block;
+}
+
+  .repSchDate input {
+    width: auto;
+    background-color: #fff;
+  }
+
+.repTab .nav-tabs .nav-link {
+  width: 33.33%;
+  text-align: center;
+  font-weight: bold;
+  color: #454545;
+  border: none;
+  border-left: 1px solid #dee2e6;
+  border-radius: 0px;
+}
+
+.repTab .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: #787878;
+}
+
+.repTab .tab-content {
+  border: 1px solid #dee2e6;
+  border-top: 0px;
+}
+
+.repTab {
+  margin: 15px 0px;
+  background-color: #fff;
+  width:100%
+}
+
+  .repTab .nav-tabs {
+    border: 1px solid #dee2de;
+    border-left: 0px;
+  }
+
+.repAbstract {
+  padding: 10px;
+  text-align: center;
+  overflow: auto;
+}
+
+  .repAbstract table {
+    width: 100%;
+  }
+
+    .repAbstract table .tdCount span {
+      background-color: #e0e0e0;
+    }
+
+    .repAbstract table td {
+      font-weight: bold;
+    }
+
+      .repAbstract table td span {
+        display: inline-block;
+        color: #212122;
+        width: 100px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        line-height: 40px;
+        font-family: Montserrat;
+      }
+
+    .repAbstract table .tdDebtor span {
+      background-color: #ffb6c1;
+    }
+
+    .repAbstract table .tdCreditor span {
+      background-color: #80ffd4;
+    }
+
+    .repAbstract table .tdMoney span {
+      background-color: #dcdcdc;
+    }
+
+    .repAbstract table .tdQemamdafa span {
+      background-color: #4683b0;
+      color: #fff;
+    }
+
+    .repAbstract table .tdSuptotal span {
+      background-color: #c0c0c0;
+    }
+
+.repInvSearch {
+  text-align: right;
+  padding: 0px 20px 0px 0px;
+  display: inline-block;
+  width: 50%;
+}
+
+  .repInvSearch label {
+    padding-left: 10px;
+  }
+
+    .repInvSearch label span {
+      color: #3b7b60;
+    }
+
+    .repInvSearch label input {
+      width: 100px;
+    }
+
+    .repInvSearch label select {
+      margin-right: 2px;
+      width: 110px;
+      font-size: 15px;
+      height: 26px;
+    }
+.repSearch .mat-paginator{
+  display: inline-block;
+  width: 50%;
+}
+.repSearch .table thead th {
+  vertical-align: inherit;
+}
+/* .repInvoices button {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #d14141;
+  border-radius: 0px;
+  transition: all 0.2s;
+  width: 73px;
+}
+
+  .repInvoices button:hover {
+    background-color: #d14141;
+    color: #fff;
+  } */
+
+/* .reportToday .tab-content > .tab-pane {
+  height: 60vh;
+} */
+
+.repAddBoxMoney {
+  padding-top: 12px;
+}
+
+.repInvTable {
+  height: 50vh;
+  overflow-y: auto;
+}
+
+.repBoxMoney {
+  padding-top: 25px;
+}
+
+  .repBoxMoney label select {
+    width: 300px;
+    height: 35px;
+  }
+
+  .repBoxMoney label input[type="number"] {
+    width: 148px;
+    height: 40px;
+  }
+
+/* .repBoxMoney label textarea {
+    width: 300px;
+    height: 100px;
+  } */
+
+.repDate7rakh input {
+  width: 300px;
+  /* border: 1px solid #a9a9a9; */
+  height: 40px;
+  padding-left: 5px;
+}
+
+.repBoxMoneyBtn {
+  /* text-align: center; */
+  padding-bottom: 25px;
+}
+
+  .repBoxMoneyBtn button {
+    cursor: pointer;
+    width: 200px;
+    height: 45px;
+    line-height: 45px;
+    margin-bottom: 10px;
+    border: 1px solid #c2c2c2;
+    color: #a33939;
+    background-color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.5s;
+  }
+
+    .repBoxMoneyBtn button:hover {
+      background-color: #a33939;
+      color: #fff;
+    }
+
+    .repBoxMoneyBtn button i {
+      font-size: 17px;
+    }
+
+    .repBoxMoneyBtn button:hover i {
+      color: #fff;
+    }
+/********************
+    End CSS REPORT TODAY
+*********************/
+
+/********************
+    Start Css Customer
+********************/
+.customerContainer {
+  margin-top: 15px;
+  padding: 25px 0px 50px;
+  border: 1px solid #d6d6d6;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+.customeraddress {
+  text-align: right;
+  padding-right: 25px;
+  padding-bottom: 10px;
+  display: flex;
+}
+
+  .customeraddress h1 {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+  }
+
+    .customeraddress h1 i {
+      margin-left: 5px;
+      font-size: 34px;
+      /* color: #d80000; */
+    }
+
+.customerBtnSave button {
+  cursor: pointer;
+  background-color: #fff;
+  font-weight: bold;
+  /* border: 1px solid #ccc; */
+  /* border-radius: 3px; */
+  /* width: 25%;
+  padding: 7px 0px; */
+  font-size: 18px;
+  color: #4c4a4b;
+  margin-left: 15px;
+  outline: 0;
+  transition: all 0.5s;
+}
+.customerBtnSave button:nth-child(1):hover {
+  background-color: #28a745;
+  color: #fff;
+}
+.customerBtnSave button:nth-child(1):hover i, .customerBtnSave button:nth-child(2):hover i
+,.customerBtnSave button:nth-child(3):hover i {
+  color: #fff !important;
+}
+.customerBtnSave button:nth-child(2):hover {
+  background-color: #007bff;
+  color: #fff;
+}
+.customerBtnSave button:nth-child(3):hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+  .customerBtnSave button i {
+    font-weight: 100;
+    margin-right: 5px;
+    transition: all 0.5s;
+  }
+
+.custAddress {
+  color: #484848;
+  font-size: 21px;
+}
+
+  .custAddress i {
+    color: #c8505a;
+  }
+
+.customerDetails {
+  text-align: right;
+}
+
+.custSum {
+  text-align: center;
+}
+
+  .custSum label {
+    width: 100%;
+  }
+
+  .custSum input {
+    width: 93%;
+    outline: none;
+    /* border: 0 solid #d14141;
+    text-align: center;
+    border-bottom-width: 3px;
+    background-color: #ededed;
+    height: 35px;
+    margin-top: 5px;
+    margin-bottom: 9px; */
+  }
+
+.customerDetails input {
+  width: 70%;
+  /* margin-bottom: 10px; */
+}
+
+.customerDetails label {
+  width: 100%;
+}
+
+  .customerDetails label select {
+    width: 70%;
+  }
+
+  .customerDetails input, .customerDetails label select, .customerDetails div select {
+    width: 93%;
+    outline: none;
+    color: #757575;
+    /* border: 0px solid #d14141;
+    border-bottom-width: 3px; 
+    margin-top: 5px; 
+    height: 35px;
+    padding: 5px 10px 5px 5px; */
+  }
+
+.customerContainer .container {
+  border-bottom: 3px solid #a33939;
+  border-top: 3px solid #a33939;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  text-align: right;
+}
+
+.customerDetails button {
+  width: 13%;
+  height: 31px;
+  border: 1px solid #888;
+  background-color: #fff;
+  color: #cf555a;
+  /* font-weight: bold; */
+  font-size: 16px;
+  border-radius: 50px;
+  margin-right: 5px;
+}
+
+  .customerDetails button:hover {
+    color: #fff;
+    background-color: #cb505a;
+    border-color: #cb505a;
+  }
+
+.custCatHeader button {
+  border: none;
+  /* float: left; */
+  width: 53px;
+  height: 50px;
+  padding: 0 !important;
+  margin-left: 0px !important;
+  opacity: 1;
+}
+
+  .custCatHeader button:hover {
+    opacity: 1 !important;
+    background-color: #fff;
+  }
+
+.custCats button {
+  width: 22%;
+  border-radius: 2px;
+  font-size: 14px;
+  color: #444;
+}
+
+  .custCats button:hover i {
+    color: #fff !important;
+  }
+
+.customerMore {
+  text-align: center;
+}
+
+  .customerMore textarea {
+    width: 100%;
+    /* height: 100px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding-right: 5px; */
+  }
+
+  .customerMore label {
+    width: 100%;
+    font-size: 13px;
+  }
+
+  /* .customerMore label input[type="checkbox"] {
+    margin-left: 10px;
+    width: 15px;
+    height: 15px;
+}
+
+.customerMore label input[type=checkbox]:checked:after {
+    font-size: 9px;
+    padding: 2px 2px;
+    padding-top: 0px;
+}
+
+.customerMore label input[type=checkbox]:after {
+    width: 15px;
+    height: 15px;
+    padding: 0px 0px;
+    padding-bottom: 5px;
+    padding-left: 3px;
+} */
+  /* .customerMore input[type=date] {
+    width: 80%;
+    height: 35px;
+  } */
+
+.custTable {
+  margin: 5px 0px;
+  height: 50vh;
+  overflow-y: auto;
+  border: 1px solid #999;
+}
+/* width */
+.custTable .example-container::-webkit-scrollbar, .repAbstract::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+.custTable .example-container::-webkit-scrollbar-track, .repAbstract::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+.custTable .example-container::-webkit-scrollbar-thumb, .repAbstract::-webkit-scrollbar-thumb {
+  background: #888;
+}
+/* Handle on hover */
+.custTable .example-container::-webkit-scrollbar-thumb:hover, .repAbstract::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+  .custTable tbody {
+    height: 195px;
+  }
+
+  .custTable th, .custTable td {
+    font-size: 12px;
+    padding: 0px 3px;
+  }
+
+  .custTable table {
+    margin-bottom: 5px;
+  }
+
+  .custTable tbody tr {
+    cursor: pointer;
+  }
+
+  .custTable tr {
+    height: 35px;
+    line-height: 35px;
+    padding: 0px 10px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .custTable tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+  }
+
+
+  .custTable tbody tr:hover {
+    background-color: #cf3432;
+    color: #fff;
+  }
+
+    .custTable tbody tr:hover input {
+      border: 1px solid #fff;
+      background-color: #cf3432;
+      color: #fff;
+    }
+
+    .custTable tbody tr:hover .iCalc {
+      border: 1px solid #fff;
+    }
+
+    .custTable tbody tr:hover i {
+      color: #fff;
+    }
+
+  .custTable td i {
+    cursor: pointer;
+  }
+
+  .custTable td input {
+    width: 25px;
+    height: 22px;
+    text-align: center;
+    outline: none;
+    color: #4b4b4b;
+    transition: all 0.1s ease-in-out;
+    background-color: transparent;
+    border: 1px solid #a9a9a9;
+    padding: 0;
+  }
+
+  .custTable td .iCalc {
+    border: 1px solid #a9a9a9;
+    padding: 5px 0;
+    text-align: center;
+    width: 20px;
+    height: 22px;
+    margin: -4px;
+    font-size: 10px;
+    color: #4b4b4b;
+  }
+
+  .custTable td .iLeft {
+    border-right-width: 0px;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+  }
+
+  .custTable td .iRight {
+    border-left-width: 0px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+  }
+
+  .custTable tbody tr:hover .iRight {
+    border-left-width: 0px;
+  }
+
+  .custTable tbody tr:hover .iLeft {
+    border-right-width: 0px;
+  }
+
+  .custTable button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 30px;
+    transition: all 0.3s ease-in-out;
+  }
+
+    .custTable button:hover {
+      background-color: #fff;
+    }
+
+      .custTable button:hover i {
+        color: #cf3432 !important;
+      }
+/********************
+    End Css Customer
+********************/
+
+/********************
+    Start Css Report Customer
+********************/
+.repCust .customerContainer {
+  height: 85vh;
+}
+
+.searcCustByName {
+  display: inline-block;
+}
+
+  .repCust h2 {
+    color: #484848;
+    font-size: 21px;
+  }
+
+    .repCust h2 i {
+      color: #c8505a;
+    }
+
+  /* .searcCustByName input {
+    padding: 0px 10px 0px;
+  } */
+
+.searchCustByDate {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+  .searchCustByDate label {
+    color: #585858;
+    font-weight: bold;
+    margin-left: 10px;
+  }
+
+  /* .searchCustByDate input {
+    margin-top: 6px;
+  } */
+
+.repCustTabel {
+  height: 50vh;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.rebCustRefrech {
+  display: inline-block;
+  /* margin-right: 30px; */
+}
+
+  .rebCustRefrech button {
+    color: #fff;
+    border: 1px solid #ededed;
+    background-color: #4cb564;
+    height: 46px;
+    width: 150px;
+    margin-bottom: 6px;
+    font-size: 19px;
+    font-weight: bold;
+  }
+
+    .rebCustRefrech button:hover {
+      background-color: #28a745;
+    }
+  .repCust .mat-form-field {
+    margin-left: 10px;
+  }
+/********************
+    End Css Report Customer
+********************/
+
+/********************
+    start Css Media (max-width: 1160px)
+********************/
+@media (min-width: 768px) and (max-width: 1400px) {
+  .navSystem {
+    width: 100%;
+  }
+
+    .navSystem h1 {
+      font-size: 14px;
+      letter-spacing: 2px;
+    }
+
+  .sidebar {
+    right: 0px;
+  }
+
+  .sidebarMenu {
+    width: 99.2%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .itemDetails div button {
+    width: 12%;
+  }
+
+  .itemDetails .mat-form-field {
+    width: 80% !important;
+  }
+
+  .cat .mat-form-field {
+    width: 40% !important;
+  }
+
+  .customerDetails button {
+    width: 15%;
+  }
+
+  .customerDetails .mat-form-field {
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .itemBtnSave {
+    padding-bottom: 15px;
+  }
+
+    .itemBtnSave button {
+      width: 35%;
+    }
+
+  .itemDetails .mat-form-field {
+    width: 78% !important;
+  }
+
+  .itemImage img {
+    margin: 0px 10%;
+  }
+
+  .itemDetails div button {
+    width: 17%;
+  }
+
+  .itemImage button, .itemImage label {
+    width: 95% !important;
+  }
+
+  .customerDetails button {
+    width: 22%;
+  }
+
+  .customerDetails .mat-form-field {
+    width: 74%;
+  }
+
+  .custSum .mat-form-field {
+    width: 100%;
+  }
+
+  .custSum input {
+    width: 91%;
+  }
+
+  .customerMore .mat-form-field {
+    width: 100%;
+  }
+
+  .customerMore .mat-checkbox label {
+    padding: 0px !important;
+  }
+}
+
+@media (min-width: 424px) and (max-width: 768px) {
+  .itemBtnSave {
+    padding-bottom: 15px;
+  }
+
+  .itemDetails div button {
+    width: 7%;
+  }
+
+  .customerDetails {
+    text-align: center;
+  }
+
+  .customerMore .mat-checkbox label {
+    padding: 0px 34% !important;
+  }
+
+  .customerDetails button {
+    width: 7%;
+  }
+}
+/** Ipad **/
+.hiden-in-ipad {
+  display: block;
+}
+.show-in-ipad {
+  display: none ;
+}
+@media (min-width: 852px) and (max-width: 1182px){
+  .hiden-in-ipad {
+    display: none !important;
+  }
+  .show-in-ipad {
+    display: block !important;
+  }
+  .itemPrice table td.mat-footer-cell .mat-form-field {
+    width: 130px;
+  }
+  .storeSearch .mat-form-field {
+    width: 160px !important;
+  }
+  .invDataItem .mat-form-field, .invDataEmp .mat-form-field {
+    width: 150px;
+  }
+  .tables {
+    width: 20% !important;
+  }
+  .repInvoicesSearchElement .mat-form-field{
+    width: 17% !important;
+  }
+  .veiwItemDetailsTitle {
+    margin-top: 278px !important;
+  }
+  .veiwItemDetailsImg{
+    height: 275px !important;
+  }
+  .veiwItemDetails img {
+    height: 275px !important;
+  }
+  /* .invItem {
+    height: 84%;
+  } */
+  /* .invPlaceInv h2{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .invOption button{
+    width: 31%;
+  } */
+}
+/** Mobile **/
+@media (min-width: 320px) and (max-width: 767px) {
+  .hiden-in-small {
+    display: none !important;
+  }
+  .show-in-small {
+    display: block !important;
+  }
+  .invPlaceInv h2{
+    display: block;
+  }
+  .invoice .col-md-8{
+    padding-left: 0px !important;
+  }
+  .sidebarMenu .navMassage, .sidebarMenu .navAccount {
+    display: block !important;
+  }
+
+  .navSystem {
+    width: 103%;
+  }
+
+  .itemContainer .itemaddress{
+    text-align: center;
+  }
+  .itemBtnSave {
+    text-align: center;
+    margin-bottom: 15px;
+    justify-content: center;
+    padding-right: 35px;
+  }
+  .sidebarMenu {
+    width: 100%;
+  }
+
+  .ulMenu li ul {
+    position: inherit;
+    padding-right: 0px;
+    width: 100%;
+    margin-top: 0px;
+  }
+
+  .invOnline .col-4 {
+    margin-bottom: 10px;
+  }
+
+  .chartBox, .chartBoxOpenDay {
+    height: 23vh !important;
+  }
+
+  .invSave {
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: auto;
+  }
+
+  .invSaveCol {
+    order: -2;
+  }
+
+  .invItem {
+    margin-bottom: 10px;
+  }
+
+  .invCustomer input {
+    width: 100%;
+  }
+
+  .invCustomer i {
+    left: 1px;
+    right: auto;
+  }
+
+  .invCustomer select {
+    width: 85%;
+    margin-left: 5px;
+  }
+
+  .invCustomer button {
+    height: 30px;
+    border-radius: 50%;
+    margin-top: 5px;
+  }
+
+  .invCount {
+    width: 100%;
+  }
+
+    .invCount label span {
+      width: 100px;
+    }
+
+  .invTax {
+    width: 100%;
+  }
+
+    .invTax label span {
+      float: inherit;
+    }
+
+    .invTax label span {
+      width: 100px;
+      float: left;
+      text-align: center;
+    }
+
+  .invDis {
+    width: 100%;
+  }
+
+    .invDis label input[type="number"] {
+      margin: 0px 5px;
+    }
+    .itemDetails div button{
+      margin-right: 5px !important;
+      height: 30px;
+      font-size: 11px;
+    }
+    .invOption button{
+      width: 31% !important;
+      font-size: 13px;
+    }
+    .invOption button{
+      font-size: 13px;
+    }
+    .invComm button {
+      width: 31%;
+    }
+    .invDetails{
+      height: auto;
+      overflow: inherit;
+    }
+    .invTable td .iRight {
+      border-bottom-width: 0px;
+      border-top-right-radius: 7px;
+      border-top-left-radius: 7px;
+      border-bottom-right-radius: 0;
+      border-left-width: 1px;
+      position: relative;
+      top: 1px;
+      right: 6px;
+    }
+    .invTable td .iLeft {
+      border-top-width: 0px;
+      border-bottom-right-radius: 7px;
+      border-bottom-left-radius: 7px;
+      border-top-left-radius: 0;
+      border-right-width: 1px;
+      position: relative;
+      bottom: 0px;
+      right: 6px;
+    }
+  .invTable td .iCalc {
+    width: 25px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+  }
+  .invCount label span{
+    border-width: 0px;
+  }
+  .invTable td {
+    line-height: 20px;
+    vertical-align: middle;
+    padding: 5px 0px;
+  }
+  .invTable th{
+    vertical-align: middle;
+  }
+  .invTable {
+    overflow: inherit;
+    height: auto;
+  }
+  .itemBuyHeader .itemHeaderAddress {
+    display: block !important;
+    text-align: center;
+  }
+  .itemBuyHeader .itemHeaderBtn {
+    float: inherit !important;
+    text-align: center;
+  }
+  .storeTable .example-container.mat-elevation-z8 {
+    overflow: auto;
+  }
+  .storeBtn button {
+    margin-bottom: 5px;
+  }
+  .storeBtn {
+    float: inherit !important;
+    text-align: center;
+  }
+  .customerDetails{
+    text-align: center;
+  }
+  .customerBtnSave{
+    margin-bottom: 5px;
+  }
+  .invHeader .invAddress {
+    display: block !important;
+    width: 100% !important;
+  }
+  .invHeader .invBtn {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  .invHeader .invBtn button{
+    margin-bottom: 5px;
+  }
+  .invDataEmp {
+    display: block !important;
+    text-align: center;
+    margin-right: 0px !important;
+  }
+  .invDataEmp .mat-form-field{
+    margin-left: 10px;
+  }
+  .invDetailsTotal label {
+    text-align: center !important;
+  }
+
+  .invDetailsTotal label span {
+    float: inherit !important;
+  }
+  .tables {
+    width: 50% !important;
+  }
+  .repAbstract table td span {
+    width: 80px;
+    line-height: 30px;
+    font-size: 12px;
+  }
+  .repAbstract table th{
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .repBoxMoney .mat-form-field{
+    width: auto !important;
+    margin-left: 0px !important;
+  }
+  .kitchenBillDetails.CancelOrder .CancelOrderDiv {
+    left: 24% !important;
+  }
+  .repItemsSearchElementRadio {
+    left: 93% !important;
+    right: 15%;
+    bottom: 42px !important;
+  }
+  .repItemsSearchElement .mat-form-field{
+    width: 100%;
+  }
+  .repItemsSearch h2 {
+    text-align: right;
+  }
+  .repItemsSearch {
+    text-align: center;
+  }
+  .repInvoicesSearchElement .mat-form-field{
+    width: 100% !important;
+  }
+  .repInvoicesSearchElement{
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .currenciesBody table td.mat-cell:last-of-type, .currenciesBody table td.mat-footer-cell:last-of-type,
+  .currenciesBody table th.mat-header-cell:last-of-type {
+    padding-right: 0;
+    padding-left: 0px;
+  }
+  .currenciesBody table td.mat-cell:first-of-type, .currenciesBody table td.mat-footer-cell:first-of-type,
+  .currenciesBody table th.mat-header-cell:first-of-type {
+    padding-left: 0;
+    padding-right: 10px;
+  }
+  
+  .kitchenOldOrder {
+    margin-top: 10px;
+  }
+  .sidebarNav {
+    height: 70%;
+  }
+  .itemPrice table td.mat-footer-cell .mat-form-field{
+    width: 112px;
+  }
+  .itemPrice table td.mat-footer-cell .mat-form-field .mat-select-value {
+    text-align: center;
+  }
+  .itemPrice table td.mat-footer-cell .mat-form-field input.mat-input-element {
+    text-align: center;
+  }
+  .itemBuyDataDiv{
+    width: 100%;
+  }
+  .itemBuyData .mat-form-field {
+    width: 82% !important;
+  }
+  .itemBuyAdditionalData .mat-form-field{
+    width: 85% !important;
+  }
+  .storeSearch {
+    text-align: center !important;
+  }
+  .storeSearch .mat-form-field {
+    width: 100% !important;
+  }
+  .itemList {
+    margin-top: 15px;
+  }
+  .customeraddress {
+    padding-bottom: 10px;
+    text-align: center;
+    justify-content: center;
+  }
+  .customerBtnSave button {
+    width: auto;
+    padding: 0px 10px;
+    margin-left: 0px;
+  }
+  .kitchenBill{
+    height: auto !important;
+  }
+  .application .itemDetails{
+    text-align: center;
+  }
+  .application .mat-form-field{
+    width: 100%;
+  }
+  .invPaidPrice {
+    text-align: center;
+  }
+  .invPaidPrice span{
+    width: 15%;
+  }
+  .invPaidPrice input[type="number"]{
+    width: 32%;
+  }
+  .TaxesHeaderBtn {
+    float: initial !important;
+    text-align: center;
+  }
+  .TaxesHeaderAddress {
+    display: block !important;
+    text-align: center;
+  }
+  .invPlace{
+    display: inherit;
+  }
+  .invPlaceInv{
+    width: 100%;
+  }
+  .invCustomer{
+    width: 100%;
+  }
+}
+/********************
+    End Css Media
+********************/
+
+
+
+/********************
+********************/
+.cdk-overlay-container {
+  z-index:99999;
+}
+.mat-form-field-appearance-outline .mat-form-field-wrapper{
+  padding-bottom: 5px;
+}
+.mat-datepicker-toggle-active {
+  color: #bb3b3a;
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle,
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+.mat-radio-button.mat-accent:active .mat-radio-persistent-ripple{
+  background-color: #bb3b3a;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #bb3b3a;
+}
+.mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  -webkit-transform: translateY(-19px) scale(.75);
+  transform: translateY(-19px) scale(.75);
+}
+.mat-form-field-appearance-outline .mat-form-field-label{
+  top: 22px;
+}
+.mat-cell, .mat-footer-cell {
+  border-top: 1px solid #c6c6c6;
+  text-align: center;
+}
+.mat-calendar-body-selected {
+  background-color: #bb3b3a;
+  color: #fff;
+}
+button{
+  outline: none !important;
+}
+.show-in-small {
+  display: none;
+}
+.mat-radio-label-content {
+  font-weight: bold;
+  font-family: 'Cairo', sans-serif;
+  color: #565759;
+}
+/******************
+******************/
+
+/******************
+  Start Design Button
+******************/
+.btnAdd {
+  color: #17a2b8;
+}
+
+.btnSave {
+  color: #28a745;
+}
+
+.btnRemove{
+  color: #dc3545;
+}
+
+.btnPrint{
+  color: #fd7e14
+}
+.btnIndigo{
+  color: #6610f2;
+}
+
+/******************
+  End Design Button
+******************/
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #bb3b3a;
+}
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: #bb3b3a;
+}
+.mat-form-field-appearance-outline .mat-form-field-infix {
+  padding: 5px 0px 10px;
+  border-top-width: 11px;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-label {
+  font-weight: bold;
+  font-family: 'Cairo', sans-serif;
+  color: #565759;
+}
+.mat-expansion-panel-header, .mat-menu-item {
+  font-family: 'Cairo', sans-serif;
+}
+
+.TaxesBody .mat-form-field.mat-focused .mat-form-field-label mat-label{
+  z-index: 144;
+  background-color: white;
+  padding-left: 10px;
+}
+.mat-primary .mat-pseudo-checkbox-checked, .mat-primary .mat-pseudo-checkbox-indeterminate {
+  background: #dc3545;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #dc3545;
+}
+
+.mat-primary .mat-option {
+  font-family: 'Cairo', sans-serif;
+}

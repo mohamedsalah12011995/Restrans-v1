@@ -1,0 +1,146 @@
+<app-header></app-header>
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <article class="col-md-3 sidebar">
+        <app-sidebar></app-sidebar>
+      </article>
+      <article class="chart col-md-10 offset-md-2">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="itemContainer">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-7 itemaddress">
+                      <h1><i class="far fa-plus-square"></i>إضافة مستخدم</h1>
+                    </div>
+                    <div class="col-md-5 itemBtnSave">
+                      <button mat-stroked-button>حفظ <i class="text-success far fa-save"></i></button>
+                      <button mat-stroked-button>تعديل <i class="text-primary far fa-edit"></i></button>
+                      <button mat-stroked-button>جديد <i class="text-danger far fa-plus-square"></i></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="itemDetails">
+                        <h2><i class="far fa-file-alt"></i> بيانات المستخدمين</h2>
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="اسم المستخدم">
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="اسم الدخول">
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="الرقم السرى">
+                        </mat-form-field>
+                        <div>
+                          <mat-form-field>
+                              <mat-select placeholder="أختر الصلاحية" #role_id>
+                                <mat-option value="typeRole_ID">typeRole_Name</mat-option>
+                              </mat-select>
+                            </mat-form-field>
+                          <button mat-stroked-button class="actionLink far fa-plus-square" data-toggle="modal" data-target="#exampleModalCenter"></button>
+                          <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalCenterTitle">إضافة فئة</h5>
+                                  <button mat-stroked-button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true"><i class="fas fa-power-off text-danger"></i></span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="cat">
+                                    <form>
+                                      <label>
+                                          <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="اسم الصلاحية">
+                                          </mat-form-field>
+                                      </label>
+                                      <div class="catBtn">
+                                        <button mat-stroked-button>حفظ <i class="far fa-save"></i></button>
+                                      </div>
+                                    </form>
+                                    <table class="table table-bordered">
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">م</th>
+                                          <th scope="col">أسم الصلاحية</th>
+                                          <th scope="col">تعديل</th>
+                                          <th scope="col">حذف</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr>
+                                          <th scope="row"></th>
+                                          <td>
+                                            <mat-form-field class="example-full-width">
+                                              <input matInput placeholder="أسم الفئة">
+                                            </mat-form-field>
+                                          </td>
+                                          <td>
+                                            <button mat-stroked-button>تعديل <i class="far fa-edit"></i></button>
+                                          </td>
+                                          <td>
+                                            <button mat-stroked-button>حذف <i class="far fa-window-close"></i></button>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                </div>
+                                <div class="modal-footer"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="itemImage">
+                        <h2><i class="far fa-image"></i> صورة المستحدم</h2>
+                        <input #file type="file" id="ImgItm" accept="image/*" />
+                        <br />
+
+                        <img id="blah" for="ImgItm" [src]="imageSrc" alt="your image" />
+
+                        <label class="uploadImgItm" for="ImgItm">
+                          <i class="far fa-image"></i>
+                          استعراض
+                        </label>
+                        <button mat-stroked-button>
+                          <i class="far fa-times-circle"></i>
+                          حذف
+                        </button>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="itemList">
+                        <h2><i class="far fa-file-alt"></i>  المستخدمين</h2>
+                        <div class="listSearch">
+                          <i class="fas fa-search"></i>
+                          <input type="text" placeholder="بحث عن الصنف">
+                        </div>
+                        <div class="listItm">
+                          <div class="actionLink">
+                            <label class="actionLink">
+                              
+                            </label>
+                            <button mat-stroked-button><i class="far fa-trash-alt"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

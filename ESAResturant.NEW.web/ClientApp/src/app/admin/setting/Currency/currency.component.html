@@ -1,0 +1,95 @@
+<div class="currencies">
+  <div class="currenciesHeader">
+    <div class="currenciesHeaderAddress">
+      <h1><i class="fas fa-coins btnRemove"></i>  {{ 'GENERALSETTINGS.CURRENCIES' | translate }}  </h1>
+    </div>
+    <div class="currenciesHeaderBtn">
+      <button mat-raised-button [hidden]="!isDisplay" (click)="save()">
+        {{ 'ACTIONS.SAVE' | translate }} <i class="text-success far fa-save"></i>
+      </button>
+      <button mat-raised-button [hidden]="isDisplay" (click)="edit(currency)">
+        {{ 'ACTIONS.EDIT' | translate }} <i class="text-primary far fa-edit"></i>
+      </button>
+      <button mat-raised-button (click)="clear()">
+        {{ 'ACTIONS.NEW' | translate }} <i class="text-danger far fa-plus-square"></i>
+      </button>
+      <span class="sp-bckk hiden-in-small">
+        <a>
+          <i class="fas fa-arrow-circle-left" (click)="navigateBack()"></i>
+        </a>
+      </span>
+    </div>
+  </div>
+	<div class="currenciesBody">
+		<div class="row">
+			<div class="col-md-5">
+        <div class="currenciesBodyData">
+          <mat-form-field appearance="outline">
+            <mat-label>  {{ 'GENERALSETTINGS.NAMEAR' | translate }}  </mat-label>
+            <input matInput [(ngModel)]="currency.nameAr">
+          </mat-form-field><br />
+          <mat-form-field appearance="outline">
+            <mat-label>{{ 'GENERALSETTINGS.NAMEEN' | translate }}</mat-label>
+            <input matInput [(ngModel)]="currency.nameEn">
+          </mat-form-field><br />
+          <mat-form-field appearance="outline">
+            <mat-label>{{ 'GENERALSETTINGS.VALUE' | translate }}</mat-label>
+            <input matInput [(ngModel)]="currency.bankValue" (click)="$event.target.select()">
+          </mat-form-field>
+          <span>{{present}}</span>
+          <br />
+          <mat-checkbox [(ngModel)]="currency.isDefault">
+            {{ 'GENERALSETTINGS.DEFAULTPRICE' | translate }}
+
+          </mat-checkbox>
+        </div>
+			</div>
+			<div class="col-md-7">
+				<div class="currenciesBodytable">
+					<div class="example-container mat-elevation-z8">
+						<table>
+							<thead>
+								<tr>
+									<th class="mat-header-cell" scope="col">م</th>
+                  <th class="mat-header-cell" scope="col">{{ 'GENERALSETTINGS.NAMEAR' | translate }}</th>
+                  <th class="mat-header-cell" scope="col">{{ 'GENERALSETTINGS.NAMEEN' | translate }}</th>
+                  <th class="mat-header-cell" scope="col">{{ 'GENERALSETTINGS.VALUE' | translate }}</th>
+									<th class="mat-header-cell" scope="col"><i class="far fa-check-square"></i></th>
+									<!--<th class="mat-header-cell" scope="col"><i class="fas fa-trash"></i></th>-->
+								</tr>
+							</thead>
+							<tbody>
+                <tr *ngFor="let currency of currencyList; let i=index">
+                  <td class="mat-cell" scope="row">{{i+1}}</td>
+                  <td class="mat-cell">{{currency.nameAr}}</td>
+                  <td class="mat-cell">{{currency.nameEn}}</td>
+                  <td class="mat-cell">{{currency.bankValue}}</td>
+                  <td class="mat-cell">
+                    <button mat-icon-button (click)="getById(currency)">
+                      <i class="far fa-check-square"></i>
+                    </button>
+                  </td>
+                  <!--<td class="mat-cell">
+                    <button mat-icon-button (click)="deleteCurreny(deleteConfirm,currency)">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>-->
+                </tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<ng-template #deleteConfirm>
+  <div class="modal-body text-center">
+    <p>{{ 'Messages.DeleteConfirm' | translate }}</p>
+    <button type="button" class="btn btn-danger" (click)="deleteCurrenyConfirm()">
+      <p>{{ 'LABELS.CONFIRM' | translate }}</p>
+    </button>
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">{{ 'LABELS.EXITE' | translate }}</button>
+  </div>
+</ng-template>

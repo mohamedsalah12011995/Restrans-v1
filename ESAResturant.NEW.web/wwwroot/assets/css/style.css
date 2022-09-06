@@ -1,0 +1,1084 @@
+a:hover {
+    text-decoration: none;
+}
+.actionLink{
+    cursor: pointer;
+}
+/********************
+    Start CSS Log In
+********************/
+.loginHeader{
+    background: url('../img/image.jpg');
+    height: 40vh;
+}
+.loginHeadercolor {
+    height: 100%;
+    background-color: #dc3545ed;
+}
+
+.loginBody{
+    position: relative;
+    top: -100px;
+}
+
+.logo{
+    display: inline-block;
+    margin-bottom: 100px;
+}
+
+.logo img{
+    border: 5px solid #ddd;
+    border-radius: 100%;
+}
+
+.logoinForm{
+
+}
+.logoinForm input{
+    border: 1px solid #888;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+.logoinForm input[type=text],.logoinForm input[type=password]{
+    width: 100%;
+    padding: 10px;
+}
+.logoinForm label{
+    /* background-color: #fff;
+    border:2px dotted #00f;
+    display:block; */
+    color:#dc3545ed;
+    cursor: pointer;
+}
+
+.logoinForm input[type=checkbox] {
+    transform: scale(1.5);
+  }
+  
+.logoinForm input[type=checkbox] {
+    width: 15px;
+    height: 18px;
+    margin-right: 35px;
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 9px;
+    visibility: hidden;
+}
+.logForm{
+    display: inline-block;
+}
+.logoinForm input[type=checkbox]:after {
+    content: "";
+    background-color: #fff;
+    display: inline-block;
+    margin-left: 10px;
+    padding-bottom: 5px;
+    color: #dc3545;
+    width: 15px;
+    height: 17px;
+    visibility: visible;
+    border: 1px solid #888;
+    padding-left: 3px;
+    border-radius: 3px;
+}
+  
+.logoinForm input[type=checkbox]:checked:after {
+    content: "\f00c";
+    padding: -5px;
+    font-weight: bold;
+    color: #dc3545;
+}
+.logoinForm button{
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to left, #aa0e23 0%, #f54a5a 100%);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+/********************
+    End CSS Log In
+********************/
+
+/********************
+    Start CSS Header
+********************/
+.header{
+    padding:  15px;
+    box-shadow: 0px 0px 9px 0px #666;
+}
+
+.header i{
+    color: #bebdcb;
+}
+
+.navAccount label{
+    color: #565759;
+}
+
+.navAccount {
+    display: inline-block;
+    border-right: 2px solid #eee;
+    padding-right: 11px;
+    margin-right: 10px;
+}
+
+.navAccount img {
+    border-radius: 100%;
+}
+
+.navMassage {
+    display: inline-block;
+}
+
+.navMassage i{
+    margin-right: 10px;
+}
+.navSystem {
+    background-color: #bb3b3a;
+    position: absolute;
+    right: 0;
+    bottom: -15px;
+    height: 80px;
+    padding: 30px 0px;
+    text-align: center;
+    width: 100%;
+}
+
+.navSystem h1 {
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+/********************
+    End CSS Header
+********************/
+
+/********************
+    Start CSS Side Bar
+********************/
+.sidebar {
+    padding: 0px;
+}
+
+.sidebarMenu {
+    height: calc(100vh - 80px);
+    background-color: #d14141;
+    padding-top: 35px;
+}
+
+.sidebarNav{
+    height: 100%;
+}
+
+.ulMenu{
+    margin-bottom: 0;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    text-align: right;
+    padding-right: 0px;
+}
+
+.ulMenu li {
+    direction: rtl;
+}
+
+.ulMenu li a{
+    width: 100%;
+    display: inline-block;
+    color: #fff;
+    padding: 15px;
+    /*margin-bottom: 15px;*/
+    transition: all 0.5s ease;
+}
+
+.ulMenu li a:hover{
+    border-right: 5px solid #fff;
+    background-color: #bb3b3a;
+}
+
+.ulMenu li a i {
+    margin-left: 10px;
+}
+/********************
+    End CSS Side Bar
+********************/
+
+
+/********************
+    Start CSS Charts
+********************/
+.chart{
+    background-color: #f1f1f1;
+    padding: 30px;
+    width: 75vh;
+}
+.chartBox2 {
+    overflow: hidden;
+    background-color: #fff;
+}
+/********************
+    End CSS Charts
+********************/
+
+/********************
+    start CSS Invoice
+********************/
+.headerInvoice{
+    border-bottom: 2px solid #bb3937;
+}
+.navdate{
+    display: inline-block;
+    color: #4c4a4b;
+    font-weight: bold;
+    border-left: 1px solid #bc8183;
+    padding-left: 16px;
+    height: 100%;
+    padding: 7px 15px;
+}
+
+.navOrderNum {
+    display: inline-block;
+    padding: 9px;
+}
+
+.navOrderNum span {
+    float: left;
+    color: #bb3937;
+    font-weight: bold;
+}
+
+.navOrderNum label {
+    font-weight: bold;
+    margin-left: 10px;
+    color: #4d4b4c;
+}
+
+.navAddress {
+    display: inline-block;
+    border-left: 2px solid #c13937;
+    padding: 0px 6px;
+}
+
+.navAddress h1 {
+    font-size:  27px;
+    font-weight: bold;
+    color: #4e4c4d;
+}
+
+.invoice {
+    margin-top: 10px;
+}
+
+.invCat {
+    margin-bottom: 10px;
+}
+
+.invCat button {    
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 10px;
+    font-weight: bold;
+    color: #bb3b3a;
+}
+.invSave {
+    
+}
+
+.invSave button {
+    cursor: pointer;
+    background-color: #fff;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    /*border-radius: 3px;*/
+    width: 33%;
+    padding: 10px;
+    font-size: 18px;
+    color: #4c4a4b;
+    margin-left: -6px;
+}
+.invSave button i{
+    font-weight: 100;
+    font-size: 21px;
+    margin-right: 5px;
+}
+
+.invItem {
+    height: calc(100vh - 158px);
+    overflow: auto;
+}
+
+.invItm {
+    background-color: #f2f2f2;
+    border-bottom: 2px solid #c93b3a;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.invItem .col-md-2{
+    padding: 0px 7px;
+}
+
+.invItm img {
+    width: 100%;
+    height: 140px;
+}
+
+.invItm h3{
+    font-size: 11px;
+    height: 25px;
+    text-align: center;
+}
+
+.invItmDet {
+    height: 40px;
+    padding: 8px 4px;
+}
+.invItm:hover span{
+    opacity: 1;
+}
+.invItm span {
+    color: #bb3b3a;
+    background-color: #fff;
+    border: 1px solid;
+    border-radius: 34px;
+    direction: ltr;
+    position: absolute;
+    bottom: 50%;
+    right: 40%;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding: 7px 0px;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.invDetails{
+    margin-top: 5px;
+    height: calc(100vh - 168px);
+}
+
+.invPlaceInv{
+    margin-bottom: 5px;
+}
+
+.invPlaceInv h2{
+    display: inline-block;
+    color: #4f4d4e;
+    font-size: 18px;
+}
+
+.selectPlace {
+    display: inline-block;
+    margin-right: 22px;
+}
+
+.invPlaceInv input[type="radio"]{
+    
+}
+
+.selectPlace label{
+    cursor: pointer;
+}
+
+.invCustomer{
+    
+}
+
+.invCustomer input{
+    width: 47%;
+    height: 30px;
+    padding: 4px 5px 4px 27px;
+    color: #b4b4b4;
+    border: 1px solid #b4b4b4;
+    border-radius: 4px;
+}
+
+.invCustomer i{
+    position: absolute;
+    right: 40%;
+    padding: 8px 0px;
+    width: 29px;
+    text-align: center;
+    height: 30px;
+    color: #9a2828;
+}
+
+.invCustomer select{
+    width: 49%;
+    height: 30px;
+    margin-right: 10px;
+    padding-right: 10px;
+    color: #b4b4b4;
+    border: 1px solid #b4b4b4;
+    border-radius: 4px;
+}
+
+.invTable{
+    margin: 5px 0px;
+}
+
+.invTable th,.invTable td{
+    font-size: 12px;
+    padding: 0px 3px ;
+}
+
+.invTable table{
+    margin-bottom: 5px;
+}
+
+.invTable tr{
+    height: 35px;
+    line-height: 35px;
+    padding: 0px 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.invTable tbody tr:nth-child(even){
+    background-color: #f8f8f8;
+}
+
+
+.invTable tbody tr:hover{
+    background-color: #cf3432;
+    color: #fff;
+}
+
+.invTable tbody tr:hover input{
+    border: 1px solid #fff;
+    background-color: #cf3432;
+    color: #fff;
+}
+
+.invTable tbody tr:hover .iCalc{
+    border: 1px solid #fff;
+}
+
+.invTable tbody tr:hover i{
+    color: #fff;
+}
+
+.invTable td i{
+    cursor: pointer;
+}
+
+.invTable td input{
+    width: 25px;
+    height: 22px;
+    text-align: center;
+    outline: none;
+    color: #4b4b4b;
+    transition: all 0.1s ease-in-out;
+}
+
+.invTable td .iCalc {
+    border: 1px solid #a9a9a9;
+    padding: 5px 0;
+    text-align: center;
+    width: 20px;
+    height: 22px;
+    margin: -3px;
+    font-size: 10px;
+    color: #4b4b4b;
+}
+
+.invTable td .iLeft{
+    border-right-width: 0px;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.invTable td .iRight{
+    border-left-width: 0px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.invTable tbody tr:hover .iRight{
+    border-left-width: 0px;
+}
+
+.invTable tbody tr:hover .iLeft{
+    border-right-width: 0px;
+}
+
+.invTable button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+.invTable button:hover{
+    background-color: #fff;
+}
+
+.invTable button:hover i {
+    color: #cf3432 !important;
+}
+
+.invOption{
+
+}
+
+.invOption button {
+    cursor: pointer;
+    background-color: #fff;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 32%;
+    padding: 10px;
+    font-size: 13px;
+    color: #4c4a4b;
+}
+.invOption button i{
+    font-weight: 100;
+    font-size: 13px;
+    margin-right: 5px;
+}
+
+.invSum {
+    margin-top:  5px;
+}
+
+.invCount label {
+    border-radius: 1px;
+    width: 100%;
+    border: 1px solid #d6d6d6;
+    padding: 0px 8px 0px 0px;
+    line-height: 35px;
+    margin-bottom: -1px;
+    font-size: 11px;
+}
+
+.invCount label span {
+    float: left;
+    width: 40px;
+    text-align: center;
+    border-right: 1px solid #d6d6d6;
+}
+
+.invCount {
+    display: inline-block;
+    width: 31%;
+}
+
+.invTax {
+    display: inline-block;
+    margin-right: 6px;
+    width: 31%;
+}
+
+.invTax label {
+    width: 100%;
+    font-size: 14px;
+}
+
+.invTax label span {
+    margin-right: 5px;
+    float: left;
+}
+
+.invDis {
+    display: inline-block;
+    width: 31%;
+    margin-right: 6px;
+}
+
+.invDis label {
+
+}
+
+.invDis label input[type="checkbox"] {
+
+}
+
+.invDis label input[type="number"] {
+    padding-right: 6px;
+    width: 85%;
+    font-size: 13px;
+}
+
+.invTota {
+
+}
+
+.invTotal {
+    border: 1px solid #d6d6d6;
+    height: 60px;
+}
+
+.invTotal h3 {
+    display: inline-block;
+    width: 49%;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 58px;
+    margin-bottom: 0;
+    color: #666;
+}
+
+.invTotal label {
+    width: 49%;
+    margin-bottom: 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #bb3b3a;
+}
+
+.invPaid {
+    margin-top:  5px;
+}
+
+.invTypePaid {
+    padding: 0px;
+}
+
+.invPaid button {
+    cursor: pointer;
+    border:  1px solid #888;
+    background-color:  #fff;
+    font-size: 18px;
+    width: 31%;
+    transition: all 0.3s ease;
+}
+
+.invPaid button:hover {
+    background-color: #bb3b3a;
+    color:  #fff;
+}
+
+.invPaidPrice {
+    padding: 0px;
+}
+
+.invPaidPrice input[type="number"] {
+    margin-bottom: 6px;
+    text-align: center;
+    width: 100%;
+    height: 26px;
+}
+
+.invOnline .col-md-2 {
+    padding: 0px 1px;
+}
+
+.invOnline button {
+    cursor:  pointer;
+    overflow:  hidden;
+    padding:  0;
+    border: 1px solid #d6d6d6;
+    border-radius: 6px;
+}
+
+.invOnline button img {
+    width:  100%;
+}
+/********************
+    End CSS Invoice
+********************/
+
+/********************
+    Start CSS Item
+********************/
+.item {
+    background-color: #eee;
+}
+
+.itemContainer {
+    padding:  25px 0px 50px;
+    border: 1px solid #d6d6d6;
+    background-color:  #fff;
+    border-radius:  3px;
+    margin-top:  90px;
+}
+
+.itemContainer .itemaddress {
+    text-align:  right;
+    padding-right:  25px;
+    padding-bottom:  30px;
+}
+
+.itemContainer .itemaddress h1 {
+    font-size:  24px;
+}
+
+.itemContainer .itemaddress h1 i {
+    margin-left: 10px;
+    color: #d80000;
+}
+
+.itemBtnSave {}
+
+.itemBtnSave button {
+    cursor: pointer;
+    background-color: #fff;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    /*border-radius: 3px;*/
+    width: 33%;
+    padding: 10px;
+    font-size: 18px;
+    color: #4c4a4b;
+    margin-left: -5px;
+}
+
+.itemBtnSave button i {
+    font-weight: 100;
+    font-size: 21px;
+    margin-right: 5px;
+}
+
+.itemContainer .container {
+    border-bottom: 3px solid #a33939;
+    border-top: 3px solid #a33939;
+    padding-bottom:  30px;
+    padding-top:  30px;
+    text-align: right;
+}
+.itemDetails {}
+
+.itemDetails h2 {
+    color:  #484848;
+    font-size:  21px;
+}
+
+.itemDetails h2 i {
+    color: #c8505a;
+}
+
+.itemDetails input {
+    margin-bottom: 15px;
+    width: 87%;
+    height: 45px;
+    padding-right:  10px;
+    border-radius:  5px;
+    border:  1px solid #c2c2c2;
+}
+
+
+.itemDetails label {
+    width:  100%;
+    height:  45px;
+    line-height:  45px;
+    margin-bottom:  15px;
+    font-size:  15px;
+    font-weight: bold;
+    color:  #4d4b4c;
+}
+
+.itemDetails select {
+    width: 87%;
+    margin-left:  3px;
+    height:  45px;
+    border:  1px solid #c2c2c2;
+    color: #757575;
+    border-radius: 5px;
+}
+.itemDetails label i{
+    color: #cb505a;
+font-size: 30px;
+}
+
+.itemDetails label button:hover {
+    color: #fff;
+    background-color: #cb505a;
+}
+
+.itemDetails label button {
+    width: 10%;
+    height: 38px;
+    border: 1px solid #888;
+    background-color: #fff;
+    color: #cf555a;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 3px;
+}
+
+.itemDetails .modal-header .close{
+    margin-left: 0px;
+    background-color: transparent;
+    width: 62px;
+    height: 62px;
+    line-height: 0;
+    padding-left: 0;
+    border: none;
+}
+.itemDetails .modal-header .close i{
+    font-size: 20px;
+}
+.itemDetails .modal-header{
+    border-bottom: 3px solid #a33939;
+}
+
+.itemDetails .modal-footer{
+    border-top: 3px solid #a33939;
+}
+
+.itemPrice input {
+    width:  49%;
+    height: 35px;
+    font-size:  13px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+
+.cat {}
+
+.cat input {
+    width:  35%;
+}
+
+.cat select {
+    width:  35%;
+    margin: 0px 0px 0px 0px;
+}
+
+.cat .catBtn {
+    width:  35%;
+    text-align: center;
+}
+
+.cat .catBtn button {
+    cursor:  pointer;
+    width:  50%;
+    height: 45px;
+    line-height: 45px;
+    margin-bottom: 10px;
+    border: 1px solid #c2c2c2;
+    color: #a33939;
+    background-color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.5s;
+}
+
+.cat .catBtn button i {
+    font-size: 17px;
+}
+.cat .catBtn button:hover i{
+    color: #fff;
+}
+.cat .catBtn button:hover{
+    background-color: #a33939;
+    color: #fff;
+}
+
+.cat table tr td,.cat table tr th {
+    padding:  0;
+    text-align:  center;
+    border-right: 1px solid #c2c2c2;
+    border-left: 1px solid #c2c2c2;
+    border-bottom: 1px solid #c2c2c2;
+}
+
+.cat table {
+    width:  100%;
+    border: 1px solid #c2c2c2;
+}
+
+.cat table input , .cat table select {
+    width:  95%;
+    margin-top:  15px;
+}
+
+.cat table button{
+    margin-top: 15px;
+    border: 1px solid #c2c2c2;
+    color: #a33939;
+    background-color: #fff;
+    width: 80%;
+    height: 45px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+   transition: all 0.5s;
+}
+
+.cat table button i {
+    font-size: 17px;
+}
+.cat table button:hover i{
+    color: #fff;
+}
+.cat table button:hover{
+    background-color: #a33939;
+    color: #fff;
+}
+
+.itemImage {
+    text-align: center;
+}
+
+.itemImage input {
+    display: none;
+}
+
+.itemImage button {
+    width: 48%;
+    text-align: center;
+    color: #4b494a;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    margin-top: 8px;
+    height: 35px;
+    line-height: 30px;
+    border-radius: 3px;
+}
+
+.itemImage img {
+    width: 150px;
+    height: 150px;
+}
+
+.itemImage .uploadImgItm {
+    width: 48%;
+    margin-left: 5px;
+}
+
+.itemImage button i {
+    color: #cb505a;
+}
+.itemImage button:hover {
+    background-color: #cb505a;
+    color: #fff;
+}
+
+.itemImage button:hover i {
+    color: #fff;
+}
+.itemIngredients {
+    margin-top:  10px;
+}
+
+.itemIngredients label {
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #4d4b4c;
+}
+
+.itemIngredients label i {
+    color: #cf555a;
+}
+.itemList {}
+
+.itemList .listSearch {
+    position:  relative;
+}
+
+.itemList .listSearch i {
+    position:  absolute;
+    width: 35px;
+    height:  45px;
+    border-bottom-right-radius:  7px;
+    border-top-right-radius:  7px;
+    text-align:  center;
+    line-height:  45px;
+    color:  #902431;
+}
+
+.itemList .listSearch input {
+    width:  100%;
+    height:  45px;
+    padding-right:  35px;
+    border-radius: 5px;
+    border: 1px solid #c2c2c2;
+    outline: none;
+}
+
+.itemList .listItm {
+    margin-top:  12px;
+    border:  1px solid #c6c6c6;
+    border-radius: 5px;
+    height:  390px;
+}
+
+.itemList .listItm label {
+    width:  100%;
+    height: 35px;
+    line-height: 33px;
+    margin-bottom:  0;
+    border-bottom:  1px solid #c6c6c6;
+    padding-right:  25px;
+    padding-left:  15px;
+    border-top-left-radius:  5px;
+    border-top-right-radius: 5px;
+}
+
+.itemList .listItm label span {
+    float:  left;
+}
+
+.itemList .listItm label:hover {
+    background-color: #d14141;
+    color:  #fff;
+}
+
+/********************
+    End CSS Item
+********************/
+/********************
+    Start CSS Table
+********************/
+
+.tawla .twlDetalis {
+    background-color: #ccefdb;
+    height:  125px;
+    position:  relative;
+    padding:  7px 6px;
+}
+
+.tawla .twlDetalis h2 {
+    color: #474a43;
+    font-size: 13px;
+}
+
+.tawla .twlDetalis h2 span {
+    float:  left;
+}
+
+.tawla .twlDetalis label {position:  absolute;bottom:  0;left: 5px;text-align:  center;font-size:  12px;}
+
+.tawla .twlOptian button {
+    cursor:  pointer;
+    background-color: #eff0f2;
+    border:  1px solid #888;
+    border-radius: 4px;
+    color:  #474546;
+    padding:  8px 11px;
+    font-weight: bold;
+}
+
+.tawla {
+    margin-bottom: 15px;
+}
+
+.tawla .twlOptian {
+    border-bottom: 5px solid #ccefdb;
+    background-color: #f1f1f1;
+    padding:  12px 0px;
+    text-align:  center;
+}
+
+.tawla .twlDetalis label span {
+    color:  #1f9660;
+}
+
+/********************
+    End CSS Table
+********************/

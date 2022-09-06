@@ -1,0 +1,327 @@
+<div class="reportPage">
+  <div>
+    <div class="repPageHeader">
+      <h1>{{ 'ADMINSIDEBAR.BOXMONYREPORT' | translate }}</h1>
+      <span>
+        <a>
+          <i class="fas fa-arrow-circle-left" (click)="navigateBack()"></i>
+        </a>
+      </span>
+      <a>
+        <button mat-button [matMenuTriggerFor]="menu"><i class="fas fa-print "></i></button>
+        <mat-menu #menu="matMenu">
+          <!--<button mat-menu-item (click)="ClickResizePaper('printInvA5')">A5</button>
+  <button mat-menu-item (click)="ClickResizePaper('printInvA4')">A4</button>-->
+          <button mat-menu-item (click)="ClickResizePaper('printInvA5')">A5</button>
+          <button mat-menu-item (click)="ClickResizePaper('printInvA4')">A4</button>
+          <button mat-menu-item (click)="exportAsXLSX()">exel</button>
+        </mat-menu>
+      </a>
+      <a>
+        <i class="fas fa-share"></i>
+      </a>
+    </div>
+  </div>
+  <div class="repPageBody">
+    <div class="repPageSearch">
+      <div class="repPageSearchElement repPageSearchDate">
+        <label class="hiden-in-small"> {{ 'REPORTS.TODAYDATE' | translate }} </label>
+        <mat-form-field appearance="outline">
+          <mat-label> {{ 'REPORTS.FROMDATE' | translate }} </mat-label>
+          <input matInput type="date" [matDatepicker]="DateFrom" [(ngModel)]="fromDate">
+          <mat-datepicker-toggle matSuffix [for]="DateFrom"></mat-datepicker-toggle>
+          <mat-datepicker #DateFrom></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label> {{ 'REPORTS.TODATE' | translate }} </mat-label>
+          <input matInput type="date" [matDatepicker]="DateTo" [(ngModel)]="toDate">
+          <mat-datepicker-toggle matSuffix [for]="DateTo"></mat-datepicker-toggle>
+          <mat-datepicker #DateTo></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'REPORTTODAY.TRANSACTIONTYPE' | translate }}</mat-label>
+          <mat-select name="typeInv" [(ngModel)]="boxMonyCategoryId">
+            <mat-option *ngFor="let category of boxMonyCategoryList" [value]="category.id" (click)="filterByBoxMonyCategoryId()">
+              {{ currentLang=='ar'? category.nameAR : category.nameEN }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'REPORTTODAY.BOXMONY' | translate }}</mat-label>
+          <mat-select name="typeInv" [(ngModel)]="boxMonyTypeId">
+            <mat-option *ngFor="let type of boxMonyTypeList" [value]="type.id" (click)="filterByBoxMonyTypeId()">
+              {{ currentLang=='ar'? type.nameAR : type.nameEN }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <button mat-stroked-button (click)="boxMoniesPaginated()">
+          {{ 'BRANCHES.SERCH' | translate }}
+          <i class="fas fa-search"></i>
+        </button>
+        <!-- <div class="BtnResizePaper">
+    <mat-icon>print</mat-icon>
+    <button mat-stroked-button (click)="ClickResizePaper('printInvA5')">A5</button>
+    <button mat-stroked-button (click)="ClickResizePaper('printInvA4')">A4</button>
+    <button mat-stroked-button (click)="exportAsXLSX()"> exel </button>
+
+  </div> -->
+      </div>
+    </div>
+    <div class="repPageTable">
+      <div class="example-container mat-elevation-z8">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+
+              <th> {{ 'ACTIONS.ID' | translate }} </th>
+              <th> {{ 'REPORTTODAY.DEPIT' | translate }} </th>
+              <th> {{ 'REPORTTODAY.CREDIT' | translate }} </th>
+              <th> {{ 'REPORTTODAY.NOTIC' | translate }} </th>
+              <th> {{ 'REPORTTODAY.CATEGORY' | translate }} </th>
+              <th> {{ 'REPORTTODAY.BOXMONY' | translate }} </th>
+              <th> {{ 'REPORTTODAY.DATE' | translate }} </th>
+              <th> {{ 'REPORTTODAY.TIME' | translate }} </th>
+              <th> {{ 'SIGNIN.USERNAME' | translate }} </th>
+              <th>{{ 'REPORTTODAY.PRINT' | translate }} </th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let boxMony of filterBoxMonyList; let i = index;">
+              <th scope="row">{{i+1}}</th>
+              <td><span> {{boxMony.debit | number:'0.2-2'}}  </span></td>
+              <td><span> {{boxMony.credit | number:'0.2-2'}}  </span></td>
+              <td><span> {{boxMony.note}}  </span></td>
+              <td><span> {{boxMony.boxMonyCategories.nameAR}}  </span></td>
+              <td><span> {{currentLang=='ar'? boxMony.boxMonyTypes.nameAR : boxMony.boxMonyTypes.nameEN}}  </span></td>
+              <td><span> {{boxMony.currentDate | date: 'dd/MM/yyyy'}} </span></td>
+              <td><span> {{boxMony.date | date: 'hh/mm/ss aa'}}  </span></td>
+              <td><span> {{boxMony.user.userName}}  </span></td>
+              <td>
+                <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="printRow(boxMony)">
+                  <mat-icon>print</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="repAbstract">
+        <table>
+          <thead>
+            <tr>
+              <th> {{ 'REPORTS.COUNT' | translate }} </th>
+              <th> {{ 'REPORTTODAY.CREDIT' | translate }} </th>
+              <th> {{ 'REPORTTODAY.DEPIT' | translate }} </th>
+              <th> {{ 'REPORTTODAY.DIFFERENCE' | translate }} </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tdMoney">{{countBoxMony}}</td>
+              <td class="tdCount">{{totalCredit | number:'0.1-1'}}</td>
+              <td class="tdCreditor">{{totalDebit | number:'0.1-1'}}</td>
+              <td class="tdMoney">{{totalBlance | number:'0.1-1'}}</td>
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<div class="printableInv" id="printBoxMony" hidden>
+  <div [class]="ResizePaper">
+    <div class="printInvDetails">
+      <div class="row">
+        <div class="printInvDetailsAddress">
+          <div class="PrintCompanyName">
+            <h1> {{ 'BRANCHES.COMPANYNAME' | translate }}  </h1>
+          </div>
+          <div class="PrintLogo">
+            <img src="../../../../assets/img/Logo4.png" alt="Logo">
+          </div>
+        </div>
+        <div class="PrintName text-center">
+          <h2> {{ 'ADMINSIDEBAR.BOXMONYREPORT' | translate }}  </h2>
+        </div>
+        <div class="PrintDate">
+          <!-- <h3>التاريخ</h3> -->
+          <p> {{ 'REPORTS.FROMDATE' | translate }} : <strong>{{fromDate | date: 'yyyy-MM-dd'}}</strong></p>
+          <p> {{ 'REPORTS.TODATE' | translate }} : <strong>{{toDate | date: 'yyyy-MM-dd'}}</strong></p>
+        </div>
+
+      </div>
+    </div>
+    <div class="printInvTable text-center">
+      <table>
+
+        <thead>
+          <tr>
+
+            <th> {{ 'REPORTTODAY.DEPIT' | translate }} </th>
+            <th> {{ 'REPORTTODAY.CREDIT' | translate }} </th>
+            <th> {{ 'REPORTTODAY.NOTIC' | translate }} </th>
+            <th> {{ 'REPORTTODAY.CATEGORY' | translate }} </th>
+            <th> {{ 'REPORTTODAY.BOXMONY' | translate }} </th>
+            <th> {{ 'REPORTTODAY.DATE' | translate }} </th>
+            <th> {{ 'REPORTTODAY.TIME' | translate }} </th>
+            <th> {{ 'SIGNIN.USERNAME' | translate }} </th>
+
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td><span> {{boxMonyPrint.debit | number:'0.2-2'}}  </span></td>
+            <td><span> {{boxMonyPrint.credit | number:'0.2-2'}}  </span></td>
+            <td><span> {{boxMonyPrint.note}}  </span></td>
+            <td><span> {{boxMonyPrint.boxMonyCategories.nameAR}}  </span></td>
+            <td><span> {{boxMonyPrint.boxMonyTypes.nameAR}}  </span></td>
+            <td><span> {{boxMonyPrint.currentDate | date: 'dd/MM/yyyy'}} </span></td>
+            <td><span> {{boxMonyPrint.date | date: 'hh/mm/ss aa'}}  </span></td>
+            <td><span> {{boxMonyPrint.user.userName}}  </span></td>
+          </tr>
+
+        </tbody>
+     </table>
+
+    </div>
+
+
+    <div class="repAbstract">
+      <table>
+        <thead>
+          <tr>
+            <th> {{ 'REPORTTODAY.DEPIT' | translate }} </th>
+            <th> {{ 'REPORTTODAY.CREDIT' | translate }} </th>
+            <th> {{ 'REPORTTODAY.DIFFERENCE' | translate }} </th>
+            <th> {{ 'REPORTS.COUNT' | translate }} </th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tdCount">{{totalCredit | number:'0.1-1'}}</td>
+            <td class="tdCreditor">{{totalDebit | number:'0.1-1'}}</td>
+            <td class="tdMoney">{{totalBlance | number:'0.1-1'}}</td>
+            <td class="tdMoney">{{countBoxMony}}</td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="printInvFooter">
+      <p>
+        Power By Easacc<br />
+        www.EasAcc.com
+      </p>
+    </div>
+  </div>
+</div>
+<div class="printableInv" id="printReptax" hidden>
+  <div [class]="ResizePaper">
+    <div class="printInvDetails">
+      <div class="row">
+        <div class="printInvDetailsAddress">
+          <div class="PrintCompanyName">
+            <h1> {{ 'BRANCHES.COMPANYNAME' | translate }}  </h1>
+          </div>
+          <div class="PrintLogo">
+            <img src="../../../../assets/img/Logo4.png" alt="Logo">
+          </div>
+        </div>
+        <div class="PrintName text-center">
+          <h2> {{ 'ADMINSIDEBAR.BOXMONYREPORT' | translate }}  </h2>
+        </div>
+        <div class="PrintDate">
+          <!-- <h3>التاريخ</h3> -->
+          <p> {{ 'REPORTS.FROMDATE' | translate }} : <strong>{{fromDate | date: 'yyyy-MM-dd'}}</strong></p>
+          <p> {{ 'REPORTS.TODATE' | translate }} : <strong>{{toDate | date: 'yyyy-MM-dd'}}</strong></p>
+        </div>
+
+      </div>
+    </div>
+    <div class="printInvTable text-center">
+      <table>
+
+        <thead>
+          <tr>
+
+            <th *ngIf="currentLang=='ar'"> م </th>
+            <th *ngIf="currentLang=='en'"> id </th>
+            <th> {{ 'REPORTTODAY.DEPIT' | translate }} </th>
+            <th> {{ 'REPORTTODAY.CREDIT' | translate }} </th>
+            <th> {{ 'REPORTTODAY.NOTIC' | translate }} </th>
+            <th> {{ 'REPORTTODAY.CATEGORY' | translate }} </th>
+            <th> {{ 'REPORTTODAY.BOXMONY' | translate }} </th>
+            <th> {{ 'REPORTTODAY.DATE' | translate }} </th>
+            <th> {{ 'REPORTTODAY.TIME' | translate }} </th>
+            <th> {{ 'SIGNIN.USERNAME' | translate }} </th>
+
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let boxMony of filterBoxMonyList; let i = index;">
+            <td><span> {{i+1}}  </span></td>
+            <td><span> {{boxMony.debit | number:'0.2-2'}}  </span></td>
+            <td><span> {{boxMony.credit | number:'0.2-2'}}  </span></td>
+            <td><span> {{boxMony.note}}  </span></td>
+            <td><span> {{boxMony.boxMonyCategories.nameAR}}  </span></td>
+            <td><span> {{boxMony.boxMonyTypes.nameAR}}  </span></td>
+            <td><span> {{boxMony.currentDate | date: 'dd/MM/yyyy'}} </span></td>
+            <td><span> {{boxMony.date | date: 'hh/mm/ss aa'}}  </span></td>
+            <td><span> {{boxMony.user.userName}}  </span></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+
+
+    <div class="repAbstract">
+      <table>
+        <thead>
+          <tr>
+            <th> {{ 'REPORTTODAY.DEPIT' | translate }} </th>
+            <th> {{ 'REPORTTODAY.CREDIT' | translate }} </th>
+            <th> {{ 'REPORTTODAY.DIFFERENCE' | translate }} </th>
+            <th> {{ 'REPORTS.COUNT' | translate }} </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+
+            <td class="tdCount">{{totalCredit | number:'0.1-1'}}</td>
+            <td class="tdCreditor">{{totalDebit | number:'0.1-1'}}</td>
+            <td class="tdMoney">{{totalBlance | number:'0.1-1'}}</td>
+            <td class="tdMoney">{{countBoxMony}}</td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="printInvFooter">
+      <p>
+        Power By Easacc<br />
+        www.EasAcc.com
+      </p>
+    </div>
+  </div>
+</div>
+
+
+

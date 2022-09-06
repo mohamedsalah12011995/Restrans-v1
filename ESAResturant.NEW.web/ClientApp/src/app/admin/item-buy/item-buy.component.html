@@ -1,0 +1,372 @@
+<div class="itemBuy">
+  <div class="itemBuyHeader">
+    <div class="itemHeaderAddress">
+      <h2><i class="fas fa-store-alt btnRemove"></i>  {{ 'ITEMBUY.ITEMBUY' | translate }}</h2>
+    </div>
+    <div class="itemHeaderBtn">
+      <button mat-stroked-button [hidden]="!isnew" (click)="InsertOrUpdateItem('add')"><i class="fas fa-save btnSave"></i> {{ 'ACTIONS.SAVE' | translate }}</button>
+      <button mat-stroked-button [hidden]="isnew" (click)="InsertOrUpdateItem('edit')"><i class="fas fa-plus btnAdd"></i>  {{ 'ACTIONS.EDIT' | translate }}</button>
+      <button mat-stroked-button (click)="clear()"><i class="fas fa-plus btnRemove"></i> {{ 'ACTIONS.NEW' | translate }}</button>
+    </div>
+    <span class="back-btnn">
+      <a>
+        <i class="fas fa-arrow-circle-left" (click)="navigateBack()"></i>
+      </a>
+    </span>
+  </div>
+
+  <!--<div class="itemBuyBody">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="itemBuyData">
+              <h3><i class="material-icons">assignment</i>{{ 'ITEMS.ITEMDETAILS' | translate }}</h3>
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'ITEMS.NAMEAR' | translate }} </mat-label>
+                <input matInput [(ngModel)]="item.nameAR" (click)="$event.target.select();">
+              </mat-form-field>
+              <div class="itemBuyDataDiv">
+                <mat-form-field appearance="outline">
+                  <mat-label>{{ 'ITEMBUY.ITEMCODE' | translate }}</mat-label>
+                  <input matInput disabled="disabled" [(ngModel)]="item.code" (click)="$event.target.select();">
+                </mat-form-field>
+                <button mat-icon-button class="btnAdd">
+                  <mat-icon aria-label="Example icon-button with a heart icon">local_offer</mat-icon>
+                </button>
+              </div><br/>
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'ITEMS.NAMEEN' | translate }}</mat-label>
+                <input matInput [(ngModel)]="item.nameEN" (click)="$event.target.select();">
+              </mat-form-field>
+              <div class="itemBuyDataDiv">
+                <mat-form-field appearance="outline">
+                  <mat-label> {{ 'ITEMS.SELECTCATEGORY' | translate }}</mat-label>
+                  <mat-select [(ngModel)]="item.itemCategoryId">
+                    <mat-option *ngFor="let cat of itemCategoryList" [value]="cat.id">
+
+                      {{ currentLang=='ar' ? cat.nameAR : cat.nameEN}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <button mat-icon-button (click)="openPricesModal(Categorytemplate)" class="btnAdd">
+                  <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+                </button>
+              </div>
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'ITEMBUY.BUYPRICE' | translate }}</mat-label>
+                <input matInput [(ngModel)]="item.buyPrice">
+              </mat-form-field>
+              <div class="itemBuyDataDiv">
+                <mat-form-field appearance="outline">
+                  <mat-label> {{ 'ITEMS.SELECTUNIT' | translate }}</mat-label>
+                  <mat-select [(ngModel)]="item.unitId">
+                    <mat-option *ngFor="let unit of unitList" [value]="unit.id">
+                      {{unit.nameAr}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <button mat-icon-button (click)="openPricesModal(Unittemplate)" class="btnAdd">
+                  <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+                </button>
+              </div>
+
+
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'ITEMBUY.MINSELLPRICE' | translate }}</mat-label>
+                <input matInput [(ngModel)]="item.lowestSellPrice" (click)="$event.target.select();">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label> {{ 'LABELS.VAT' | translate }}</mat-label>
+                <input matInput [(ngModel)]="item.vat" (click)="$event.target.select();">
+              </mat-form-field><br />
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'ITEMBUY.MINQUANTITY' | translate }}  </mat-label>
+                <input matInput [(ngModel)]="item.lowestQuantity" (click)="$event.target.select();">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>  {{ 'ITEMBUY.FIRSTQUANTITY' | translate }}</mat-label>
+                <input matInput [(ngModel)]="item.firstQuantity" (click)="$event.target.select();">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>  {{ 'ITEMBUY.CURRENTQUANTITY' | translate }} </mat-label>
+                <input matInput [(ngModel)]="item.currentQuantity" (click)="$event.target.select();">
+              </mat-form-field>
+
+            </div>
+            <div class="itemBuyAdditionalData">
+              <h3><i class="material-icons">assignment</i>{{ 'ITEMBUY.BARCODE' | translate }} </h3>
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'ITEMBUY.BARCODE1' | translate }}</mat-label>
+                <input matInput [(ngModel)]="item.barCode1" (click)="$event.target.select();">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'ITEMBUY.BARCODE2' | translate }}</mat-label>
+                <input matInput [(ngModel)]="item.barCode2" (click)="$event.target.select();">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'ITEMBUY.BARCODE3' | translate }}</mat-label>
+                <input matInput [(ngModel)]="item.barCode3" (click)="$event.target.select();">
+              </mat-form-field>
+
+
+              <div>
+                <ng-template #Unittemplate>
+                  <div class="modal-header" (click)="closePrintermodal()">
+                    <h5 class="modal-title" id="exampleModalCenterTitleUnit"> {{ 'ITEMS.ADDUNIT' | translate }}</h5>
+                    <button type="button" class="btn" (click)="closePrintermodal()">
+                      <span aria-hidden="true"><i class="fas fa-power-off text-danger"></i></span>
+                    </button>
+                  </div>
+                  <div class="modal-body text-right">
+                    <div class="cat">
+                      <app-Unit></app-Unit>
+                    </div>
+                  </div>
+                  <div class="modal-footer"></div>
+                </ng-template>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="itemList">
+          <h2><i class="far fa-file-alt"></i>   {{ 'ITEMS.ITEMS' | translate }}  </h2>
+         
+          <div class="listSearch">
+
+            <i class="fas fa-search"></i>
+            <input type="text" #serch_item name="serch_item" placeholder=" {{ 'ITEMS.SEARCHFORITEMS' | translate }} " (input)="Serchitem(serch_item.value)">
+          </div>
+
+          <div class="listItm">
+            <div class="actionLink" *ngFor="let item of SerchList" (click)="getById(item)">
+              <ng-container>
+                <div class="actionLink">
+                  <label>
+                    {{ currentLang=='ar' ? item.nameAR : item.nameEN}}
+                  </label>
+                  <button (click)="delete(item.id)"><i class="far fa-trash-alt"></i></button>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <ng-template #Categorytemplate>
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">{{ 'ITEMS.ADDCATEGORY' | translate }}</h5>
+            <button type="button" class="btn" (click)="closePrintermodal()">
+              <span aria-hidden="true"><i class="fas fa-power-off text-danger"></i></span>
+            </button>
+          </div>
+          <div class="modal-body text-right">
+            <div class="cat">
+              <app-item-category></app-item-category>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </ng-template>
+      </div>
+    </div>>
+
+
+    </div>-->
+
+
+
+
+
+
+  <div class="row item-buy-row">
+    <div class="col-md-3">
+
+      <div class="itemBuyData">
+        <h3 class="smml"><i class="fas fa-poll-h"></i>{{ 'ITEMS.ITEMDETAILS' | translate }}</h3>
+        <mat-form-field class="itm-inp" appearance="outline">
+          <mat-label>  {{ 'ITEMS.NAMEAR' | translate }} <span *ngIf="nammeAR.touched && nammeAR.invalid"> ({{ 'Messages.FieldIsRequired' | translate }}) </span>  </mat-label>
+          <input matInput [(ngModel)]="item.nameAR" (click)="$event.target.select();" name="nammeAR" #nammeAR="ngModel" required>
+        </mat-form-field>
+
+        <mat-form-field class="itm-inp" appearance="outline">
+          <mat-label>  {{ 'ITEMS.NAMEEN' | translate }} <span *ngIf="nammeEN.touched && nammeEN.invalid"> ({{ 'Messages.FieldIsRequired' | translate }}) </span>  </mat-label>
+          <input matInput [(ngModel)]="item.nameEN" (click)="$event.target.select();" name="nammeEN" #nammeEN="ngModel" required>
+        </mat-form-field>
+
+        <div class="itemBuyDataDiv itm-inp">
+          <mat-form-field class="itm-inp" appearance="outline">
+            <mat-label> {{ 'ITEMS.SELECTUNIT' | translate }}</mat-label>
+            <mat-select  [(ngModel)]="item.unitId">
+              <mat-option *ngFor="let unit of unitList" [value]="unit.id">
+                {{ currentLang=='ar' ? unit.nameAr : unit.nameAr}}
+
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-icon-button (click)="openPricesModal(Unittemplate)" class="btnAdd">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+
+        <div class="itemBuyDataDiv itm-inp">
+          <mat-form-field class="itm-inp" appearance="outline">
+            <mat-label> {{ 'ITEMS.SELECTCATEGORY' | translate }}</mat-label>
+            <mat-select [(ngModel)]="item.itemCategoryId">
+              <mat-option *ngFor="let cat of itemCategoryList" [value]="cat.id">
+
+                {{ currentLang=='ar' ? cat.nameAR : cat.nameEN}}
+
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-icon-button (click)="openPricesModal(Categorytemplate)" class="btnAdd">
+            <i class="fas fa-plus"></i>
+          </button>
+        </div>
+
+
+        <!--<div class="itemBuyDataDiv itm-inp">
+    <mat-form-field class="itm-inp" appearance="outline">
+      <mat-label> {{ 'ITEMBUY.ITEMCODE' | translate }} <span *ngIf="code.touched && code.invalid"> ({{ 'Messages.FieldIsRequired' | translate }}) </span>  </mat-label>
+      <input matInput disabled="disabled" [(ngModel)]="item.code" (click)="$event.target.select();" name="code" #code="ngModel" required>
+    </mat-form-field>
+    <button mat-icon-button class="btnAdd">
+      <i class="fas fa-barcode"></i>
+    </button>
+  </div>-->
+      </div>
+
+
+    </div>
+
+    <div class="col-md-3">
+      <div class="itemBuyData">
+        <h3 class="smml"><i class="fas fa-poll-h"></i>{{ 'ITEMS.ITEMPRICES' | translate }}</h3>
+        <mat-form-field class="itm-inp" appearance="outline">
+          <mat-label> {{ 'ITEMBUY.BUYPRICE' | translate }} <span *ngIf="buyPrice.touched && buyPrice.invalid"> ({{ 'Messages.FieldIsRequired' | translate }}) </span>  </mat-label>
+          <input matInput [(ngModel)]="item.buyPrice" name="buyPrice" #buyPrice="ngModel" required>
+        </mat-form-field>
+
+        <!--<mat-form-field class="itm-inp" appearance="outline">
+          <mat-label> {{ 'ITEMBUY.MINSELLPRICE' | translate }} <span *ngIf="lowestSellPrice.touched && lowestSellPrice.invalid"> ({{ 'Messages.FieldIsRequired' | translate }}) </span>  </mat-label>
+          <input matInput [(ngModel)]="item.lowestSellPrice" (click)="$event.target.select();" name="lowestSellPrice" #lowestSellPrice="ngModel" required>
+        </mat-form-field>-->
+
+        <mat-form-field class="itm-inp" appearance="outline">
+          <mat-label> {{ 'ITEMBUY.MINQUANTITY' | translate }} <span *ngIf="lowestQuantity.touched && lowestQuantity.invalid"> ({{ 'Messages.FieldIsRequired' | translate }}) </span>  </mat-label>
+          <input matInput [(ngModel)]="item.lowestQuantity" (click)="$event.target.select();" name="lowestQuantity" #lowestQuantity="ngModel" required>
+        </mat-form-field>
+
+        <!--<mat-form-field class="itm-inp" appearance="outline">
+          <mat-label> {{ 'ITEMBUY.FIRSTQUANTITY' | translate }} <span *ngIf="firstQuantity.touched && firstQuantity.invalid"> ({{ 'Messages.FieldIsRequired' | translate }}) </span>  </mat-label>
+          <input matInput [(ngModel)]="item.firstQuantity" (click)="$event.target.select();" name="firstQuantity" #firstQuantity="ngModel" required>
+        </mat-form-field>-->
+
+
+        <mat-form-field class="itm-inp" appearance="outline">
+          <mat-label> {{ 'ITEMBUY.CURRENTQUANTITY' | translate }} <span *ngIf="currentQuantity.touched && currentQuantity.invalid"> ({{ 'Messages.FieldIsRequired' | translate }}) </span>  </mat-label>
+          <input matInput [(ngModel)]="item.currentQuantity" (click)="$event.target.select();" name="currentQuantity" #currentQuantity="ngModel" required>
+        </mat-form-field>
+
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="itemBuyData">
+        <h3 class="smml"><i class="fas fa-poll-h"></i>{{ 'ITEMBUY.BARCODE' | translate }} </h3>
+
+        <mat-form-field class="itm-inp" appearance="outline">
+          <mat-label> {{ 'LABELS.VAT' | translate }} <span *ngIf="vat.touched && vat.invalid"> ({{ 'Messages.FieldIsRequired' | translate }}) </span>  </mat-label>
+          <input matInput [(ngModel)]="item.vat" (click)="$event.target.select();" name="vat" #vat="ngModel" required>
+        </mat-form-field>
+
+        <div class="itemBuyAdditionalData">
+          <mat-form-field class="itm-inp" appearance="outline">
+            <mat-label> {{ 'ITEMBUY.BARCODE1' | translate }} <span *ngIf="barCode1.touched && barCode1.invalid"> ({{ 'Messages.FieldIsRequired' | translate }}) </span>  </mat-label>
+            <input matInput [(ngModel)]="item.barCode1" (click)="$event.target.select();" name="barCode1" #barCode1="ngModel" required>
+          </mat-form-field>
+
+          <mat-form-field class="itm-inp" appearance="outline">
+            <mat-label> {{ 'ITEMBUY.BARCODE2' | translate }} <span *ngIf="barCode2.touched && barCode2.invalid"> ({{ 'Messages.FieldIsRequired' | translate }}) </span>  </mat-label>
+            <input matInput [(ngModel)]="item.barCode2" (click)="$event.target.select();" name="barCode2" #barCode2="ngModel" required>
+          </mat-form-field>
+
+          <mat-form-field class="itm-inp" appearance="outline">
+            <mat-label> {{ 'ITEMBUY.BARCODE3' | translate }} <span *ngIf="barCode3.touched && barCode3.invalid"> ({{ 'Messages.FieldIsRequired' | translate }}) </span>  </mat-label>
+            <input matInput [(ngModel)]="item.barCode3" (click)="$event.target.select();" name="barCode3" #barCode3="ngModel" required>
+          </mat-form-field>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="itemList">
+      <h2 class="smml">
+        <i class="far fa-file-alt"></i>
+        {{ 'ITEMS.ITEMS' | translate }}
+        
+        <span>عدد الأصناف<strong>{{countItems}}</strong></span>
+      </h2>
+
+        <div class="listSearch">
+
+          <i class="fas fa-search"></i>
+          <input type="text" #serch_item name="serch_item" placeholder=" {{ 'ITEMS.SEARCHFORITEMS' | translate }} " (input)="Serchitem(serch_item.value)">
+        </div>
+
+        <div class="listItm">
+          <div class="actionLink" *ngFor="let item of SerchList; let i=index;" (click)="getById(item)">
+            <ng-container>
+              <div class="actionLink">
+                <label>
+                  <span>{{i+1}} </span>
+
+                  {{ currentLang=='ar' ? item.nameAR : item.nameEN}}
+                </label>
+                <button (click)="delete(item.id)"><i class="far fa-trash-alt"></i></button>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div>
+  <ng-template #Categorytemplate>
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalCenterTitle">{{ 'ITEMS.ADDCATEGORY' | translate }}</h5>
+      <button type="button" class="btn" (click)="closePrintermodal()">
+        <span aria-hidden="true"><i class="fas fa-power-off text-danger"></i></span>
+      </button>
+    </div>
+    <div class="modal-body text-right">
+      <div class="cat">
+        <app-item-category></app-item-category>
+      </div>
+    </div>
+    <div class="modal-footer"></div>
+  </ng-template>
+</div>
+
+<div>
+  <ng-template #Unittemplate>
+    <div class="modal-header" (click)="closePrintermodal()">
+      <h5 class="modal-title" id="exampleModalCenterTitleUnit"> {{ 'ITEMS.ADDUNIT' | translate }}</h5>
+      <button type="button" class="btn" (click)="closePrintermodal()">
+        <span aria-hidden="true"><i class="fas fa-power-off text-danger"></i></span>
+      </button>
+    </div>
+    <div class="modal-body text-right">
+      <div class="cat">
+        <app-Unit></app-Unit>
+      </div>
+    </div>
+    <div class="modal-footer"></div>
+  </ng-template>
+</div>

@@ -1,0 +1,47 @@
+.md-select-menu-container {
+  z-index: 9999;
+}
+
+::ng-deep .cat .mat-input-element {
+  caret-color: #bb3b3a;
+}
+
+::ng-deep .cat .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #bb3b3a;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #bb3b3a;
+}
+
+::ng-deep .cat .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: #bb3b3a;
+}
+.itemSize .mat-form-field{
+  margin-left: 10px;
+}
+.itemSize button.mat-raised-button._mat-animation-noopable{
+margin-left: 10px;
+}
+.itemSize .example-container {
+  height: 248px;
+  overflow: auto;
+}
+
+.itemSize .example-container table {
+  width: 100%;
+}
+.itemSize table th.mat-header-cell, .itemSize table td.mat-cell{
+  text-align: center;
+}
+.itemSize table button {
+  margin-right: 0px;
+}
+.itemSize table th.mat-header-cell{
+  top: 0px;
+  position: sticky;
+  z-index: 100; 
+  padding: 10px 0px;
+  border-bottom: 1px solid #9c9c9c;
+  background-color: #fff;
+}

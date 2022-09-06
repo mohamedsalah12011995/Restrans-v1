@@ -1,0 +1,225 @@
+<div class="userMang">
+  <div class="userMangHeader">
+    <div class="userMangHeaderAddress">
+      <h1><i class="fas fa-users btnRemove"></i> {{ 'USERS.USERS' | translate }}</h1>
+    </div>
+    <div class="userMangHeaderBtn">
+      <button mat-raised-button [hidden]="!isDisplay" (click)="saveUser('add')" [disabled]="checkSave==1">{{ 'ACTIONS.SAVE' | translate }} <i class="text-success far fa-save"></i></button>
+      <button mat-raised-button [hidden]="isDisplay" (click)="saveUser('edit')" [disabled]="checkSave==1">{{ 'ACTIONS.EDIT' | translate }} <i class="text-primary far fa-edit"></i></button>
+      <button mat-raised-button (click)="clear()">{{ 'ACTIONS.NEW' | translate }} <i class="text-danger far fa-plus-square"></i></button>
+      <span class="sp-bckk">
+        <a>
+          <i class="fas fa-arrow-circle-left" (click)="navigateBack()"></i>
+        </a>
+      </span>
+    </div>
+  </div>
+  <div class="userMangBody">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="userMangBodyData">
+          <mat-form-field appearance="outline">
+            <mat-label>{{ 'USERS.FIRSTNAME' | translate }}    </mat-label>
+            <input matInput name="firstName" [(ngModel)]="user.firstName" placeholder="Ex: John...">
+          </mat-form-field>
+          <br />
+
+          <mat-form-field appearance="outline">
+            <mat-label> {{ 'USERS.LASTNAME' | translate }}   </mat-label>
+            <input matInput name="lastName" [(ngModel)]="user.lastName" placeholder="Ex: Smith...">
+          </mat-form-field>
+          <br />
+
+          <mat-form-field appearance="outline">
+            <mat-label>   {{ 'USERS.USERNAME' | translate }} </mat-label>
+            <input matInput [(ngModel)]="user.userName" placeholder="Ex: John_Smith123" name="usernamme" #usernamme="ngModel" required>
+          </mat-form-field>
+          <br />
+
+          <!--<mat-error *ngIf="usernamme.touched">
+          {{ 'USERS.USERNAME' | translate }} <strong></strong> {{ 'USERS.INVALID' | translate }}
+        </mat-error>-->
+          <!--<div *ngIf="isDisplay">-->
+          <div>
+            <mat-form-field appearance="outline">
+              <mat-label>{{ 'USERS.PASSWORD' | translate }}   </mat-label>
+              <input matInput type="password" [(ngModel)]="user.password" placeholder="" name="password" #password="ngModel" required>
+            </mat-form-field>
+
+            <!--<mat-error *ngIf="password.length.touched">
+            {{ 'USERS.PASSWORD' | translate }} <strong> يجب أن يحتوى الرقم السري على 4 ارقام او حروف </strong> {{ 'PASSWORD.INVALID' | translate }}
+          </mat-error>-->
+            <!--<mat-error *ngIf="password.invalid && (password.dirty || password.touched) ">-->
+            <!--<mat-error *ngIf=" password.touched">
+
+            {{ 'USERS.PASSWORD' | translate }}  <strong></strong> {{ 'USERS.INVALID' | translate }}
+          </mat-error>-->
+          </div>
+          <!--<br />-->
+
+          <mat-form-field appearance="outline">
+            <mat-label> {{ 'USERS.EMAIL' | translate }}  </mat-label>
+            <input matInput type="email" [(ngModel)]="user.email" name="email" #email="ngModel" placeholder="Ex: johnSmith@site.com"
+                   pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$"
+                   required>
+          </mat-form-field>
+          <!--<mat-error *ngIf="email.invalid && (email.dirty || email.touched) ">
+            {{ 'USERS.EMAIL' | translate }}   <strong></strong>{{ 'USERS.INVALID' | translate }}
+          </mat-error>-->
+          <!--<br />-->
+        </div>
+
+      </div>
+
+      <div class="col-md-3">
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'REPORTTODAY.BOXMONY' | translate }}  </mat-label>
+          <mat-select [(ngModel)]="user.boxMonyTypeId" required>
+            <mat-option *ngFor="let boxType of boxMonyTypeList" [value]="boxType.id">
+              {{ currentLang=='ar' ? boxType.nameAR : boxType.nameEN }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'USERS.BRANCH' | translate }}  </mat-label>
+          <mat-select [(ngModel)]="user.branchId" required>
+            <mat-option *ngFor="let branch of branchList" [value]="branch.id">
+              <!-- {{branch.nameAr}} -->
+              {{ currentLang=='ar' ? branch.nameAr : branch.nameEn }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'USERS.USERTYPE' | translate }}  </mat-label>
+          <mat-select [(ngModel)]="user.userTypeId"  required>
+            <mat-option *ngFor="let userType of userTypes" [value]="userType.id" (click)="UserTypeChanged(user.userTypeId)">
+              {{ currentLang=='ar' ? userType.nameAR : userType.nameEN }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button mat-icon-button class="btnAdd" (click)="openUserTypeModal(userTypeTemplate)">
+          <i class="fas fa-plus"></i>
+        </button>
+        <br />
+        <mat-form-field appearance="outline">
+          <mat-label>   {{ 'PRINTERS.PRINTERNAME' | translate }}  </mat-label>
+          <mat-select name="printerName" [(ngModel)]="user.printerId">
+            <mat-option *ngFor="let printer of printerList" [value]="printer.id">
+              {{ currentLang=='ar' ? printer.displayNameAR : printer.displayNameEN }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <br />
+
+
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'USERS.ROLES' | translate }} </mat-label>
+          <mat-select placeholder="{{ 'USERS.ROLES' | translate }}" [(ngModel)]="user.roles" multiple>
+            <mat-option *ngFor="let role of rolesLookup" [value]="role.roleName" (onSelectionChange)="roleChecked($event,role.roleName)">
+              {{ currentLang=='ar' ? role.roleDisplayNameAR : role.roleDisplayNameEN }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <br />
+
+        <!--<mat-form-field appearance="outline" *ngIf="isKitchen">-->
+          <mat-form-field appearance="outline" >
+            <mat-label>{{ 'USERS.KITCHENCATEGORIES' | translate }}  </mat-label>
+            <mat-select placeholder="{{ 'USERS.KITCHENCATEGORIES' | translate }} " [(ngModel)]="selecteditemCategoryList" multiple>
+              <mat-option *ngFor="let itemCategory of itemCategoryList" [value]="itemCategory.id" (onSelectionChange)="roleChecked($event,itemCategory.nameAR)">
+                {{ currentLang=='ar' ? itemCategory.nameAR : itemCategory.nameEN }}
+              </mat-option>
+
+
+            </mat-select>
+
+          </mat-form-field>
+          <br *ngIf="isKitchen" />
+          <mat-checkbox [(ngModel)]="user.isActive">{{ 'USERS.ACTIVE' | translate }} </mat-checkbox>
+</div>
+
+
+      <div class="col-md-6 fadeInUp big-user-tbl">
+        <!--<mat-paginator [length]="itemPagginatedTableVM.totalCount"
+                     [pageSize]="itemPagginatedTableVM.itemsPerPage"
+                     [pageSizeOptions]="pageSizeOptions"
+                     (page)="Pagginatedchanged($event)">
+      </mat-paginator>-->
+
+        <div class="userMangBodytable">
+          <div class="example-container mat-elevation-z8">
+            <table>
+              <thead>
+                <tr>
+                  <th class="mat-header-cell" scope="col"></th>
+                  <th class="mat-header-cell" scope="col">{{ 'USERS.USERNAME' | translate }} </th>
+                  <th class="mat-header-cell" scope="col">{{ 'LABELS.NAME' | translate }} </th>
+                  <th class="mat-header-cell" scope="col"><i class="far fa-check-square"></i></th>
+                  <th class="mat-header-cell" scope="col"><i class="fas fa-trash"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users; let i=index">
+                  <td class="mat-cell" scope="row">{{i+1}}</td>
+                  <td class="mat-cell">{{user.userName}}</td>
+                  <td class="mat-cell">{{user.firstName}} {{user.lastName}}</td>
+                  <td class="mat-cell">
+                    <input type="radio" name="demo" value="one" id="radio-one" class="form-radio" (click)="getById(user)"><label for="radio-one"></label>
+
+                    <!--<mat-radio-group aria-label="Select an option" (click)="getById(user)">
+                      <mat-radio-button value="en"></mat-radio-button>
+                    </mat-radio-group>-->
+                    <!--<button mat-icon-button (click)="getById(user)" class="btnAdd">
+    <i class="far fa-check-square"></i>
+  </button>-->
+                  </td>
+                  <td class="mat-cell">
+                    <button mat-icon-button (click)="deleteBill(userConfirm,user)" class="btnRemove">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+
+<div>
+  <ng-template #userTypeTemplate>
+    <div class="modal-header">
+      <h5 class="modal-title" id="OpenTypeUsers"> {{ 'ADMINSIDEBAR.USERTYPESMANAGMENT' | translate }}  </h5>
+      <button type="button" class="btn" (click)="closeUserTypeModal()">
+        <span aria-hidden="true"><i class="fas fa-power-off text-danger"></i></span>
+      </button>
+    </div>
+    <div class="modal-body text-right">
+        <app-user-types></app-user-types>
+    </div>
+    <div class="modal-footer"></div>
+  </ng-template>
+</div>
+
+
+<ng-template #userConfirm>
+  <div class="modal-body text-center">
+    <p>{{"هل تريد تأكيد الحذف"}}</p>
+    <button type="button" class="btn btn-danger" (click)="deleteUserConfirm()">
+      {{"تأكيد"}}
+    </button>
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">{{"إلغاء"}}</button>
+  </div>
+</ng-template>

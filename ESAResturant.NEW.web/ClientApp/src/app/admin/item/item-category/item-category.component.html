@@ -1,0 +1,201 @@
+<form>
+	<div class="container">
+		<div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label> {{ 'ITEMCATEGORY.CATEGORYNAMEAR' | translate }}</mat-label>
+          <input matInput name="nameAR" [(ngModel)]="itemCategory.nameAR">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label> {{ 'ITEMCATEGORY.CATEGORYNAMEEN' | translate }}</mat-label>
+          <input matInput name="nameEN" [(ngModel)]="itemCategory.nameEN">
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'ITEMCATEGORY.PRINTERNAME' | translate }} </mat-label>
+          <mat-select matNativeControl [(ngModel)]="itemCategory.printerId" [ngModelOptions]="{standalone: true}">
+            <mat-option *ngFor="let printer of listPrinter" [value]="printer.id">
+              {{ currentLang=='ar' ? printer.displayNameAR : printer.displayNameEN }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button class="CatPlus actionLink far fa-plus" (click)="openPricesModal(template)"></button>
+        <br />
+        <mat-checkbox [(ngModel)]="itemCategory.sellCategory" [ngModelOptions]="{standalone: true}">{{ 'ITEMCATEGORY.BILLINVOICESHOW' | translate }}</mat-checkbox>
+        <br />
+        <mat-checkbox [(ngModel)]="itemCategory.buyCategory" [ngModelOptions]="{standalone: true}">{{ 'ITEMCATEGORY.SELLINVOICESHOW' | translate }}</mat-checkbox>
+        <br />
+
+        <button mat-raised-button class="btn-savee" [hidden]="!isShow" (click)="InsertOrUpdateItem(itemCategory)">   {{ 'ACTIONS.SAVE' | translate }} <i class="text-success far fa-save"></i></button>
+        <button mat-raised-button class="btn-savee" [hidden]="isShow" (click)="InsertOrUpdateItem(itemCategory)">{{ 'ACTIONS.EDIT' | translate }} <i class="text-success far fa-save"></i></button>
+        <button mat-raised-button class="btn-savee" (click)="clear()">{{ 'ACTIONS.NEW' | translate }}<i class="text-success fas fa-plus-circle"></i></button>
+      </div>
+			<div class="col-md-6">
+				<div class="itemImage">
+          <h2><i class="far fa-image"></i> {{ 'ACTIONS.NEW' | translate }} </h2>
+					<input #file type="file" id="ImgItemCategory" (change)="detectFiles(file.files);readURL($event);" accept="image/*" />
+					<img id="blah" for="ImgItemCategory" [src]="imageSrc" alt="your image" />
+
+          <label class="uploadImgItm" for="ImgItemCategory">
+            <i class="far fa-image"></i>
+            {{ 'ITEMS.BROWSEIMAGE' | translate }}
+          </label>
+          <button (click)="clearimg()">
+            <i class="far fa-times-circle"></i>
+            {{ 'ACTIONS.Delete' | translate }}
+          </button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+
+<div class="example-container tableItemPrices mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>
+        {{ 'ACTIONS.ID' | translate }}
+      </th>
+      <td mat-cell *matCellDef="let i = index"> {{ i + 1 }} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>  {{ 'PRINTERS.PRINTERNAME' | translate }}  </th>
+      <!--<td mat-cell *matCellDef="let category">{{ category.nameAR }}</td>-->
+      <td mat-cell *matCellDef="let category">
+        {{ currentLang=='ar' ? category.nameAR : category.nameEN}}
+      </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="print">
+      <th hidden="hidden" mat-header-cell *matHeaderCellDef> {{ 'SETTINGS.PRINTERNAME' | translate }}  </th>
+      <td hidden="hidden" mat-cell *matCellDef="let category">{{ category.printerId }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let category">
+        <button mat-icon-button (click)="getItemCategoryById(category)">
+          <i class="btnSave fas fa-pen"></i>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>
+        <i class="fas fa-trash"></i>      </th>
+      <td mat-cell *matCellDef="let category">
+        <button mat-icon-button (click)="deleteItemCategory(deleteConfirm,category)">
+          <i class="fas fa-trash"></i>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<!-- <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">م</th>
+      <th scope="col">أسم الفئة</th>
+      <th scope="col">مكان الطباعة</th>
+      <th scope="col">تعديل</th>
+      <th scope="col">حذف</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of listItemCategory">
+      <th scope="row"></th>
+      <td>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="أسم الفئة" name="nameAR" [(ngModel)]="category.nameAR">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field>
+          <mat-select matNativeControl placeholder="مكان الطباعة" [(ngModel)]="category.printerId" [ngModelOptions]="{standalone: true}">
+            <mat-option *ngFor="let printer of listPrinter" [value]="printer.id">
+              {{printer.displayNameAR}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <td>
+        <button mat-raised-button (click)="editItem(category)">تعديل <i class="far fa-edit"></i></button>
+      </td>
+      <td>
+        <button mat-raised-button (click)="deleteItemCategory(category.id)">حذف <i class="far fa-window-close"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</table> -->
+<ng-template #template>
+
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalCenterTitle"> {{ 'PRINTERS.ADDPRINTER' | translate }} </h5>
+    <button type="button" class="btn" (click)="closePrintermodal()">
+      <span aria-hidden="true"><i class="fas fa-power-off text-danger"></i></span>
+    </button>
+  </div>
+  <div class="modal-body text-right">
+    <div class="cat">
+      <app-printer></app-printer>
+    </div>
+  </div>
+  <div class="modal-footer"></div>
+</ng-template>
+
+
+<ng-template #deleteConfirm>
+  <div class="modal-body text-center">
+    <p>{{ 'Messages.DeleteConfirm' | translate }}</p>
+    <button type="button" class="btn btn-danger" (click)="deleteItemCategoryConfirm()">
+      <p>{{ 'LABELS.CONFIRM' | translate }}</p>
+    </button>
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">{{ 'LABELS.EXITE' | translate }}</button>
+  </div>
+</ng-template>
+
+<!--<div class="catBtn">
+  <button (click)="AddCategories(cat)">حفظ <i class="far fa-save"></i></button>
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">م</th>
+      <th scope="col">أسم الفئة</th>
+      <th scope="col">مكان الطباعة</th>
+      <th scope="col">تعديل</th>
+      <th scope="col">حذف</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cat of listItemCategory; let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td>
+        <input type="text" placeholder="أسم الفئة" [(ngModel)]="cat.nameAR">
+      </td>
+      <td>
+        <select name="PlacePrint" id="" [(ngModel)]="cat.printerId">
+          <option selected disabled>مكان الطباعة</option>
+          <option *ngFor="let print of ListPrint" value="{{print.id}}">{{print.displayNameAR}}</option>
+        </select>
+      </td>
+      <td>
+        <button (click)="EditCategories(cat.id,cat)">تعديل <i class="far fa-edit"></i></button>
+      </td>
+      <td>
+        <button (click)="DeleteCategories(cat.id)">حذف <i class="far fa-window-close"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</table>-->

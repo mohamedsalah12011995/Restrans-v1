@@ -1,0 +1,195 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="itemContainer">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-7 itemaddress">
+              <h1><i class="btnRemove far fa-plus-square"></i>  {{ 'ITEMS.ADDITEM' | translate }}</h1>
+            </div>
+            <div class="col-md-5 itemBtnSave">
+              <button mat-stroked-button (click)="InsertOrUpdateItem('add')">  {{ 'ACTIONS.SAVE' | translate }} <i class="btnSave fas fa-save"></i></button>
+              <button mat-stroked-button (click)="InsertOrUpdateItem('edit')">   {{ 'ACTIONS.EDIT' | translate }} <i class="btnAdd far fa-edit"></i></button>
+              <button mat-stroked-button (click)="clear()"> {{ 'ACTIONS.NEW' | translate }} <i class="btnAdd far fa-edit"></i></button>
+              <!--<button (click)="onPrint();">طباعة <i class="text-danger far fa-plus-square"></i></button>-->
+              <span>
+                <a>
+                  <i class="fas fa-arrow-circle-left btn-back" (click)="navigateBack()"></i>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid itemSaleBody">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="itemDetails">
+                    <h2><i class="far fa-file-alt"></i>   {{ 'ITEMS.ITEMDETAILS' | translate }}</h2>
+                    <mat-form-field appearance="outline">
+                      <mat-label>  {{ 'ITEMS.NAMEAR' | translate }} <span *ngIf="nammeAR.touched && nammeAR.invalid"> ({{ 'Messages.FieldIsRequired' | translate }}) </span>  </mat-label>
+                      <input matInput [(ngModel)]="item.nameAR" name="nammeAR" #nammeAR="ngModel" required> <br />
+
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                      <mat-label>  {{ 'ITEMS.NAMEEN' | translate }} <span *ngIf="nammeEN.touched && nammeEN.invalid"> ({{ 'Messages.FieldIsRequired' | translate }}) </span>  </mat-label>
+                      <input matInput [(ngModel)]="item.nameEN" name="nammeEN" #nammeEN="ngModel">
+                    </mat-form-field>
+
+                    <!--<mat-form-field appearance="outline">
+                      <mat-label> {{ 'LABELS.VAT' | translate }} </mat-label>
+                      <input matInput [(ngModel)]="item.vat" (click)="$event.target.select();">
+                    </mat-form-field>-->
+
+                    <mat-form-field appearance="outline">
+                      <!--<mat-label> {{ 'LABELS.VAT' | translate }} </mat-label>-->
+                      <mat-label> ترتيب الصنف </mat-label>
+                      <input matInput [(ngModel)]="item.itemIndex" (click)="$event.target.select();">
+                    </mat-form-field>
+                    <div>
+
+                      <mat-form-field appearance="outline">
+                        <mat-label> {{ 'ITEMS.SELECTCATEGORY' | translate }}</mat-label>
+                        <mat-select [(ngModel)]="item.itemCategoryId">
+                          <mat-option *ngFor="let cat of itemCategoryList" [value]="cat.id">
+                            {{ currentLang=='ar' ? cat.nameAR : cat.nameEN}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+
+                      <button class="actionLink far fa-plus" (click)="openPricesModal(Categorytemplate)"></button>
+                    </div>
+
+                    <div>
+                      <mat-form-field appearance="outline">
+                        <mat-label>{{ 'ITEMS.SELECTUNIT' | translate }}</mat-label>
+                        <mat-select [(ngModel)]="item.unitId">
+                          <mat-option *ngFor="let unit of unitList" [value]="unit.id">
+                            {{ currentLang=='ar' ? unit.nameAr : unit.nameEn}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <button class="actionLink far fa-plus" (click)="openPricesModal(Unittemplate)"></button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <ng-template #Categorytemplate>
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitleCategory"> {{ 'ITEMS.ADDCATEGORY' | translate }}  </h5>
+                        <button type="button" class="btn" (click)="closePrintermodal()">
+                          <span aria-hidden="true"><i class="fas fa-power-off text-danger"></i></span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="cat">
+                          <app-item-category></app-item-category>
+                        </div>
+                      </div>
+                      <div class="modal-footer"></div>
+                    </ng-template>
+                  </div>
+
+                  <div>
+                    <ng-template #Unittemplate>
+                      <div class="modal-header" (click)="closePrintermodal()">
+                        <h5 class="modal-title" id="exampleModalCenterTitleUnit"> {{ 'ITEMS.ADDUNIT' | translate }}</h5>
+                        <button type="button" class="btn" (click)="closePrintermodal()">
+                          <span aria-hidden="true"><i class="fas fa-power-off text-danger"></i></span>
+                        </button>
+                      </div>
+                      <div class="modal-body text-right">
+                        <div class="cat">
+                          <app-Unit></app-Unit>
+                        </div>
+                      </div>
+                      <div class="modal-footer"></div>
+                    </ng-template>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="itemImage">
+                    <h2><i class="far fa-image"></i>  {{ 'ITEMS.ITEMIMAGE' | translate }} </h2>
+                    <input #file type="file" id="ImgItm" (change)="detectFiles(file.files);readURL($event);" accept="image/*" />
+                    <img id="blah" for="ImgItm" [src]="imageSrc" alt="your image" />
+                    <label class="uploadImgItm" for="ImgItm">
+                      <i class="far fa-image"></i>
+                      {{ 'ITEMS.BROWSEIMAGE' | translate }}
+                    </label>
+                    <button (click)="clearimg()">
+                      <i class="far fa-times-circle"></i>
+                      {{ 'ACTIONS.Delete' | translate }}
+                    </button>
+                    <mat-form-field appearance="outline">
+                      <mat-label>{{ 'BILLINVOICE.NOTES' | translate }}</mat-label>
+                      <textarea matInput [(ngModel)]="item.note" (click)="$event.target.select();"></textarea>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <app-item-price [itemPriceList]="item.itemPrices" [itemSizeList]="itemSizeList"></app-item-price>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="itemList">
+                <h2>
+                  <i class="far fa-file-alt"></i>
+                  {{ 'ITEMS.ITEMS' | translate }}
+
+                  <span> {{'BILLINVOICE.ITEMSCOUNT' | translate}}: <strong>{{countItems}}</strong></span>
+                </h2>
+                <div class="listSearch">
+                  <!--<mat-paginator [length]="itemPagginatedTableVM.totalCount"
+                   [pageSize]="itemPagginatedTableVM.itemsPerPage"
+                   [pageSizeOptions]="pageSizeOptions"
+                   (page)="Pagginatedchanged($event)">
+    </mat-paginator>-->
+
+                  <i class="fas fa-search">
+
+                  </i>
+                  <input type="text" #serch_item name="serch_item" placeholder="+   {{ 'ITEMS.SEARCHFORITEMS' | translate }}  " (input)="SerchItem(serch_item.value)">
+
+                </div>
+
+
+                <div class="listItm">
+                  <div class="actionLink" *ngFor="let item of filterItemList; let i=index;">
+                    <ng-container>
+                      <div class="actionLink">
+                        <label (click)="getById(item)">
+                          <span>{{i+1}} </span>
+                          {{ currentLang=='ar' ? item.nameAR : item.nameEN}}
+                        </label>
+                        <button (click)="deleteItem(deleteConfirm,item)"><i class="far fa-trash-alt"></i></button>
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #deleteConfirm>
+  <div class="modal-body text-center">
+    <p>{{ 'Messages.DeleteConfirm' | translate }}</p>
+    <button type="button" class="btn btn-danger" (click)="deleteItemConfirm()">
+      <p>{{ 'LABELS.CONFIRM' | translate }}</p>
+    </button>
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">{{ 'LABELS.EXITE' | translate }}</button>
+  </div>
+</ng-template>

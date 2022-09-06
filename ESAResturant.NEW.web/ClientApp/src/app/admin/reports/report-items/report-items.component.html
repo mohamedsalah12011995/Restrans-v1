@@ -1,0 +1,305 @@
+<!--<div class="reportPage">
+	<div class="repPageHeader">
+		<h1>تقرير الاصناف</h1>
+		<span>
+			<a>
+				<i class="fas fa-arrow-circle-left"></i>
+			</a>
+		</span>
+		<a>
+			<i class="fas fa-print "></i>
+		</a>
+		<a>
+			<i class="fas fa-share"></i>
+		</a>
+	</div>
+	<div class="repPageBody">
+		<div class="repPageSearch">
+			<h2>بحث بــ</h2>
+			<div class="repPageSearchElementRadio">
+				<mat-checkbox [(ngModel)]="repAbstract" (click)="ChangeRep(repAbstract)">تقرير ملخص</mat-checkbox>
+				<mat-checkbox [(ngModel)]="repDetailed" (click)="ChangeRep(repDetailed)">تقرير تفصيلى</mat-checkbox> 
+			</div>
+			<div class="repPageSearchElement">
+				<label class="hiden-in-small">التاريخ</label>
+				<mat-form-field appearance="outline">
+					<mat-label>من</mat-label>
+					<input matInput type="date" [matDatepicker]="DateFrom">
+					<mat-datepicker-toggle matSuffix [for]="DateFrom"></mat-datepicker-toggle>
+					<mat-datepicker #DateFrom></mat-datepicker>
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label>إلى</mat-label>
+					<input matInput type="date" [matDatepicker]="DateTo">
+					<mat-datepicker-toggle matSuffix [for]="DateTo"></mat-datepicker-toggle>
+					<mat-datepicker #DateTo></mat-datepicker>
+				</mat-form-field>
+				<div class="hiden-in-small">
+					<mat-form-field appearance="outline">
+						<mat-label>كود الصنف</mat-label>
+						<input matInput placeholder="" value="Sushi">
+					</mat-form-field>
+					<mat-form-field appearance="outline">
+						<mat-label>اسم الصنف</mat-label>
+						<input matInput value="Sushi">
+					</mat-form-field>
+					<mat-form-field appearance="outline">
+						<mat-label>الفئة</mat-label>
+						<mat-select>
+							<mat-option value="food.value">
+							</mat-option>
+						</mat-select>
+					</mat-form-field>
+					<button mat-stroked-button>بحث<i class="material-icons">search</i></button>
+				</div>
+				<mat-accordion class="repPageAdvanced show-in-small">
+					<mat-expansion-panel>
+						<mat-expansion-panel-header>
+							<mat-panel-title>
+								بحث متقدم
+							</mat-panel-title>
+						</mat-expansion-panel-header>
+						<mat-form-field appearance="outline">
+							<mat-label>كود الصنف</mat-label>
+							<input matInput placeholder="" value="Sushi">
+						</mat-form-field>
+						<mat-form-field appearance="outline">
+							<mat-label>اسم الصنف</mat-label>
+							<input matInput value="Sushi">
+						</mat-form-field>
+						<mat-form-field appearance="outline">
+							<mat-label>الفئة</mat-label>
+							<mat-select>
+								<mat-option value="food.value">
+								</mat-option>
+							</mat-select>
+						</mat-form-field>
+						<button mat-stroked-button>بحث<i class="material-icons">search</i></button>
+					</mat-expansion-panel>
+				</mat-accordion>
+			</div>
+		</div>
+		<div class="repPageTable">
+			<div class="example-container mat-elevation-z8" *ngIf="repAbstract">
+				<table mat-table [dataSource]="dataSourceAbstract">
+					<ng-container matColumnDef="position">
+						<th mat-header-cell *matHeaderCellDef> م </th>
+						<td mat-cell *matCellDef="let element"> {{element.position}} </td>
+					</ng-container>
+					<ng-container matColumnDef="itamCode">
+						<th mat-header-cell *matHeaderCellDef> كود الصنف </th>
+						<td mat-cell *matCellDef="let element"> {{element.itamCode}} </td>
+					</ng-container>
+					<ng-container matColumnDef="itemName">
+						<th mat-header-cell *matHeaderCellDef> اسم الصنف </th>
+						<td mat-cell *matCellDef="let element"> {{element.itemName}} </td>
+					</ng-container>
+					<ng-container matColumnDef="category">
+						<th mat-header-cell *matHeaderCellDef> الفئة </th>
+						<td mat-cell *matCellDef="let element"> {{element.category}} </td>
+					</ng-container>
+					<ng-container matColumnDef="countSells">
+						<th mat-header-cell *matHeaderCellDef> عدد المبيعات </th>
+						<td mat-cell *matCellDef="let element"> {{element.countSells}} </td>
+					</ng-container>
+					<ng-container matColumnDef="totalSells">
+						<th mat-header-cell *matHeaderCellDef> إجمالى المبيعات </th>
+						<td mat-cell *matCellDef="let element"> {{element.totalSells}} </td>
+					</ng-container>
+					<ng-container matColumnDef="countRefundSells">
+						<th mat-header-cell *matHeaderCellDef> عدد مرتجع المبيعات </th>
+						<td mat-cell *matCellDef="let element"> {{element.countRefundSells}} </td>
+					</ng-container>
+					<ng-container matColumnDef="totalRefundSells">
+						<th mat-header-cell *matHeaderCellDef> اجمالى مرتجع المبيعات </th>
+						<td mat-cell *matCellDef="let element"> {{element.totalRefundSells}} </td>
+					</ng-container>
+					<ng-container matColumnDef="countBuy">
+						<th mat-header-cell *matHeaderCellDef> عدد المشتريات </th>
+						<td mat-cell *matCellDef="let element"> {{element.countBuy}} </td>
+					</ng-container>
+					<ng-container matColumnDef="totalBuy">
+						<th mat-header-cell *matHeaderCellDef> إجمالى المشتريات </th>
+						<td mat-cell *matCellDef="let element"> {{element.totalBuy}} </td>
+					</ng-container>
+					<ng-container matColumnDef="countRefundBuys">
+						<th mat-header-cell *matHeaderCellDef> عدد مرتجع المشتريات </th>
+						<td mat-cell *matCellDef="let element"> {{element.countRefundBuys}} </td>
+					</ng-container>
+					<ng-container matColumnDef="totalRefundBuys">
+						<th mat-header-cell *matHeaderCellDef> إجمالى مرتجع المشتريات </th>
+						<td mat-cell *matCellDef="let element"> {{element.totalRefundBuys}} </td>
+					</ng-container>
+					<ng-container matColumnDef="total">
+						<th mat-header-cell *matHeaderCellDef> الرصيد الحالى </th>
+						<td mat-cell *matCellDef="let element"> {{element.total}} </td>
+					</ng-container>
+					<tr mat-header-row *matHeaderRowDef="displayedColumnsAbstract; sticky: true"></tr>
+					<tr mat-row *matRowDef="let row; columns: displayedColumnsAbstract;"></tr>
+				</table>
+			</div>
+
+			<div class="example-container mat-elevation-z8" *ngIf="repDetailed">
+				<table mat-table [dataSource]="dataSourceDetailed">
+					<ng-container matColumnDef="position">
+						<th mat-header-cell *matHeaderCellDef> م </th>
+						<td mat-cell *matCellDef="let element"> {{element.position}} </td>
+					</ng-container>
+					<ng-container matColumnDef="itamCode">
+						<th mat-header-cell *matHeaderCellDef> كود الصنف </th>
+						<td mat-cell *matCellDef="let element"> {{element.itamCode}} </td>
+					</ng-container>
+					<ng-container matColumnDef="itemName">
+						<th mat-header-cell *matHeaderCellDef> اسم الصنف </th>
+						<td mat-cell *matCellDef="let element"> {{element.itemName}} </td>
+					</ng-container>
+					<ng-container matColumnDef="category">
+						<th mat-header-cell *matHeaderCellDef> الفئة </th>
+						<td mat-cell *matCellDef="let element"> {{element.category}} </td>
+					</ng-container>
+					<ng-container matColumnDef="categoryNum">
+						<th mat-header-cell *matHeaderCellDef> رقم الفئة </th>
+						<td mat-cell *matCellDef="let element"> {{element.categoryNum}} </td>
+					</ng-container>
+					<ng-container matColumnDef="billNum">
+						<th mat-header-cell *matHeaderCellDef> رقم الفاتورة </th>
+						<td mat-cell *matCellDef="let element"> {{element.billNum}} </td>
+					</ng-container>
+					<ng-container matColumnDef="count">
+						<th mat-header-cell *matHeaderCellDef> الكمية </th>
+						<td mat-cell *matCellDef="let element"> {{element.count}} </td>
+					</ng-container>
+					<ng-container matColumnDef="unit">
+						<th mat-header-cell *matHeaderCellDef> الوحدة </th>
+						<td mat-cell *matCellDef="let element"> {{element.unit}} </td>
+					</ng-container>
+					<ng-container matColumnDef="buyPrice">
+						<th mat-header-cell *matHeaderCellDef> سعر الشراء </th>
+						<td mat-cell *matCellDef="let element"> {{element.buyPrice}} </td>
+					</ng-container>
+					<ng-container matColumnDef="sellPrice">
+						<th mat-header-cell *matHeaderCellDef> سعر البيع </th>
+						<td mat-cell *matCellDef="let element"> {{element.sellPrice}} </td>
+					</ng-container>
+					<ng-container matColumnDef="discount">
+						<th mat-header-cell *matHeaderCellDef> الخصم </th>
+						<td mat-cell *matCellDef="let element"> {{element.discount}} </td>
+					</ng-container>
+					<ng-container matColumnDef="vatPercent">
+						<th mat-header-cell *matHeaderCellDef> ق-م % </th>
+						<td mat-cell *matCellDef="let element"> {{element.vatPercent}} </td>
+					</ng-container>
+					<ng-container matColumnDef="totalVat">
+						<th mat-header-cell *matHeaderCellDef> إجمالى ق-م </th>
+						<td mat-cell *matCellDef="let element"> {{element.totalVat}} </td>
+					</ng-container>
+					<ng-container matColumnDef="total">
+						<th mat-header-cell *matHeaderCellDef> الاجمالى </th>
+						<td mat-cell *matCellDef="let element"> {{element.total}} </td>
+					</ng-container>
+					<ng-container matColumnDef="Profit">
+						<th mat-header-cell *matHeaderCellDef> الربح </th>
+						<td mat-cell *matCellDef="let element"> {{element.Profit}} </td>
+					</ng-container>
+					<ng-container matColumnDef="dateToday">
+						<th mat-header-cell *matHeaderCellDef> تاريخ اليوم </th>
+						<td mat-cell *matCellDef="let element"> {{element.dateToday}} </td>
+					</ng-container>
+					<ng-container matColumnDef="User">
+						<th mat-header-cell *matHeaderCellDef> المستخدم </th>
+						<td mat-cell *matCellDef="let element"> {{element.User}} </td>
+					</ng-container>
+					<tr mat-header-row *matHeaderRowDef="displayedColumnsDetailed; sticky: true"></tr>
+					<tr mat-row *matRowDef="let row; columns: displayedColumnsDetailed;"></tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>-->
+
+
+<!--<div class="printableInv" id="printReptax">
+	<div [class]="ResizePaper">
+	  <div class="printInvDetails">
+		<div class="row">
+		  <div class="printInvDetailsAddress">
+			<div class="PrintCompanyName">
+			  <h1>اسم الشركة</h1>
+			</div>
+			<div class="PrintLogo">
+			  <img src="../../../../assets/img/Logo4.png" alt="Logo">
+			</div>
+		  </div>
+		  <div class="PrintName text-center">
+			<h2>اسم التقرير</h2>
+		  </div>
+		  <div class="PrintDate">
+			<p>من: <strong>{{fromDate | date: 'yyyy-MM-dd'}}</strong></p>
+			<p>الى: <strong>{{toDate | date: 'yyyy-MM-dd'}}</strong></p>
+		  </div>
+		  <div class="PrintSearchType" *ngIf="objectTax.nameAr != ''">
+		  </div>
+		</div>
+	  </div>
+	  <div class="printInvTable text-center">
+		<table>
+		  <thead>
+			<tr>
+			  <th>#</th>
+			  <th> {{ 'REPORTTODAY.BILLNUMBER' | translate }}</th>
+			  <th> {{ 'REPORTTODAY.REQUESTNUMBER' | translate }} </th>
+			  <th> {{ 'LABELS.CLIENT' | translate }} </th>
+			  <th> {{ 'REPORTTODAY.QUANTITY' | translate }} </th>
+			  <th> {{ 'REPORTTODAY.TOTAL' | translate }}</th>
+			  <th> {{ 'LABELS.DISCOUNT' | translate }} </th>
+			  <th> {{ 'BILLINVOICE.SERVICEAX' | translate }} </th>
+			  <th> {{ 'LABELS.VAT' | translate }} </th>
+			  <th> {{ 'LABELS.PAID' | translate }}  </th>
+			  <th> {{ 'LABELS.REMAINING' | translate }}  </th>
+			  <th> {{ 'REPORTTODAY.NETTOTAL' | translate }}  </th>
+			  <th> {{ 'LABELS.DATE' | translate }}  </th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let bill of filterbillList; let i=index">
+			  <td><span>{{i+1}}</span></td>
+			  <td><span>{{bill.id}}</span></td>
+			  <td><span>{{bill.orderNo}}</span></td>
+			  <td><span>{{bill.pepoleName}}</span></td>
+			  <td><span>{{bill.totalQty}}</span></td>
+			  <td><span>{{bill.supTotal | number:'0.2-2'}}</span></td>
+			  <td><span>{{bill.currentDiscount}}</span></td>
+			  <td><span>{{bill.serviceFees | number:'0.2-2'}}</span></td>
+			  <td><span>{{bill.totalVatTax | number:'0.2-2'}}</span></td>
+			  <td><span>{{bill.paied | number:'0.2-2'}}</span></td>
+			  <td><span>{{bill.remaining | number:'0.2-2'}}</span></td>
+			  <td><span>{{bill.netTotal | number:'0.2-2'}}</span></td>
+			  <td><span>{{bill.currentDate | date: 'dd/MM/yyyy'}}</span></td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	  <div class="repAbstract">
+		<table>
+		  <thead>
+			<tr>
+			  <th>إجمالى الفواتير</th>
+			  <th>الاجمالي</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <td class="tdCreditor"><span>{{ billTotals.sumBillNetTotals | number:'0.2-2' }}</span></td>
+			  <td class="tdMoney"><span>{{ billTotals.sumBillCash | number:'0.2-2' }}</span></td>
+			</tr>
+		  </tbody>
+		</table>
+	  </div>
+	  <div class="printInvFooter">
+		<p>
+		  Power By Easacc<br />
+		  www.EasAcc.com
+		</p>
+	  </div>
+	</div>
+  </div>-->

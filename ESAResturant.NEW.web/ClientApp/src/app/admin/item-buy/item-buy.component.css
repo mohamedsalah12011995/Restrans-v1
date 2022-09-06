@@ -1,0 +1,144 @@
+
+.item-buy-row {
+  padding:15px;
+}
+.itemBuy {
+  background-color: #fff;
+  text-align: right;
+  border-radius: 5px;
+  margin: 15px 0px;
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+}
+.itemBuyHeader {
+    border-bottom: 3px solid #bb3b3a;
+    padding: 10px 15px 10px 10px;
+    margin-bottom: 10px;
+}
+.itemBuyHeader .itemHeaderAddress {
+    display: inline-block;
+}
+.back-btnn {
+  float: left;
+  margin-left: -208px;
+}
+
+.back-btnn a i {
+font-size: 30px;
+color: #ce9090;
+margin-top: 5px;
+}
+
+.itm-inp {
+  width: 79%;
+}
+
+.mat-form-field-infix {
+  width: 100%;
+}
+.smml {
+  font-size:20px;
+}
+.itemBuyHeader .itemHeaderBtn {
+  float: left;
+  margin-left: 30px;
+}
+.itemBuyHeader .itemHeaderAddress h2 {
+    font-size: 23px;
+    color: #474747;
+    display: flex;
+    align-items: flex-end
+}
+.itemBuyHeader .itemHeaderAddress h2 i {
+    font-size: 35px;
+    margin-left: 5px;
+}
+.itemBuyHeader .itemHeaderBtn button {
+    margin-left: 10px;
+}
+.itemBuyHeader .itemHeaderBtn button i {
+    margin-left: 5px;
+}
+.itemBuyHeader .itemHeaderBtn button span {
+    font-size: 14px;
+    font-family: auto;
+    font-weight: bold;
+    color: #474747;
+}
+.itemBuyBody {
+    padding: 10px 20px 10px;
+}
+.itemBuyData h3, .itemBuyAdditionalData h3 {
+    color: #484848;
+    font-size: 21px;
+    display: flex;
+}
+.itemBuyData h3 i, .itemBuyAdditionalData h3 i{
+    color: #c8505a;
+    margin-left: 5px;
+}
+.itemBuy .mat-form-field {
+    margin-left: 10px;
+}
+/* .itemBuyData .mat-form-field {
+    width: 150px;
+} */
+::ng-deep .itemBuy .mat-form-field-infix {
+  padding: 5px 0px 4px;
+  border-top-width: 11px;
+  font-size: 12px;
+}
+::ng-deep .itemBuy .mat-form-field-label {
+    top: 18px;
+}
+::ng-deep .itemBuy .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    -webkit-transform: translateY(-15px) scale(.75);
+    transform: translateY(-15px) scale(.75);
+}
+::ng-deep .itemBuy .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #bb3b3a;
+}
+::ng-deep .itemBuy .mat-input-element {
+    caret-color: #bb3b3a;
+}
+::ng-deep .itemBuy .mat-form-field.mat-focused .mat-form-field-label {
+    color: #bb3b3a;
+}
+/*.itemBuyAdditionalData {
+    margin-top: 10px;
+}*/
+/*.itemBuyAdditionalData .mat-form-field {
+    width: 160px;
+}*/
+/* .itemBuyAdditionalData .mat-form-field:nth-last-child(1){
+    margin-left: 0px;
+} */
+.itemImage img{
+    margin: 0px;
+}
+.itemBuy .itemImage button, .itemBuy .itemImage label{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+::ng-deep .itemBuyData .mat-button-focus-overlay, ::ng-deep .itemBuyData .mat-button-ripple.mat-ripple {
+    top: -1px;
+    left: 3px;
+    right: 4px;
+    bottom: 8px;
+    position: absolute;
+    pointer-events: none;
+    border-radius: inherit;
+}
+::ng-deep .itemBuyData .mat-icon-button .mat-icon, ::ng-deep .itemBuyData .mat-icon-button i {
+    line-height: 14px;
+    font-size: 22px;
+}
+.itemBuyDataDiv{
+    display: inline-block;
+    margin-left: 5px;
+    width: 100%;
+}
+.itemBuyDataDiv .mat-form-field{
+    margin-left: 5px;
+    width: calc(100% - 45px);
+}

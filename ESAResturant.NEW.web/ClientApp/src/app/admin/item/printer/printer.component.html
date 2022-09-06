@@ -1,0 +1,55 @@
+<div class="cat catPrint">
+  <div class="container-fluid">
+    <div class="row">
+      <form class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label> {{ 'PRINTERS.DISPLAYPRINTERNAMEAR' | translate }}    </mat-label>
+          <input matInput name="displayNameAR" [(ngModel)]="printer.displayNameAR">
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="outline">
+          <mat-label>  {{ 'PRINTERS.DISPLAYPRINTERNAMEEN' | translate }}   </mat-label>
+          <input matInput name="displayNameEN" [(ngModel)]="printer.displayNameEN">
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="outline">
+          <mat-label>  {{ 'PRINTERS.NUMBEROFCOPIES' | translate }}   </mat-label>
+          <input matInput name="countCopies" [(ngModel)]="printer.countCopies">
+        </mat-form-field>
+        <br />
+        <mat-form-field appearance="outline">
+          <mat-label>   {{ 'PRINTERS.PRINTERNAME' | translate }}  </mat-label>
+          <mat-select name="printerName" [(ngModel)]="printer.printerName">
+            <mat-option *ngFor="let printer of printer_Device" [value]="printer">{{printer}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br />
+        <div class="catPrintBtn">
+          <button mat-raised-button (click)="InsertOrUpdatePrinter(printer,'add')"> {{ 'ACTIONS.SAVE' | translate }} <i class="text-success far fa-save"></i></button>
+          <button mat-raised-button (click)="InsertOrUpdatePrinter(printer,'edit')"> {{ 'ACTIONS.EDIT' | translate }} <i class="text-primary far fa-edit"></i></button>
+          <button mat-raised-button (click)="clear()"> {{ 'ACTIONS.NEW' | translate }} <i class="text-danger far fa-plus-square"></i></button>
+        </div>
+      </form>
+      <div class="col-md-6">
+        <div class="listItm">
+          <div class="actionLink" *ngFor="let p of listPrinter" (click)="GetPrinterByID(p)">
+            <label class="actionLink">
+              {{p.printerName}}
+            </label>
+            <button (click)="deletePrint(deleteConfirm,p)"><i class="far fa-trash-alt"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #deleteConfirm>
+  <div class="modal-body text-center">
+    <p>{{ 'Messages.DeleteConfirm' | translate }}</p>
+    <button type="button" class="btn btn-danger" (click)="deletePrintConfirm()">
+      <p>{{ 'LABELS.CONFIRM' | translate }}</p>
+    </button>
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">{{ 'LABELS.EXITE' | translate }}</button>
+  </div>
+</ng-template>

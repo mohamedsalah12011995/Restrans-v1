@@ -1,0 +1,170 @@
+.reportInvoices {
+    background-color: #fff;
+    margin-top: 20px;
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    border-radius: 10px;
+    text-align: right;
+    padding-bottom: 35px;
+    margin-bottom: 20px;
+}
+.repInvoicesHeader {
+    padding: 12px 12px;
+    border-bottom: 3px solid #bb3b3a;
+    padding-bottom: 9px;
+}
+.repInvoicesHeader h1 {
+    font-size: 22px;
+    color: #3c474a;
+    display: inline-block;
+}
+.repInvoicesHeader span a i {
+    color: #bb3b3ac9;
+}
+
+.repInvoicesHeader a {
+    float: left;
+    padding-right: 20px;
+}
+.repInvoicesHeader a i {
+    font-size: 2em;
+    color: #757575;
+}
+.deOnMop {
+    text-align: center;
+}
+
+.repInvoicesBody {
+    padding: 10px 15px 0px;
+    border-bottom: 3px solid #bb3b3a;
+}
+.repInvoicesSearch h2 {
+    font-size: 18px;
+    font-family: monospace;
+    font-weight: bold;
+    color: #3c474a;
+}
+/* .repInvoicesSearch .repInvoicesSearchElement {
+    display: inline-block;
+} */
+::ng-deep .repInvoicesSearch .repInvoicesSearchElement .mat-form-field-appearance-outline .mat-form-field-wrapper{
+    padding: 0px 0px 10px;
+}
+.repInvoicesSearchDate {
+    text-align: center;
+}
+.repInvoicesSearchDate .mat-form-field{
+    margin-left: 10px;
+    width: auto;
+}
+.repInvoicesSearchElement label {
+    font-family: inherit;
+    font-size: 12px;
+    margin-left: 5px;
+}
+.repInvoicesSearchElement .mat-form-field{
+    margin-left: 10px;
+    width: 19.99%;
+}
+::ng-deep .repInvoicesSearchElement .mat-form-field .mat-input-element {
+    caret-color: #bb3b3a;
+}
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: #bb3b3a;
+}
+::ng-deep .repInvoicesSearchElement .mat-form-field.mat-focused .mat-form-field-label {
+    color: #bb3b3a;
+}
+::ng-deep .repInvoicesSearchElement .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: #bb3b3a;
+}
+::ng-deep .mat-calendar-body-selected {
+    background-color: #bb3b3a;
+    color: #fff;
+}
+::ng-deep .repInvoicesSearchElement .mat-form-field.mat-focused .mat-select-arrow{
+    color: #bb3b3a;
+}
+.repInvoicesSearchElement .mat-form-field input[type=number]::-webkit-inner-spin-button, 
+.repInvoicesSearchElement .mat-form-field input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0;
+}
+.repInvoicesSearchElement .mat-form-field input[type=date]::-webkit-inner-spin-button, 
+.repInvoicesSearchElement .mat-form-field input[type=date]::-webkit-calendar-picker-indicator { 
+    display: none;
+    -webkit-appearance: none;
+}
+.repInvoicesTable .example-container {
+    height: 335px;
+    overflow: auto;
+  }
+  .repInvoicesTable{
+    margin-top: 15px;
+  }
+.repInvoicesTable table {
+    width: 100%;
+}
+.repInvoicesTable th.mat-header-cell, .repInvoicesTable td {
+    text-align: center;
+}
+::ng-deep .repInvoicesBody .mat-form-field._mat-animation-noopable .mat-form-field-label {
+    width: 100%;
+    font-size: 14px;
+}
+::ng-deep .repInvoicesBody .mat-form-field-appearance-outline .mat-form-field-infix{
+    padding: 5px 0px 10px;
+    border-top-width: 12px;
+}
+::ng-deep .repInvoicesBody .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+    transform: translateY(0%);
+}
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #bb3b3a;
+}
+::ng-deep .repInvoicesBody .mat-form-field-label{
+    top: 20px;
+}
+::ng-deep .repInvoicesBody .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    top: 22px;
+}
+.repInvoicesBody .mat-form-field span{
+    font-size: 12px;
+}
+
+/* width */
+.repInvoicesTable .example-container::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+/* Track */
+.repInvoicesTable .example-container::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+.repInvoicesTable .example-container::-webkit-scrollbar-thumb {
+    background: #888;
+
+}
+/* Handle on hover */
+.repInvoicesTable .example-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+.thead-dark tr th {
+    color: #000;
+    background-color: #eff2f9;
+    border-color: #eff2f9;
+    font-size: 13px;
+    padding: 19px;
+    text-align: center;
+}
+.repPageSearchElement .date-padd {
+  padding: 0 .75em 0 .75em;
+}
+.mat-form-field-appearance-outline .mat-form-field-flex {
+  padding: 0 .75em 0 1.5em;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+    
+}

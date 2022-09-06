@@ -1,0 +1,154 @@
+.currencies {
+  background-color: #fff;
+  margin: 20px 0px;
+  text-align: right;
+  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+}
+.currenciesHeader {
+  padding: 15px;
+  border-bottom: 3px solid #bb3b3a;
+  margin-bottom: 10px;
+}
+.currenciesHeaderAddress {
+  display: inline-block;
+}
+.currenciesHeaderAddress h1 {
+  font-size: 26px;
+  color: #212529;
+}
+.currenciesHeaderAddress h1 i {
+  font-size: 21px;
+}
+.currenciesHeaderBtn {
+  float: left;
+  /* margin-left: 37px; */
+}
+.currenciesHeaderBtn button {
+  margin-left: 10px;
+  font-family: cursive;
+}
+.currenciesBody {
+  padding: 20px;
+}
+.currenciesBodyData .mat-checkbox-inner-container {
+  width: 22px;
+  height: 22px;
+}
+::ng-deep .currenciesBody .mat-form-field-appearance-outline .mat-form-field-infix{
+  padding: 5px 0px 10px;
+  border-top-width: 10px;
+  text-align: center;
+  width: 280px;
+}
+::ng-deep .currenciesBody .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #bb3b3a;
+}
+::ng-deep .currenciesBody .mat-input-element {
+  caret-color: #bb3b3a;
+  text-align: right;
+}
+
+::ng-deep .currenciesBody .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #bb3b3a;
+}
+
+::ng-deep .currenciesBody .mat-form-field.mat-focused .mat-form-field-label {
+  color: #bb3b3a;
+}
+::ng-deep .currenciesBody .mat-form-field-appearance-outline .mat-form-field-label{
+  text-align: right;
+}
+.currenciesBodytable {
+  height: 50vh;
+  overflow: auto;
+  box-shadow: 0px 0px 2px 1px #e0e0e0;
+  text-align: center;
+}
+
+.currenciesBody table{
+  width: 100%;
+}
+
+.currenciesBody table th {
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  /* font-family: 'El Messiri', sans-serif; */
+}
+::ng-deep .currenciesBody .mat-icon-button{
+  outline: 0;
+  background-color: transparent !important;
+}
+::ng-deep .currenciesBody .mat-icon-button:hover mat-icon {
+  color: #a33939;
+}
+
+.currenciesBody .mat-checkbox {
+	margin-right: 10px;
+}
+.currenciesBody .example-container {
+  height: 100%;
+  overflow: auto;
+  box-shadow: none;
+}
+/* width */
+.currenciesBody .example-container::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+.currenciesBody .example-container::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+.currenciesBody .example-container::-webkit-scrollbar-thumb {
+  background: #888;
+
+}
+/* Handle on hover */
+.currenciesBody .example-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.currenciesBody .example-container table {
+  width: 100%;
+}
+.currenciesBody table th.mat-header-cell, .currenciesBody table td.mat-cell{
+  text-align: center;
+}
+.currenciesBody table button {
+  margin-right: 0px;
+}
+.currenciesBody table th.mat-header-cell{
+  top: 0px;
+  position: sticky;
+  z-index: 100; 
+  padding: 10px;
+  border-bottom: 1px solid #9c9c9c;
+  background-color: #eff2f9;
+  font-size: 14px;
+}
+.currenciesBody table td.mat-footer-cell{
+  bottom: 0px;
+  position: sticky;
+  z-index: 10;
+  background-color: #fff;
+}
+::ng-deep .currenciesBody .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: #dc3545;
+}
+::ng-deep .currenciesBody .mat-checkbox-layout{
+  margin-bottom: 10px;
+}
+.currenciesHeaderBtn .sp-bckk {
+  /* margin-right: 13px; */
+  /* margin-left: -204px; */
+  color: #c78b8b;
+  float: left;
+  margin-top: 3px;
+}
+
+.currenciesHeaderBtn .sp-bckk a i {
+    font-size: 30px;
+}

@@ -1,0 +1,117 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="itemContainer application">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-7 itemaddress">
+              <h1>
+                <i class="btnRemove far fa-plus-square"></i>                           {{ 'APPLICATIONS.ADDAPPLICATION' | translate }}
+              </h1>
+            </div>
+            <div class="col-md-5 itemBtnSave">
+              <button mat-raised-button *ngIf="isDisplay" (click)="InsertOrUpdateApplication('add')"> {{ 'ACTIONS.SAVE' | translate }} <i class="text-success far fa-save"></i></button>
+              <button mat-raised-button *ngIf="!isDisplay" (click)="InsertOrUpdateApplication('edit')">  {{ 'ACTIONS.EDIT' | translate }} <i class="text-primary far fa-edit"></i></button>
+              <button mat-raised-button (click)="clear()"> {{ 'ACTIONS.NEW' | translate }} <i class="text-danger far fa-plus-square"></i></button>
+              <!--<button (click)="onPrint();">طباعة <i class="text-danger far fa-plus-square"></i></button>-->
+              <span class="sp-bckk ">
+                <a>
+                  <i class="fas fa-arrow-circle-left" (click)="navigateBack()"></i>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-fluid appBody">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="itemDetails">
+                    <h2><i class="far fa-file-alt"></i>     {{ 'APPLICATIONS.APPLICATIONDETAILS' | translate }}</h2>
+
+                    <mat-form-field appearance="outline">
+                      <mat-label>  {{ 'APPLICATIONS.NAMEAR' | translate }}</mat-label>
+                      <input matInput name="displayNameAR" [(ngModel)]="application.nameAr">
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field appearance="outline">
+                      <mat-label> {{ 'APPLICATIONS.NAMEEN' | translate }}</mat-label>
+                      <input matInput name="displayNameEN" [(ngModel)]="application.nameEn">
+                    </mat-form-field>
+                    <br />
+                    <mat-form-field appearance="outline">
+                      <mat-label>{{ 'APPLICATIONS.VALUE' | translate }}</mat-label>
+                      <input matInput name="countCopies" [(ngModel)]="application.price" (click)="$event.target.select()">
+                      <span>{{present}}</span>
+                    </mat-form-field>
+
+                    <br />
+                    <mat-radio-group [(ngModel)]="application.discountId">
+                      <div class="selectPlace" *ngFor="let type of listDiscountType">
+                        <mat-radio-button [value]="type.id" (click)="getpresent(type.nameAr)">{{currentLang=='ar' ? type.nameAr:type.nameEn}}</mat-radio-button>
+                      </div>
+                    </mat-radio-group>
+                  </div>
+
+                </div>
+
+                <div class="col-md-6">
+                  <div class="itemImage">
+                    <h2><i class="far fa-image"></i> {{ 'APPLICATIONS.APPIMAGE' | translate }}</h2>
+                    <input #file type="file" id="ImgItm" (change)="detectFiles(file.files);readURL($event);" accept="image/*" />
+                    <br />
+
+                    <img id="blah" for="ImgItm" [src]="imageSrc" alt="your image" />
+
+                    <label class="uploadImgItm" for="ImgItm">
+                      <i class="far fa-image"></i>
+                      {{ 'APPLICATIONS.BROWSE' | translate }}
+                    </label>
+                    <button (click)="clearimg()">
+                      <i class="far fa-times-circle"></i>
+                      {{ 'APPLICATIONS.DELETE' | translate }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="itemList">
+                <h2><i class="far fa-file-alt"></i>             {{ 'APPLICATIONS.APPS' | translate }}</h2>
+                <!-- <div class="listSearch">
+                  <i class="fas fa-search"></i>
+                  <input type="text" #serch_item name="serch_App" placeholder="بحث عن الصنف" (input)="serchApp(serch_item.value)">
+                </div> -->
+                <div class="listItm">
+                  <div class="actionLink" *ngFor="let app of listApplication" (click)="GetApplicationByID(app)">
+                    <ng-container>
+                      <div class="actionLink">
+                        <label class="actionLink">
+                          {{ currentLang=='ar' ? app.nameAr: app.nameEn}}
+                        </label>
+                        <button (click)="deleteAppliction(deleteConfirm,app)"><i class="far fa-trash-alt"></i></button>
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #deleteConfirm>
+  <div class="modal-body text-center">
+    <p>{{ 'Messages.DeleteConfirm' | translate }}</p>
+    <button type="button" class="btn btn-danger" (click)="deleteApplictionConfirm()">
+      <p>{{ 'LABELS.CONFIRM' | translate }}</p>
+    </button>
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">{{ 'LABELS.EXITE' | translate }}</button>
+  </div>
+</ng-template>

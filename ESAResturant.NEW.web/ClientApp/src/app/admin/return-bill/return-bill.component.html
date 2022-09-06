@@ -1,0 +1,298 @@
+<div class="inv" (click)="HideSlider()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="invHeader">
+                <div class="invAddress">
+                    <h1>
+                        <i class="btnRemove material-icons">undo</i> مرتجع بيع
+                    </h1>
+                </div>
+                <div class="invBtn">
+                        <button mat-stroked-button>
+                            <i class="material-icons">save</i>
+                            حفظ
+                        </button>
+                    <button mat-stroked-button>
+                        <i class="material-icons">highlight_off</i>
+                        أغلاق
+                    </button>
+                </div>
+            </div>
+            <div class="invBody">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="invData">
+                            <div class="invDataItem">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>رقم الفاتورة</mat-label>
+                                    <mat-select>
+                                        <mat-option value="">إيزاك</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>الكود الصنف</mat-label>
+                                    <input matInput value="">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>بحث بالاسم</mat-label>
+                                    <input matInput value="">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline">
+                                    <mat-label>موظف المبيعات</mat-label>
+                                    <mat-select>
+                                        <mat-option value="">إيزاك</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="invDataEmp">
+                                
+                            </div>
+                            <div class="invDataCust">
+                                <div class="invDataCustTypePaid">
+                                    <strong>نوع الدفع</strong>
+                                    <div>
+                                        <input type="radio" name="CustomerTypePaid" id="CustomerTypePaid1" checked>
+                                        <label for="CustomerTypePaid1">نقدى</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="CustomerTypePaid" id="CustomerTypePaid2">
+                                        <label for="CustomerTypePaid2">فيزا</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="CustomerTypePaid" id="CustomerTypePaid3">
+                                        <label for="CustomerTypePaid3">خصم من الحساب</label>
+                                    </div>
+                                </div>
+                                <div class="invDataCustSelect">
+                                    <mat-form-field appearance="outline">
+											<mat-label>العميل</mat-label>
+                                        <mat-select disabled>
+                                            <mat-option value="">إيزاك</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="invDetails">
+                            <div class="invDetailsTotal">
+                                <label>
+                                    اجمالى الكمية
+                                    <span>0</span>
+                                </label>
+                                <label>
+                                    القيمة المضافة
+                                    <span>0</span>
+                                </label>
+                                <label>
+                                    اجمالى
+                                    <span>0</span>
+                                </label>
+                            </div>
+                            <div class="invDetailsDiscount text-center">
+                                <strong>الخصم</strong>
+                                <div class="invDetailsDiscountRadio">
+                                    <mat-radio-group>
+                                        <mat-radio-button value="1">قيمة</mat-radio-button>
+                                        <mat-radio-button value="2">نسبة</mat-radio-button>
+                                    </mat-radio-group>
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput value="0">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="invDetailsSubTotal">
+                                <h3>المبلغ المطلوب</h3>
+                                <label>0</label>
+                            </div>
+                            <div class="invDetailsPaid">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>المدفوع</mat-label>
+                                    <input matInput value="0">
+                                </mat-form-field>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>المتبقى</mat-label>
+                                    <input matInput value="0" disabled>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-10">
+                        <div class="example-container mat-elevation-z8 invItemTable">
+                            <table mat-table [dataSource]="itemTable">
+                                <ng-container matColumnDef="No">
+                                    <th mat-header-cell *matHeaderCellDef> م </th>
+                                    <td mat-cell *matCellDef="let i = index"> {{ i + 1 }} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="Code">
+                                    <th mat-header-cell *matHeaderCellDef> الكود </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="Item">
+                                    <th mat-header-cell *matHeaderCellDef> الصنف </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.itemName}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="Count">
+                                    <th mat-header-cell *matHeaderCellDef> الكمية </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput type="number" [ngModel]="element.count">
+                                        </mat-form-field>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="Unit">
+                                    <th mat-header-cell *matHeaderCellDef> الوحدة </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <mat-form-field>
+                                            <mat-select>
+                                                <mat-option [value]="element.unit">
+                                                    {{element.unit}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="SalePrice">
+                                    <th mat-header-cell *matHeaderCellDef> سعر البيع </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.sellingPrice}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="Discount">
+                                    <th mat-header-cell *matHeaderCellDef> الخصم </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput type="number" [ngModel]="element.discount">
+                                        </mat-form-field>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="VatTax">
+                                    <th mat-header-cell *matHeaderCellDef> القيمة المضافة </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.vatTax}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="TotalVat">
+                                    <th mat-header-cell *matHeaderCellDef> اجمالى القيمة المضافة </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.totalVat}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="Total">
+                                    <th mat-header-cell *matHeaderCellDef> الاجمالى </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+                                </ng-container>
+                                
+                                <ng-container matColumnDef="add">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <i class="material-icons">add</i>
+                                    </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <button mat-icon-button>
+                                            <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+                                        </button>
+                                    </td>
+                                </ng-container>
+                            
+                                <tr mat-header-row *matHeaderRowDef="itemTabledisplayedColumns; sticky: true"></tr>
+                                <tr mat-row *matRowDef="let row; columns: itemTabledisplayedColumns;"></tr>
+                            </table>
+                        </div>
+                        <div class="example-container mat-elevation-z8 invItemTable">
+                            <table mat-table [dataSource]="itemTable">
+                                <ng-container matColumnDef="No">
+                                    <th mat-header-cell *matHeaderCellDef> م </th>
+                                    <td mat-cell *matCellDef="let i = index"> {{ i + 1 }} </td>
+                                </ng-container>
+                                
+                                <ng-container matColumnDef="Code">
+                                        <th mat-header-cell *matHeaderCellDef> الكود </th>
+                                        <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="Item">
+                                    <th mat-header-cell *matHeaderCellDef> الصنف </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.itemName}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="Count">
+                                    <th mat-header-cell *matHeaderCellDef> الكمية </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput type="number" [ngModel]="element.count">
+                                        </mat-form-field>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="Unit">
+                                    <th mat-header-cell *matHeaderCellDef> الوحدة </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <mat-form-field>
+                                            <mat-select>
+                                                <mat-option [value]="element.unit">
+                                                    {{element.unit}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="SalePrice">
+                                    <th mat-header-cell *matHeaderCellDef> سعر البيع </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.sellingPrice}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="Discount">
+                                    <th mat-header-cell *matHeaderCellDef> الخصم </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput type="number" [ngModel]="element.discount">
+                                        </mat-form-field>
+                                    </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="VatTax">
+                                    <th mat-header-cell *matHeaderCellDef> القيمة المضافة </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.vatTax}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="TotalVat">
+                                    <th mat-header-cell *matHeaderCellDef> اجمالى القيمة المضافة </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.totalVat}} </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="Total">
+                                    <th mat-header-cell *matHeaderCellDef> الاجمالى </th>
+                                    <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+                                </ng-container>
+                                    
+                                <ng-container matColumnDef="add">
+                                    <th mat-header-cell *matHeaderCellDef>
+                                        <i class="material-icons">delete</i>
+                                    </th>
+                                    <td mat-cell *matCellDef="let element">
+                                        <button mat-icon-button>
+                                            <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+                                        </button>
+                                    </td>
+                                </ng-container>
+                            
+                                <tr mat-header-row *matHeaderRowDef="itemTabledisplayedColumns; sticky: true"></tr>
+                                <tr mat-row *matRowDef="let row; columns: itemTabledisplayedColumns;"></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

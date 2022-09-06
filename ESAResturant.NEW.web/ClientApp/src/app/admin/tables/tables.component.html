@@ -1,0 +1,133 @@
+<div class="tawlas text-right">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="invItem tawlatablees">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="invCat">
+                <button *ngFor="let cat of tableList" (click)="setectTable(cat)">
+                  {{ currentLang=='ar' ? cat.nameAr : cat.nameEn}}
+                </button>
+                  <div class="invCatMore">
+									<button mat-icon-button data-toggle="modal" data-target="#invCatMore">
+                    <i class="fas fa-ellipsis-h"></i>
+									</button>
+								</div>
+								<!-- Modal invCatMore -->
+								<div class="modal fade invCatMoreModal" id="invCatMore" tabindex="-1" role="dialog" aria-labelledby="invCatMore" aria-hidden="true">
+									<div class="modal-dialog modal-dialog-centered" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalCenterTitle">{{ 'TABELS.CATEGORY' | translate }}</h5>
+												<button type="button" class="close close-btne" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												<div class="invCatModal">
+                          <button mat-button *ngFor="let cat of tableList" (click)="setectTable(cat)" data-dismiss="modal" aria-label="Close">
+                            {{ currentLang=='ar' ? cat.nameAr : cat.nameEn}}
+                          </button>
+												</div>
+											</div>
+											<div class="modal-footer"></div>
+										</div>
+									</div>
+								</div>
+              </div>
+
+              <div class="tables" *ngFor="let table of filterTableList; let i = index;" (click)="GetBillWaiteByNmbTable(table.num)">
+
+                <span class="d-none" id="Inv{{ table.num }}"></span>
+                <div class="tawla" id="table{{table.num}}">
+                  <!--<div class="twlDetalis tawlaEmpty" (click)="GetBillWaiteByNmbTable(tabl)">-->
+                  <div [ngClass]="table.class">
+                    <h2 id="tableNmb{{table.num}}">{{ 'TABELS.TABLE' | translate }} {{ table.num }}<span id="Total{{table.num}}">{{ table.total | number:'0.2-2' }}</span></h2>
+                    <label>
+                      {{ 'TABELS.LASTORDER' | translate }}<br>
+                      <span>
+                        {{ 'TABELS.SINCE' | translate }}  {{table.time}} {{ 'TABELS.MINUTE' | translate }}
+
+                      </span>
+                    </label>
+                  </div>
+
+
+                  <div class="tawlaBusy twlOpen">
+                    <button (click)="getTableNumber(table.num)" class="close" data-dismiss="modal">{{ 'TABELS.OPENTABLE' | translate }}</button>
+                  </div>
+                  <div class="twlOptian tawlaEmpty">
+
+                    <!--<button type="button" data-toggle="modal" [attr.data-target]="'#Mergetablee' + table" (click)="GetBillWaiteByNmbtablee(table)">دمج</button>-->
+                    <!--<button type="button" data-toggle="modal" [attr.data-target]="'#Mergetablee' + table">دمج</button>-->
+                    <div class="modal fade" id="Mergetablee{{table.num}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{ 'TABELS.MERGETABLE' | translate }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span class="fas fa-power-off" aria-hidden="true"></span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="tawlaMove">
+                              <span>{{ 'TABELS.TABLENUMBER' | translate }}:- </span>
+                              <mat-form-field appearance="outline">
+                                <mat-label></mat-label>
+                                <!--<mat-select [(ngModel)]="_Bill.tableeNo">-->
+                                <mat-select>
+                                  <!--<mat-option *ngFor="let tableeMerge of _List_tablee" value="{{tableeMerge}}">{{ tableeMerge }}</mat-option>-->
+                                  <mat-option></mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <!--<button type="button" (click)="tableeMerge(table, _Bill)">حفظ</button>-->
+                            <button type="button">{{ 'ACTIONS.SAVE' | translate }}</button>
+                            <button type="button" data-dismiss="modal">{{ 'ACTIONS.CANCEL' | translate }}</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button type="button" data-toggle="modal" [attr.data-target]="'#Movetablee' + table.num" (click)="getTableOld(table.num)">{{ 'TABELS.TRANSFER' | translate }}</button>
+
+                    <!--<button type="button" data-toggle="modal" [attr.data-target]="'#Movetablee' + table">نقل</button>-->
+                    <div class="modal fade" id="Movetablee{{table.num}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{ 'TABELS.TRANSFERTABLE' | translate }}                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span class="fas fa-power-off" aria-hidden="true"></span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="tawlaMove">
+                              <span>{{ 'TABELS.TABLENUMBER' | translate }}:- </span>
+                              <mat-form-field appearance="outline">
+                                <mat-label></mat-label>
+                                <mat-select [(ngModel)]="tableNewSelected">
+                                  <mat-option *ngFor="let tableeMove of filterTableEmptyList" value="{{tableeMove.num}}" (click)="MoveTableNo(tableeMove.num)">{{tableeMove.num}}</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" (click)="confiurmMoveTable(); " data-dismiss="modal">{{ 'ACTIONS.SAVE' | translate }}</button>
+                              <button type="button" data-dismiss="modal">{{ 'ACTIONS.CANCEL' | translate }}</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

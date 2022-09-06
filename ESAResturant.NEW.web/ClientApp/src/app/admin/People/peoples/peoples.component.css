@@ -1,0 +1,94 @@
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background{
+    background-color: #c8505a;
+}
+::ng-deep .customerMore .mat-checkbox label{
+    padding: 0px 10px;
+}
+::ng-deep .customerMore .mat-checkbox .mat-checkbox-inner-container {
+    margin-left: 5px;
+    margin-right: 10px;
+}
+::ng-deep .mat-input-element, .custSum .mat-input-element{
+    caret-color: #bb3b3a;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: #bb3b3a;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: #bb3b3a;
+}
+::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+    color: #bb3b3a;
+}
+::ng-deep .mat-calendar-body-selected {
+    background-color: #bb3b3a;
+    color: #fff;
+}
+::ng-deep .mat-datepicker-toggle-active {
+    color: #bb3b3a;
+}
+.itemList .listSearch input:focus{
+    border: 2px solid #bb3b3a;
+    transition: all 0.5s;
+}
+::ng-deep .mat-form-field._mat-animation-noopable .mat-form-field-label {
+  width: 100%;
+  font-size: 14px;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-infix{
+  padding: 5px 0px 10px;
+  border-top-width: 12px;
+}
+/* ::ng-deep .customerDetails .mat-form-field-appearance-outline .mat-form-field-outline-gap {
+    width: 60.5px !important;
+} */
+::ng-deep .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+  transform: translateY(-23%) !important;
+}
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #bb3b3a;
+}
+.mat-form-field span{
+  font-size: 12px;
+}
+/* width */
+.custTable::-webkit-scrollbar {
+	width: 5px;
+}
+
+/* Track */
+.custTable::-webkit-scrollbar-track {
+	background: #f1f1f1; 
+}
+
+/* Handle */
+.custTable::-webkit-scrollbar-thumb {
+	background: #888;
+
+}
+/* Handle on hover */
+.custTable::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+.customeraddress h1{
+  font-size:17px !important;
+}
+
+.customerContainer .customerBtnSave button i {
+  font-weight: unset;
+}
+.customerMore .pep-frm {
+  width:100%;
+}
+.sp-bckk {
+  margin-right: 8px;
+  margin-left: 12px;
+  color: #c78b8b;
+  float: left;
+  margin-top: 3px;
+}
+
+  .sp-bckk a i {
+    font-size: 30px;
+  }

@@ -1,0 +1,584 @@
+/****************
+    Start Login
+****************/
+
+
+/****************
+    End Login
+****************/
+/****************
+    Start Header
+****************/
+.IconMenu {
+    left: 0;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+}
+
+/****************
+    End Header
+****************/
+/****************
+    Start Sidebar
+****************/
+.drop-usr .mat-menu-item {
+    text-align: left !important;
+    direction: ltr !important;
+}
+.convertScreen{
+    left: 0px !important;
+    margin-left: 20px !important;
+}
+.logo-rest {
+    display: flex !important;
+    justify-content: center;
+    margin-right: 70px !important;
+}
+.user-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/****************
+    End Sidebar
+****************/
+/****************
+    Start Sell Invoice
+****************/
+.invoice .col-md-8 {
+    padding-left: 0px !important;
+    padding-right: 10px !important;
+}
+.invCatMore{
+    left: auto !important;
+    right: 10px !important;
+}
+.invItem .invCat{
+    text-align: left !important;
+}
+.invDetails {
+    padding-right: 16% !important;
+    padding-left: 0% !important;
+}
+.invOption, .invDetails .invSave {
+    display: flex !important;
+}
+.invOption button, .invDetails .invSave button {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    direction: rtl !important;
+}
+.invOption button span, .invDetails .invSave button span {
+    display: flex !important;
+    align-items: center !important;
+}
+.invDetails .invSave button span i{
+    margin-right: 5px
+}
+.invPaid .invTypePaid {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+.invTypePaid div {
+    height: 67px;
+}
+.invTypePaid div:nth-last-child(1) {
+    margin-left: 8px !important;
+}
+.invDetails .custm-tool {
+    right: 0;
+    left: inherit !important;
+    border-left: 1px solid #ccc;
+    border-right: none !important;
+}
+.invComm{
+    padding: 0px !important;
+}
+.invComm button{
+    right: 0 !important;
+    margin-left: 0 !important;
+}
+/*  !important */
+/****************
+    End Sell Invoice
+****************/
+/****************
+    Start Sell Item
+****************/
+.itemContainer .container{
+    text-align: left !important;
+}
+.itemContainer .itemaddress {
+    text-align: left !important;
+}
+.itemBtnSave button {
+    margin-right: 10px !important;
+}
+.itemDetails div button{
+    margin-right: 10px !important;
+}
+.listItm label span{
+    float: right !important;
+}
+.listItm button{
+    float: right !important;
+    border-left: 1px solid #c6c6c6 !important;
+}
+.itemList .listSearch i {
+    right: 0 !important;
+}
+.itemList h2 span {
+    float: right !important;
+}
+.cat {
+    text-align: left !important;
+}
+.itemDetails div button {
+    margin-right: 0px !important;
+    margin-left: 5px;
+}
+/****************
+    End Sell Item
+****************/
+/****************
+    Start Buy Item
+****************/
+.itemBuy{
+    text-align: left !important;
+}
+.itemBuyHeader .itemHeaderBtn {
+    float: right !important;
+    margin-right: 30px;
+}
+.itemBuyHeader .itemHeaderBtn {
+    float: right !important;
+    margin-left: 0px !important;
+    margin-right: 30px !important;
+}
+
+/****************
+    End Buy Item
+****************/
+/****************
+    Start Table Managment
+****************/
+.table-managmentForm{
+    text-align: left !important;
+}
+.table-managmentHeaderAddress {
+    margin-left: 0px !important;
+    margin-right: 44px;
+}
+
+.table-managmentHeaderAddress .sp-bck {
+    height: 37px;
+    line-height: 48px;
+    margin-top: 0px !important;
+    float: right !important;
+}
+
+.table-managmentHeaderAddress .btn-tp {
+    float: right !important;
+    margin-top: 0px !important;
+    margin-left: 5px !important;
+}
+/****************
+    End Table Managment
+****************/
+/****************
+    Start Menu
+****************/
+.shoppingCartbtn {
+    left: 17px;
+    right: inherit !important;
+}
+.stepperBtn {
+    text-align: right;
+    direction: rtl;
+}
+.stepperBtn button.mat-icon-button span i {
+    font-size: 28px;
+}
+.veiwItemDetailsShoppingBtn button {
+    border-left: 1px solid #fff;
+    border-right: 0px solid #fff !important;
+}
+.veiwItemDetails {
+    text-align: left !important;
+}
+/****************
+    End Menu
+****************/
+/****************
+    Start Kitchen
+****************/
+.kitchenBill button.mat-icon-button.finishBills {
+    left: inherit !important;
+    right: 37px;
+}
+.kitchen button.close {
+    margin: -1rem  -1rem -1rem auto !important;
+}
+.kitchenOldOrderDetails {
+    margin-right: 15px;
+    margin-left: 0px !important;
+}
+.kitchenOldOrderDetails:nth-child(even) {
+    margin-right: 0px;
+}
+.kitchenOldOrderDetails h4:nth-child(2) {
+    margin-right: 10px;
+}
+/****************
+    End Kitchen
+****************/
+/****************
+    Start Report Page
+****************/
+.reportPage{
+    text-align: left !important;
+}
+.repPageHeader a{
+    float: right !important;
+}
+/* .repPageSearchElement {
+    text-align: center;
+} */
+.repPageSearchDate button.mat-stroked-button {
+    margin-left: 10px !important;
+}
+.repPageSearchDate button span i {
+    margin-left: 5px;
+}
+.repPageSearchDate .BtnResizePaper{
+    float: right !important;
+}
+.repPageSearchDate .BtnResizePaper button{
+    margin-left: 0px !important;
+}
+.repPageSearchDate .BtnResizePaper button:nth-child(2) {
+    margin-right: 10px;
+}
+/****************
+    End Report Page
+****************/
+/****************
+    Start User Managment
+****************/
+.userMang {
+    text-align: left !important;
+}
+
+.userMangHeaderBtn {
+    float: right !important;
+}
+
+.userMang .sp-bckk {
+    float: right !important;
+}
+
+.userMangHeaderAddress h1 i {
+    margin-right: 10px;
+}
+
+/****************
+    End User Managment
+****************/
+/****************
+    Start User Types
+****************/
+.usertype {
+    text-align: left !important;
+}
+.usertypeHeaderBtn {
+    float: right !important;
+}
+
+.usertype .sp-bckk {
+    float: right !important;
+}
+
+/****************
+    End User Types
+****************/
+/****************
+    Start Customer
+****************/
+.customerContainer .container {
+    text-align: left !important;
+}
+
+.customeraddress {
+    text-align: left !important;
+}
+
+.customeraddress h1 i {
+    margin-right: 5px;
+}
+
+.customerBtnSave {
+    text-align: right !important;
+}
+
+.customerContainer  .sp-bckk {
+    float: right !important;
+}
+
+.customerDetails {
+    text-align: left !important;
+}
+
+/****************
+    End
+****************/
+/****************
+    Start Currencies
+****************/
+.currencies {
+    text-align: left !important;
+}
+
+.currenciesHeaderBtn {
+    float: right !important;
+}
+
+.currenciesHeaderBtn .sp-bckk {
+    float: right !important;
+    margin-left: 10px !important;
+}
+
+.currenciesBody .mat-form-field-appearance-outline .mat-form-field-label {
+    text-align: left !important;
+}
+
+/****************
+    End Currencies
+****************/
+/****************
+    Start Taxes
+****************/
+.Taxes {
+    text-align: left !important;
+}
+
+.TaxesHeaderBtn {
+    float: right !important;
+}
+
+.TaxesHeaderBtn .sp-bckk {
+    float: right !important;
+    margin-left: 10px !important;
+}
+
+/****************
+    End Taxes
+****************/
+/****************
+    Start Application
+****************/
+.application .selectPlace {
+    margin-left: 0px !important;
+    margin-right: 10px !important;
+}
+
+.application .sp-bckk {
+    margin-left: 10px !important;
+}
+
+/****************
+    End Application
+****************/
+/****************
+    Start Company
+****************/
+.companyContainer {
+    text-align: left !important;
+}
+
+.companyHeaderBtn {
+    float: right !important;
+}
+
+.companyHeaderBtn .sp-bckk {
+    float: right !important;
+    margin-left: 10px !important;
+}
+
+/****************
+    End Company
+****************/
+/****************
+    Start Branchs
+****************/
+.Branchs {
+    text-align: left !important;
+}
+
+.BranchHeaderBtn {
+    float: right !important;
+}
+
+.branchesList h2 i {
+    margin-right: 10px;
+    margin-left: 0px !important;
+}
+/****************
+    End Branchs
+****************/
+
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/
+/****************
+    Start
+****************/
+
+
+/****************
+    End
+****************/

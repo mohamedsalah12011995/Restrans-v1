@@ -1,0 +1,214 @@
+<div class="kitchen">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-9 ">
+				<div class="kitchenBill">
+					<div class="container-fluid">
+						<div class="row">
+              <div class="col-md-4">
+                <ul class="list-unstyled">
+                  <li *ngFor="let bill of NewbillList">
+                    <div>
+                      <div class="kitchenBillDetails NewOrder">
+                        <div class="CancelOrderDiv">
+                          {{ 'KITCHEN.ORDERCANCELED' | translate }}
+                        </div>
+                        <h3>
+                          {{ 'KITCHEN.REQUESTNUMBER' | translate }}
+                          <span>{{bill.orderNo}}</span>
+                        </h3>
+                        <h4>
+                          {{ 'KITCHEN.TABLENUMBER' | translate }}
+                          <span>{{bill.tableNo}}</span>
+                        </h4>
+                        <h4>
+                          {{ 'KITCHEN.CAPTINORDER' | translate }}
+                        </h4>
+                        <h4>
+                          {{ 'KITCHEN.BILLTYPE' | translate }}
+                          <span>{{bill.tableNo}}</span>
+                        </h4>
+                        <div class="example-container mat-elevation-z8">
+                          <table>
+                            <thead>
+                              <tr>
+                                <th class="mat-header-cell" scope="col">   {{ 'LABELS.ITEMNAME' | translate }} </th>
+                                <th class="mat-header-cell" scope="col"> {{ 'LABELS.SIZE' | translate }}  </th>
+                                <th class="mat-header-cell" scope="col">  {{ 'LABELS.QUANTITY' | translate }} </th>
+                                <th class="mat-header-cell" scope="col">  {{ 'LABELS.NOTES' | translate }}  </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let billdetail of bill.billDetails">
+                                <td class="mat-cell mat-footer-cell">
+
+                                  {{ currentLang=='ar' ? billdetail.item.nameAR : billdetail.item.nameEN}}
+                                </td>
+                                <td class="mat-cell mat-footer-cell">
+
+                                   {{ currentLang=='ar' ? billdetail.itemPrice.itemSize.sizeNameAr : billdetail.itemPrice.itemSize.sizeNameEn}}
+
+                                </td>
+                                <td class="mat-cell mat-footer-cell">
+                                  {{billdetail.qty}}
+                                </td>
+                                <td class="mat-cell mat-footer-cell">  {{billdetail.qty}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <button mat-stroked-button (click)="acceptBill(bill)"> {{ 'KITCHEN.ACCEPTORDER' | translate }}</button>
+                      </div>
+                    </div>
+                    </li>
+                  </ul>
+              </div>
+              <div class="col-md-4">
+                <ul class="list-unstyled">
+                  <li *ngFor="let bill of activebillList">
+                    <div>
+                      <div class="kitchenBillDetails ActiveOrder">
+                        <div class="CancelOrderDiv">
+                          {{ 'KITCHEN.ORDERCANCELED' | translate }}
+                        </div>
+                        <h3>
+                          {{ 'KITCHEN.REQUESTNUMBER' | translate }}
+                          <span>{{bill.orderNo}}</span>
+                        </h3>
+                        <h4>
+                          {{ 'KITCHEN.TABLENUMBER' | translate }}
+                          <span>{{bill.tableNo}}</span>
+                        </h4>
+                        <h4>{{ 'KITCHEN.CAPTINORDER' | translate }}</h4>
+                        <h4>
+                          {{ 'KITCHEN.BILLTYPE' | translate }}  <span>{{bill.tableNo}}</span>
+                        </h4>
+                        <div class="example-container mat-elevation-z8">
+                          <table>
+                            <thead>
+                              <tr>
+                                <th class="mat-header-cell" scope="col">   {{ 'LABELS.ITEMNAME' | translate }} </th>
+                                <th class="mat-header-cell" scope="col"> {{ 'LABELS.SIZE' | translate }}  </th>
+                                <th class="mat-header-cell" scope="col">  {{ 'LABELS.QUANTITY' | translate }} </th>
+                                <th class="mat-header-cell" scope="col">  {{ 'LABELS.NOTES' | translate }}  </th>
+
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let billdetail of bill.billDetails">
+                                <td class="mat-cell mat-footer-cell">
+                                  {{ currentLang=='ar' ? billdetail.item.nameAR : billdetail.item.nameEN}}
+                                 
+                                </td>
+                                <td class="mat-cell mat-footer-cell">
+                                  (          {{ currentLang=='ar' ? billdetail.itemPrice.itemSize.sizeNameAr : billdetail.itemPrice.itemSize.sizeNameEn}}
+                                </td>
+                                <td class="mat-cell mat-footer-cell">
+                                  {{billdetail.qty}}
+                                </td>
+                                <td class="mat-cell mat-footer-cell">  {{billdetail.qty}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <button mat-stroked-button (click)="finishBill(bill)">{{ 'KITCHEN.FINISH' | translate }}</button>
+                      </div>
+                    </div>
+                    </li>
+                  </ul>
+              </div>
+              <div class="col-md-4">
+                <ul class="list-unstyled">
+                  <li *ngFor="let bill of canceledbillList">
+                    <div>
+                      <div class="kitchenBillDetails CancelOrder">
+                        <div class="CancelOrderDiv">
+                          {{ 'KITCHEN.ORDERCANCELED' | translate }}
+                        </div>
+                        <h3> {{ 'KITCHEN.REQUESTNUMBER' | translate }} <span>{{bill.orderNo}}</span></h3>
+                        <h4> {{ 'KITCHEN.TABLENUMBER' | translate }} <span>{{bill.tableNo}}</span></h4>
+                        <h4>{{ 'KITCHEN.CAPTINORDER' | translate }}</h4>
+                        <h4>
+                          {{ 'KITCHEN.BILLTYPE' | translate }}  <span>{{bill.tableNo}}</span>
+                        </h4>
+                        <div class="example-container mat-elevation-z8">
+                          <table>
+                            <thead>
+                              <tr>
+                                <th class="mat-header-cell" scope="col">   {{ 'LABELS.ITEMNAME' | translate }} </th>
+                                <th class="mat-header-cell" scope="col"> {{ 'LABELS.SIZE' | translate }}  </th>
+                                <th class="mat-header-cell" scope="col">  {{ 'LABELS.QUANTITY' | translate }} </th>
+                                <th class="mat-header-cell" scope="col">  {{ 'LABELS.NOTES' | translate }}  </th>
+
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let billdetail of bill.billDetails">
+                                <td class="mat-cell mat-footer-cell">
+                                  {{ currentLang=='ar' ? billdetail.item.nameAR : billdetail.item.nameEN}}
+                                  )
+                                </td>
+                                <td class="mat-cell mat-footer-cell">
+                                  (          {{ currentLang=='ar' ? billdetail.itemPrice.itemSize.sizeNameAr : billdetail.itemPrice.itemSize.sizeNameEn}}
+                                </td>
+                                <td class="mat-cell mat-footer-cell">
+                                  {{billdetail.qty}}
+                                </td>
+                                <td class="mat-cell mat-footer-cell">  {{billdetail.qty}}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <button mat-stroked-button (click)="finishBill(bill)">{{ 'KITCHEN.FINISH' | translate }}</button>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+
+        <div class="kitchenOldOrder">
+          <ul class="list-unstyled">
+            <li *ngFor="let bill of finishedList">
+
+              <div class="kitchenOldOrderDetails">
+                <h3>{{ 'KITCHEN.REQUESTNUMBER' | translate }} <span>{{bill.orderNo}}</span></h3>
+                <h4>{{ 'KITCHEN.TABLENUMBER' | translate }} <span>{{bill.tableNo}}</span></h4>
+                <h4>{{ 'KITCHEN.CAPTINORDER' | translate }}</h4>
+                <h4>
+                  {{ 'KITCHEN.BILLTYPE' | translate }}   <span>{{bill.tableNo}}</span>
+                </h4>
+                <div class="example-container mat-elevation-z8">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="mat-header-cell" scope="col">   {{ 'LABELS.ITEMNAME' | translate }} </th>
+                        <th class="mat-header-cell" scope="col"> {{ 'LABELS.SIZE' | translate }}  </th>
+                        <th class="mat-header-cell" scope="col">  {{ 'LABELS.QUANTITY' | translate }} </th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let billdetail of bill.billDetails">
+                        <td class="mat-cell mat-footer-cell">   {{ currentLang=='ar' ? billdetail.item.nameAR : billdetail.item.nameEN}}</td>
+                        <td class="mat-cell mat-footer-cell">  {{ currentLang=='ar' ? billdetail.itemPrice.itemSize.sizeNameAr : billdetail.itemPrice.itemSize.sizeNameEn}}</td>
+                        <td class="mat-cell mat-footer-cell">
+                          {{billdetail.qty}}
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+			</div>
+		</div>
+	</div>
+</div>

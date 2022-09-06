@@ -1,0 +1,83 @@
+.md-select-menu-container {
+  z-index: 9999;
+}
+
+::ng-deep .cat .mat-input-element {
+  caret-color: #bb3b3a;
+}
+
+::ng-deep .cat .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #bb3b3a;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #bb3b3a;
+}
+
+::ng-deep .cat .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: #bb3b3a;
+}
+.itemUnit .mat-form-field{
+  margin-left: 10px;
+}
+.itemUnit button.mat-raised-button._mat-animation-noopable{
+margin-left: 10px;
+}
+.itemUnit .example-container {
+  height: 248px;
+  overflow: auto;
+}
+
+.itemUnit .example-container table {
+  width: 100%;
+}
+.itemUnit table th.mat-header-cell, .itemUnit table td.mat-cell{
+  text-align: center;
+}
+.itemUnit table button {
+  margin-right: 0px;
+}
+.itemUnit table th.mat-header-cell{
+  top: 0px;
+  position: sticky;
+  z-index: 100; 
+  padding: 10px 0px;
+  border-bottom: 1px solid #9c9c9c;
+  background-color: #fff;
+}
+.itemUnit .mat-checkbox {
+  margin-left: 15px;
+}
+
+.itemUnit button.mat-raised-button {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+/* width */
+.itemUnit .example-container::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+.itemUnit .example-container::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+.itemUnit .example-container::-webkit-scrollbar-thumb {
+  background: #888;
+
+}
+/* Handle on hover */
+.itemUnit .example-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.itemUnit .example-container td.mat-cell:first-of-type{
+  padding-left: 0;
+  padding-right: 0px;
+}
+.itemUnit .example-container td.mat-cell:last-of-type {
+  padding-right: 0;
+  padding-left: 0;
+}

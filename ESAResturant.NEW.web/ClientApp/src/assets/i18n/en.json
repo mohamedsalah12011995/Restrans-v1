@@ -1,0 +1,602 @@
+{
+  "HOME": {
+    "TITLE": "Hello Angular with ngx-translate!",
+    "TITLEHOME": " Easacc Restaurants  ",
+    "SELECT": "Change language"
+  },
+
+  "SIGNIN": {
+    "WELCOME": "-Welcome To ESACC POS System",
+    "SLOGAN": "-  ... The Best For You",
+    "USERNAME": "User Name",
+    "PASSWORD": "Password",
+    "LOGIN": "Login",
+    "ERROLOGIN": "Logi Faild .. "
+
+  },
+
+  "ADMINHEADER": {
+    "PROJECTNAME": "EASACC SYSTEM",
+    "OPENDAY": "Open The Day",
+    "CLOSEDAY": "Close The Day",
+    "OPENDAYDATE": "The Day Open At "
+
+  },
+
+
+  "DATEMSGS": {
+    "OPENDATEHINT": "Please Open The Day",
+    "CURRENTDATEEXPIREDMSG": "The Day Opened since 24 hr "
+
+  },
+
+  "LABELS": {
+    "BILLPLACE": "Order Place",
+    "BILLTOTAL": "Bill Total",
+    "BILLTYPE": "Bill Type",
+    "CLIENT": "Client",
+    "CODE": "Code",
+    "CODESEARCH": "Search By Code",
+    "CONFIRM": "Confirm",
+    "DATE": "Date",
+    "DISCOUNT": "Discount",
+    "DISCOUNTTYPE": "Discount Type",
+    "EMPOLYEE": "Employee",
+    "ITEMNAME": "Item Name",
+    "NAME": "Name",
+    "NAMESEARCH": "Search by Name",
+    "NOTFOUND": "Not Found",
+    "PAID": "Paid",
+    "PAYMENTTYPE": "Payment Type",
+    "PRINTINGTYPE": "Printing Type",
+    "QUANTITY": "Quantity",
+    "QUICKCLIENT": "Quick Cient",
+    "REFNUMBER": "Reference number",
+    "REMAINING": "Remaining",
+    "RequestNumber": "Request Number",
+    "SellPrice": "Sell Price",
+    "SIZE": "Size",
+    "SUPPLIER": "Supplier",
+    "TIME": "Time",
+    "TOTAL": "Total",
+    "TOTALS": "Total",
+    "TOTALVAT": "Total VAT",
+    "TOTALAPPLICATION": "Total Application",
+    "UNIT": "Unit",
+    "EXITE": "Exite",
+    "VAT": "VAT",
+    "APPLICATONVALUE": "App value",
+    "COUNT": "Count"
+  },
+  "ACTIONS": {
+    "SAVEBILL": "Done",
+    "SAVE": "Save",
+    "EDIT": "Edit",
+    "UPDATE": "UPDATE",
+    "Delete": "Delete",
+    "PRINT": "Print",
+    "SEARCH": "Search",
+    "ID": "N",
+    "NEW": "New",
+    "PAUSE": "Pause Bill",
+    "CLOSED": "Close",
+    "CONFIRM": "Confirm",
+    "REFRESH": "Refresh",
+    "PAYMENTTYPE": "Payment Type",
+    "CANCEL": "Cancel"
+  },
+
+  "ADMINSIDEBAR": {
+    "HOME": "Home",
+    "PEOPLES": "Clients",
+    "ADDPEOPLE": "Add Client",
+    "ADDBRANCHES": "Add Branches ",
+    "SELLINVOICE": "The Sell",
+    "PRICEOFFER": "Price Offer",
+    "REPORTS": "Reports",
+    "REORTDAILY": "Report Daily ",
+    "BOXMONYREPORT": "Treasury Report",
+    "DAILY": "Daily Report",
+    "SETTINGS": "Settings",
+    "LOGOUT": "Logout",
+    "APPLICATIONS": "Applications",
+    "TAXS": "Taxes",
+    "CURRENCIES": "Currencies",
+    "CHANGEPASS": "Change Password",
+    "USERTYPESMANAGMENT": "User Types Managment",
+    "PEOPLEACCOUNTSTATMENT": "People Account  Statment",
+    "USERMANAGMENT": "User  Managment",
+
+    "TAXSREPORT": "Taxes Report",
+    "TYPETAXS": "Type Tax",
+    "APPLICATIONSREPORT": "Application Report",
+    "ITEMSREPORT": "Items Report",
+    "CATEGORIESREPORT": "Categories Report",
+
+    "BILLSREPORT": "Bills Report",
+    "KITCHEN": "Kitchen",
+    "MENU": "Menu",
+    "TABELMANAGMENT": "Table Managment",
+    "TABELS": "Tabels",
+    "BUYINVOICE": "Purchases",
+    "STORE": "Store",
+    "SELLITEMS": "Sell Items",
+    "BUYITEMS": "Buy Items",
+    "COMPANYINFO": "Company Info",
+    "STOCK": "Stock"
+  },
+  "BANKS": {
+    "ADDBANK": "Add Bank",
+    "BankNameRequired": "Bank Name Required.."
+  },
+
+  "BILLINVOICE": {
+    "BACKTOBARCODESEARCH": "Back Search By Code",
+    "ClientDepit": "Client Depit",
+    "ClientPoints": "Client Points",
+    "TOTALQUANTITY": "Total Quantity",
+    "TOTALBEFORVATANDSICOUNT": "Total Befor VAT and Discounts",
+    "TOTALVATTAX": "Total  VAT Taxes",
+    "TOTALAFTERVATTAX": "TOTAL AFTER VAT TAX",
+    "TOTALDICOUNTS": "Total Discounts",
+    "DISCOUNT": "Discount",
+    "VALU": "Value",
+    "RATIO": "Ratio",
+    "POINTS": "Points",
+    "TOTALBILLDISOUNT": "Total Bill Discount",
+    "NETTOTAL": "Net Total",
+    "CLIENTS": "Clients",
+    "BILLINVOICE": "Bill Invoice",
+    "PRICEOFFER": "Price Offer",
+    "LIMITEDQUANTITY": "Quantity in store not enough",
+    "DISCOUNTEXCEED": "Discount Exceed the limits",
+    "TOTALNOTPERMITTED": "Total Less Than 1 Not Permitted",
+    "PAIDNOTPERMITTED": "Paid Less Than 0 Not Permitted",
+    "NOITEMSINBILL": "No ITem in This Bill",
+    "N": "N",
+
+    "CATEGORY": "Category",
+    "ITEMSIZE": "Item Size",
+    "COST": "Cost",
+    "BILLDATA": "Bill Details",
+    "EXTRAS": "Extras",
+    "LOADMORE": "More",
+    "CHOOSEPEOPLE": "People Name or Phone",
+    "PEOPLENAME": "People Name",
+
+    "ADDRESS": "Address",
+    "ITEMSCOUNT": "Items Count",
+    "TOTALAFTERVAT": "Total After Vat",
+    "EXTRASTOTAL": "Total Extras",
+    "APPLICATIONNAME": "Application Name",
+    "SERVICEAX": "Service value",
+    "DELIVERY": "Delivery",
+    "WAITEDBILLS": "Waited Bills",
+    "NOTES": "Note Or Extra",
+    "NOTENAME": "Note Or Extra Name "
+  },
+  "STOCK": {
+    "ADDSTOCK": "Add Stock",
+    "EMAIL": "E-Mail",
+    "STATUS": "Status",
+    "STOCKINFORMATION": "Stock Information",
+    "ISMAINSTOCK": "Is Main Stock",
+    "SAVESTOCK": "Save Stock",
+    "CLOSE": "Close"
+  },
+  "PEOPLES": {
+    "ADDPEOPLE": "Add Client or Supplier",
+    "PEOPLEDATA": "Clients or Suppliers Data",
+    "ISCLIENT": "Is Client ?",
+    "CLietCategoryn": "Category",
+    "PHONE": "Phone",
+    "NUMBERCAR": "Number Car",
+    "BANK": "Client Bank",
+    "BANKACCOUNTNUM": "Account Number",
+    "DEPITS": "Depits",
+    "CREDITS": "Credits",
+    "CURRENTBALANCE": "Current Balance",
+    "TAXNUMBER": "Tax Number",
+    "ADDTIONALDATA": "Addtional Data",
+    "REMEMBERME": "Rememper Me For Review",
+    "REMEMBERDATE": "Remember Date",
+    "DEACTIVATE": "Active",
+    "BANKS": "Banks",
+    "CLIENTORSUPPLIER": "Client Or Supplier",
+    "NOTES": "Notes",
+    "CLIENTDISCOUNTRATIO": "Client  Discount Ratio",
+    "ACCOUNTSDATA": "Accounts Data",
+    "PEOPLENAMEREQUIRED": "Name Required ..",
+    "PEOPLECATEGORYREQUIRED": "Category Required",
+    "PEOPLETYPEREQUIRED": "Type  Required",
+    "PEOPLEALREADYEXIST": "People Name Already Exist",
+    "SELECTPEOPLE": "Please select people to edit",
+    "BILLTYPE": "Bill Type",
+    "DISCOUNTTYPE": "Discount Type",
+    "BILLTOTAL": "Bill Total",
+    "PEOPLEDETAILS": "Client Info",
+    "CATEGORY": "Category",
+    "CANCELACCOUNT": "Cancel account !"
+
+  },
+  "REPORTS": {
+    "ADDTOCLIENT": "Add To Client Or Supplier",
+    "ADDTRANSACTION": "Add Transaction To Treasury",
+    "AMOUNTTYPE": "Amount Type",
+    "AMOUNTTYPEREQUIRED": "Amount Type Required",
+    "BILLREPORTS": "Bills Report",
+    "BILLS": "Bills",
+    "BILLSMIGRATED": "Bill Migration Done  ..",
+    "CASH": "Cash",
+    "CASHING": "Cashing",
+    "CATCHING": "Catching",
+    "COUNT": "Count",
+    "EMPLOYEETYPEREQUIRED": "Employee Type Required",
+    "FROM": "From",
+    "FROMDATE": "From Date",
+    "ISKABDHINT": "THIS OPTION WILL BE ENABLED IF SARF OR KABD SELECTED",
+    "MIGRATEBILLS": "Migrate Bills To Boxmony",
+    "NETAMOUNT": "Net Total",
+    "PAIDREMAINING": "Paid Remaining",
+    "Purchases": "Purchases",
+    "REMAINING": "Remaining",
+    "RetraivedPurchases": "Retraived  Purchases",
+    "RETRIVEDSALES": "Retraived Sales",
+    "SALES": "Sales",
+    "SUMMERY": "Summery",
+    "TO": "To",
+    "TODATE": "To Date",
+    "TODAYDATE": "Day Date",
+    "TRANSACTIONADDED": "Transaction Added",
+    "TRANSACTIONDATE": "Transaction Date",
+    "TRANSACTIONTYPEREQUIRED": "Transaction Type Required",
+    "VISA": "VISA"
+  },
+  "SETTINGS": {
+    "TITLE": "Settings",
+    "CASHIR": "Cashir Printer",
+    "DEFAULTPRINTER": "Default Printer",
+    "PRINTERTYPE": "Printer Type",
+    "BARCODEPRINTER": "Barcode Printer ",
+    "PRINTERNAME": " Printer Name  "
+
+  },
+
+
+  "DASHBOARD": {
+    "TODAYBUY": "Today Expensas",
+    "MONTHLYSALES": "Monthly Sales",
+    "DEFAULTPRINTER": "Delivery Requests",
+    "TODAYREQUESTS": "Orders Count",
+    "DELIVERYREQUESTS": "Delivery Orderes count",
+    "TABELREQUESTS": "Tabel Orderes count",
+    "BESTSALES": "best sales  "
+  },
+
+
+  "ITEMS": {
+    "ADDCATEGORY": "Add Category",
+    "ADDITEM": "Add Item",
+    "ADDUNIT": "Add Unit",
+    "BROWSEIMAGE": "Browse",
+    "ITEMDETAILS": "Items Details",
+    "ITEMIMAGE": "Item Image",
+    "ITEMPRICES": "Item Prices",
+    "ITEMS": "Items",
+    "NAMEAR": "Arabic Name",
+    "NAMEEN": "English Name",
+    "SEARCHFORITEMS": "Search for Items   ",
+    "SELECTCATEGORY": "Select Category",
+    "SELECTUNIT": "Select Unit"
+  },
+  "MENUE": {
+    "EXTRAOPTIONS": "Extras",
+    "ADDTOCHART": "Add To Chart "
+
+
+  },
+  "BOXMONYCATEGORY": {
+    "ISCREDIT": "  Credit  ",
+    "ISDEBIT": " Debit   ",
+    "SIZENAMEAR": "Size in Arabic",
+    "SIZENAMEEN": "Size in English"
+
+
+  },
+  "CHANGEPASSWORD": {
+    "CHANGEPASSWORD": "Change Password",
+    "CURRENTPASSWORD": "Current Password",
+    "NEWPASSWORD": "New Password",
+    "CONFIRMPASSWORD": "Confirm New Password"
+  },
+  "COMPONENTS": {
+    "COMPONENTNAME": "Component Name"
+  },
+  "ITEMCATEGORY": {
+    "ADDPRINTER": "Add Printer",
+    "BILLINVOICESHOW": "Show in Bill invoice",
+    "CATEGORYNAMEAR": " Name Arabic",
+    "CATEGORYNAMEEN": " Name English",
+    "PRINTERNAME": "Printer Name",
+    "SELLINVOICESHOW": "Show in Sell invoice"
+  },
+  "ITEMPRICE": {
+    "ADDSIZE": "Add Size",
+    "DEFAULT": "Default",
+    "ADDITEMCATEGORY": "Add Item Component"
+  },
+
+  "ITEMSIZE": {
+    "SIZENAMEAR": "Size in Arabic",
+    "SIZENAMEEN": "Size in English"
+  },
+
+  "COMPANYINFO": {
+    "ADD": "ADD",
+    "ADDRESS": "ADDRESS",
+    "BRANCH": "Branch",
+    "DELETE": "DELETE",
+    "LOGO": "LOGO",
+    "BROWSEIMAGE": "Browse Image",
+    "NAMEAR": "NAMEAR",
+    "NAMEEN": "NAMEEN",
+    "NOTE": "DETAILS",
+    "PHONE": "PHONE"
+  },
+
+  "UNIT": {
+    "SIZENAMEAR": "Unit in Arabic",
+    "SIZENAMEEN": "Unit in English",
+    "BILLINVOICESHOW": "Show in Bill invoice",
+    "SELLINVOICESHOW": "Show in Sell invoice"
+
+
+  },
+
+  "ITEMBUY": {
+    "ITEMBUY": "Item buy",
+    "SIZENAMEEN": "Size name english",
+    "BILLINVOICESHOW": "Show bill invoice",
+    "BUYPRICE": "Buy price",
+    "MINSELLPRICE": "Minimum sell price",
+    "MINQUANTITY": "Minimum quantity",
+    "FIRSTQUANTITY": "First quantity",
+    "CURRENTQUANTITY": "Currnent quantity",
+    "BARCODE": "Barcode",
+    "BARCODE1": "Barcode 1",
+    "BARCODE2": "Barcode 2",
+    "BARCODE3": "Barcode 3",
+    "ITEMCODE": "Item Code "
+  },
+
+  "KITCHEN": {
+    "ORDERCANCELED": "Order Canceled",
+    "REQUESTNUMBER": "Request Number",
+    "TABLENUMBER": "Table Number",
+    "CAPTINORDER": "Captin Order",
+    "BILLTYPE": "Bill  Type",
+    "ACCEPTORDER": "Accept Order",
+    "NOTES": "Notes",
+    "FINISH": "Finish"
+
+
+  },
+
+  "BILLREPORT": {
+    "BILLNUMBER": "Bill Number",
+    "BILLTYPE": "Bill Type",
+    "SERVICEFEES": "Service Fees",
+    "VATTAX": "Vat Fees",
+    "BILLCOUNT": "Bill Count",
+    "BILLTOTAL": "Bill Total",
+    "CASHCOUNT": "Total Cash",
+    "VISATOTAL": "Total VISA",
+    "AGELTOTAL": "Total  Remaining",
+    "DICOUNTTOTAL": "Total Discount"
+  },
+
+  "CUSTOMERREPORT": {
+    "CUSTOMERREPORT": "Customer Report "
+  },
+  "TABELS": {
+    "TABLES": "Tables",
+    "DELIVERY": "Delivery",
+    "TABLENUMBER": "Table number",
+    "TABLE": "Table",
+    "COUNTS": "Count",
+
+    "LASTORDER": "Last Order",
+    "MINUTE": "minutes",
+    "SINCE": "Since",
+    "OPENTABLE": "Open table",
+    "MERGETABLE": "Merge table",
+    "TRANSFERTABLE": "Transfer table",
+    "TRANSFER": "Transfer",
+    "TABLEMANAGMENT": "Table managment",
+    "NAMEAR": "Name Arabic",
+    "NAMEEN": "Name English",
+    "STARTFROM": "Start from",
+    "ENDFORM": "End at"
+  },
+  "USERS": {
+    "ACTIVE": "Active ",
+    "BRANCH": "Branch",
+    "EMAIL": "Email",
+    "FIRSTNAME": "First Name",
+    "INVALID": "Invalid",
+    "KITCHENCATEGORIES": "Kitchen Categories",
+    "LASTNAME": "Last Name",
+    "PASSWORD": "Password",
+    "ROLES": "Roles",
+    "USERNAME": "User Name",
+    "USERS": "Users",
+    "USERTYPE": "User Type"
+  },
+  "USERSTTYPES": {
+    "USERTYPEMANAGMENT": "User types managment",
+    "ROLE": "Role",
+    "USERTYPENAMEEN": "English User Type",
+    "ROLES": "Roles "
+
+
+  },
+  "REPORTTODAY": {
+    "CURRENCIESDETAILS": "Currencies Details",
+    "STATEMENT": "Statement",
+    "SUMMERY": "Summery",
+    "BILLS": "Bills",
+    "ADDTOBOXMONY": "Add Transaction to Boxmony",
+    "COUNTS": "Count",
+    "DEPIT": "Depits",
+    "CREDIT": "Credits",
+    "CASH": "Cash",
+    "VISA": "VISA",
+    "AGEL": "installment",
+    "VAT": "VAT",
+    "SALES": "Sales",
+    "PURCHASES": "Purchases",
+    "MORTAG3SALES": "Returned Sales",
+    "MORTAG3PURCHASES": "Returned Purchases",
+    "SARF": "Pay",
+    "KABD": "Catch",
+
+    "NETTOTAL": "Net Total",
+    "TOTAL": "Total",
+    "DIFFERENCE": "Difference",
+
+    "BILLNUMBER": "Bill Number",
+    "REQUESTNUMBER": "Request Number",
+    "QUANTITY": "Quantity",
+    "NET": "Net",
+    "PRINT": "Print",
+    "TRANSACTIONTYPE": "Transaction Type",
+    "NOTIC": "Notice",
+    "CATEGORY": "Category",
+    "BOXMONY": "Treasury",
+    "KABDORSARF": "This choice enabled only for Cashing and Paying transaction",
+    "ADDTRANSACTION": "Add Transaction to client or people",
+    "CURRENCIESTOTAL": "Total Currencies",
+    "PEOPLE": "People",
+    "PHONE": "Phone",
+    "PRINTITEMSUMMRY": "   Print Item Today ",
+    "PRINTSUMMRYTODAY": "   Print Summry Today ",
+    "DATE": "Date",
+    "TIME": "Time",
+    "TABLENUMBER": "Table Number "
+
+
+
+
+  },
+  "GENERALSETTINGS": {
+    "GENERALSETTINGS": "General settings",
+    "COUNTRY": "Country",
+    "CASHIERPRINTER": "Cashier Printer",
+    "DEFAULTPRINTER": "Default Printer",
+    "CLOSEEDITPRICE": "disable item price editing",
+    "CLOSEEDITTAX": "disable taxs  editing",
+    "ACTIVE": "Active",
+
+    "ADDAPPLICATION": "Add Application",
+    "APPLICATIONDETAILS": "Application Details",
+    "NAMEAR": "Arabic Name",
+    "NAMEEN": "English Name",
+    "VALUE": "Value",
+    "APPIMAGE": "Application Image",
+    "BROWSE": "Browse",
+    "DELETE": "Delete",
+
+    "APPS": "Applications",
+    "CURRENCIES": "Currencis",
+    "DEFAULTPRICE": "Default Price",
+    "TAX": "Taxs"
+
+
+
+
+  },
+  "PRINTERS": {
+    "DISPLAYPRINTERNAMEAR": "Display Name in AR",
+    "DISPLAYPRINTERNAMEEN": "Display Name In En",
+    "NUMBEROFCOPIES": "Number Of Copies",
+    "PRINTERNAME": "Printer Name  ",
+    "PRINTITEMSUMMRY": " Print Item Summry ",
+    "PRINTESUMMRYTODAY": " Print Today Summry ",
+    "ADDPRINTER": " Add Printer  "
+
+
+
+  },
+  "APPLICATIONS": {
+    "APPLICATIONTYPE": "Application Type",
+    "ADDAPPLICATION": "Add Application",
+    "APPLICATIONDETAILS": "Application Details",
+
+    "NAMEAR": "Arabic Name",
+    "NAMEEN": "English Name",
+    "VALUE": "Value",
+    "APPIMAGE": "Application Image",
+    "BROWSE": "Browse",
+    "DELETE": "Delete",
+    "APPS": "Applications-"
+
+  },
+
+  "BRANCHES": {
+    "ADDBRANCHE": "Add Branch",
+    "BRANCHES": "Branches",
+    "DETAILS": "Branch Details",
+    "COMPANYNAME": "Company Name",
+    "NAMEAR": "Name Arabic ",
+    "NAMEEN": "Name English ",
+    "SERCH": "search"
+  },
+
+  "Messages": {
+    "ADDENGLISHNAME": "Please enter english name",
+    "ADDONEPRICE": "Please Add One Price",
+    "BILLPAUSED": "Bill Paused Successfully",
+    "BILLSAVED": "Bill Saved Successfully",
+    "APPLICATIONEXIST": " Sorry this Application already exist ",
+    "PRINTEXIST": " Sorry this Print already exist",
+    "COMPLETEDATA": "Please Complete Required Data",
+    "DeleteConfirm": "Do you confirm delete ?",
+    "DeletedSucsses": "Deleted Successfully..",
+    "ITEMEXIST": "Sorry this item already exist.  ",
+    "ITEMPRICECHECK": " Please choose only one default rate ",
+    "ITEMSREQUIRED": "Please Select At least 1 Item",
+    "NODELIVERYFORTABLES": "sorry a local selection should be made if a table is chosen",
+    "REQUIRDDELIVERY": "sorry a delivery selection should be made if a application is chosen",
+    "ITEMSIZENOTDELETED": "Sorry, this size cannot be deleted because it is linked to prices (you can edit) ",
+    "PEOPLEEXIST": "Sorry this client already exist",
+    "PEOPLEREQUIRED": "Remaining bill need client please select the client .",
+    "PEOPLESAVED": "Saved People Successfully..",
+    "PRICEOFFERSAVED": "Price Offer Saved Successfully",
+    "PRICESSAVED": "People saved sucsessfully",
+    "SavedSucsses": "Saved Successfully..",
+    "SELECTCATEGORY": "Please Select Category",
+    "SELECTLANGUAGE": "Please Select Language",
+    "SELECTUNIT": "Please Select Unit",
+    "SENDBILL": "Request sent successfully ",
+    "SIZEEXIST": "Size already exist",
+    "USEREXIST": "User already exist",
+    "TABLEEXIST": "Sorry, the table is already busy. Please select another table",
+    "TABLENULL": "the request cannot be sent without a table",
+    "TABLENOTBUSY": " Sorry the requested table is not busy! Check the table number ",
+
+    "UNEXPEXTED": "Unexpected error occured",
+    "PASSWORDINVALID": "Check Password Not Invalid",
+    "ERRORSAVE": " error occured in Save",
+    "FieldIsRequired": " Field is Required ",
+    "ERRORPASSWORD": "The PIN must contain 4 numbers or letters ",
+    "TABLEREQUIRED": " Please ... Select Table ",
+    "CHEACKPRINT": " Do you want to print today ? ",
+    "WORNINGCOMPONENT": " Sorry, you cannot access this page (please contact Isaac) ",
+    "PLACEREQUIRED": " The role, please choose the location of the table ",
+    "TABLEMOVE": " Table Move Successfully ",
+    "PRINTSUCCESS": " Print Successfully ",
+    "TABLEOPEN": " Table Open Successfully ",
+    "UpdatedSucsses": "Updated Successfully.."
+  }
+
+}

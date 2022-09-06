@@ -1,0 +1,90 @@
+<div class="company" >
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="companyContainer">
+					<div class="companyHeader">
+						<div class="companyHeaderAddress">
+              <h1><i class="fas fa-user-plus btnRemove"></i> {{ 'ADMINSIDEBAR.COMPANYINFO' | translate }} </h1>
+						</div>
+            <div class="companyHeaderBtn">
+              <button mat-raised-button [hidden]="isnew" (click)="save('add')"> {{ 'ACTIONS.SAVE' | translate }} <i class="btnSave far fa-save"></i></button>
+              <button mat-raised-button [hidden]="!isnew" (click)="save('edit')"> {{ 'ACTIONS.EDIT' | translate }} <i class="btnAdd far fa-edit"></i></button>
+              <!-- <button mat-raised-button (click)="clear()"> {{ 'ACTIONS.NEW' | translate }} <i class="btnRemove fas fa-plus"></i></button> -->
+
+              <span class="sp-bckk ">
+                <a>
+                  <i class="fas fa-arrow-circle-left" (click)="navigateBack()"></i>
+                </a>
+              </span>
+
+            </div>
+					</div>
+
+					<div class="companyBody">
+						<div class="row">
+							<div class="col-md-6">
+                <div class="companyDetails">
+                  <!-- <h2><i class="far fa-file-alt"></i> {{ 'ADMINSIDEBAR.COMPANYINFO' | translate }} </h2> -->
+                  <mat-form-field appearance="outline">
+                    <mat-label> {{ 'COMPANYINFO.NAMEAR' | translate }}</mat-label>
+                    <input matInput [(ngModel)]="companyInfo.nameAR" required>
+                  </mat-form-field>
+                  <mat-form-field appearance="outline" >
+                    <mat-label> {{ 'COMPANYINFO.NAMEEN' | translate }}</mat-label>
+                    <input matInput [(ngModel)]="companyInfo.nameEN" required>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline" >
+                    <mat-label> {{ 'COMPANYINFO.PHONE' | translate }}</mat-label>
+                    <input matInput [(ngModel)]="companyInfo.phone" required>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline">
+                    <mat-label> {{ 'COMPANYINFO.ADDRESS' | translate }}</mat-label>
+                    <input matInput [(ngModel)]="companyInfo.address" required>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline">
+                    <mat-label> {{ 'COMPANYINFO.NOTE' | translate }}</mat-label>
+                    <input matInput [(ngModel)]="companyInfo.note" required>
+                  </mat-form-field>
+
+                  <!--<br />
+                  <mat-form-field appearance="outline">
+                    <mat-label>{{ 'COMPANYINFO.BRANCH' | translate }} </mat-label>
+                    <mat-select matNativeControl [(ngModel)]="companyInfo.branchId" [ngModelOptions]="{standalone: true}">
+                      <mat-option *ngFor="let brunch of brunchList" [value]="brunch.id">
+                        {{ currentLang=='ar' ? brunch.nameAr : brunch.nameEn}}
+
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>-->
+
+                </div>
+							</div>
+							<div class="col-md-6">
+								<div class="companyImage">
+                  <h2><i class="far fa-image"></i> {{ 'COMPANYINFO.LOGO' | translate }} </h2>
+									<input #file type="file" id="ImgItm" (change)="detectFiles(file.files);readURL($event);" accept="image/*" />
+									<img id="blah" for="ImgItm" [src]="imageSrc" alt="your image" />
+									<div class="companyImageBtn">
+                    <label class="uploadImgItm" for="ImgItm">
+                      <i class="far fa-image"></i>
+                      {{ 'COMPANYINFO.BROWSEIMAGE' | translate }}
+                    </label>
+                    <button (click)="clearimg()">
+                      <i class="far fa-times-circle"></i>
+                      {{ 'COMPANYINFO.DELETE' | translate }}
+
+                    </button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

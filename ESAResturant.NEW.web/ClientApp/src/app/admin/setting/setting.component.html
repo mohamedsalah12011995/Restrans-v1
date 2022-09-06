@@ -1,0 +1,114 @@
+<div class="container" (click)="HideSlider()">
+	<div class="row justify-content-center">
+		<div class="setting col-md-10">
+			<div class="setHeader">
+				<div class="setAddress">
+          <h1>
+            <i class="material-icons">settings</i>
+            {{ 'GENERALSETTINGS.GENERALSETTINGS' | translate }}
+
+          </h1>
+				</div>
+				<div class="setBtn">
+          <button mat-stroked-button (click)="AddOrUpdateSetting('add')">
+            <i class="material-icons">save</i>
+            {{ 'ACTIONS.SAVE' | translate }}
+          </button>
+          <button mat-stroked-button>
+            <i class="material-icons">highlight_off</i>
+            {{ 'ACTIONS.CLOSED' | translate }}
+          </button>
+				</div>
+			</div>
+			<div class="setBody">
+				<div class="setPrint">
+					<div class="setPrintAddress">
+            <h3>
+              <i class="material-icons">public</i><br />
+              
+              {{ 'GENERALSETTINGS.COUNTRY' | translate }}
+
+            </h3>
+					</div>
+					
+					<div class="setPrintSelect">
+						<mat-form-field appearance="outline">
+              <mat-label>
+                {{ 'GENERALSETTINGS.COUNTRY' | translate }}
+              </mat-label>
+							<mat-select [(ngModel)]="CountrySetting.value">
+								<mat-option value="1">
+									مصر
+								</mat-option>
+							</mat-select>
+						</mat-form-field>
+					</div>
+				</div>
+				<div class="setPrint">
+					<div class="setPrintAddress">
+            <h3>
+              <i class="material-icons">local_printshop</i><br />
+              {{ 'GENERALSETTINGS.CASHIERPRINTER' | translate }}
+              
+            </h3>
+					</div>
+					<div class="setPrintSelect">
+						<mat-form-field appearance="outline">
+              <mat-label>
+                {{ 'GENERALSETTINGS.DEFAULTPRINTER' | translate }}
+              </mat-label>
+							<mat-select [(ngModel)]="PrintSetting.value">
+								<mat-option *ngFor="let item of listPrinter" value="{{item.id}}">
+									{{ item.displayNameAR }}
+								</mat-option>
+							</mat-select>
+						</mat-form-field>
+						<!-- <br/><mat-form-field appearance="outline">
+							<mat-label>نوع الطابعة</mat-label>
+							<mat-select [(ngModel)]="EditTaxesSetting.value">
+								<mat-option value="">
+									Roll
+								</mat-option>
+							</mat-select>
+						</mat-form-field> -->
+					</div>
+				</div>
+				<div class="setPrint">
+					<div class="setPrintAddress">
+            <h3>
+              <i class="material-icons">public</i><br />
+              {{ 'GENERALSETTINGS.CLOSEEDITPRICE' | translate }}
+
+            </h3>
+					</div>
+					
+					<div class="setPrintSelect">
+						<mat-radio-group [(ngModel)]="EditPriceSetting.value">
+							<mat-radio-button value="false" checked>تفعيل</mat-radio-button><br/>
+							<mat-radio-button value="true">اغلاق</mat-radio-button>
+						</mat-radio-group>
+					</div>
+				</div>
+				<div class="setPrint">
+					<div class="setPrintAddress">
+            <h3>
+              <i class="material-icons">public</i><br />
+              {{ 'GENERALSETTINGS.CLOSEEDITTAX' | translate }}
+
+            </h3>
+					</div>
+					
+					<div class="setPrintSelect">
+						<mat-radio-group [(ngModel)]="EditTaxesSetting.value">
+              <mat-radio-button value="false" checked>
+                {{ 'GENERALSETTINGS.ACTIVE' | translate }}
+
+              </mat-radio-button><br/>
+               <mat-radio-button value="true"> {{ 'ACTIONS.CLOSED' | translate }}</mat-radio-button>
+						</mat-radio-group>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,224 @@
+<div class="storehouse">
+    <div class="storeHeader">
+        <div class="storeAddress">
+            <h1>
+                <i class="btnRemove fas fa-warehouse"></i> المخزن
+                <!-- <i class="btnRemove material-icons">home</i> المخزن -->
+            </h1>
+        </div>
+        <div class="storeBtn">
+            <button mat-stroked-button> 
+              <i class="fas fa-print"></i>
+              طباعة
+            </button>
+            <button mat-stroked-button>
+                <i class="btnIndigo fas fa-barcode"></i>
+                طباعة الكود
+            </button>
+            <button mat-stroked-button>
+              <i class="fas fa-plus"></i>
+              صنف جديد
+            </button>
+            <button mat-stroked-button>
+              <i class="fas fa-trash"></i>
+              حذف
+            </button>
+            <!-- <button mat-stroked-button>
+                <i class="material-icons">highlight_off</i>
+                أغلاق
+            </button> -->
+        </div>
+    </div>
+    <div class="storeBody">
+        <div class="storeSearch">
+            <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="مخزن" checked>مخزن</mat-radio-button>
+                <mat-radio-button value="فرع">فرع</mat-radio-button>
+            </mat-radio-group>
+            <mat-checkbox>أخفاء الارصدة الصفرية</mat-checkbox><br/>
+            <div class="hiden-in-small">
+                <mat-form-field appearance="outline">
+                    <mat-select>
+                        <mat-option value="value">
+                            المخزن الرئيسى
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>الاسم او كود الصنف</mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>التصنيف</mat-label>
+                    <mat-select>
+                        <mat-option value="value">
+                            المخزن الرئيسى
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>المصنع</mat-label>
+                    <mat-select>
+                        <mat-option value="value">
+                            المخزن الرئيسى
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>الماركة</mat-label>
+                    <mat-select>
+                        <mat-option value="value">
+                            المخزن الرئيسى
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <button mat-stroked-button> 
+                    أظهار الكل
+                </button>
+            </div>
+            <mat-accordion class="show-in-small">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            بحث متقدم
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+              
+                    <mat-form-field appearance="outline">
+                        <mat-label>الاسم او كود الصنف</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>التصنيف</mat-label>
+                        <mat-select>
+                            <mat-option value="value">
+                                المخزن الرئيسى
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>المصنع</mat-label>
+                        <mat-select>
+                            <mat-option value="value">
+                                المخزن الرئيسى
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>الماركة</mat-label>
+                        <mat-select>
+                            <mat-option value="value">
+                                المخزن الرئيسى
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <button mat-stroked-button> 
+                        أظهار الكل
+                    </button>
+                </mat-expansion-panel>
+            </mat-accordion>
+            <button mat-stroked-button> 
+                أظهار الكل
+            </button>
+        </div>
+        <div class="storeTable">
+            <div class="example-container mat-elevation-z8">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="mat-header-cell" scope="row">كود الصنف</th>
+                            <th class="mat-header-cell" scope="row">اسم الصنف</th>
+                            <th class="mat-header-cell" scope="row">الرصيد الحالى</th>
+                            <th class="mat-header-cell" scope="row">الوحدة الرئيسبة للبيع</th>
+                            <th class="mat-header-cell" scope="row">أقل كمية</th>
+                            <th class="mat-header-cell" scope="row">سعر الشراء</th>
+                            <th class="mat-header-cell" scope="row">سعر التكلفة</th>
+                            <th class="mat-header-cell" scope="row">سعر البيع</th>
+                            <th class="mat-header-cell" scope="row">الحد الادنى للبيع</th>
+                            <th class="mat-header-cell" scope="row">التصنيف</th>
+                            <th class="mat-header-cell" scope="row">إجمالى تكلفة الشراء</th>
+                            <th class="mat-header-cell" scope="row">نوع الصنف</th>
+                            <th class="mat-header-cell" scope="row">أخر تاريخ شراء</th>
+                            <th class="mat-header-cell" scope="row">اخر تاريخ ببع</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="mat-cell"></td>
+                            <td class="mat-cell"></td>
+                            <td class="mat-cell"></td>
+                            <td class="mat-cell"></td>
+                            <td class="mat-cell"></td>
+                            <td class="mat-cell"></td>
+                            <td class="mat-cell"></td>
+                            <td class="mat-cell"></td>
+                            <td class="mat-cell"></td>
+                            <td class="mat-cell"></td>
+                            <td class="mat-cell"></td>
+                            <td class="mat-cell"></td>
+                            <td class="mat-cell"></td>
+                            <td class="mat-cell"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="repAbstract hiden-in-small">
+            <table>
+                <thead>
+                    <tr>
+                        <th>عدد الاصناف</th>
+                        <th>رصبد الاصناف</th>
+                        <th>الاجمالى بسعر التكلفة</th>
+                        <th>الاجمالى بسعر البيع</th>
+                        <th>الربح ما بعد البيع</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tdMoney"><span>13</span></td>
+                        <td class="tdMoney"><span>458</span></td>
+                        <td class="tdMoney"><span>36562.44</span></td>
+                        <td class="tdMoney"><span>73100.00</span></td>
+                        <td class="tdCreditor"><span>36537.56</span></td>
+                        <!-- {{ totalDiscount | number:'0.2-2' }} -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="repAbstract show-in-small">
+            <table>
+                <thead>
+                    <tr>
+                        <th>عدد الاصناف</th>
+                        <th>رصبد الاصناف</th>
+                        <th>الاجمالى بسعر التكلفة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tdMoney"><span>13</span></td>
+                        <td class="tdMoney"><span>458</span></td>
+                        <td class="tdMoney"><span>36562.44</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="repAbstract show-in-small">
+            <table>
+                <thead>
+                    <tr>
+                        <th>الاجمالى بسعر البيع</th>
+                        <th>الربح ما بعد البيع</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tdMoney"><span>73100.00</span></td>
+                        <td class="tdCreditor"><span>36537.56</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

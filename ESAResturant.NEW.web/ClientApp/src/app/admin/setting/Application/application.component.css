@@ -1,0 +1,60 @@
+.appBody{
+    border-bottom: 3px solid #a33939;
+    border-top: 3px solid #a33939;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    text-align: right;
+  }
+::ng-deep .application .mat-form-field-infix {
+    padding: 5px 0px 4px;
+    border-top-width: 11px;
+}
+::ng-deep .application .mat-form-field-label {
+    top: 18px;
+}
+::ng-deep .application .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    -webkit-transform: translateY(-15px) scale(.75);
+    transform: translateY(-15px) scale(.75);
+}
+::ng-deep .application .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #bb3b3a;
+}
+::ng-deep .application .mat-input-element {
+    caret-color: #bb3b3a;
+    width: 90%;
+}
+::ng-deep .application .mat-form-field.mat-focused .mat-form-field-label {
+    color: #bb3b3a;
+}
+.application .sp-bckk {
+  margin-right: 13px;
+  margin-left: -8px;
+  color: #c78b8b;
+  float: left;
+  margin-top: 3px;
+}
+
+.application .sp-bckk a i {
+  font-size: 30px;
+}
+.application .itemImage button, .application .itemImage label {
+    margin-right: 0px;
+    text-align: center;
+    color: #4b494a;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    height: 37px;
+    border-radius: 3px;
+    width: 49%;
+    margin-top: 10px;
+    line-height: 35px;
+}
+.application .itemImage .uploadImgItm {
+    width: 48%;
+    /* margin-left: 5px; */
+    margin-right: 0;
+}
+.application .selectPlace {
+    margin-left: 22px;
+}

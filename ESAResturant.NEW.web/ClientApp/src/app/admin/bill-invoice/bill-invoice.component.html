@@ -1,0 +1,1084 @@
+<div class="invoice">
+  <div class="container-fluid invoiceContainer-fluid">
+    <div class="row invoiceRow">
+
+
+      <div class="container custm-tool custm-tool-Mobile show-in-small col-md-12">
+        <div class="row left-tool">
+
+          <div class="invComm col-sm-8">
+
+            <div class="num">
+              <h5> {{ 'LABELS.RequestNumber' | translate }} </h5>
+              <span><input matInput [(ngModel)]="numberOrder" disabled></span>
+              <br />
+              <h5> {{ 'KITCHEN.TABLENUMBER' | translate }} </h5>
+              <span><input [(ngModel)]="bill.tableNo" disabled></span>
+
+            </div>
+            <button mat-stroked-button data-toggle="modal" data-target="#billTableList" (click)="hideModel()" [ngStyle]="setMyStylesIsSeparate()"><label>{{billTableCount}}</label><img src="../../../assets/img/tool2.png" style="width:50px;" /> <!--{{ 'ADMINSIDEBAR.TABELS' | translate }}-->  </button>
+            <button mat-stroked-button data-toggle="modal" data-target="#billDeliveryList" (click)="hideModel()" [ngStyle]="setMyStylesIsSeparate()"><label>{{billDeliveryCount}}</label><img src="../../../assets/img/tool6.png" style="width:50px;" /> <!--{{ 'BILLINVOICE.WAITEDBILLS' | translate }}--> </button>
+            <button mat-stroked-button data-toggle="modal" data-target="#billNotTableList" (click)="hideModel()" [ngStyle]="setMyStylesIsSeparate()"><label>{{billAnyCount}}</label> <img src="../../../assets/img/tool7.png" style="width:50px;" /><!--{{ 'BILLINVOICE.DELIVERY' | translate }}--> </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-7 col-lg-6 col-xl-7 invSelectItem">
+        <div class="invItem" [ngStyle]="setMyStylestems()">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="invCat">
+                <button mat-button *ngFor="let cat of itemCategoryList" id="cat{{cat.id}}" (click)="GetItemByidPaginatedById(cat.id)">{{ currentLang=='ar' ? cat.nameAR : cat.nameEN}}</button>
+                <div class="invCatMore">
+                  <button mat-icon-button data-toggle="modal" data-target="#invCatMore">
+                    <i class="fas fa-ellipsis-h"></i>
+                  </button>
+                </div>
+
+                <!-- Modal invCatMore -->
+                <div class="modal fade invCatMoreModal" id="invCatMore" tabindex="-1" role="dialog" aria-labelledby="invCatMore" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">{{ 'BILLINVOICE.CATEGORY' | translate }} </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="invCatModal">
+                          <button mat-button *ngFor="let cat of itemCategoryList" (click)="GetItemByidPaginatedById(cat.id)" data-dismiss="modal" aria-label="Close">{{ currentLang=='ar' ? cat.nameAR : cat.nameEN}}</button>
+                        </div>
+                      </div>
+                      <div class="modal-footer"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ng-container>
+                <div class="col-md-3 col-6 col-lg-4 col-xl-2" *ngFor="let item of itemList">
+                  <button matRipple class="invItmbtn" *ngIf="item.itemPrices.length==1" (click)="pushItemRow(item)"><i class="fas fa-plus"></i></button>
+                  <button matRipple class="invItmbtn" *ngIf="item.itemPrices.length>1" (click)="openPricesModal(template,item);"><i class="fas fa-plus"></i></button>
+                  <div class="invItm" *ngIf="item.itemPrices.length>1" (click)="openPricesModal(template,item);" matRipple>
+                    <img src={{item.imagePath}} alt="{{currentLang=='ar' ?  item.nameAR:item.nameEN}}">
+                    <span>{{item.itemPriceDefault}}</span>
+                    <div class="invItmDet">
+                      <h3 class="nameAR">{{  currentLang=='ar' ? item.nameAR:item.nameEN }}</h3>
+                    </div>
+                  </div>
+                  <div class="invItm" *ngIf="item.itemPrices.length<2" (click)="pushItemInDetails(item)" matRipple>
+                    <img src={{item.imagePath}} alt="">
+                    <!--<span>{{item.itemPrices[0].price}}</span>-->
+                  <span>{{item.itemPriceDefault}}</span>
+                    <div class="invItmDet">
+                      <h3 class="nameAR">{{  currentLang=='ar' ? item.nameAR:item.nameEN }}</h3>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+              <ng-template #template>
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle"><strong>{{ 'BILLINVOICE.ITEMSIZE' | translate }}</strong></h5>
+                  <button type="button" class="close" aria-label="Close" (click)="modalRef.hide()">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body invItmPrice">
+                  <mat-card class="example-card example-ripple-container mat-elevation-z4" *ngFor="let itemPrice of itemPricesList; let i=index;" (click)="SelectItemPrice(itemPrice);modalRef.hide()">
+                    <mat-card-header (clear)="hideModel();">
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title class="tit-size">{{itemPrice.price}}</mat-card-title>
+                      <mat-card-subtitle class="sub-size" *ngIf="currentLang=='ar'||currentLang==''">{{itemPrice.itemSize.sizeNameAr}}</mat-card-subtitle>
+                      <mat-card-subtitle class="sub-size" *ngIf="currentLang=='en'">{{itemPrice.itemSize.sizeNameEn}}</mat-card-subtitle>
+                    </mat-card-header>
+                  </mat-card>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" (click)="modalRef.hide()"> {{ 'ACTIONS.CLOSED' | translate }}</button>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 show-in-small">
+        <div class="invMoreMobile">
+          <div class="invBtnSave">
+            <button mat-button (click)="saveBill(false)" [disabled]="enableBTN==1 || disabledbtn==1"> {{ 'ACTIONS.CONFIRM' | translate }}<i class="material-icons-outlined">thumb_up</i></button>
+          </div>
+          <div class="invNetTotal text-center">
+            <!--<h3>{{ 'BILLINVOICE.COST' | translate }}</h3>-->
+            <h3>{{ 'LABELS.TOTALS' | translate }}</h3>
+            <label>
+              {{resultTotal | number:'0.2-2'}}
+            </label>
+          </div>
+          <div class="invBtncart">
+            <button mat-icon-button data-toggle="modal" data-target="#invDetails" matBadge="{{bill.totalQty}}" matBadgeColor="warn">
+              <mat-icon class="material-icons-outlined">shopping_cart</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5 col-lg-6 col-xl-5 invDataDetails hiden-in-small">
+        <div class="invDetails">
+          <div class="invSave">
+            <button mat-stroked-button (click)="saveBill(false)" [disabled]="enableBTN==1 || disabledbtn==1" [ngStyle]="setMyStylesIsSeparate()">{{ 'ACTIONS.SAVEBILL' | translate }} <!--<i class="fas fa-save"></i>--></button>
+            <button mat-stroked-button (click)="printBill()" [disabled]="bill.id==0" [ngStyle]="setMyStylesIsSeparate()">{{ 'REPORTTODAY.PRINT' | translate }}</button>
+            <button mat-stroked-button (click)="saveBill(true)" [disabled]="enableBTN==1" [ngStyle]="setMyStylesIsSeparate()">{{ 'ACTIONS.PAUSE' | translate }}</button>
+          </div>
+
+          <div class="invTable">
+            <table class="table text-center table-striped">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">{{ 'LABELS.ITEMNAME' | translate }}</th>
+                  <th scope="col" hidden="hidden">{{ 'LABELS.SellPrice' | translate }}</th>
+                  <th scope="col" hidden="hidden">{{ 'LABELS.VAT' | translate }} </th>
+                  <th scope="col">{{ 'LABELS.QUANTITY' | translate }} </th>
+                  <th scope="col" hidden="hidden">اضافات  {{ 'LABELS.QUANTITY' | translate }}</th>
+                  <th scope="col">{{ 'LABELS.TOTAL' | translate }}</th>
+                  <th scope="col" hidden="hidden">القيمةالمضافة</th>
+                  <th scope="col"><mat-checkbox [disabled]="checked==false" *ngIf="chkprintRow==1"> </mat-checkbox></th>
+                  <th scope="col"><i class="far fa-trash-alt" *ngIf="chkprintRow==0 || chkprintRow==2"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="tableRow" *ngFor="let billdetail of bill.billDetails; let i=index" [ngClass]="{'lastRow': billdetail.isNew == false, 'CancelRow': billdetail.isDelete == true}"
+                    id="billdetail{{i}}" (click)="SelectedRow(billdetail,i,$event)">
+                  <!--[ngClass]="{'CancelRow': billdetail.isDelete == true}"-->
+                  <th scope="row">{{i+1}}</th>
+                  <td>
+                    {{ currentLang=='ar' ?  billdetail.item.nameAR : billdetail.item.nameEN}}
+                    {{  currentLang=='ar' ?  billdetail.itemPrice.itemSize.sizeNameAr:billdetail.itemPrice.itemSize.sizeNameEn }}
+                    {{billdetail.note}}  <span *ngIf="billdetail.note!='' && billdetail.notePrice!=0">({{billdetail.notePrice}}) </span>
+                  </td>
+                  <td hidden="hidden">{{billdetail.itemSellPrice | number:'0.2-2'}}</td>
+                  <td hidden="hidden">{{billdetail.vatTax | number:'0.2-2'}}</td>
+                  <td data-toggle="modal" data-target="#tdCount" (click)="clickFocus();">
+                    {{billdetail.qty}}
+                  </td>
+                  <!-- <button class="fas fa-plus iRight iCalc" (click)="IncreaseQty(billdetail)"></button> -->
+                  <!-- <input type="text" value="" disabled="disabled"> -->
+                  <!-- <button class="fas fa-minus iLeft iCalc" (click)="decreaseQty(billdetail)"></button> -->
+                  <td class="tdNote" hidden="hidden">{{billdetail.note}}</td>
+                  <td>{{billdetail.supTotal | number:'0.2-2'}}</td>
+                  <!--<td>{{billdetail.isNew}}</td>-->
+                  <td style="padding-top:3px;">
+                    <mat-checkbox *ngIf="chkprintRow==1" (change)="getRowDetails(billdetail,$event)"> </mat-checkbox>
+                  </td>
+                  <td>
+                    <button type="submit" (click)="removeRow(i,deleteConfirm,billdetail)" [disabled]="billdetail.id!=0 && chkRole==1" *ngIf="chkprintRow==0 || chkprintRow==2">
+                      <i class="far fa-trash-alt"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="invOption">
+            <button mat-stroked-button data-toggle="modal" data-target="#PlaceInv" [ngStyle]="setMyStylesIsSeparate()">{{ 'LABELS.BILLPLACE' | translate }} <!--<i class="fas fa-utensils"></i>--></button>
+            <button mat-stroked-button data-toggle="modal" data-target="#invData" [ngStyle]="setMyStylesIsSeparate()" (click)="sum()"> {{ 'BILLINVOICE.BILLDATA' | translate }}<!--<i class="fas fa-file-invoice"></i>--></button>
+            <button mat-stroked-button data-toggle="modal" data-target="#invNote" (click)="clickOpeneNote()" [ngStyle]="setMyStylesIsSeparate()">{{ 'BILLINVOICE.EXTRAS' | translate }}<!--<i class="fas fa-list-ul"></i>--></button>
+            <!--<div class="col-md-12" style="margin-top:5px">
+          <button mat-stroked-button (click)="printRowItem()" *ngIf="chkprintRow==0"> Print plass </button>
+          <button class="btn btn-light cusbtn" (click)="printIsFireOrSeparate('isSeparate')" *ngIf="chkprintRow==1"><i class="fas fa-print"></i></button>
+          <button class="btn btn-light cusbtn" (click)="exiteprintRowItem()" *ngIf="chkprintRow==1"><span>&times;</span></button>
+          <button class="btn btn-light cusbtn" *ngIf="chkprintRow==1" (click)="printIsFireOrSeparate('isFire')"> <i class="fab fa-gripfire"></i> </button>
+        </div>-->
+          </div>
+
+          <div class="invTotal text-center">
+            <!--<h3>{{ 'BILLINVOICE.NETTOTAL' | translate }}</h3>-->
+            <h3>{{ 'LABELS.TOTALS' | translate }}</h3>
+            <label>
+              {{resultTotal | number:'0.2-2'}}
+              <span>
+                <button mat-button [matMenuTriggerFor]="currency">
+                  {{currentLang=='ar' ? currencyNameAR:currencyNameEN}}
+                  <i class="fas fa-caret-down"></i>
+                </button>
+                <mat-menu #currency="matMenu">
+                  <button mat-menu-item *ngFor="let currency of currenciesList" (click)="getCurrencyInChange(currency)">{{currentLang=='ar' ?  currency.nameAr:currency.nameEn}}</button>
+                </mat-menu>
+              </span>
+            </label>
+          </div>
+
+          <div class="invPaid">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-12 invTypePaid">
+                  <div *ngFor="let payment of paymentTypeList">
+                    <input type="radio" name="payment_Id" id="payment_Id{{payment.id}}" [value]="payment.id" (click)="checkPaymentKachOrAgel(payment)" [(ngModel)]="bill.paymentId" />
+                    <!-- <label *ngIf="payment.nameAR =='فيزا'" data-toggle="modal" data-target="#exampleModalCenter" for="payment_Id{{payment.id}}">
+                  {{payment.nameAR}}
+                </label>  *ngIf="payment.nameAR !='فيزا'" -->
+                    <label for="payment_Id{{payment.id}}">
+                      {{ currentLang=='ar' ? payment.nameAR:payment.nameEN}}
+                    </label>
+                  </div>
+                  <!--<div class="invPaidMore">
+                <button mat-button data-toggle="modal" data-target="#btnMore">{{ 'BILLINVOICE.LOADMORE' | translate }}</button>
+              </div>-->
+                </div>
+
+                <!-- <div class="invOption">
+              <button mat-stroked-button (click)="printBill()" [disabled]="bill.id==0">{{ 'REPORTTODAY.PRINT' | translate }}</button>
+              <button mat-stroked-button (click)="saveBill(true)" [disabled]="enableBTN==1">{{ 'ACTIONS.PAUSE' | translate }}</button>
+            </div> -->
+
+                <div class="col-md-12 invPaidPrice">
+                  <label>
+                    <span>  {{ 'LABELS.PAID' | translate }}</span>
+                    <input type="number" placeholder="{{ 'LABELS.PAID' | translate }}" [(ngModel)]="bill.paied"
+                           (click)="$event.target.select();" (ngModelChange)="changePaid();" />
+
+                    <!--<mat-form-field appearance="standard">
+                  <mat-label>{{ 'LABELS.PAID' | translate }}</mat-label>
+                  <input matInput type="number" lang="en" placeholder="{{ 'LABELS.PAID' | translate }}" [(ngModel)]="bill.paied"
+                         (click)="$event.target.select();" (ngModelChange)="changePaid();">
+                </mat-form-field>-->
+
+                  </label>
+
+                  <label>
+                    <!--<span>  {{ 'LABELS.REMAINING' | translate }} </span>-->
+                    <!--<input type="number" placeholder="المدفوع" [value]="bill.remaining | number:'0.2-2'" disabled />-->
+                    <!--<span> {{bill.remaining | number:'0.2-2'}} </span>-->
+
+                    <mat-form-field appearance="standard">
+                      <mat-label>{{ 'LABELS.REMAINING' | translate }}</mat-label>
+                      <input matInput placeholder="{{ 'LABELS.REMAINING' | translate }}" [value]="bill.remaining | number:'0.2-2'" disabled="disabled" style="text-align:center" />
+                    </mat-form-field>
+
+                  </label>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class=" custm-tool">
+            <div class="container left-tool">
+
+              <div class="num">
+                <h5> {{ 'LABELS.RequestNumber' | translate }} </h5>
+                <span><input matInput [(ngModel)]="numberOrder" disabled></span>
+                <br />
+                <h5> {{ 'KITCHEN.TABLENUMBER' | translate }} </h5>
+                <span><input matInput [(ngModel)]="bill.tableNo" disabled></span>
+
+              </div>
+
+              <div class="invComm">
+                <button mat-stroked-button data-toggle="modal" data-target="#billTableList" (click)="hideModel()" [ngStyle]="setMyStylesIsSeparate()"><label>{{billTableCount}}</label><img src="../../../assets/img/tool2.png" style="width:50px;" /> <!--{{ 'ADMINSIDEBAR.TABELS' | translate }}-->  </button>
+                <button mat-stroked-button data-toggle="modal" data-target="#billDeliveryList" (click)="hideModel()" [ngStyle]="setMyStylesIsSeparate()"><label>{{billDeliveryCount}}</label><img src="../../../assets/img/tool6.png" style="width:50px;" /> <!--{{ 'BILLINVOICE.WAITEDBILLS' | translate }}--> </button>
+                <button mat-stroked-button data-toggle="modal" data-target="#billNotTableList" (click)="hideModel()" [ngStyle]="setMyStylesIsSeparate()"><label>{{billAnyCount}}</label> <img src="../../../assets/img/tool7.png" style="width:50px;" /><!--{{ 'BILLINVOICE.DELIVERY' | translate }}--> </button>
+                <button mat-stroked-button (click)="printRowItem()" [disabled]="bill.id==0" *ngIf="chkprintRow==0 || chkprintRow==2" [ngStyle]="setMyStyles()"><img src="../../../assets/img/tool20.jpg" style="width:50px;" /></button>
+
+
+                <button mat-stroked-button (click)="printIsFireOrSeparate('isSeparate')" *ngIf="chkprintRow==1"><img src="../../../assets/img/tool10.png" style="width:50px;" /></button>
+                <button mat-stroked-button *ngIf="chkprintRow==1" (click)="printIsFireOrSeparate('isFire')"><img src="../../../assets/img/tool11.jpg" style="width:50px;" /></button>
+                <button mat-stroked-button (click)="exiteprintRowItem()" *ngIf="chkprintRow==1"><img src="../../../assets/img/tool12.jpg" style="width:50px;" /></button>
+                <button mat-stroked-button (click)="clearbill()"><img src="../../../assets/img/new.png" style="width:50px;" /></button>
+
+                <button mat-stroked-button (click)="cheackPrinter(PrinterConfirm)"><img src="../../../assets/img/printToday.png" style="width:50px;" /></button>
+                <button mat-stroked-button (click)="refresh()"><img src="../../../assets/img/refresh.png" style="width:50px;" /></button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Bill Details -->
+      <div class="modal fade billDetails" id="invDetails" tabindex="-1" role="dialog" aria-labelledby="invDetails" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{ 'BILLINVOICE.BILLDATA' | translate }}</h5>
+
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="invDetails">
+                <div class="invSave">
+                  <button mat-stroked-button (click)="saveBill(false)" [disabled]="enableBTN==1 || disabledbtn==1" data-dismiss="modal" aria-label="Close" [ngStyle]="setMyStylesIsSeparate()"> {{ 'ACTIONS.SAVEBILL' | translate }}<!--<i class="fas fa-save"></i>--></button>
+                  <button mat-stroked-button data-toggle="modal" data-target="#PlaceInv" [ngStyle]="setMyStylesIsSeparate()">  {{ 'LABELS.BILLPLACE' | translate }}<!--<i class="fas fa-utensils"></i>--></button>
+                  <button mat-stroked-button (click)="printBill()" [disabled]="bill.id==0">{{ 'REPORTTODAY.PRINT' | translate }}</button>
+                  <button mat-stroked-button (click)="saveBill(true)" [disabled]="enableBTN1==1" [ngStyle]="setMyStylesIsSeparate()">{{ 'ACTIONS.PAUSE' | translate }} </button>
+                </div>
+
+                <div class="invTable">
+                  <table class="table text-center table-striped">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">{{ 'BILLINVOICE.N' | translate }}</th>
+                        <th scope="col">{{ 'LABELS.BILLPLACE' | translate }}</th>
+                        <th scope="col" hidden="hidden">{{ 'LABELS.ITEMNAMEء' | translate }}</th>
+                        <th scope="col" hidden="hidden">{{ 'LABELS.VAT' | translate }} </th>
+                        <th scope="col"> {{ 'LABELS.QUANTITY' | translate }}</th>
+                        <th scope="col" hidden="hidden">اضافات</th>
+                        <th scope="col">ا  {{ 'LABELS.TOTAL' | translate }}</th>
+                        <th scope="col" hidden="hidden">القيمةالمضافة</th>
+                        <th scope="col"><mat-checkbox [disabled]="checked==false" *ngIf="chkprintRow==1"> </mat-checkbox></th>
+                        <th scope="col"><i class="far fa-trash-alt" *ngIf="chkprintRow==0 || chkprintRow==2"></i></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="tableRow" *ngFor="let billdetail of bill.billDetails; let i=index" [ngClass]="{'lastRow': billdetail.isNew == false, 'CancelRow': billdetail.isDelete == true}"
+                          id="billdetail{{i}}" (click)="SelectedRow(billdetail,i,$event)">
+
+                        <th scope="row">{{i+1}}</th>
+                        <td>
+                          {{ currentLang=='ar' ?  billdetail.item.nameAR : billdetail.item.nameEN}} {{  currentLang=='ar' ?  billdetail.itemPrice.itemSize.sizeNameAr:billdetail.itemPrice.itemSize.sizeNameEn }}
+                        </td>
+                        <td hidden="hidden">{{billdetail.itemSellPrice | number:'0.2-2'}}</td>
+                        <td hidden="hidden">{{billdetail.vatTax | number:'0.2-2'}}</td>
+                        <td data-toggle="modal" data-target="#tdCount" (click)="clickFocus();">{{billdetail.qty}}</td>
+                        <td class="tdNote" hidden="hidden">{{billdetail.note}}</td>
+                        <td>{{billdetail.totalAfterVatTax | number:'0.2-2'}}</td>
+                        <td hidden="hidden">{{billdetail.isNew}}</td>
+                        <td>
+                          <button type="submit" (click)="removeRow(i,deleteConfirm,billdetail)" [disabled]="billdetail.id!=0 && chkRole==1">
+                            <i class="far fa-trash-alt"></i>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="invOption">
+                  <button mat-stroked-button data-toggle="modal" data-target="#invData" (click)="sum()">{{ 'BILLINVOICE.BILLDATA' | translate }} <i class="fas fa-poll-h"></i></button>
+                  <button mat-stroked-button data-toggle="modal" data-target="#invNote">{{ 'BILLINVOICE.EXTRAS' | translate }} <i class="material-icons-outlined">playlist_add</i></button>
+                </div>
+
+                <div class="invTotal text-center">
+                  <!--<h3>{{ 'BILLINVOICE.NETTOTAL' | translate }}</h3>-->
+                  <h3>{{ 'LABELS.TOTAL' | translate }}</h3>
+                  <label>
+                    {{resultTotal | number:'0.2-2'}}
+                    <span>
+                      <button mat-button [matMenuTriggerFor]="currency">
+                        {{currentLang=='ar' ? currencyNameAR:currencyNameEN}}
+                        <i class="material-icons">expand_more</i>
+                      </button>
+                      <mat-menu #currency="matMenu">
+                        <button mat-menu-item *ngFor="let currency of currenciesList" (click)="getCurrencyInChange(currency)">{{currentLang=='ar' ?  currency.nameAr :currency.nameEn }}</button>
+                      </mat-menu>
+                    </span>
+                  </label>
+                </div>
+                <div class="invPaid">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-12 invTypePaid">
+                        <div *ngFor="let payment of paymentTypeList">
+                          <input type="radio" name="payment" id="payment_Id{{payment.id}}" [value]="payment.id" (click)="checkPaymentKachOrAgel(payment)" [(ngModel)]="bill.paymentId" />
+                          <label *ngIf="payment.nameAR =='فيزا'" data-toggle="modal" data-target="#exampleModalCenter" for="payment_Id{{payment.id}}">
+                            {{ currentLang=='ar' ?  payment.nameAR : payment.nameEN}}
+                          </label>
+                          <label *ngIf="payment.nameAR !='فيزا'" for="payment_Id{{payment.id}}">
+                            {{ currentLang=='ar' ?  payment.nameAR : payment.nameEN}}
+                          </label>
+                        </div>
+                        <!--<div class="invPaidMore">
+                      <button mat-button data-toggle="modal" data-target="#btnMore">{{ 'BILLINVOICE.LOADMORE' | translate }}</button>
+                    </div>-->
+                      </div>
+
+                      <!-- <div class="invOption">
+                    <button mat-stroked-button (click)="printBill()" [disabled]="bill.id==0">{{ 'REPORTTODAY.PRINT' | translate }}</button>
+                    <button mat-stroked-button (click)="saveBill(true)" [disabled]="enableBTN1==1">{{ 'ACTIONS.PAUSE' | translate }} </button>
+                  </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal btnMore -->
+      <div class="modal fade" id="btnMore" tabindex="-1" role="dialog" aria-labelledby="btnMore" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle"><i class="material-icons-outlined"></i> {{ 'BILLINVOICE.LOADMORE' | translate }} </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="invComm">
+                <button mat-stroked-button data-toggle="modal" data-target="#billTableList" (click)="hideModel()" [ngStyle]="setMyStylesIsSeparate()"><label>{{billTableCount}}</label> {{ 'ADMINSIDEBAR.TABELS' | translate }}  </button>
+                <button mat-stroked-button data-toggle="modal" data-target="#billDeliveryList" (click)="hideModel()" [ngStyle]="setMyStylesIsSeparate()"><label>{{billDeliveryCount}}</label> {{ 'BILLINVOICE.DELIVERY' | translate }} </button>
+                <button mat-stroked-button data-toggle="modal" data-target="#billNotTableList" (click)="hideModel()" [ngStyle]="setMyStylesIsSeparate()"><label>{{billAnyCount}}</label> {{ 'BILLINVOICE.WAITEDBILLS' | translate }} </button>
+              </div>
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Select Bank -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+              <button mat-stroked-button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="visaList">
+                <input type="radio" name="TypePaid" id="visa_id" value="" />
+                <label for="visa_id">
+                  <i class="far fa-money-bill-alt"></i>
+                </label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button mat-stroked-button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Place Inv -->
+      <div class="modal fade" id="PlaceInv" tabindex="-1" role="dialog" aria-labelledby="PlaceInv" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fas fa-utensils"></i>  {{ 'LABELS.BILLPLACE' | translate }} </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="invPlace">
+                <div class="invPlaceInv">
+                  <h2>  {{ 'LABELS.BILLPLACE' | translate }}</h2>
+                  <div class="invPlaceRadio" matRipple *ngFor="let billPlace of billPlaceList">
+
+                    <input type="radio" name="invPlace" id="invPlace{{billPlace.id}}" [value]="billPlace.id" (click)="checkDelivery(billPlace)" [(ngModel)]="bill.billPlaceId" />
+                    <label for="invPlace{{billPlace.id}}">
+                      <img [src]="billPlace.image"><br />
+                      {{ currentLang=='ar' ?  billPlace.nameAR : billPlace.nameEN}}
+
+                    </label>
+
+                  </div>
+                </div>
+                <div class="invCustomer">
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>  {{ 'BILLINVOICE.CHOOSEPEOPLE' | translate }}   </mat-label>
+                    <input type="text" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                    <!--<mat-icon matSuffix class="actionLink" matRipple  data-toggle="modal" data-target="#exampleModalCenterPlace" (click)="checkDelivery()">add</mat-icon>-->
+                    <i matSuffix class="actionLink fas fa-plus" matRipple data-toggle="modal" data-target="#exampleModalCenterPlace"></i>
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onpeopleChange($event)">
+                      <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+                        {{option.name}} || {{option.phone}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="invOnline">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="invOnlinebtn" *ngFor="let app of applicationList">
+                      <button mat-stroked-button (click)="getApplicationById(app)">
+                        <img src="{{app.image}}" alt="Carriage">
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="exampleModalCenterPlace" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle"> {{ 'PEOPLES.PEOPLEDETAILS' | translate }}    </h5>
+            </div>
+            <div class="modal-body">
+              <mat-form-field appearance="outline">
+                <mat-label>  {{ 'BILLINVOICE.PEOPLENAME' | translate }} </mat-label>
+                <input matInput placeholder=" {{ 'BILLINVOICE.PEOPLENAME' | translate }} " [(ngModel)]="billDeliveries.deliveryName">
+              </mat-form-field><br />
+              <mat-form-field appearance="outline">
+                <mat-label> {{ 'PEOPLES.PHONE' | translate }} </mat-label>
+                <input matInput placeholder=" {{ 'BILLINVOICE.PHONE' | translate }} " [(ngModel)]="billDeliveries.deliveryPhone">
+              </mat-form-field><br />
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'BILLINVOICE.ADDRESS' | translate }}   </mat-label>
+                <input matInput placeholder="{{ 'BILLINVOICE.ADDRESS' | translate }}" [(ngModel)]="billDeliveries.deliveryAddress">
+              </mat-form-field><br />
+              <!--<button mat-stroked-button class="btnSave" data-dismiss="modal" *ngIf="billDeliveries.deliveryName==undefined ||billDeliveries.deliveryName==''" (click)="addPeople(billDeliveries)">حفظ فى العملاء</button>-->
+              <button mat-stroked-button class="btnSave" data-dismiss="modal" *ngIf="checkPeople==false" (click)="addPeople(billDeliveries); hideModel();">  {{ 'ADMINSIDEBAR.ADDPEOPLE' | translate }} </button>
+            </div>
+            <div class="modal-footer">
+              <button mat-stroked-button type="button" class="btn btn-secondary" data-dismiss="modal">{{ 'ACTIONS.CLOSED' | translate }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Madel Save CAR -->
+      <div class="modal fade" id="exampleModalCenterPlaceByCar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">{{ 'PEOPLES.PEOPLEDETAILS' | translate }}</h5>
+            </div>
+            <div class="modal-body">
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'BILLINVOICE.PEOPLENAME' | translate }}</mat-label>
+                <input matInput placeholder="{{ 'BILLINVOICE.PEOPLENAME' | translate }}" [(ngModel)]="billDeliveries.deliveryName">
+              </mat-form-field><br />
+              <mat-form-field appearance="outline">
+                <mat-label>{{ 'PEOPLES.NUMBERCAR' | translate }}</mat-label>
+                <input matInput placeholder=" {{ 'PEOPLES.NUMBERCAR' | translate }} " [(ngModel)]="billDeliveries.deliveryPhone">
+              </mat-form-field><br />
+
+              <button mat-stroked-button class="btnSave" data-dismiss="modal" *ngIf="checkPeople==false" (click)="addPeople(billDeliveries)">  {{ 'ACTIONS.SAVE' | translate }} </button>
+            </div>
+            <div class="modal-footer">
+              <button mat-stroked-button type="button" class="btn btn-secondary" data-dismiss="modal">{{ 'ACTIONS.CLOSED' | translate }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Td Count -->
+      <div class="modal fade" id="tdCount" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">{{ 'LABELS.QUANTITY' | translate }}</h5>
+            </div>
+            <div class="modal-body">
+              <div class="invModelTdQtyinp">
+                <mat-form-field appearance="outline">
+                  <button mat-icon-button (click)="qtyModalMin()">
+                    <mat-icon class="material-icons-outlined">backspace</mat-icon>
+                  </button>
+                  <input matInput id="myfocus" [(ngModel)]="qtyInp" disabled="disabled">
+                </mat-form-field>
+              </div>
+
+
+              <div class="invModelTddQtyNum">
+                <div class="invModelTddQtyNumList">
+                  <button mat-icon-button (click)="qtyModal(1)">1</button>
+                  <button mat-icon-button (click)="qtyModal(2)">2</button>
+                  <button mat-icon-button (click)="qtyModal(3)">3</button>
+                </div>
+                <div class="invModelTddQtyNumList">
+                  <button mat-icon-button (click)="qtyModal(4)">4</button>
+                  <button mat-icon-button (click)="qtyModal(5)">5</button>
+                  <button mat-icon-button (click)="qtyModal(6)">6</button>
+                </div>
+                <div class="invModelTddQtyNumList">
+                  <button mat-icon-button (click)="qtyModal(7)">7</button>
+                  <button mat-icon-button (click)="qtyModal(8)">8</button>
+                  <button mat-icon-button (click)="qtyModal(9)">9</button>
+                </div>
+                <div class="invModelTddQtyNumList">
+                  <button mat-icon-button (click)="qtyModal(0)">0</button>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer invModelTddQtyBtn">
+              <button mat-stroked-button (click)="qtyModalOk(qtyInp)" data-dismiss="modal">OK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Bill Sum -->
+      <div class="invSum">
+        <div class="modal fade" id="invData" tabindex="-1" role="dialog" aria-labelledby="invData" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fas fa-poll-h"></i> {{ 'BILLINVOICE.BILLDATA' | translate }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="invCount">
+                  <label>
+
+                    {{ 'BILLINVOICE.ITEMSCOUNT' | translate }}
+                    <span>{{bill.totalQty}}</span>
+                  </label><br>
+                  <label>
+                    {{ 'BILLINVOICE.TOTALBEFORVATANDSICOUNT' | translate }}
+                    <span>{{bill.supTotal | number:'0.2-2'}}</span>
+                  </label>
+                </div>
+                <div class="invCount">
+                  <label>
+                    {{ 'BILLINVOICE.TOTALVATTAX' | translate }}
+                    ({{chkVat.percentValue}}%)
+
+                    <span>{{bill.totalVatTax| number:'0.2-2'}}</span>
+                  </label>
+
+                  <!--<label>
+                {{ 'BILLINVOICE.TOTALAFTERVATTAX' | translate }}
+                <span>{{totalBillAfterVatTax | number:'0.2-2'}}</span>
+              </label>-->
+
+                  <label>
+                    {{ 'BILLINVOICE.EXTRASTOTAL' | translate }}
+                    <span>{{bill.totalNotePrice | number:'0.2-2'}}</span>
+                  </label>
+                </div>
+                <div class="invCount">
+                  <label *ngIf="bill.applicationValue ==0">
+                    {{ 'BILLINVOICE.APPLICATIONNAME' | translate }}
+
+                    <span>
+                      {{ 'LABELS.NOTFOUND' | translate }}
+                    </span>
+                  </label>
+                  <label *ngIf="bill.applicationValue !=0">
+                    {{ 'BILLINVOICE.APPLICATIONNAME' | translate }}
+                    ({{ApplicationName}})
+                    <span>{{bill.applicationValue | number:'0.1-1'}}</span>
+                  </label>
+                  <label>
+                    {{ 'BILLINVOICE.SERVICEAX' | translate }}
+
+                    ({{bill.serviceFees}}%)
+                    <span>
+
+                      {{bill.serviceFeesValue | number:'0.2-2'}}
+                      <!-- <input type="number" [(ngModel)]="bill.serviceFees" (ngModelChange)="sum()" (click)="$event.target.select()" /> -->
+                    </span><i class=" ti-thumb-down"></i>
+                  </label>
+                </div>
+                <div class="invCount">
+                  <!--<label>
+                {{ 'BILLINVOICE.TOTALVATTAX' | translate }}
+
+
+                <span>{{bill.totalVatTax | number:'0.2-2'}}</span>
+              </label><br>-->
+                </div>
+                <div class="invDis">
+                  <label>
+
+                    {{ 'BILLINVOICE.DISCOUNT' | translate }}
+
+                    <span>({{bill.descountValue | number:'0.1-1'}})  </span>
+                    <span>
+                      <input type="number" [(ngModel)]="bill.currentDiscount" (ngModelChange)="sum()" (click)="$event.target.select()" /><span *ngIf="discountType.nameAr=='نسبة'">%</span>
+                    </span>
+                    <mat-radio-group aria-label="Select an option" [(ngModel)]="bill.discountId" (ngModelChange)="sum()">
+                      <mat-radio-button *ngFor="let discount of listDiscountType" (click)="getDiscount(discount)" [value]="discount.id">{{ currentLang=='ar' ? discount.nameAr : discount.nameEn  }}</mat-radio-button>
+                    </mat-radio-group>
+                  </label>
+                </div>
+              </div>
+              <div class="modal-footer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Bill Table -->
+
+      <!--<div class="modal fade" id="billTableList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                {{ 'TABELS.TABLES' | translate }}
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="fas fa-power-off" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="modal-body invWait">
+              <div *ngFor="let level of tableList" (click)="getBillRefrence(level)" matRipple id="level{{level.id}}" class="invLevel">
+                {{currentLang=='ar'? level.nameAr : level.nameEn}}
+              </div>
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>-->
+
+      <div class="modal fade bd-example-modal-xl" id="billTableList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-xl" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                {{ 'TABELS.TABLES' | translate }}
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="fas fa-power-off" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="modal-body invWait">
+              <app-tables></app-tables>
+
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Bill Delivery -->
+      <div class="modal fade bd-example-modal-lg" id="billDeliveryList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">   {{ 'BILLINVOICE.DELIVERY' | translate }}  </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="fas fa-power-off" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="modal-body" data-dismiss="modal" aria-label="Close">
+              <div *ngFor="let bill of BillDeliveriesList" (click)="getBillById(bill.id)" class="invWaits">
+                <label>    {{ 'LABELS.RequestNumber' | translate }}  <span>{{bill.orderNo}}</span></label>  <br />
+                <i class="material-icons" (click)="deleteBillById(deleteConfirmBill,bill)">cancel</i>
+                <label>{{ 'BILLINVOICE.COST' | translate }}  <span>{{bill.netTotal | number:'0.2-2'}}</span></label>
+              </div>
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Bill Not Table -->
+      <div class="modal fade bd-example-modal-lg" id="billNotTableList" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"> {{ 'BILLINVOICE.WAITEDBILLS' | translate }}   </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span class="fas fa-power-off" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="modal-body invWait">
+              <div *ngFor="let billAny of billAnyList" (click)="getBillById(billAny.id);" class="invWaits" data-dismiss="modal" aria-label="Close">
+                <label>{{ 'LABELS.RequestNumber' | translate }}   <span>{{billAny.orderNo}}</span></label><br />
+                <i class="material-icons" (click)="deleteBillById(deleteConfirmBill,billAny)">cancel</i>
+                <label>{{ 'BILLINVOICE.COST' | translate }}   <span>{{billAny.netTotal | number:'0.2-2'}}</span></label>
+              </div>
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Moda Inv Note -->
+      <div class="modal fade" id="invNote" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+
+                {{ 'BILLINVOICE.NOTES' | translate }}
+                <button class="btnAdd" mat-icon-button aria-label="Example icon-button with a heart icon" (click)="isClickNote()">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </h5>
+              <button type="button" class="btnRemove close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="invNote">
+                <div class="invSaveNote">
+                  <div class="invSaveNoteInput">
+                    <mat-form-field appearance="outline">
+                      <mat-label>
+                        {{ 'BILLINVOICE.NOTENAME' | translate }}
+                      </mat-label>
+                      <input matInput [(ngModel)]="note.nameAr">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                      <mat-label>
+
+                        {{ 'BILLINVOICE.COST' | translate }}
+
+                      </mat-label>
+                      <input matInput [(ngModel)]="note.price">
+                    </mat-form-field>
+                    <button class="btnSave" mat-icon-button aria-label="Example icon-button with a heart icon" (click)="addNote()">
+                      <i class="fas fa-save"></i>
+                    </button>
+                    <button class="btnRemove" mat-icon-button (click)="clearNote()">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="invNoteAll">
+                  <div class="invNoteChecked" *ngFor="let note of NoteList">
+                    <input type="checkbox" name="Note_Id" id="Note{{note.id}}" [value]="note.id" (click)="isClickGetNote(note)" />
+                    <label for="Note{{note.id}}"> {{currentLang=='ar'? note.nameAr : note.nameEn}} <button type="submit" (click)="deleteNote(deleteConfirmNote,note)"><i class="fas fa-times"></i></button></label>
+                  </div>
+                </div>
+              </div>
+              <mat-form-field class="example-full-width">
+                <mat-label> الملاحظات على الفاتورة </mat-label>
+                <input matInput [(ngModel)]="bill.notes">
+              </mat-form-field>
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Message Delete -->
+      <ng-template #deleteConfirmNote>
+        <div class="modal-body text-center">
+
+
+          <p> {{ 'Messages.DeleteConfirm' | translate }} </p>
+          <button type="button" class="btn btn-danger" (click)="deleteNoteConfirm()">
+            {{ 'LABELS.CONFIRM' | translate }}
+          </button>
+          <button type="button" class="btn btn-default" (click)="modalRef.hide()">
+            {{ 'LABELS.EXITE' | translate }}
+          </button>
+        </div>
+      </ng-template>
+
+      <!-- Message Delete -->
+      <ng-template #deleteConfirmBill>
+        <div class="modal-body text-center">
+          <p> {{ 'Messages.DeleteConfirm' | translate }} </p>
+          <button type="button" class="btn btn-danger" (click)="deleteBillConfirm()">
+            {{ 'LABELS.CONFIRM' | translate }}
+          </button>
+          <button type="button" class="btn btn-default" (click)="modalRef.hide()">
+            {{ 'LABELS.EXITE' | translate }}
+          </button>
+        </div>
+      </ng-template>
+
+      <!-- Form Printer -->
+      <div class="printableInv printInvRoll" id="printbill" *ngIf="isPrinting" #printbill hidden="hidden">
+        <div class="printInv text-right">
+          <div class="printInvHeader">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="printInvHeaderLogo1">
+                  <label class="f-24">
+                    {{printablebill.orderNo}}
+                  </label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="printInvHeaderLogo2">
+                  <img src="../../../assets/img/logo.png" width="126" height="68" alt="EasAcc" srcset="">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="printInvDetails">
+            <div class="row">
+              <div class="printInvDetailsAddress">
+                <h1></h1>
+              </div>
+              <div class="col-md-5">
+                <label>
+                  <strong>
+                    {{ 'LABELS.CLIENT' | translate }}
+
+                  </strong>
+                  <span>{{printablebill.pepoleName}}</span>
+                </label><br />
+                <label>
+                  <strong>
+                    {{ 'PEOPLES.PHONE' | translate }}
+
+                  </strong>
+                  <span>-</span>
+                </label><br />
+              </div>
+              <div class="col-md-7">
+                <label>
+                  <strong>
+                    {{ 'LABELS.DATE' | translate }}
+                  </strong>
+                  <span>{{printablebill.date | date:'dd-MM-yyyy'}}</span>
+                </label><br />
+                <label>
+                  <strong>
+                    {{ 'LABELS.TIME' | translate }}
+                  </strong>
+                  <span>{{printablebill.date | date:'hh:mm aaa'}}</span>
+                </label><br />
+                <label>
+                  <strong>
+                    {{ 'TABELS.TABLENUMBER' | translate }}
+                  </strong>
+                  <span>{{printablebill.tableNo}}</span>
+                </label>
+              </div>
+            </div>
+            <div class="printInvTable text-center">
+              <table>
+                <thead>
+                  <tr>
+                    <th>
+
+                      {{ 'LABELS.ITEMNAME' | translate }}
+
+                    </th>
+                    <th>
+                      {{ 'LABELS.QUANTITY' | translate }}
+
+                    </th>
+                    <th>
+
+                      {{ 'LABELS.SellPrice' | translate }}
+
+                    </th>
+                    <th>
+
+                      {{ 'LABELS.VAT' | translate }}
+
+
+                    </th>
+                    <th>
+
+                      {{ 'LABELS.TOTAL' | translate }}
+
+
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let billdetail of printablebill.billDetails; let i=index" id="billdetail{{i+1}}">
+                    <td>
+                      {{ currentLang=='ar' ?  billdetail.item.nameAR : billdetail.item.nameEN}}-
+                      ({{  currentLang=='ar' ?  billdetail.itemPrice.itemSize.sizeNameAr:billdetail.itemPrice.itemSize.sizeNameEn }})
+                      {{billdetail.note}}  <span *ngIf="billdetail.note!='' && billdetail.notePrice!=0">({{billdetail.notePrice}}) </span>
+                    </td>
+                    <td>{{billdetail.qty}}</td>
+                    <td>{{billdetail.itemSellPrice | number:'0.2-2'}}</td>
+                    <td>{{billdetail.vatTax | number:'0.2-2'}}</td>
+                    <td>{{billdetail.totalAfterVatTax | number:'0.2-2'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="printInvSum">
+              <div class="row">
+                <div class="col-md-6">
+                  <label>
+                    <strong>
+                      {{ 'BILLINVOICE.ITEMSCOUNT' | translate }}
+
+                    </strong>
+                    <span>{{printablebill.totalQty}}</span>
+                  </label>
+                  <label>
+                    <strong>
+                      {{ 'LABELS.PAID' | translate }}
+
+
+                    </strong>
+                    <span>{{printablebill.paied}}</span>
+                  </label>
+                  <label>
+                    <strong>
+                      {{ 'LABELS.REMAINING' | translate }}
+
+                    </strong>
+                    <span>{{printablebill.remaining}}</span>
+                  </label>
+                </div>
+                <div class="col-md-6">
+                  <label>
+                    <strong>
+                      {{ 'LABELS.TOTALVAT' | translate }}
+
+                    </strong>
+                    <span>{{printablebill.supTotal}}</span>
+                  </label>
+                  <label>
+                    <strong>
+
+                      {{ 'LABELS.DISCOUNT' | translate }}
+
+
+                    </strong>
+                    <span>{{printablebill.descountValue}}</span>
+                  </label>
+                  <label>
+                    <strong>
+                      {{ 'LABELS.DISCOUNT' | translate }}
+                    </strong>
+                    <span>{{printablebill.paymentType.nameAR}}</span>
+                  </label>
+                </div>
+                <div class="col-md-12">
+                  <h3>
+                    <label>
+                      {{ 'BILLINVOICE.NETTOTAL' | translate }}
+
+                    </label>
+                    <span>{{printablebill.netTotal}}</span>
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="printInvFooter">
+              <p>
+                Power By Easacc<br />
+                www.easacc.com
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #deleteConfirm>
+  <div class="modal-body text-center">
+    <p>{{ 'Messages.DeleteConfirm' | translate }}</p>
+    <button type="button" class="btn btn-danger" (click)="deleteItemConfirm()">
+      <p>{{ 'LABELS.CONFIRM' | translate }}</p>
+    </button>
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">{{ 'LABELS.EXITE' | translate }}</button>
+  </div>
+</ng-template>
+
+<ng-template #PrinterConfirm>
+  <div class="modal-body text-center">
+    <p>{{ 'Messages.CHEACKPRINT' | translate }}</p>
+    <button type="button" class="btn btn-danger" (click)="printerConfirm()">
+      <p>{{ 'LABELS.CONFIRM' | translate }}</p>
+    </button>
+    <button type="button" class="btn btn-default" (click)="modalRef.hide()">{{ 'LABELS.EXITE' | translate }}</button>
+  </div>
+</ng-template>
